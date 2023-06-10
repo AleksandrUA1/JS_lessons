@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-tasks 1</title>
+</head>
+<body>
+    <div class="home-task">
+        <h1 class="home-task__title">Задача 1</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">Обчислити значення виразів</p>
+            <ol class="home-task__list">
+                <li class="home-task__item">S1=a+12+b</li>
+                <li class="home-task__item">S2=Math.sqrt((a+b)/(2*a)) </li>
+                <li class="home-task__item">S3=Math.cbrt((a+b)*c) </li>
+                <li class="home-task__item">S4=Math.sin⁡(a/-b)</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // 1. Вводимо необхідні дані
+        let firstNumber = parseInt(prompt('Введіть А', 'введіть ціле число'));
+        let secondNumber = parseInt(prompt('Введіть В', 'введіть ціле число'));
+        let thirdNumber = parseInt(prompt('Введіть С', 'введіть ціле число'));
+
+        // 2. Знаходимо результат
+        let s1 = firstNumber + 12 + secondNumber;
+        let s2 = Math.sqrt((firstNumber + secondNumber) / (2 * firstNumber)) ;
+        let s3 = Math.cbrt((firstNumber + secondNumber) * thirdNumber);
+        let s4 = Math.sin(firstNumber / -secondNumber);
+
+        // 3. Виводимо результат
+        document.write(` 
+        s1 = ${s1} <br> 
+        s2 = ${s2} <br>  
+        s3 = ${s3} <br>  
+        s4 = ${s4}     
+        `)
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-tasks 5</title>
+</head>
+<body>
+    <div class="home-task">
+        <h1 class="home-task__title">Задача 5</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle"> Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Вводимо необхідні дані
+        let lenghtMilimetr = parseFloat(prompt('Введіть довжину у сантиметрах'));
+
+        // 2. Знаходимо результат
+        const LENGHT_METR = lenghtMilimetr / 100; // вичисляємо дліну в мм
+        const LENGHT_KILOMETR =  lenghtMilimetr / 100000; // вичисляємо дліну в км
+
+        // 3. Виводимо результат
+        document.write(`
+        Задана довжина - ${lenghtMilimetr} сантиметрів <br>
+        <br>
+        В метрах це - ${LENGHT_METR}м <br>
+        В кілометрах - ${LENGHT_KILOMETR}км
+        `)
+    </script>
+
+</body>
+</html>

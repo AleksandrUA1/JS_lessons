@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .check {
+            width: 200px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgb(248, 247, 247);
+            border: 1px solid rgb(146, 146, 146);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            line-height: 14px;
+        }
+
+        .check__subtitle {
+            text-transform: uppercase;
+        }
+
+        .check__title {
+            font-size: 17px;
+            margin: 5px 0;
+            font-weight: 700;
+        }
+
+        .check__list {
+            border-bottom: 1px dashed rgb(80, 80, 80);
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .check__item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgb(80, 80, 80);
+            padding-bottom: 3px;
+        }
+
+        .check__product-cost {
+            align-self: flex-end;
+        }
+
+        .check__item:last-child {
+            border-bottom: none;
+        }
+
+        .check__sum-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .big{
+            text-transform: uppercase;
+            font-size: 17px;
+            font-weight: 700;
+        }
+    </style>
+    <title>Home-tasks 6</title>
+</head>
+<body>
+    <div class="home-task">
+        <h1 class="home-task__title">Задача 7</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        //1. Вводимо необхідні дані
+        let breadQuantity = parseInt(prompt('Хліб (кількість)' , 'введіть кількість товару (шт)')); // 
+        let breadCost = parseFloat(prompt('Хліб (ціна)' , 'введіть ціну товару (грн)')); //
+        let milkQuantity = parseInt(prompt('Молоко (кількість)' , 'введіть кількість товару (шт)')); // значення задаваємі користувачаем
+        let milkCost = parseFloat(prompt('Молоко (ціна)' , 'введіть ціну товару (шт)')); // 
+        let eggsQuontity = parseInt(prompt('Яйка (кількість)' , 'введіть кількість товару (шт)'));// 
+        let eggsCost = parseFloat(prompt('Яйка (ціна)' , 'введіть ціну товару (шт)')); //
+        // значення задаваємі користувачаем
+
+        // 2. Знаходимо результат
+        let breadTotalCost = (breadQuantity * breadCost).toFixed(2); // сума товару певного типу
+        let milkTotalCost = (milkQuantity * milkCost).toFixed(2); // сума товару певного типу
+        let eggsTotalCost = (eggsQuontity * eggsCost).toFixed(2); // сума товару певного типу 
+        // .toFixed(2) округлює число до 2х знаків після коми
+
+        let productsTotalCost = (breadTotalCost + milkTotalCost + eggsTotalCost).toFixed(2); // загальна вартість всіх товарів
+        const PRODUCT_TAX = 5;
+        let productTotalTax = ((productsTotalCost / 100) * PRODUCT_TAX).toFixed(2); // (пдв) 5% від загальної вартості товарів
+
+        // 3. Виводимо результат 
+        document.write(`
+        <div class="check">
+            <span class="check__subtitle">ПП "ТАВРІЯ ПЛЮС"</span>
+            <span class="check__subtitle">Торгівельний центр + Кафе</span>
+            <span class="check__subtitle">м. Одеса, вул. Гастело, 50</span>
+            <h2 class="check__title">чек №100620231234</h2>
+            <span class="check__subtitle">КАСИР: ДИЧЕВА ВІКТОРІЯ</span>
+            <ul class="check__list">
+                <li class="check__item">
+                    <h3 class="chek__product-title">Хліб <br> 
+                        ${breadQuantity} * ${breadCost} = </h3>
+                    <span class="check__product-cost">${breadTotalCost}грн</span>
+                </li>
+                <li class="check__item">
+                    <h3 class="chek__product-title">Молоко <br>
+                        ${milkQuantity} * ${milkCost} = </h3>
+                    <span class="check__product-cost">${milkTotalCost}грн</span>
+                </li>
+                <li class="check__item">
+                    <h3 class="chek__product-title">Яйки <br>
+                        ${eggsQuontity} * ${eggsCost}</h3>
+                    <span class="check__product-cost">${eggsTotalCost}грн</span>
+                </li>
+            </ul>
+            <ul class="check__sum">
+                <li class="check__sum-item big">
+                    <span class="check__sum-title">сума</span>
+                    <span class="check__sum-total">${productsTotalCost}грн</span>
+                </li>
+                <li class="check__sum-item">
+                    <span class="check__sum-title">пдв</span>
+                    <span class="check__sum-total">${productTotalTax}грн</span>
+                </li>
+            </ul>
+        </div>        
+        `)
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task 3</title>
+</head>
+<body>
+    <div class="home-task">
+        <h1> class="home-task__title">Задача 3</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Вводимо необхідні дані
+        let birthDay = parseInt(prompt('Ваш рік народження'));
+        const CARENT_YEAR = 2023;
+
+        // 2. Знаходимо результат
+        let howYearOld = CARENT_YEAR - birthDay;
+
+        // 3. Виводимо результат
+        document.write(`
+        Вам ${howYearOld} років
+        `)
+    </script>
+
+</body>
+</html>
