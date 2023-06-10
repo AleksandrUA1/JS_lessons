@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home-tasks 10</title>
+</head>
+<body>
+	<div class="home-task">
+		<a href="lesson02.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 10</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">З клавіатури вводиться розмір заробітної плати та розмір прожиткового мінімуму. Визначити розмір соціальної допомоги (ввжаємо, що заробітна плата є меншою).
+            </p>
+        </div>
+    </div>
+
+	<script>
+		//1. Вводимо необхідні дані
+		let salarySize = parseFloat(prompt('Введіть розмір заробітньої плати (грн)' , '1000 грн'));
+		let livingWage = parseFloat(prompt('Введіть розмір прожиткового мінімуму (грн)' , '1200 грн'));
+
+		// 2. Знаходимо результат
+		
+		if (salarySize < livingWage) {
+			let socialHelp = salarySize - livingWage;
+			let socialHelpFix = -socialHelp;
+			
+			alert (`
+		Розмір заробітньої плати = ${salarySize}грн
+		Розмір прожиткового мінімуму = ${livingWage}грн
+		
+		Розмір соціальної допомоги = ${socialHelpFix}грн
+		`)
+		}
+		else {
+			alert (`
+		Необхідність в соціальній допомозі відсутня
+		`)
+		}
+		
+		
+		
+		
+		
+
+		// 3. Виводимо результат
+		alert (`
+		Розмір заробітньої плати = ${salarySize}
+		Розмір прожиткового мінімуму = ${livingWage}
+		
+		Розмір соціальної допомоги = ${socialHelpFix}
+		`)
+	</script>
+</body>
+</html>

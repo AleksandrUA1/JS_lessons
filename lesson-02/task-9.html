@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home-tasks 9</title>
+</head>
+<body>
+	<div class="home-task">
+		<a href="lesson02.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 9</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">Дано ширину екрана та кількість елементів, які повинні бути відображені у рядку. Визначити ширину елементів, які повинні бути відображені у цьому рядку. 
+            </p>
+        </div>
+    </div>
+
+	<script>
+		//1. Вводимо необхідні дані
+		let viewWidth = parseInt(prompt('Введіть ширину екрану (рх)'));
+		let blocksQuantity = parseInt(prompt('Введіть кількість елементів, які повинні бути відображені у одному рядку'))
+
+		// 2. Знаходимо результат
+		blocksView = viewWidth / blocksQuantity;
+
+		// 3. Виводимо результат
+		alert (`
+		Ширина екарну = ${viewWidth}
+		Кількість елементів у одному рядку = ${blocksQuantity}
+
+		Ширина одного елемента = ${blocksView}
+		`)
+	</script>
+</body>
+</html>

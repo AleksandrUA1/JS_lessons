@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home-tasks 11</title>
+</head>
+<body>
+	<div class="home-task">
+		<a href="lesson02.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 11</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок, піде у школу, закінчить школу, вступить і закінчить 
+            </p>
+        </div>
+    </div>
+
+	<script>
+		//1. Вводимо необхідні дані
+		let childrenAge = parseFloat(prompt('Введіть вік дитини'))
+		const KINDERGARTEN_AGE_START = 3;
+		const SCHOOL_AGE_START = 6;
+		const SCHOOL_AGE_OVER = 17;
+		const UNIVERSITY_AGE_START = 17;
+		const UNIVERSITY_AGE_OVER = 22;
+
+		// 2. Знаходимо результат
+		if (childrenAge < 3) {
+			let KINDERGARTEN_EDUCATION = KINDERGARTEN_AGE_START - childrenAge;
+			let SCHOOL_EDUCATION_START = SCHOOL_AGE_START - childrenAge;
+			let SCHOOL_EDUCATION_OVER = SCHOOL_AGE_OVER - childrenAge;
+			let UNIVERSITY_STADIES_START = UNIVERSITY_AGE_START - childrenAge;
+			let UNIVERSITY_STADIES_OVER = UNIVERSITY_AGE_OVER - childrenAge;
+			alert (`
+				Вашій дитині зараз ${childrenAge} р.
+				Ваша дитина піде до дитячого садочку через ${KINDERGARTEN_EDUCATION} р.
+				До школи через ${SCHOOL_EDUCATION_START} р.
+				Закінчить школу через ${SCHOOL_EDUCATION_OVER} р.
+				Вступить до ВУЗу через ${UNIVERSITY_STADIES_START} р.
+				Закінчить ВУЗ через ${UNIVERSITY_STADIES_OVER} р.
+			`)
+		}
+
+		if ( childrenAge >= 3 && childrenAge < 6) {
+			let SCHOOL_EDUCATION_START = SCHOOL_AGE_START - childrenAge;
+			let SCHOOL_EDUCATION_OVER = SCHOOL_AGE_OVER - childrenAge;
+			let UNIVERSITY_STADIES_START = UNIVERSITY_AGE_START - childrenAge;
+			let UNIVERSITY_STADIES_OVER = UNIVERSITY_AGE_OVER - childrenAge;
+			alert (`
+				Вашій дитині зараз ${childrenAge} р.
+				Ваша дитина вже ходить до садочку.
+				До школи піде через ${SCHOOL_EDUCATION_START} р.
+				Закінчить школу через ${SCHOOL_EDUCATION_OVER} р.
+				Вступить до ВУЗу через ${UNIVERSITY_STADIES_START} р.
+				Закінчить ВУЗ через ${UNIVERSITY_STADIES_OVER} р.
+			`)
+		}
+
+		if ( childrenAge >= 6 && childrenAge < 17) {
+			let	SCHOOL_EDUCATION_WALK = childrenAge -  SCHOOL_AGE_START;
+			SCHOOL_EDUCATION_WALK = SCHOOL_EDUCATION_WALK === 0 ? 1 : SCHOOL_EDUCATION_WALK;
+			let SCHOOL_EDUCATION_OVER = SCHOOL_AGE_OVER - childrenAge;
+			let UNIVERSITY_STADIES_START = UNIVERSITY_AGE_START - childrenAge;
+			let UNIVERSITY_STADIES_OVER = UNIVERSITY_AGE_OVER - childrenAge;
+			alert (`
+				Вашій дитині зараз ${childrenAge} р.
+				Ваша дитина вже не ходить до садочку.
+				Навчається зараз в школі, в ${SCHOOL_EDUCATION_WALK} класі.
+				Закінчить школу через ${SCHOOL_EDUCATION_OVER} р.
+				Вступить до ВУЗу через ${UNIVERSITY_STADIES_START} р.
+				Закінчить ВУЗ через ${UNIVERSITY_STADIES_OVER} р.
+			`)
+		}
+				
+		if ( childrenAge >= 17 && childrenAge < 22) {
+			let UNIVERSITY_STADIES_WALK = (childrenAge - UNIVERSITY_AGE_START);
+			UNIVERSITY_STADIES_WALK = UNIVERSITY_STADIES_WALK === 0 ? 1 : UNIVERSITY_STADIES_WALK;
+			let UNIVERSITY_STADIES_OVER = UNIVERSITY_AGE_OVER - childrenAge;
+			alert (`
+				Вашій дитині зараз ${childrenAge} р.
+				Ваша дитина вже давно не ходить до садочку.
+				І навіть закінчила школу.
+				Зараз навчається в ВУЗі, на ${UNIVERSITY_STADIES_WALK} курсі.
+				Закінчить ВУЗ через ${UNIVERSITY_STADIES_OVER} р.
+			`)
+		}
+					
+	</script>
+</body>
+</html>
