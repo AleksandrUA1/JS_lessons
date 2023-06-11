@@ -17,28 +17,68 @@
 
     <script>
         // 1. Вводимо необхідні дані
-        let pruductCost = parseFloat(prompt('Волоський горіх очищений EXTRA' , 'Введіть загальну вартість (грн)'));
+        let pruductCost = parseFloat(prompt('Волоський горіх очищений EXTRA' , 'Введіть загальну вартість (грн)'));  
         let clientMoney = parseFloat(prompt('Кількість грошей отриманих від покупця (грн)'));
         const lotteryTicketPrice = 4;
-        let fewMoney = pruductCost - clientMoney;
-        let lotMoney = clientMoney - pruductCost;
-        let lotteryTicketQuontity = Math.floor(lotMoney / lotteryTicketPrice);
+        let cashShortage = pruductCost - clientMoney;  // Розраховуємо скільки грошей не вистачає
+        let cashChange = clientMoney - pruductCost;  // Розраховуємо решту клієнта
+        let lotteryTicketQuontity = Math.floor(cashChange / lotteryTicketPrice);  // розраховуємо скільки лотерейних квитків може купити клієнт на решту
+        let lotteryTicketQuontityRemainder = cashChange % lotteryTicketPrice; // розраховуємо залишок решти після купівлі квитків
 
-        // 2. Знаходимо ТА виводимо результат
-      if (pruductCost > clientMoney) {
-        document.write(`
-        Коштів недостатньо, потрібно ще доплатити ${fewMoney} грн.
-        `)
-      }
-      if (pruductCost === clientMoney) {
-        document.write (`
-        Дякуємо за покупку!
-        `)
-      }
-      else {
-        
-      }
+        // 2. Знаходимо та виводимо результат
+        if (pruductCost > clientMoney) { 
+            document.write(`
+            Коштів недостатньо, потрібно ще доплатити ${cashShortage} грн.
+            `)
+        }
+        //  якщо грошей не вистачає
 
+         //--------------------------------------------------------------------
+        if (pruductCost === clientMoney) {
+            document.write (`
+            Дякуємо за покупку!
+            `)
+        }
+        // якщо ціна продукту відповідає Кількості грошей отриманих від покупця
+
+        // ---------------------------------------------------------------------
+        if ((pruductCost < clientMoney) && (cashChange < lotteryTicketPrice)) { 
+            document.write (`
+            Візьміть вашу решту - ${cashChange}<br>
+            Гарного дня! 
+            `)
+        }
+        //  якщо ціна продукту є меншою за кількість отриманих грошей від клієна
+        //  і
+        //  решта після оплати Продукту є меншою ніж вартість лотереї
+
+        // ------------------------------------------------------------------------
+
+        if ((pruductCost < clientMoney) && (cashChange > lotteryTicketPrice) && (lotteryTicketQuontityRemainder === 0)) {
+            document.write (`
+            Ваша решта - ${cashChange}. Якщо бажаєте, можете на всі бабки купити лотерею за ${lotteryTicketPrice} грн / 1 шт <br>
+            Як раз чотко виходить ${lotteryTicketQuontity} лотерейних квитків. <br>
+            `)
+        }
+        //  якщо ціна продукту є меншою за кількість отриманих грошей від клієна
+        //  і
+        //  решта після оплати Продукту є більшою ніж вартість лотереї
+        //  і
+        //  решта після оплати Лотереї відповідає 0
+
+        // ------------------------------------------------------
+        if ((pruductCost < clientMoney) && (cashChange > lotteryTicketPrice)&& (lotteryTicketQuontityRemainder !== 0)) {
+            document.write (`
+            Ваша решта - ${cashChange}. Якщо бажаєте, можете на всі бабки купити лотерею за ${lotteryTicketPrice} грн / 1 шт <br>
+            Виходить ${lotteryTicketQuontity} лотерейних квитків. <br>
+            І навіть решта останеться - ${lotteryTicketQuontityRemainder} грн
+            `)
+        }
+        //  якщо ціна продукту є меншою за кількість отриманих грошей від клієна
+        //  і
+        //  решта після оплати Продукту є більшою ніж вартість лотереї
+        //  і
+        //  решта після оплати Лотереї не відповідає 0
 
     </script>
 </body>
