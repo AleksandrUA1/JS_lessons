@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task 5</title>
+</head>
+<body>
+    <div class="home-task">
+		<a href="lesson03.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 5</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Вводимо необхідні дані
+        let drivCategory = prompt('Оберіть одну з запропонованих категорій водія А | B | C');
+
+        const MOTORCYCLE_CATEGORY = "Мотоцикл";
+        const PASSENGER_CAR_CATEGORY = "Легковий автомобіль";
+        const TRUCK_CATEGORY = "Вантажний автомобіль";
+
+        // 2. Знаходимо результат та виводимо його
+        if (drivCategory === "A") // якщо введене строчне значення відповідає (рівне) А
+            {document.write(`
+            Ви обрали категорію - ${drivCategory}
+            Транспортиний засіб, яким ви можете керувати - ${MOTORCYCLE_CATEGORY}
+            `)}
+
+        if (drivCategory === "B") // якщо введене строчне значення відповідає (рівне) В
+            {document.write(`
+            Ви обрали категорію - ${drivCategory}
+            Транспортиний засіб, яким ви можете керувати - ${PASSENGER_CAR_CATEGORY}
+            `)}
+
+        if (drivCategory === "C") // якщо введене строчне значення відповідає (рівне) С
+            {document.write(`
+            Ви обрали категорію - ${drivCategory}
+            Транспортиний засіб, яким ви можете керувати - ${TRUCK_CATEGORY}
+            `)}
+
+    </script>
+</body>
+</html>
