@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Home-task 7</title>
 </head>
 <body>
-    <div class="home-task">
-		<a href="lesson03.html" class="home-task__link-back">Назад</a>
-        <h1 class="home-task__title">Задача 7</h1>
-        <div class="home-task__description">
-            <p class="home-task__subtitle">З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
-            </p>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Бабалик Олександр</h1>
+            <p class="header__sabtitle">Курс з вивчення JavaScript | Урок 3</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson03.html" class="home-task__link-back">Назад</a>
+            <h1 class="home-task__title">Задача 7</h1>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">З клавіатури вводиться номер місяця. Вивести до якої пори року він відноситься
+                </p>
+            </div>
         </div>
     </div>
 
     <script>
         // 1. Вводимо необхідні дані
-        let numberOfMonth = parseInt(prompt('Введіть число від 1 до 12'));
+        let numberOfMonth = parseInt(prompt('Оберіть один з 12 місяців, ввівши число від 1 до 12'));
         let monthName;
         let seasonOfYear;
         
@@ -70,10 +80,9 @@
         }
        
         document.write(`
-        Введеному вами числу - ${numberOfMonth}, відповідає місяць ${monthName}, це пора року ${seasonOfYear}.
+        Ви ввели число - ${numberOfMonth}, йому відповідає місяць ${monthName}, це пора року ${seasonOfYear}.
         `)
         
-
     </script>
 </body>
 </html>

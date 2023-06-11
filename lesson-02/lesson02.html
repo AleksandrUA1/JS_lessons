@@ -4,29 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Home-tasks. Lesson02</title>
 </head>
 <body>
-    <a href="../index.html">Повернутись на головну сторінку</a>
-    <ol>
-        <li>
-            <div class="home-task">
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Бабалик Олександр</h1>
+            <p class="header__sabtitle">Курс з вивчення JavaScript | Урок 2</p>
+        </div>
+    </header>
+    <div class="container">
+        <a class="home-link" href="../index.html">Повернутись на головну сторінку</a>
+        <ul class="home-task">
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-1.html" class="home-task__link">Задача 1</a>
                 </h3>
                 <div class="home-task__description">
                     <p class="home-task__subtitle">Обчислити значення виразів</p>
                     <ol class="home-task__list">
-                        <li class="home-task__item">S1=a+12+b</li>
-                        <li class="home-task__item">S2=Math.sqrt((a+b)/(2*a)) </li>
-                        <li class="home-task__item">S3=Math.cbrt((a+b)*c) </li>
-                        <li class="home-task__item">S4=Math.sin⁡(a/-b)</li>
+                        <li class="home-task__subitem">S1=a+12+b</li>
+                        <li class="home-task__subitem">S2=Math.sqrt((a+b)/(2*a)) </li>
+                        <li class="home-task__subitem">S3=Math.cbrt((a+b)*c) </li>
+                        <li class="home-task__subitem">S4=Math.sin⁡(a/-b)</li>
                     </ol>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-2.html" class="home-task__link">Задача 2</a>
                 </h3>
@@ -34,10 +40,8 @@
                     <p class="home-task__subtitle">Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
                     </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>        
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-3.html" class="home-task__link">Задача 3</a>
                 </h3>
@@ -45,10 +49,8 @@
                     <p class="home-task__subtitle">Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.
                     </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-4.html" class="home-task__link">Задача 4</a>
                 </h3>
@@ -56,10 +58,8 @@
                     <p class="home-task__subtitle">Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
                     </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-5.html" class="home-task__link">Задача 5</a>
                 </h3>
@@ -67,10 +67,8 @@
                     <p class="home-task__subtitle">Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
                     </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-6.html" class="home-task__link">Задача 6</a>
                 </h3>
@@ -78,10 +76,8 @@
                     <p class="home-task__subtitle"> Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.
                     </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-7.html" class="home-task__link">Задача 7</a>
                 </h3>
@@ -89,10 +85,8 @@
                     <p class="home-task__subtitle"> З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
                     </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="home-task">
+            </li>
+            <li class="home-task__item">
                 <h3 class="home-task__title">
                     <a href="task-8.html" class="home-task__link">Задача 8</a>
                 </h3>
@@ -100,56 +94,56 @@
                     <p class="home-task__subtitle"> Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).
                     </p>
                 </div>
-            </div>
-        </li>
-    </ol>
-	<h3>Далі не перевіряйте</h3>
-	<ol>
-        <li>
-            <div class="home-task">
-                <h3 class="home-task__title">
-                    <a href="task-9.html" class="home-task__link">Задача 9</a>
-                </h3>
-                <div class="home-task__description">
-                    <p class="home-task__subtitle">Дано ширину екрана та кількість елементів, які повинні бути відображені у рядку. Визначити ширину елементів, які повинні бути відображені у цьому рядку. 
-					</p>
+            </li>
+        </ul>
+        <h3>Далі не перевіряйте</h3>
+        <ol>
+            <li>
+                <div class="home-task">
+                    <h3 class="home-task__title">
+                        <a href="task-9.html" class="home-task__link">Задача 9</a>
+                    </h3>
+                    <div class="home-task__description">
+                        <p class="home-task__subtitle">Дано ширину екрана та кількість елементів, які повинні бути відображені у рядку. Визначити ширину елементів, які повинні бути відображені у цьому рядку. 
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-		<li>
-            <div class="home-task">
-                <h3 class="home-task__title">
-                    <a href="task-10.html" class="home-task__link">Задача 10</a>
-                </h3>
-                <div class="home-task__description">
-                    <p class="home-task__subtitle">З клавіатури вводиться розмір заробітної плати та розмір прожиткового мінімуму. Визначити розмір соціальної допомоги (ввжаємо, що заробітна плата є меншою).
+            </li>
+            <li>
+                <div class="home-task">
+                    <h3 class="home-task__title">
+                        <a href="task-10.html" class="home-task__link">Задача 10</a>
+                    </h3>
+                    <div class="home-task__description">
+                        <p class="home-task__subtitle">З клавіатури вводиться розмір заробітної плати та розмір прожиткового мінімуму. Визначити розмір соціальної допомоги (ввжаємо, що заробітна плата є меншою).
 
-					</p>
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-		<li>
-            <div class="home-task">
-                <h3 class="home-task__title">
-                    <a href="task-11.html" class="home-task__link">Задача 11</a>
-                </h3>
-                <div class="home-task__description">
-                    <p class="home-task__subtitle">З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок, піде у школу, закінчить школу, вступить і закінчить 
-					</p>
+            </li>
+            <li>
+                <div class="home-task">
+                    <h3 class="home-task__title">
+                        <a href="task-11.html" class="home-task__link">Задача 11</a>
+                    </h3>
+                    <div class="home-task__description">
+                        <p class="home-task__subtitle">З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок, піде у школу, закінчить школу, вступить і закінчить 
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-		<li>
-            <div class="home-task">
-                <h3 class="home-task__title">
-                    <a href="task-12.html" class="home-task__link">Задача 12</a>
-                </h3>
-                <div class="home-task__description">
-                    <p class="home-task__subtitle">Користувач вводить оцінку у пятибадьній шкалі. Необхідно встановити текстове представлення цієї оцінки (5 - відмінно, 4 - добре, 3 - задовільно, 1 і 2 - незадовільно).
-					</p>
+            </li>
+            <li>
+                <div class="home-task">
+                    <h3 class="home-task__title">
+                        <a href="task-12.html" class="home-task__link">Задача 12</a>
+                    </h3>
+                    <div class="home-task__description">
+                        <p class="home-task__subtitle">Користувач вводить оцінку у пятибадьній шкалі. Необхідно встановити текстове представлення цієї оцінки (5 - відмінно, 4 - добре, 3 - задовільно, 1 і 2 - незадовільно).
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-	</ol>
+            </li>
+        </ol>
+    </div>
 </body>
 </html>
