@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home-tasks 12</title>
+</head>
+<body>
+	<div class="home-task">
+		<a href="lesson02.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 12</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">Користувач вводить оцінку у пятибадьній шкалі. Необхідно встановити текстове представлення цієї оцінки (5 - відмінно, 4 - добре, 3 - задовільно, 1 і 2 - незадовільно).
+        </div>
+    </div>
+
+	<script>
+		//1. Вводимо необхідні дані
+		let schollGrade = parseInt(prompt('Введіть оцінку від 2 до 5'));
+		let resalt;
+		// 2. Знаходимо результат
+		
+		switch (schollGrade) {
+			case 1:
+			case 2: resalt="Незадовільно";
+			break;	
+			case 3: resalt="Задовільно";
+			break;
+			case 4: resalt="Добре";
+			break;
+			case 5: resalt="Відмінно";
+			break;
+		}
+		
+		// 3. Виводимо результат
+		if (schollGrade >=6) {
+			alert (`
+			"Введено хибне значення!"
+		`)
+		}
+		else {				
+			alert (`
+			Оцінка по пятибальній шкалі - ${schollGrade} (${resalt})
+			`)
+		}
+	</script>
+</body>
+</html>
