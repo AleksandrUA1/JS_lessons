@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task 7</title>
+</head>
+<body>
+    <div class="home-task">
+		<a href="lesson03.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 7</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Вводимо необхідні дані
+        let numberOfMonth = parseInt(prompt('Введіть число від 1 до 12'));
+        let monthName;
+        let seasonOfYear;
+        
+        // 2. Знаходимо результат та виводимо його
+        //  ще одна задача, яку захотілось троши ускладнити
+        switch (numberOfMonth) {
+        case 1: monthName="Січень";
+            break;  
+        case 2: monthName="Лютий";
+            break;
+        case 3: monthName="Березень";
+            break;
+        case 4: monthName="Квітень";
+            break;
+        case 5: monthName="Травень";
+            break;
+        case 6: monthName="Червень";
+            break;
+        case 7: monthName="Липень";
+            break;
+        case 8: monthName="Серпень";
+            break;
+        case 9: monthName="Вересень";
+            break;
+        case 10: monthName="Жовтень";
+            break;
+        case 11: monthName="Листопад";
+            break;
+        case 12: monthName="Грудень";
+            break;
+        }
+        
+        switch (numberOfMonth) {
+        case 12:
+        case 1: 
+        case 2: seasonOfYear="Зима";
+            break;
+        case 3: 
+        case 4: 
+        case 5: seasonOfYear="Весна";
+            break;
+        case 6: 
+        case 7: 
+        case 8: seasonOfYear="Літо";
+            break;
+        case 9: 
+        case 10: 
+        case 11: seasonOfYear="Осінь";
+            break;
+        }
+       
+        document.write(`
+        Введеному вами числу - ${numberOfMonth}, відповідає місяць ${monthName}, це пора року ${seasonOfYear}.
+        `)
+        
+
+    </script>
+</body>
+</html>
