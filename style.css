@@ -92,6 +92,15 @@ body {
     margin-bottom: 0;
 }
 
+.lessons__link {
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+}
+
 .home-link {
     padding-left: 25px;
     display: flex;
@@ -134,7 +143,13 @@ body {
     border-radius: 5px 5px 0 0;
     position: relative;
     background-color: #1b1c20;
-    cursor: pointer;
+}
+
+.home-task__link {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
 }
 
 .home-task__link:hover::after {
