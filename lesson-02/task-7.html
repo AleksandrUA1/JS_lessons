@@ -136,12 +136,12 @@
         // значення задаваємі користувачаем
 
         // 2. Знаходимо результат
-        let breadTotalCost = (breadQuantity * breadCost).toFixed(2); // сума товару певного типу
-        let milkTotalCost = (milkQuantity * milkCost).toFixed(2); // сума товару певного типу
-        let eggsTotalCost = (eggsQuontity * eggsCost).toFixed(2); // сума товару певного типу 
+        let breadTotalCost = (breadQuantity * breadCost); // сума товару певного типу
+        let milkTotalCost = (milkQuantity * milkCost); // сума товару певного типу
+        let eggsTotalCost = (eggsQuontity * eggsCost); // сума товару певного типу 
         // .toFixed(2) округлює число до 2х знаків після коми
 
-        let productsTotalCost = (breadTotalCost + milkTotalCost + eggsTotalCost).toFixed(2); // загальна вартість всіх товарів
+        let productsTotalCost = (breadTotalCost + milkTotalCost + eggsTotalCost); // загальна вартість всіх товарів
         const PRODUCT_TAX = 5;
         let productTotalTax = ((productsTotalCost / 100) * PRODUCT_TAX).toFixed(2); // (пдв) 5% від загальної вартості товарів
 

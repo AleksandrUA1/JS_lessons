@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task 2</title>
+</head>
+<body>
+    <div class="home-task">
+		<a href="lesson03.html" class="home-task__link-back">Назад</a>
+        <h1 class="home-task__title">Задача 2</h1>
+        <div class="home-task__description">
+            <p class="home-task__subtitle">З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Вводимо необхідні дані
+        let pruductCost = parseFloat(prompt('Волоський горіх очищений EXTRA' , 'Введіть загальну вартість (грн)'));
+        let clientMoney = parseFloat(prompt('Кількість грошей отриманих від покупця (грн)'));
+        const lotteryTicketPrice = 4;
+        let fewMoney = pruductCost - clientMoney;
+        let lotMoney = clientMoney - pruductCost;
+        let lotteryTicketQuontity = Math.floor(lotMoney / lotteryTicketPrice);
+
+        // 2. Знаходимо ТА виводимо результат
+      if (pruductCost > clientMoney) {
+        document.write(`
+        Коштів недостатньо, потрібно ще доплатити ${fewMoney} грн.
+        `)
+      }
+      if (pruductCost === clientMoney) {
+        document.write (`
+        Дякуємо за покупку!
+        `)
+      }
+      else {
+        
+      }
+
+
+    </script>
+</body>
+</html>
