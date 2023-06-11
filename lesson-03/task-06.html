@@ -17,9 +17,31 @@
 
     <script>
         // 1. Вводимо необхідні дані
-        
+        let userData = parseInt(prompt('Введіть число від 1 до 7')); 
+        let dayPerWeek;
+
         // 2. Знаходимо результат та виводимо його
-       
+        switch (userData) {
+            case 1: dayPerWeek="Понеділок";
+                break;
+            case 2: dayPerWeek="Вівторок";
+                break;
+            case 3: dayPerWeek="Середа";
+                break;
+            case 4: dayPerWeek="Четвер";
+                break;
+            case 5: dayPerWeek="П'ятниця";
+                break;
+            case 6: dayPerWeek="Субота";
+                break;
+            case 7: dayPerWeek="Неділя";
+                break;
+        }
+
+        document.write(`
+        Ви ввели число - ${userData}<br>
+        День тижня якому воно відповідає - ${dayPerWeek}
+        `)       
     </script>
 </body>
 </html>
