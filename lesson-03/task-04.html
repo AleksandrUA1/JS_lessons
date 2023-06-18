@@ -28,40 +28,16 @@
     <script>
         // 1. Вводимо необхідні дані
         let humanAge = parseInt(prompt('Введіть вік людини'));
-
+        let result 
         // 2. Знаходимо результат та виводимо його
-        if (humanAge <= 6) // якщо введене число менше дорівнює 6
-            document.write(`
-            Введений вік людини - ${humanAge} р.<br>
-            Це дитина, яка ходить до садочку.
-            `)
-        else
-            if (humanAge <= 17) // якщо введене число менше дорівнює 17
-                document.write(`
-                Введений вік людини - ${humanAge} р.<br>
-                Це дитина, яка ходить до школи.
-                `)
-
-        else
-            if (humanAge <= 22) // якщо введене менше дорівнює 22
-                document.write(`
-                Введений вік людини - ${humanAge} р.<br>
-                Це студент.
-                `)
+        if (humanAge < 1 || humanAge > 150) result = "Введено хибні дані"
+        else if (humanAge <= 6) result = "Дитина яка ходить до садочку"            
+        else if (humanAge <= 17) result = "Дитина яка ходить до школи"     
+        else if (humanAge <= 22) result = "Студент" 
+        else if (humanAge <= 55) result = "Працівник"
+        else result = "Пенсіонер" 
         
-        else
-            if (humanAge <= 60) // якщо введене число менше дорівнює 60
-                document.write(`
-                Введений вік людини - ${humanAge} р.<br>
-                Це працівник.
-                `)
-
-        else
-             (60 < humanAge) // якщо введене число більше 60
-            document.write(`
-            Введений вік людини - ${humanAge} р.<br>
-            Це Щасливий пенсіонер.
-            `)
+        document.write (`Введений вік ${humanAge}p. <br> Це ${result}`)
     </script>
 </body>
 </html>

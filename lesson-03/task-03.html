@@ -27,7 +27,7 @@
 
     <script>
         // 1. Вводимо необхідні дані
-        let randomNumber = (Math.floor((Math.random()*5)+1));
+        let randomNumber = Math.floor((Math.random()*5)+1);
         
         let firstTry = parseInt(prompt('Введіть ціле число від 1 до 5 включно')); // вводимо перше число
         if (firstTry === randomNumber) // якщо перше введене число відповідає рандомному, виконуємо document.write
@@ -35,20 +35,21 @@
             Випадкове число згенероване компютером - ${randomNumber}<br>
             Вітаємо! Ви вгадали число з першого разу!
             `) 
-            else firstTry = parseInt(prompt('Введіть ціле число від 1 до 5 включно')); // інакше, вводимо друге число
+            else { let secondTry = parseInt(prompt('Введіть ціле число від 1 до 5 включно')); // інакше, вводимо друге число
         
-        if (secondTry === randomNumber) // якщо друге введене число відповідає рандомному, виконуємо document.write
-        document.write (`
-        Випадкове число згенероване компютером - ${randomNumber}<br>
-        Вітаємо! Ви вгадали число з другого разу!
-        `)
-            else document.write // якщо жодна умова не виконалась, виконуємо document.write
-            (`
-            Випадкове число згенероване компютером - ${randomNumber}<br>
-            Ваше перше число - ${firstTry}<br>
-            Ваше друге число - ${secondTry}<br>
-            Нажаль ви не вгадали.
-            `)
+                if (secondTry === randomNumber) // якщо друге введене число відповідає рандомному, виконуємо document.write
+                    document.write (`
+                    Випадкове число згенероване компютером - ${randomNumber}<br>
+                    Вітаємо! Ви вгадали число з другого разу!
+                    `)
+                        else document.write // якщо жодна умова не виконалась, виконуємо document.write
+                        (`
+                        Випадкове число згенероване компютером - ${randomNumber}<br>
+                        Ваше перше число - ${firstTry}<br>
+                        Ваше друге число - ${secondTry}<br>
+                        Нажаль ви не вгадали.
+                        `)
+    }
     </script>
 </body>
 </html>

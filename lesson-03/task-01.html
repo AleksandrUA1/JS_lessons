@@ -32,31 +32,20 @@
        let firstChildrenCandy = parseInt(prompt("Введіть кількість цукерок у першої дитини"));
        let secondChildrenName = prompt("Введіть ім'я другої дитини");
        let secondChildrenCandy = parseInt(prompt("Введіть кількість цукерок у другої дитини"));
-       let firstChilderMoreCandy = firstChildrenCandy - secondChildrenCandy;
-       let secondChildrenMoreCandy = secondChildrenCandy - firstChildrenCandy;
 
         // 2. Знаходимо та виводимо результат
-       if (firstChildrenCandy > secondChildrenCandy) {
+       if (firstChildrenCandy > secondChildrenCandy) 
         alert (`
-            ${firstChilderName} має ${firstChildrenCandy} цукерок
-            ${secondChildrenName} має ${secondChildrenCandy} цукерок
-
-            ${firstChilderName} має на ${firstChilderMoreCandy} цукерок більше ніж ${secondChildrenName}
-            `)
-       } 
-       if (firstChildrenCandy < secondChildrenCandy) {
+            ${firstChilderName} має більше цукерок ніж ${secondChildrenName}
+             `)
+      
+       else if (firstChildrenCandy < secondChildrenCandy) 
         alert (`
-            ${firstChilderName} має ${firstChildrenCandy} цукерок
-            ${secondChildrenName} має ${secondChildrenCandy} цукерок
-
-            ${secondChildrenName} має на ${secondChildrenMoreCandy} цукерок більше ніж ${firstChilderName}
-            `)
-       }
-
+            ${secondChildrenName} має більше цукерок ніж ${firstChilderName}`)
+       
        else {
             alert (`
                 ${firstChilderName} та ${secondChildrenName} мають однакову кількість цукерок.
-                По ${firstChildrenCandy} на брата.
                 `)
             } 
     </script>

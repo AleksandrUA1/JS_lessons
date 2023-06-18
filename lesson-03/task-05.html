@@ -28,30 +28,12 @@
     <script>
         // 1. Вводимо необхідні дані
         let drivCategory = prompt('Введіть Англійською мовою одну з запропонованих категорій водія А | B | C');
-
-        const MOTORCYCLE_CATEGORY = "Мотоцикл";
-        const PASSENGER_CAR_CATEGORY = "Легковий автомобіль";
-        const TRUCK_CATEGORY = "Вантажний автомобіль";
-
+        let result;
         // 2. Знаходимо результат та виводимо його
-        if (drivCategory === "A") // якщо введене строчне значення відповідає (рівне) А
-            {document.write(`
-            Ви обрали категорію - ${drivCategory}
-            Транспортиний засіб, яким ви можете керувати - ${MOTORCYCLE_CATEGORY}
-            `)}
-
-        if (drivCategory === "B") // якщо введене строчне значення відповідає (рівне) В
-            {document.write(`
-            Ви обрали категорію - ${drivCategory}
-            Транспортиний засіб, яким ви можете керувати - ${PASSENGER_CAR_CATEGORY}
-            `)}
-
-        if (drivCategory === "C") // якщо введене строчне значення відповідає (рівне) С
-            {document.write(`
-            Ви обрали категорію - ${drivCategory}
-            Транспортиний засіб, яким ви можете керувати - ${TRUCK_CATEGORY}
-            `)}
-
+        if (drivCategory === "A") result = "Мотоцикл";
+        else if (drivCategory === "B") result = "Легковий автомобіль";
+        else result = "Вантажний автомобіль";
+        document.write (`${result}`)
     </script>
 </body>
 </html>
