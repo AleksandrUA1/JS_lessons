@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 01</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 1</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">З клавіатури вводитяться числа поки не буде введено 0. Знайти суму чисел.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            let sumNum = 0
+            let userNum 
+            while (userNum != 0) {
+                userNum = parseInt(prompt('Введіть будь-яке ціле число'))
+                sumNum += userNum
+            }
+            confirm(`Сума введених вами числе = ${sumNum}`)
+
+        </script>
+    </div>
+</body>
+</html>
