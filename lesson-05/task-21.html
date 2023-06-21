@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 21</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 21</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            const rowNum = parseInt(prompt('Введіть кількість строк'))
+            const columnNum = parseInt(prompt('Введіть кількість стовбців'))
+            const shotsTry = parseInt(prompt('Скільки разів бажаєте спробувати попасти по кораблю?'))
+            
+            let randomShipRowPosition = Math.floor(Math.random()*rowNum)+1
+            let randomShipColumnPosition = Math.floor(Math.random()*columnNum)+1            
+
+            for (let i = 0; i < shotsTry; i++) {
+                let userShipRowPosition = parseInt(prompt('Введіть номер рядка на якому розтошований корабель?'))
+                let userShipColumnPosition = parseInt(prompt('Введіть номер стовбчика у якому розтошований корабель?'))
+                if (userShipRowPosition === randomShipRowPosition && userShipColumnPosition === randomShipColumnPosition) {
+                    confirm(`Вітаємо! Ви влучили`)
+                    break;
+                }
+                else if (i < shotsTry-1)
+                    confirm(`Мимо! Спробуйте ще!`)
+                else
+                    confirm(`Нажаль спроби закінчились. Ви не попали. Корабель розташований у ${randomShipRowPosition} рядку, та у ${randomShipColumnPosition} стовпчику`)   
+            }
+        </script>
+    </div>
+</body>
+</html>

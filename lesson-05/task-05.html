@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 5</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 5</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            const userNum1 = parseInt(prompt('Введіть перше ціле число'))
+            const userNum2 = parseInt(prompt('Введіть друге ціле число'))
+            let firstNum = 0
+            let secondNum = 0
+            let sumNum = 0
+            let counter = 1
+
+            if(userNum1 < userNum2) {
+                firstNum = userNum1
+                secondNum = userNum2 
+            }
+            else if (userNum1 > userNum2) {
+                firstNum = userNum2
+                secondNum = userNum1 
+            }
+            else
+            confirm('Введіть різні числа')
+
+            for (let i = firstNum; i < secondNum; i++) {
+                if (i % 2 !== 0) {
+                sumNum += i
+                counter++
+                }
+                if (counter>5)
+                break;
+            }
+            
+            confirm(`В діапазоні від ${firstNum} до ${secondNum} сума перших п'яти непарних чисел дорівнює ${sumNum}`)
+        </script>
+    </div>
+</body>
+</html>

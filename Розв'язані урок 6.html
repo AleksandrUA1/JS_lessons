@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Задача 11. Знайти суму 5 непарних випадкових чисел, що знаходяться між заданими користувачем числами.
+      //Крок 0.
+      // minRangeNumber
+      // maxRangeNumber
+      // sum
+      // const minRangeNumber = parseInt(prompt('minRangeNumber'))
+      // const maxRangeNumber = parseInt(prompt('maxRangeNumber'))
+
+      // let sum = 0
+      // for (let i = 0; i < 5; ) {
+      //   const randNum =
+      //     minRangeNumber +
+      //     Math.floor(Math.random() * (maxRangeNumber - minRangeNumber + 1))
+
+      //   if (randNum % 2 !== 0) {
+      //     sum += randNum
+      //     i++
+      //   }
+      // }
+      // document.write(`Sum=${sum}`)
+
+      //=====================================================
+
+      //Задача 1.Поступово генеруються N чисел (-100 - 100). Знайти максимальне, мінімальне та середнє значення
+      //maxNumber
+      //minNumber
+      //average
+      //sum
+      // numbersCount
+      // const numbersCount = parseInt(prompt('Кількість чисел'))
+      // let sum = 0
+      // let maxNumber = -Infinity
+      // let minNumber = Infinity
+      // for (let i = 0; i < numbersCount; i++) {
+      //   const randNum =
+      //     minRangeNumber +
+      //     Math.floor(Math.random() * (maxRangeNumber - minRangeNumber + 1))
+
+      //   if (maxNumber < randNum) maxNumber = randNum
+      //   if (minNumber > randNum) minNumber = randNum
+      //   sum += randNum
+      // }
+      // const average = sum / numbersCount
+      // document.write(
+      //   `Average = ${average}, Max = ${maxNumber}, Min= ${minNumber}`
+      // )
+
+      //=====================================================
+      //Поступово генерувати 100 випадкових чисел від 1 до 1000.Підрахувати яких чисел більше: парних чи непарних.
+      // evenNumber - кільківсть парних
+      // oddNumber - кількість непарних
+      // const minNumber = 1
+      // const maxNumber = 1000
+      // let evenNumber = 0
+      // let oddNumber = 0
+      // for (let i = 0; i < 100; i++) {
+      //   const randNum =
+      //     minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+      //   if (randNum % 2 === 0) evenNumber++
+      //   else oddNumber++
+      // }
+
+      // document.write(`oddNumber = ${oddNumber} evenNumber=${evenNumber}`)
+
+      //=====================================================
+      // Задача 3. Вивести високосні роки у вказаному діапазоні (між початковим і кінцевим  роками).
+      //високосний  - він кратний 4, але не кратний 100, а також якщо він кратний 400.
+      // startYear
+      // endYear
+      // const startYear = parseInt(prompt('Початковий рік'))
+      // const endYear = parseInt(prompt('Кінцевий рік'))
+
+      // for (let year = startYear; year <= endYear; year++) {
+      //   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
+      //     document.write(`${year} <br>`)
+      // }
+
+      //=====================================================
+
+      //Задача 4. Вивести усі трицифрові числа, де друга цифра завжди є меншою або рівню за першу, а третя є меншою або рівною за другу.    100 - 999
+      // for (let c1 = 1; c1 <= 9; c1++) {
+      //   for (let c2 = 0; c2 <= c1; c2++) {
+      //     for (let c3 = 0; c3 <= c2; c3++) {
+      //       document.write(`${c1}${c2}${c3} <br>`)
+      //     }
+      //   }
+      // }
+
+      //=====================================================
+      //Вивести з кожного десятка (1-10, 11-20, 21-30, ... , 91-100) по 3 випадкових парних числа
+      // rangeStart
+      // rangeEnd
+      // for (
+      //   let rangeStart = 1, rangeEnd = 10;
+      //   rangeEnd <= 100;
+      //   rangeStart += 10, rangeEnd += 10
+      // ) {
+      //   for (let evenNumber = 0; evenNumber < 3; ) {
+      //     const randNum =
+      //       rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //     if (randNum % 2 === 0) {
+      //       document.write(`${randNum} <br>`)
+      //       evenNumber++
+      //     }
+      //   }
+      // }
+
+      //=====================================================
+      // Вивести 5 маркованих списків по 3 випадкових числа
+      // const rangeStart = 1,
+      //   rangeEnd = 100
+      // for (let i = 0; i < 5; i++) {
+      //   document.write('<ul>')
+      //   for (let j = 0; j < 3; j++) {
+      //     const randNum =
+      //       rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //     document.write(`<li>${randNum}</li>`)
+      //   }
+      //   document.write('</ul>')
+      // }
+
+      //=====================================================
+      // Вивести 4 двовимірні таблиці 5*6
+      // const rangeStart = 1,
+      //   rangeEnd = 100
+      // for (let tableNumber = 0; tableNumber < 4; tableNumber++) {
+      //   document.write('<table border="2x">')
+      //   for (let rowNum = 0; rowNum < 5; rowNum++) {
+      //     document.write('<tr>')
+      //     for (let cellNumber = 0; cellNumber < 6; cellNumber++) {
+      //       const randNum =
+      //         rangeStart +
+      //         Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //       document.write(`<td>${randNum}</td>`)
+      //     }
+      //     document.write('</tr>')
+      //   }
+      //   document.write('</table>')
+      // }
+
+      //=====================================================
+      // Горизонтальну діаграму з 8 рандомними значеннями (0-100)
+      // const rangeStart = 0,
+      //   rangeEnd = 100
+      // for (let i = 0; i < 8; i++) {
+      //   const randNum =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+
+      //   document.write(
+      //     `<div style="height:20px; width: ${randNum}%; margin-top: 10px; background-color: red;"></div>`
+      //   )
+      // }
+
+      //=====================================================
+      // Випадковим  чином вивести у рандомних позиціях 10 зображень-смайликів
+      // const rangeStart = 0,
+      //   rangeEnd = 100
+
+      // for (let i = 0; i < 10; i++) {
+      //   const left =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   const top =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   document.write(
+      //     `<img src="./img/img1.jpg" style="position:fixed; left: ${left}%; top: ${top}%; width:20px">`
+      //   )
+      // }
+
+      //=====================================================
+      //Вивести радіо-кнопки для визначення того, скільки років людині у діапазоні (1-10, 11-20, 21-30, ... , 91-100)
+      // for (
+      //   let startNum = 1, endNum = 10;
+      //   startNum <= 91;
+      //   startNum += 10, endNum += 10
+      // ) {
+      //   document.write(`
+      //       <label>
+      //         ${startNum} - ${endNum}
+      //         <input type="radio" name="age"/>
+      //       </label> <br>
+      //   `)
+      // }
+
+      //=====================================================
+      //Сформували select з парними числами від 2 до 20
+      // document.write('<select>')
+      // for (let i = 2; i <= 20; i += 2) {
+      //   document.write(`<option value="${i}">${i}</option>`)
+      // }
+      // document.write('</select>')
+
+      //=====================================================
+      //Користувач вводить два символи у верхньому регістрі. Сформували два select з кодами символів у заданому діапазоні та символами у заданому діапазоні
+      // const firstLetter = prompt('Перша літера')
+      // const lastLetter = prompt('Друга літера')
+      // // A - C
+      // const firstLetterCode = firstLetter.charCodeAt(0)
+      // const lastLetterCode = lastLetter.charCodeAt(0)
+      // // 65
+      // // 66
+      // // 67
+      // document.write('<select>')
+      // for (let i = firstLetterCode; i <= lastLetterCode; i++) {
+      //   document.write(`<option value="${i}">${i}</option>`)
+      // }
+      // document.write('</select>')
+      // // A
+      // // B
+      // // C
+      // document.write('<select>')
+      // for (let code = firstLetterCode; code <= lastLetterCode; code++) {
+      //   document.write(
+      //     `<option value="${code}">${String.fromCharCode(code)}</option>`
+      //   )
+      // }
+      // document.write('</select>')
+
+      //=====================================================
+      // Задача 2.  Тільки позитивні емоції. З клавіатури вводиться М - максимальна кількість смайликів, які можна
+      // вивести. Комп’ютер випадково вибирає якесь із 4 наперед заданих. Серед них є сумний смайл.
+      // const smileNumber = parseInt(prompt('Максимальна кількість смайликів'))
+      // const rangeStart = 1,
+      //   rangeEnd = 4
+
+      //   1)Якщо знаходимо сумний смайл – зупитини
+      // for (let i = 0; i < smileNumber; i++) {
+      //   const imgNumber =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   if (imgNumber === 4) break //Якщо номер - номер сумного смайла, то припинити
+
+      //   const imgPath = `./img/img${imgNumber}.jpg`
+      //   document.write(`<img src="${imgPath}" style="width:30px"/> `)
+      // }
+      //*******************
+      //   2)Якщо знаходимо сумний смайл – пропустити
+      // for (let i = 0; i < smileNumber; i++) {
+      //   const imgNumber =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   if (imgNumber === 4) continue //Якщо номер - номер сумного смайла, то пропустити
+
+      //   const imgPath = `./img/img${imgNumber}.jpg`
+      //   document.write(`<img src="${imgPath}" style="width:30px"/> `)
+      // }
+      //**************
+      //   3)Якщо знаходимо сумний смайл – вибрати наступний позитивний
+      // const sadPosition = 4
+      // for (let i = 0; i < smileNumber; i++) {
+      //   let imgNumber =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   if (imgNumber === sadPosition) imgNumber = ((imgNumber - 1 + 1) % 4) + 1
+
+      //   const imgPath = `./img/img${imgNumber}.jpg`
+      //   document.write(`<img src="${imgPath}" style="width:30px"/> `)
+      // }
+      //
+
+      //=====================================================
+      // Продаж булочок. Є у продавця N (>0) булочок. Поки є булочки продавати їх.
+      // (питати у користувача кількість, якщо є така, то продавати)
+
+      //=====================================================
+      // Задача 2. Комп’ютер 3 рази випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10. ((min-10)   ---  (max+10))
+      // const rangeStart = 1,
+      //   rangeEnd = 100
+      // for (let i = 0; i < 3; i++) {
+      //   let minNum =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   let maxNum =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   // Перевіряємо чи часом minNum > maxNum
+      //   if (minNum > maxNum) {
+      //     let tmp = minNum
+      //     minNum = maxNum
+      //     maxNum = tmp
+      //   }
+      //   const userNum = parseInt(prompt('Ваше число?'))
+      //   // const resultMessage =
+      //   //   userNum >= minNum - 10 && userNum <= maxNum + 10
+      //   //     ? 'Перемога'
+      //   //     : 'Програш'
+
+      //   let resultMessage
+      //   if (userNum >= minNum - 10 && userNum <= maxNum + 10)
+      //     resultMessage = 'Перемога'
+      //   else resultMessage = 'Програш'
+
+      //   alert(resultMessage)
+      // }
+
+      //=====================================================
+      // Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+      // const rowsNumber = parseInt(prompt('Кількість рядків')) //N
+      // const columnsNumber = parseInt(prompt('Кількість стовпців')) //M
+      // let missleNumber = parseInt(prompt('Кількість снарядів')) //K
+
+      // //Випадковим чином розмістили корабель (визначили номер рядка і номер стовпця)
+      // const shipRowPosition = 1 + Math.floor(Math.random() * rowsNumber)
+      // const shipColumnPosition = 1 + Math.floor(Math.random() * columnsNumber)
+
+      // let userRow, userColumn, checkShootResult
+      // do {
+      //   userRow = parseInt(prompt('Номер рядка'))
+      //   userColumn = parseInt(prompt('Номер стовпця'))
+      //   missleNumber--
+      //   checkShootResult =
+      //     userRow === shipRowPosition && userColumn === shipColumnPosition
+      //   if (!checkShootResult)
+      //     alert(`Не попав  ${shipRowPosition}-${shipColumnPosition}`)
+      // } while (!checkShootResult && missleNumber > 0)
+
+      // if (checkShootResult) alert('Перемога')
+      // else alert('Програш')
+
+      //З клавіатури вводиться кількість рядків і стовпців. Вивести таблицю заповнену
+      //рандомними числами від 1 до 100
+
+      //=====================================================
+      //Двоє користувачів поступово вводять два числа від 1 до 10. Комп"ютер випадковим чином загадує число.
+      //1)якщо користувач вгадав - то має 10 балів
+      //2)якщо число користувача співпадає стосвоно парності/непарності - 3 бали
+      //Гра йде до тих пір, поки не хтось із користувачів не набере 20 балів
+
+      //=====================================================
+      //Сформувати 5 списків з випадкових чисел (1-100). У кожному списку елементи додаються до тих пір, поки числа менші за 50
+
+      //Ігровий автомат. Випадково вибираємо зображення у 3 позиціях.
+      // Вибір у кожній позиції вибирається як одне з чотирьох зображень.
+      //   Вивести ці зображення і повідомити виграш користувача
+      //   (три перших зображення 100 грн, три других – 200, три третіх – 500,
+      //    три четвертих зображення – 1000грн).
+      //    Використати цикли і switch (для вибору зображення за номером).  Давайте розглянемо цю також
+
+      //  1 - 10      10^1        30
+      //  2 - 100     10^2        300
+      //  3 - 1000    10^3        3000
+      //  4 - 10000   10^4        30000
+
+      // const rangeStart = 1,
+      //   rangeEnd = 4
+
+      // let sum = 0
+      // for (let i = 0; i < 3; i++) {
+      //   let imgNum =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+      //   document.write(`<img src="./img/img${imgNum}.jpg" style="width:50px"/>`)
+      //   sum += Math.pow(10, imgNum - 1) //sum +=  10 ^ imgNum-1
+      // }
+      // let money = 0
+      // switch (sum) {
+      //   case 30:
+      //     money = 100
+      //     break
+      //   case 300:
+      //     money = 200
+      //     break
+      //   case 3000:
+      //     money = 500
+      //     break
+      //   case 30000:
+      //     money = 1000
+      //     break
+      // }
+      // document.write(`Виграш = ${money}`)
+      //-----------------------------------------------------------
+      //Задача 15. Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+      // let sum = 0
+      // const rangeStart = -20,
+      //   rangeEnd = 20
+      // let minTemperature = +Infinity
+      // let maxTemperature = -Infinity
+      // for (let i = 0; i < 365; i++) {
+      //   let temperature =
+      //     rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+
+      //   sum += temperature
+      //   if (temperature > maxTemperature) maxTemperature = temperature
+      //   if (temperature < minTemperature) minTemperature = temperature
+      // }
+      // const average = sum / 365
+      // document.write(
+      //   `Average = ${average.toFixed(
+      //     3
+      //   )}, max = ${maxTemperature}, min = ${minTemperature}`
+      // )
+    </script>
+  </body>
+</html>

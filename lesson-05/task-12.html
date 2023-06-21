@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 12</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 12</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Вивести таблицю з 3 рядків і 7 стовпців
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            document.write(`<table style="color: #94c02f; border: 1px solid #101011;">`)
+                for (let num1 = 1; num1 <= 3; num1++) {
+                    document.write (`<tr>`)
+                        for (let num2 = 1; num2 <= 7; num2++) {
+                                document.write(` 
+                                <td style="border: 1px solid #101011; font-size: 20px; min-width: 50px; line-height: 50px;">${num2}</td> 
+                                `)
+                            }
+                    document.write (`</tr>`)
+                    }
+            document.write(`</table>`)
+        </script>
+    </div>
+</body>
+</html>

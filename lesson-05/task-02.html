@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            const userNum = parseInt(prompt('Введіть ціле число від 1 до 20'))  // трохи змінив умову - від 1 до 20, шоб
+                                                                                // у комп'ютора був хотьякийсь шанс вгадати
+
+            if (userNum<21)                                                     // якщо користувач ввів число менше 21
+                for (let i = 1; i < 4; i++) {                                   // три рази запускаємо цикл
+                    let randomNum = Math.floor((Math.random()*20)+1)            // комп'ютор генерує випадкове число від 1 до 20
+
+                    if (randomNum === userNum) {                                // якщо, значення та тип випадкового числа      
+                                                                                // відповідають числу введенному користувачем
+
+                        confirm(`Комр'ютор вгадав Ваше число ${randomNum}`);    // виводимо вспливаюче вікно
+                    break;                                                      // та обриваємо цикл
+                    }
+                else if (i<3)                                                   // інакше, якщо значення різні, та цикл 
+                                                                                // виконується перший або другий раз
+                    confirm(`Комп'ютор обрав число ${randomNum}, 
+                    нажаль він не вгадав. Спробуємо ще раз?`)                   // виводимо вспливаюче вікно
+
+                else                                                            // інакше, якщо значення різні, та цикл 
+                                                                                // виконується не перший або другий раз
+                        confirm(`Комп'ютор обрав число ${randomNum}, 
+                        нажаль він не вгадав. Спроби закінчились`)              // виводимо вспливаюче вікно
+                }
+            else alert('Введено хибні дані')                                    // інакше, якщо користувач ввів число >= 21
+        </script>
+    </div>
+</body>
+</html>

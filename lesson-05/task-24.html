@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 24</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 24</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів. Знайти загальну величину прибутку та вивести величину прибутку протягом кожного окремого тижня.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            
+            const weeksCount = parseInt(prompt(`Введіть кількість тижнів протягом яких працював магазин?`))
+            const daysCount = weeksCount * 7
+            
+            let profitPerOllWorkTime = 0
+
+            for (let week = 1; week <= weeksCount; week++) {
+                let profitPerWeek = 0
+
+                for (let day = 1; day <= 7; day++) {
+                    let profitPerDay = parseInt(prompt(`Введіть прибуток ${day}-го робочого дня, ${week}-го тижня?`))
+                    profitPerOllWorkTime += profitPerDay
+                    profitPerWeek += profitPerDay
+                }
+                document.write(`Загальна величина прибутку за ${week} тиждень ${profitPerWeek}грн <br>
+            `)
+                
+            }
+            document.write(`Загальна величина прибутку за весь період ${profitPerOllWorkTime}грн <br>
+            `)
+
+        </script>
+    </div>
+</body>
+</html>

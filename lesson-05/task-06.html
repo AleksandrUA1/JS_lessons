@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 6</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 6</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            // 1. Вводимо необхідні дані
+            let mono = 0
+            let solo = 0
+            // 2. Знаходимо та виводимо результат
+            for (let i = 0; i < 100; i++) {
+                let randomNum = Math.floor((Math.random()*1000)+1)
+                if (randomNum % 2 === 0)
+                solo++
+                else 
+                mono++
+                document.write(`${randomNum} `)        
+                
+            }
+           
+            if (mono > solo)
+            document.write (`<br>Непарних чисел ${mono} > Парних чисел ${solo}`)
+            else if (mono < solo)
+            document.write (`<br>Парних чисел ${solo} > Непарних чисел ${mono}`)
+            else 
+            document.write (`<br>Парних чисел ${solo} = Непарних чисел ${mono}`)
+           
+        </script>
+    </div>
+
+</body>
+</html>

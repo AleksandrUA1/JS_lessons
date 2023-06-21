@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 15</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 15</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            const userNum = parseInt(prompt('Введіть число від 1 до 20'))
+            let paragraphNum = 1
+            let i = 0
+            if (userNum<21) {
+                document.write (`
+                    <h1>Заголовок ${userNum}</h1>
+                    `)
+                while (i<userNum) {
+                    document.write (`
+                        <p>Розділ ${userNum}, параграф ${paragraphNum}</p>
+                    `);
+                    i++; 
+                    paragraphNum++;        
+                }
+            }
+            else 
+            document.write (`Введено хибні дані`)
+        </script>
+    </div>
+</body>
+</html>

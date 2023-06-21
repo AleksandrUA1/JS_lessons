@@ -20,8 +20,10 @@ body {
 
 .script {
     display: block;
-    max-width: 400px;
+    text-align: center;
+    width: 600px;
     margin: 0 auto;
+    padding: 50px 0;
 }
 
 .container {
@@ -73,19 +75,46 @@ body {
 }
 
 .lessons__item:hover::after {
-    content: 'go to learning Java Script >';
+    content: 'no homework yet >';
     font-family: monospace;
-    font-style: 13px;
+    font-size: 13px;
     color: #4a5827;
     position: absolute;
     right: 10px;
     top: 7px;
 }
 
+.lessons__item.checked-task:hover::after{
+    content: 'homework already checked 👋';
+    color: #94c02f;
+    letter-spacing: 1px;
+}
+
+
+.lessons__item.no-homework:hover::after{
+    content: 'no homework';
+    color: #94c02f;
+    letter-spacing: 1px;
+    cursor: default;
+       
+}
+
+.lessons__item.waits-for-checking:hover::after{
+    content: 'waits for checking 👋';
+    color: #94c02f;
+    letter-spacing: 1px;
+    cursor: default;
+       
+}
+
 .lessons__item:hover a {
     color: #94c02f;
     letter-spacing: 0.5px;
     padding-left: 2px;
+}
+
+.lessons__item.no-homework .lessons__link {
+    cursor: default;
 }
 
 .lessons__item:last-child {
@@ -169,4 +198,12 @@ body {
 .home-task__description {
     padding: 15px 0 10px 50px;
     border: 1px solid #1b1c20;
+}
+
+.aditional-tasks {
+    font-family: monospace;
+    color: #94c02f;
+    font-size: 16px;
+    margin: 0 0 20px 25px;
+
 }

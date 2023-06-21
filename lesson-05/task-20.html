@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 20</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 20</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).
+                </p>
+            </div>
+        </div>
+    </div>
+<img src=""  alt="">
+    <div class="script">
+        <script>
+            let imageNum
+            let sumNum = 0
+            let winResult
+
+            for (let i = 1; i <= 3; i++) {
+                imageNum = Math.floor(Math.random()*4)+1
+                document.write(`<img src="../img${imageNum}.jpg" style="width: 200px;" alt="">`)
+                sumNum += Math.pow(10, imageNum-1)
+            }
+
+            switch (sumNum) {
+                case 3: 
+                    winResult = "Вітаємо! Ви виграли 100 грн!";
+                    break;
+                case 30: 
+                    winResult = "Вітаємо! Ви виграли 200 грн!";
+                    break;
+                case 300: 
+                    winResult = "Вітаємо! Ви виграли 500 грн!";
+                    break;
+                case 3000: 
+                    winResult = "Вітаємо! Ви виграли 1000 грн!";
+                    break;
+                default:
+                    winResult = "Спробуйте ще!"
+            }
+            document.write(`${winResult}`)
+        </script>
+    </div>
+</body>
+</html>
