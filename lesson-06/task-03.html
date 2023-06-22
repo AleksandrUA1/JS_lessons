@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 01</title>
+	<title>Home-task 03</title>
 </head>
 <body>
     <header class="header">
@@ -18,23 +18,22 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 1</h2>
+            <h2 class="home-task__title">Задача 3</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">З клавіатури вводитяться числа поки не буде введено 0. Знайти суму чисел.</p>
+                <p class="home-task__subtitle">З клавіатури вводиться початкове знчення суми. Поки сума є меншою за 100 додавати до неї числа, які вводяться з клавіатури.</p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            let sumNum = 0
-            let userNum 
-            while (userNum != 0) {
-                userNum = parseInt(prompt('Введіть будь-яке ціле число'))
-                sumNum += userNum
-            }
-            confirm(`Сума введених вами числе = ${sumNum}`)
-
+            let firstUserNumber
+            let counterNumber = 0
+                do {
+                    firstUserNumber = parseInt(prompt('Введіть будь яке число'))
+                    counterNumber += firstUserNumber
+                } while (counterNumber < 100)
+                confirm(`От і все`)
         </script>
     </div>
 </body>

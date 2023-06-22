@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 13</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 13</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Інвестор вклав   тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за допомогою циклів суму, яку він одержить.</p></p>
+            </div>
+        </div>
+    </div>
+    <div class="script">
+        <script>    
+            const userInvestment = parseInt(prompt('Введіть суму яку ви бажаєте вкласти на 20 років під 20% річних'))
+            let investmentSum = userInvestment
+            
+            for (let year = 0; year < 20; year++) {
+                investmentSum = investmentSum + investmentSum * 0.2
+            }
+
+            let investmentTax = investmentSum
+            investmentTax = investmentTax - investmentTax * 0.95
+            investmentSum = investmentSum - investmentSum * 0.05
+            
+            document.write(`Сума вкладу - ${userInvestment}грн, через 20 років з вирахуванням 5% від цієї суми (${investmentTax}грн) ви отримаэте ${investmentSum}грн`)
+        </script>
+    </div>
+</body>
+</html>

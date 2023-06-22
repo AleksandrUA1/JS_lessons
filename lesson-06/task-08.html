@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 8</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 8</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">2. Відобразити трикутник за допомогою символів «о»
+                       о
+                      оо
+                     ооо
+                     оооо
+                    ооооо
+                    оооооо
+                   ооооооо
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="script" style="text-align: left;">
+        <script>
+            const symbol="o"
+            const space = "\u00A0"
+
+            let rowQuontity = 7
+           
+            for (let row = 1; row <= rowQuontity; row++) {
+                
+                let spaceCellQuontity = rowQuontity - row
+                let symbolCellQuontity = row
+
+                for (let spaceCell = 0 ; spaceCell < spaceCellQuontity; spaceCell++) {
+                    document.write(`${space}`)
+                }
+
+                for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
+                    document.write(`${symbol}`)
+                }
+                document.write(`<br>`)             
+            }
+        </script>
+    </div> -->
+    <div class="script" style="text-align: center;">  
+        <script>                                            // Нажаль я додумався тільки до такого рішення
+                                                            // 1. Використати - text-align: center
+                                                            // 2. Додавання пробілів зліва від символу - о 
+                                                            // не дозволяє скласти "піраміду"
+                                                            //
+                                                            // Других способів відсунути "о" від лівої частини документа
+                                                            // я не знайшов
+            const symbol = "o"
+            const br = "<br>"
+
+            let rowQuontity = 7
+           
+            for (let row = 1; row <= rowQuontity; row++) {
+                
+                let symbolCellQuontity = row
+
+                for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
+                    document.write(`${symbol}`)
+                }
+                document.write(`<br>`)             
+            }
+        </script>
+    </div>
+</body>
+</html>

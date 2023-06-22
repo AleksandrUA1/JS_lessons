@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 14</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 14</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Інвестор вклав N тис. грн на 20 років під 20% річних, а потім на 17 років під 27% річних. Визначити за допомогою циклів суму, яку він одержить.</p>
+            </div>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+            const firstUserInvestment = parseInt(prompt('Введіть суму яку ви бажаєте вкласти на 20 років під 20% річних'))
+            const secondUserInvestment = parseInt(prompt('Введіть суму яку ви бажаєте вкласти на 17 років під 27% річних'))
+            let firstInvestmentSum = firstUserInvestment
+            let secondInvestmentSum = secondUserInvestment
+            let investmentSum = 0
+
+            for (let year = 0; year < 20; year++) {
+                firstInvestmentSum = firstInvestmentSum + firstInvestmentSum * 0.2; 
+            }
+
+            for (let year = 0; year < 17; year++) {
+                secondInvestmentSum = secondInvestmentSum + secondInvestmentSum * 0.27; 
+            }
+
+            investmentSum = firstInvestmentSum + secondInvestmentSum
+            
+            document.write(`Сума вкладу - ${firstUserInvestment}грн та ${secondUserInvestment}грн, через 20 років ви отримаєтк ${investmentSum}грн`)
+
+        </script>
+    </div>
+</body>
+</html>

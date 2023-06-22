@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 01</title>
+	<title>Home-task 04</title>
 </head>
 <body>
     <header class="header">
@@ -18,23 +18,29 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 1</h2>
+            <h2 class="home-task__title">Задача 4</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">З клавіатури вводитяться числа поки не буде введено 0. Знайти суму чисел.</p>
+                <p class="home-task__subtitle">З клавіатури поступово вводяться числа. Знайти суму перших N парних чисел.</p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            let sumNum = 0
-            let userNum 
-            while (userNum != 0) {
-                userNum = parseInt(prompt('Введіть будь-яке ціле число'))
-                sumNum += userNum
-            }
-            confirm(`Сума введених вами числе = ${sumNum}`)
+            let userNumber 
+            let evenNumbersSum = 0
+            let evenNumbersQuontitu = parseInt(prompt('Скільки парних чисел будемо додавати?'))
+            let iterationCounter = 0
 
+            do {
+                userNumber = parseInt(prompt('Введіть будь яке число'))
+                if(userNumber % 2 === 0) {
+                evenNumbersSum += userNumber
+                iterationCounter++
+                }
+            } while(iterationCounter < evenNumbersQuontitu)
+
+            confirm(`Сума перших ${evenNumbersQuontitu} парних чисел = ${evenNumbersSum}`)
         </script>
     </div>
 </body>
