@@ -26,20 +26,20 @@
     </div>
     <div class="script" style="text-align: center;">
         <script>
-            let startCapitalSum = parseInt(prompt(`Введіть розмір стартового капіталу?`))
+            let startCapitalSum = parseInt(prompt(`Введіть розмір стартового капіталу?`))    
             const expectedCapitalResult = parseInt(prompt(`Яку суму ви бажаєте заробити?`))
             const capitalGainPercentage = parseInt(prompt(`Який щомісячний процент приросту?`))
 
-            let monthOfAccumulationPeriod = 0 // 
-            let gainOfMonth = startCapitalSum
+            let monthOfAccumulationPeriod = 0 // змінна - місяць в інвестиційному періоді
+            let gainOfMonth = startCapitalSum  // змінна - сума капіталу + складний відсоток
 
-            do {
-                gainOfMonth = gainOfMonth + (gainOfMonth * (capitalGainPercentage / 100))
-                monthOfAccumulationPeriod++
-            } while (gainOfMonth < expectedCapitalResult)
+            do {    
+                gainOfMonth = gainOfMonth + (gainOfMonth * (capitalGainPercentage / 100))  // обчислюємо суму капіталу + складний відсоток за n-місяць
+                monthOfAccumulationPeriod++   // збільшуємо на 1 "кількість місяців"
+            } while (gainOfMonth < expectedCapitalResult)  // цикл повторюватиметься, доки (суму капіталу + складний відсоток) < очікуваного заробітку
 
-            let yearOfAccumulationPeriod = Math.floor(monthOfAccumulationPeriod/12)
-            monthOfAccumulationPeriod -= (yearOfAccumulationPeriod * 12)
+            let yearOfAccumulationPeriod = Math.floor(monthOfAccumulationPeriod/12)  // скільки повних років, 
+            monthOfAccumulationPeriod -= (yearOfAccumulationPeriod * 12)  // та скільки місяців длитимиться інвестаційний період
 
             document.write(`За умови наявності стартового капіталу у розмірі ${startCapitalSum}$,\nта за умови щомісячного приросту у розмірі ${capitalGainPercentage}%,\n${expectedCapitalResult}$ ви отримаєте через ${yearOfAccumulationPeriod} р. та ${monthOfAccumulationPeriod} міс.`)
 

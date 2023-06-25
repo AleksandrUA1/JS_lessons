@@ -99,23 +99,22 @@ body {
     color: #94c02f;
     letter-spacing: 1px;
     cursor: default;
-       
 }
 
 .lessons__item.in-progress:hover::after{
     content: 'in progress 👋';
     color: #94c02f;
     letter-spacing: 1px;
-    
-       
 }
 
 .lessons__item.waits-for-checking:hover::after{
     content: 'waits for checking 👋';
-    color: #94c02f;
+    color: #ff8800;
     letter-spacing: 1px;
- 
-       
+}
+
+.lessons__item.waits-for-checking a, .lessons__item.waits-for-checking:hover a{
+    color: #ff8800;
 }
 
 .lessons__item:hover a {
@@ -154,7 +153,6 @@ body {
 }
 
 .home-link:hover {
-    
     cursor: pointer;
     position: relative;
     color: #94c02f;
@@ -169,7 +167,6 @@ body {
     right: 10px;
     top: 7px;
 }
-
 
 .home-task__item {
     margin-bottom: 20px;
