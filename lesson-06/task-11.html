@@ -47,12 +47,13 @@
 
             let stepsQuontity = parseInt(prompt('Скільки ярусів має містити в собі ялинка?'))
             let rowQuontity = parseInt(prompt('Скільки рядків має містити в собі ярус ялинки?'))
+            let symbolCellQuontity = 0
             
             for (let steps = 0; steps < stepsQuontity; steps++) {
                     
                     for (let row = 1; row <= rowQuontity; row++) {
                         
-                        let symbolCellQuontity = row
+                        symbolCellQuontity = row
 
                         for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
                             document.write(`${symbol}`)

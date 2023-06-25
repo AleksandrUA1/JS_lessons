@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 21</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 21</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">З клавіатури вводяться числа до тих пір, поки послідовність є зростаючою або спадною.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: left;">
+        <script>
+            let userSymbol = parseInt(prompt('Введіть перше число'))
+            let resaltSymbol = userSymbol
+            userSymbol = parseInt(prompt('Введіть друге число, воно має відрізнятись від першого'))
+
+            if (userSymbol > resaltSymbol) {
+                do {
+                    resaltSymbol = userSymbol
+                    userSymbol = parseInt(prompt('Продовжіть вводити числа в зростаючому порядку. Інакше цикл завершиться'))
+                } while (userSymbol > resaltSymbol)
+                alert(`Цикл завершено`)
+            }
+           
+            else if (userSymbol < resaltSymbol) {
+                do {
+                    resaltSymbol = userSymbol
+                    userSymbol = parseInt(prompt('Продовжіть вводити числа в спадаючому порядку. Інакше цикл завершиться'))
+                } while (userSymbol < resaltSymbol)
+                alert(`Цикл завершено`)
+            }
+            
+            else
+            alert(`Числа повторюються`)
+                
+        </script>
+    </div>
+</body>
+</html>

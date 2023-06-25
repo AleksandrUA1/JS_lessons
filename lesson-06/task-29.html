@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 29</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 29</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Комерсант, володіючи стартовим капіталом N грн, зайнявся торгівлею, що збільшує його капітал щомісячно на р%. Через скільки років він накопичить суму S, достатню для того, щоб придбати власний магазин?</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            let startCapitalSum = parseInt(prompt(`Введіть розмір стартового капіталу?`))
+            const expectedCapitalResult = parseInt(prompt(`Яку суму ви бажаєте заробити?`))
+            const capitalGainPercentage = parseInt(prompt(`Який щомісячний процент приросту?`))
+
+            let monthOfAccumulationPeriod = 0 // 
+            let gainOfMonth = startCapitalSum
+
+            do {
+                gainOfMonth = gainOfMonth + (gainOfMonth * (capitalGainPercentage / 100))
+                monthOfAccumulationPeriod++
+            } while (gainOfMonth < expectedCapitalResult)
+
+            let yearOfAccumulationPeriod = Math.floor(monthOfAccumulationPeriod/12)
+            monthOfAccumulationPeriod -= (yearOfAccumulationPeriod * 12)
+
+            document.write(`За умови наявності стартового капіталу у розмірі ${startCapitalSum}$,\nта за умови щомісячного приросту у розмірі ${capitalGainPercentage}%,\n${expectedCapitalResult}$ ви отримаєте через ${yearOfAccumulationPeriod} р. та ${monthOfAccumulationPeriod} міс.`)
+
+        </script>
+    </div>
+</body>
+</html>

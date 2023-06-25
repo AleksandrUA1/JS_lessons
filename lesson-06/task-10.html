@@ -39,10 +39,11 @@
             const br = "<br>"
 
             let rowQuontity = parseInt(prompt('Скільки рядків має містити в собі трикутник?'))
-           
+            let symbolCellQuontity = 0
+
             for (let row = 0; row < rowQuontity; row++) {
                 
-                let symbolCellQuontity = rowQuontity - row
+                symbolCellQuontity = rowQuontity - row
 
                 for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
                     document.write(`${symbol}`)

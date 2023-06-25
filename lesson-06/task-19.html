@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 7</title>
+	<title>Home-task 19</title>
 </head>
 <body>
     <header class="header">
@@ -18,37 +18,24 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 7</h2>
+            <h2 class="home-task__title">Задача 19</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">2. Відобразити трикутник за допомогою символів «о»
-                    о
-                    оо
-                    ооо
-                    оооо
-                    ооооо
-                    оооооо
-                    ооооооо
-                </p>
+                <p class="home-task__subtitle">Вивести на екран усі трицифрові числа, у яких перша цифра є більшою або рівною за суму другої і третьої.</p>
             </div>
         </div>
     </div>
     <div class="script" style="text-align: left;">
         <script>
-            const symbol = "o"
-            const br = "<br>"
-
-            let rowQuontity = 7
-            let symbolCellQuontity = 0
-           
-            for (let row = 1; row <= rowQuontity; row++) {
-                
-                symbolCellQuontity = row
-
-                for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
-                    document.write(`${symbol}`)
+            for (let firstSymbol = 1; firstSymbol < 10; firstSymbol++) {
+                for (let secondSymbol = 0; secondSymbol < 10; secondSymbol++) {
+                    for (let thirdSymbol = 0; thirdSymbol < 10; thirdSymbol++) {
+                            if (firstSymbol>=(secondSymbol + thirdSymbol)) {
+                            document.write(`${firstSymbol}${secondSymbol}${thirdSymbol} `) 
+                        }
+                    }
                 }
-                document.write(`<br>`)             
-            }
+                document.write(`<br>`)
+                }
         </script>
     </div>
 </body>

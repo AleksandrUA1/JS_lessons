@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 24</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 24</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Знайти суму всіх непарних чисел з діапазону, який вводить користувач з клавіатури.</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: left;">
+        <script>
+            let firstUserNumber = parseInt(prompt('Введіть перше число'))
+            let secondUserNumber = parseInt(prompt('Введіть друге число'))
+            let grandMotherGalya = 0
+            let sumNum = 0
+
+            if (firstUserNumber > secondUserNumber) {
+                grandMotherGalya = firstUserNumber
+                firstUserNumber = secondUserNumber
+                secondUserNumber = grandMotherGalya
+            }
+            else if (firstUserNumber === secondUserNumber)
+            confirm(`Потрібно ввести різні числа`)
+
+            for (let i = firstUserNumber + 1; i < secondUserNumber; i++) {
+                if (i % 2 !== 0) {
+                    sumNum += i
+                }
+                
+            }
+            document.write(`Сума всіх непарних чисел в діапазоні від ${firstUserNumber} до ${secondUserNumber} = ${sumNum}`)
+
+        </script>
+    </div>
+</body>
+</html>
