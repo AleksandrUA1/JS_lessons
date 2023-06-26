@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 06</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 7 | Фуекції</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 6</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити окремі функції, які переводять:
+                    1)	Сантиметри у дюйми;
+                    2)	Кілограми у фунти;
+                    3)	Кілометри у милі.
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            function getInches(a) {
+                let inches = a / 2.54
+                return inches
+            }
+
+            function getPounds(b) {
+                let pounds = b * 2.20462
+                return pounds
+            }
+
+            function getMiles(c) {
+                let miles = c / 1.60934
+                return miles
+            }
+
+            const userCentimeters = parseInt(prompt('Введіть, скільки сантиметрів ви бажаєте перевести у дюйми?'))
+            const userKilograms = parseInt(prompt('Введіть, скільки кілограм ви бажаєте перевести у фунти?'))
+            const userKilometers = parseInt(prompt('Введіть, скільки кілометрів ви бажаєте перевести у милі?'))
+
+            const inchesResult = getInches(userCentimeters)
+            const poundsResult = getPounds(userKilograms)
+            const milesResult = getMiles(userKilometers)
+
+            document.write(`
+                ${userCentimeters} сантиметрів в дюймах: ${inchesResult}<br>
+                ${userKilograms} кілограм в фунтах: ${poundsResult}<br>
+                ${userKilometers} кілометрів у милях: ${milesResult}<br>
+            `)
+        </script>
+    </div>
+</body>
+</html>

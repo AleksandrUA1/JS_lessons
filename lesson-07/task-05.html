@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 05</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 7 | Фуекції</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 5</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            function getEvenOfNumbers(a, b, c) {
+                let evenResult = 0
+
+                if (a % 2 === 0)
+                evenResult++
+                if (b % 2 === 0)    
+                evenResult++
+                if (c % 2 === 0)
+                evenResult++
+                return (evenResult) 
+            }
+            function getPositiveOfNumbers(a, b, c) {
+                let evenResult = 0
+                
+                if (a > 0)
+                evenResult++
+                if (b > 0)    
+                evenResult++
+                if (c > 0)
+                evenResult++
+                return (evenResult) 
+            }
+            function getNumberGreterOf100(a, b, c) {
+                let evenResult = 0
+                
+                if (a > 100)
+                evenResult++
+                if (b > 100)    
+                evenResult++
+                if (c > 100)
+                evenResult++
+                return (evenResult) 
+            }
+            
+            const NumA = parseInt(prompt('Введіть перше число'))
+            const NumB = parseInt(prompt('Введіть друге число'))
+            const NumC = parseInt(prompt('Введіть третє число'))
+           
+            let evenOfUserNumbers = getEvenOfNumbers(NumA, NumB, NumC)
+            let positiveOfUserNumbers = getPositiveOfNumbers(NumA, NumB, NumC)
+            let numberGreterOf100 = getNumberGreterOf100(NumA, NumB, NumC)
+            
+            document.write(`
+            Кількість парних чисел серед введених = ${evenOfUserNumbers}<br>
+            Кількість додатніх чисел = ${positiveOfUserNumbers}<br>
+            Кількість чисел більших за 100 = ${numberGreterOf100}<br>
+            `)
+        </script>
+    </div>
+</body>
+</html>

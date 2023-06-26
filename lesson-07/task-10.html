@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 10</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 7 | Фуекції</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 10</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="script">
+        <script>
+             function negativeTemperaturesIndicator() {
+                let quontityNegativeIndicator = 0
+                for (let i = 0; ; i++) {
+                    let userNumbers = parseInt(prompt(`Введіть будь-який показник температури`))
+                    if (userNumbers < 0) {
+                        quontityNegativeIndicator++
+                    }
+                    if (!userNumbers)
+                        break
+                }
+                return quontityNegativeIndicator
+             }
+             let result = negativeTemperaturesIndicator()
+             document.write(`Кількість від’ємних показів температури - ${result}`) 
+        </script>
+    </div>
+</body>
+</html>

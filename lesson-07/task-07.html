@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 07</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 7 | Фуекції</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 7</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            function getTable(rows, columns, message) {
+                document.write(`<table>`)
+                    for (let row = 0; row < rows; row++) {
+                        document.write(`<tr>`)
+                            for (let column = 0; column < columns; column++) {
+                                document.write(`<td style="min-width: 40px; line-height: 20 px; border: 1px solid #fff">`)
+                                    document.write(`${message}`)
+                                document.write(`</td>`)
+                            }
+                        document.write(`</tr>`)
+                    }
+                document.write(`</table>`)
+            }
+
+            const userRowsQuontity = parseInt(prompt('Введіть кількість рядків'))
+            const userColumnsQuontity = parseInt(prompt('Введіть кількість стовбців'))
+            const userMessage = prompt('Введіть повідомлення яке буде відображатисьв таблиці')
+
+            getTable(userRowsQuontity, userColumnsQuontity, userMessage)
+
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 03</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 7 | Фуекції</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 3</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            function getWeekDay(weekDay) {
+                let result 
+                switch (weekDay) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5: 
+                        result = 'Робочий'
+                        break
+                    case 6: 
+                    case 7: 
+                        result = 'Вихідний'
+                        break
+                }
+                return result
+            }
+
+            const userWeekDayNum = parseInt(prompt('Введіть номер тижня - від 1 до 7'))
+            const weekDayResult = getWeekDay(userWeekDayNum)
+            document.write(`Числу ${userWeekDayNum} відповідає день тижня - ${weekDayResult}`)
+
+        </script>
+    </div>
+</body>
+</html>

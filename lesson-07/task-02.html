@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 02</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 7 | Фуекції</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити функцію, яка за номером місяця повертає його назву.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            function getSeason(munth) {
+                let result
+                switch (munth) {
+                    case (1 || 01):
+                        result = 'Січень'
+                        break
+                    case (2 || 02):
+                        result = 'Лютий'
+                        break
+                    case (12): 
+                        result = 'Грудень'
+                        break
+                    case (3 || 03):
+                        result = 'Березень'
+                        break
+                    case (4 || 04):
+                        result = 'Квітень'
+                        break
+                    case (5 || 05): 
+                        result = 'Тревень'
+                        break
+                    case (6 || 06):
+                        result = 'Червень'
+                        break
+                    case (7 || 07):
+                        result = 'Липень'
+                        break
+                    case (8 || 08): 
+                        result = 'Серпень'
+                        break
+                    case (9 || 09):
+                        result = 'Вересень'
+                        break
+                    case (10):
+                        result = 'Жовтень'
+                        break
+                    case (11): 
+                        result = 'Грудень'
+                        break                  
+                }
+                return result
+            }
+            const userMunthNum = parseInt(prompt('Введіть номер місяця'))
+            let munthResult = getSeason(userMunthNum)
+            document.write(`Номеру ${userMunthNum} відповідає пора року ${munthResult}`)
+        </script>
+    </div>
+</body>
+</html>
