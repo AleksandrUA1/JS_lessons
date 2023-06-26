@@ -27,23 +27,23 @@
     </div>
     <div class="script" style="text-align: left;">
         <script>
-            let userSymbol = parseInt(prompt('Введіть перше число'))
-            let resaltSymbol = userSymbol
-            userSymbol = parseInt(prompt('Введіть друге число, воно має відрізнятись від першого'))
+            let userNumber = parseInt(prompt('Введіть перше число'))
+            let temporarilyStoredNumber = userNumber
+            userNumber = parseInt(prompt('Введіть друге число, воно має відрізнятись від першого'))
 
-            if (userSymbol > resaltSymbol) {
+            if (userNumber > temporarilyStoredNumber) {
                 do {
-                    resaltSymbol = userSymbol
-                    userSymbol = parseInt(prompt('Продовжіть вводити числа в зростаючому порядку. Інакше цикл завершиться'))
-                } while (userSymbol > resaltSymbol)
+                    temporarilyStoredNumber = userNumber
+                    userNumber = parseInt(prompt('Продовжіть вводити числа в зростаючому порядку. Інакше цикл завершиться'))
+                } while (userNumber > temporarilyStoredNumber)
                 alert(`Цикл завершено`)
             }
            
-            else if (userSymbol < resaltSymbol) {
+            else if (userNumber < temporarilyStoredNumber) {
                 do {
-                    resaltSymbol = userSymbol
-                    userSymbol = parseInt(prompt('Продовжіть вводити числа в спадаючому порядку. Інакше цикл завершиться'))
-                } while (userSymbol < resaltSymbol)
+                    temporarilyStoredNumber = userNumber
+                    userNumber = parseInt(prompt('Продовжіть вводити числа в спадаючому порядку. Інакше цикл завершиться'))
+                } while (userNumber < temporarilyStoredNumber)
                 alert(`Цикл завершено`)
             }
             

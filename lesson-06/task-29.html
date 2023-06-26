@@ -26,22 +26,22 @@
     </div>
     <div class="script" style="text-align: center;">
         <script>
-            let startCapitalSum = parseInt(prompt(`Введіть розмір стартового капіталу?`))    
+            const startCapitalSum = parseInt(prompt(`Введіть розмір стартового капіталу?`))    
             const expectedCapitalResult = parseInt(prompt(`Яку суму ви бажаєте заробити?`))
             const capitalGainPercentage = parseInt(prompt(`Який щомісячний процент приросту?`))
 
-            let monthOfAccumulationPeriod = 0 // змінна - місяць в інвестиційному періоді
-            let gainOfMonth = startCapitalSum  // змінна - сума капіталу + складний відсоток
+            let monthOfInvestmentPeriod = 0 // місяць в інвестиційному періоді
+            let gainOfMonth = startCapitalSum  // сума капіталу + складний відсоток
 
             do {    
                 gainOfMonth = gainOfMonth + (gainOfMonth * (capitalGainPercentage / 100))  // обчислюємо суму капіталу + складний відсоток за n-місяць
-                monthOfAccumulationPeriod++   // збільшуємо на 1 "кількість місяців"
+                monthOfInvestmentPeriod++   // збільшуємо на 1 "кількість місяців"
             } while (gainOfMonth < expectedCapitalResult)  // цикл повторюватиметься, доки (суму капіталу + складний відсоток) < очікуваного заробітку
 
-            let yearOfAccumulationPeriod = Math.floor(monthOfAccumulationPeriod/12)  // скільки повних років, 
-            monthOfAccumulationPeriod -= (yearOfAccumulationPeriod * 12)  // та скільки місяців длитимиться інвестаційний період
+            let yearOfInvestmentPeriod = Math.floor(monthOfInvestmentPeriod/12)  // скільки повних років, 
+            monthOfInvestmentPeriod -= (yearOfInvestmentPeriod * 12)  // та скільки місяців длитиметься інвестаційний період
 
-            document.write(`За умови наявності стартового капіталу у розмірі ${startCapitalSum}$,\nта за умови щомісячного приросту у розмірі ${capitalGainPercentage}%,\n${expectedCapitalResult}$ ви отримаєте через ${yearOfAccumulationPeriod} р. та ${monthOfAccumulationPeriod} міс.`)
+            document.write(`За умови наявності стартового капіталу у розмірі ${startCapitalSum}$,\nта за умови щомісячного приросту у розмірі ${capitalGainPercentage}%,\n${expectedCapitalResult}$ ви отримаєте через ${yearOfInvestmentPeriod} р. та ${monthOfInvestmentPeriod} міс.`)
 
         </script>
     </div>

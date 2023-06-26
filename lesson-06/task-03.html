@@ -27,13 +27,15 @@
 
     <div class="script">
         <script>
-            let firstUserNumber
+            let firstUserNumber = 0
             let counterNumber = 0
-                do {
-                    firstUserNumber = parseInt(prompt('Введіть будь яке число'))
-                    counterNumber += firstUserNumber
-                } while (counterNumber < 100)
-                confirm(`От і все`)
+            alert('Почніть вводитичисла. Цикл завершиться, коли сума введених чисел буде більшою за 100')
+            do {
+                firstUserNumber = parseInt(prompt('Введіть будь яке число'))
+                counterNumber += firstUserNumber
+                alert(`${counterNumber}`)
+            } while (counterNumber <= 100)
+            alert('От і все')
         </script>
     </div>
 </body>
