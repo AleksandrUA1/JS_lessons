@@ -13,83 +13,62 @@
     <header class="header">
         <div class="container">
             <h2 class="header__title">Бабалик Олександр</h2>
-            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 9 | Масиви</h1>
         </div>
     </header>
 	<div class="container">
         <div class="home-task">
-            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <a class="home-link"  href="lesson09.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 4</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
-                    •	починаються на букву «А»;
-                    •	перша і остання літери співпадають;
-                    •	складаються з більше ніш 5 символів;
-                    </p>
+                <p class="home-task__subtitle">Дано масив елементів. Вивести на екран елементи, що більші за 100</p>
             </div>
         </div>
     </div>
 
     <div class="script" style="text-align: center;">
         <script>
-                function getlistOfCarNumberSymbols(carsQuontity, symbolQuontity) {
-                    let listOfCarsNumberSymbols = new Array(carsQuontity)
-                    for (let i = 0; i < carsQuontity; i++) {
-                        let listOfSymbols = new Array(symbolQuontity)
-                        for (let j = 0; j < symbolQuontity; j++) {
-                            let carNumberSymbols = prompt(`Введіть ${j + 1}-й символ ${i + 1}-го номерного знаку автомобіля`)
-                            listOfSymbols[j] = carNumberSymbols
-                        }
-                        listOfCarsNumberSymbols[i] = listOfSymbols
+            function getMassiv() {
+                let massiv = []
+                let elements
+                out: for (let i = 0; ; i++) {
+                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
+                    massiv.push(elements)
+                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
+                        break out
                     }
-                    return listOfCarsNumberSymbols
                 }
-                 
-                function getFindFirstSymbolA(listOfCarsNumberSymbols) {
-                    let findFirstSymbolA = 0
-                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
-                        if (listOfCarsNumberSymbols[i][0] === 'А') findFirstSymbolA++
+                return massiv
+            }
+            
+            function getNumOver100(massiv) {
+                let numOver100 = []
+                for (const element of massiv) {
+                    if (element > 100) {
+                        numOver100.push(element)
                     }
-                    return findFirstSymbolA
                 }
+                return numOver100
+            }
+           
+            // 1) Вводимо дані
+           
+            
+            // 2) Генеруємо масив  
+            let massiv = getMassiv()
 
-                function getFirstLastSymbolSame(listOfCarsNumberSymbols) {
-                    let firstLastSymbolSame = 0
-                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
-                        if (listOfCarsNumberSymbols[i][0] === listOfCarsNumberSymbols[i][listOfCarsNumberSymbols[i].length - 1])
-                        firstLastSymbolSame++
-                    }
-                    return firstLastSymbolSame
-                }
+            // 3) Знаходимо розв'язок
+            let numOver100 = getNumOver100(massiv)
 
-                function getLengthMore5(listOfCarsNumberSymbols) {
-                    let lengthMore5 = 0
-                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
-                        if (listOfCarsNumberSymbols[i].length > 5) lengthMore5++
-                    }
-                    return lengthMore5
-                }
-
-                // 1) Вводимо дані
-                let carsQuontity = prompt('Яку кількість номерних знаків будемо порівнювати?')
-                let symbolQuontity = prompt('Скільки символів міститься в номерному знакі?')
-
-                // 2) Генеруємо масив
-                let listOfCarsNumberSymbols = getlistOfCarNumberSymbols(carsQuontity, symbolQuontity)
-
-                // 3) Знаходимо розв'язок
-                let findFirstSymbolA = getFindFirstSymbolA(listOfCarsNumberSymbols)
-                let firstLastSymbolSame = getFirstLastSymbolSame(listOfCarsNumberSymbols)
-                let lengthMore5 = getLengthMore5(listOfCarsNumberSymbols)
-
-                // 4) Виводимо результат
-                document.write(`
-                Початкові дані - ${listOfCarsNumberSymbols}<br>
-                Кількість номерів які:<br>
-                Починаються на букву 'А' - ${findFirstSymbolA}<br>
-                Мають однакові перший та останній символ - ${firstLastSymbolSame}<br>
-                Складаються з більше ніж 5 символів - ${lengthMore5}
-                `)
+            // 4) Виводимо результат
+            document.write(`
+            Згенероманий вами масив<br>
+            ${massiv}<br>
+            <br>
+            Елементи, які більші за 100<br>
+            ${numOver100}
+            `)
+                
         </script>
     </div>
 </body>

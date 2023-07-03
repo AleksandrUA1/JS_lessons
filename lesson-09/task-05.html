@@ -13,73 +13,61 @@
     <header class="header">
         <div class="container">
             <h2 class="header__title">Бабалик Олександр</h2>
-            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 9 | Масиви</h1>
         </div>
     </header>
 	<div class="container">
         <div class="home-task">
-            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <a class="home-link"  href="lesson09.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 5</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано послідовність оцінок учня. Підрахувати кількість:
-                    1)	двійок
-                    2)	кількість хороших оцінок (добре, відмінно);
-                    3)	кількість оцінок, які нижче середнього.
-                    </p>
+                <p class="home-task__subtitle">Дано масив елементів. Знайти добуток додатних елементів</p>
             </div>
         </div>
     </div>
 
     <div class="script" style="text-align: center;">
         <script>
-                function getScoreList(scoresQuantity) {
-                    let scoreList = new Array(scoresQuantity)
-                    let score
-                    for (let i = 0; i < scoreList.length; i++) {
-                        score = parseInt(prompt(`Введіть ${i+1}-у оцінку`))
-                        scoreList[i] = score
+            function getMassiv() {
+                let massiv = []
+                let elements
+                out: for (let i = 0; ; i++) {
+                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
+                    massiv.push(elements)
+                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
+                        break out
                     }
-                    return scoreList
                 }
-
-                function getScore2Quantity(scoreList) {
-                    let score2Quantity = 0
-                    let score4and5Quantity = 0
-                    let score3Quantity = 0
-
-                    for (const element of scoreList) {
-                        if (element === 2) {
-                            score2Quantity++
-                        }
-                        if (element >= 4) {
-                            score4and5Quantity++
-                        }
-                        if (element === 3) {
-                            score3Quantity++
-                        }
+                return massiv
+            }
+            
+            function getProductOfPositiveNum(massiv) {
+                let productOfPositiveNum = 1
+                for (const element of massiv) {
+                    if (element > 0) {
+                        productOfPositiveNum *= element
                     }
-                    return [score2Quantity, score4and5Quantity, score3Quantity]
                 }
+                return productOfPositiveNum
+            }
+           
+            // 1) Вводимо дані
+           
+            
+            // 2) Генеруємо масив  
+            let massiv = getMassiv()
 
-                // 1) Вводимо дані
-                let scoresQuantity = parseInt(prompt('Скільки оцінок перевіряємо?'))
+            // 3) Знаходимо розв'язок
+            let productOfPositiveNum = getProductOfPositiveNum(massiv)
 
-                // 2) Генеруємо масив
-                let scoreList = getScoreList(scoresQuantity)
-
-                // 3) Знаходимо розв'язок
-                let scoresValue = getScore2Quantity(scoreList)
-
-                // 4) Виводимо результат
-                document.write(`
-                Послідовність оцінок учня - ${scoreList} <br>
-                <br>
-                
-                Кількість:<br>
-                    1)	двійок - ${scoresValue[0]} <br>
-                    2)	кількість хороших оцінок (добре, відмінно) - ${scoresValue[1]} <br>
-                    3)	кількість оцінок, які нижче середнього - ${scoresValue[2]} <br>
-                `)
+            // 4) Виводимо результат
+            document.write(`
+            Згенероманий вами масив<br>
+            ${massiv}<br>
+            <br>
+            Добуток додатніх елементів<br>
+            ${productOfPositiveNum}
+            `)
                 
         </script>
     </div>

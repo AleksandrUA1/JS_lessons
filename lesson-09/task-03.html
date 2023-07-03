@@ -13,57 +13,38 @@
     <header class="header">
         <div class="container">
             <h2 class="header__title">Бабалик Олександр</h2>
-            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 9 | Масиви</h1>
         </div>
     </header>
 	<div class="container">
         <div class="home-task">
-            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <a class="home-link"  href="lesson09.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 3</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
+                <p class="home-task__subtitle">Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.</p>
             </div>
         </div>
     </div>
 
     <div class="script" style="text-align: center;">
         <script>
-                function getSchooldoysNamesList(qountityOfSchoolboys) {
-                    let schooldoyName = ''
-                    let schooldoysNamesList = []
-                    for (let i = 0; i < qountityOfSchoolboys; i++) {
-                        schooldoyName = prompt(`Введіть ім'я ${i + 1}-го учня`)
-                        schooldoysNamesList.push(schooldoyName)
-                    }
-                    return schooldoysNamesList
-                }
+            function getMassiv(elementsCount) {
+                let massiv = new Array(elementsCount)
 
-                function getCountIvanNames(schooldoysNamesList) {
-                    let countIvanNames = 0
-                    
-                    for (const element of schooldoysNamesList) {
-                        if (element === 'Іван') countIvanNames++
-                    }
-                    
-                    return countIvanNames
-                }
+                massiv.fill(1);
+                massiv.fill(7, 5);
+                return massiv
+            }
+           
+            // 1) Вводимо дані
+            let elementsCount = parseInt(prompt('Введіть якою має бути кількість елементів в масиві?'))
+            
+            // 2) Генеруємо масив  // 3) Знаходимо розв'язок
+            let massiv = getMassiv(elementsCount)
 
-                // 1) Вводимо дані
-                let qountityOfSchoolboys = parseInt(prompt('Введіть яку кількість імен будемо перевіряти?'))
-
-                // 2) Генеруємо масив
-                let schooldoysNamesList = getSchooldoysNamesList(qountityOfSchoolboys)
-
-                // 3) Знаходимо ров'язок
-                let counterNameIvan = getCountIvanNames(schooldoysNamesList)
-
-                // 4) Виводимо результат
-                document.write(`
-                Перелік імен учнів<br>
-                ${schooldoysNamesList}<br>
-                Ім'я Іван зустрічається ${counterNameIvan} рази
-                `)
-
+            // 4) Виводимо результат
+            document.write(`${massiv}`)
+                
         </script>
     </div>
 </body>
