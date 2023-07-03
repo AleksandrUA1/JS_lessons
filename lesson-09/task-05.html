@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 5</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 5</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано послідовність оцінок учня. Підрахувати кількість:
+                    1)	двійок
+                    2)	кількість хороших оцінок (добре, відмінно);
+                    3)	кількість оцінок, які нижче середнього.
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+                function getScoreList(scoresQuantity) {
+                    let scoreList = new Array(scoresQuantity)
+                    let score
+                    for (let i = 0; i < scoreList.length; i++) {
+                        score = parseInt(prompt(`Введіть ${i+1}-у оцінку`))
+                        scoreList[i] = score
+                    }
+                    return scoreList
+                }
+
+                function getScore2Quantity(scoreList) {
+                    let score2Quantity = 0
+                    let score4and5Quantity = 0
+                    let score3Quantity = 0
+
+                    for (const element of scoreList) {
+                        if (element === 2) {
+                            score2Quantity++
+                        }
+                        if (element >= 4) {
+                            score4and5Quantity++
+                        }
+                        if (element === 3) {
+                            score3Quantity++
+                        }
+                    }
+                    return [score2Quantity, score4and5Quantity, score3Quantity]
+                }
+
+                // 1) Вводимо дані
+                let scoresQuantity = parseInt(prompt('Скільки оцінок перевіряємо?'))
+
+                // 2) Генеруємо масив
+                let scoreList = getScoreList(scoresQuantity)
+
+                // 3) Знаходимо розв'язок
+                let scoresValue = getScore2Quantity(scoreList)
+
+                // 4) Виводимо результат
+                document.write(`
+                Послідовність оцінок учня - ${scoreList} <br>
+                <br>
+                
+                Кількість:<br>
+                    1)	двійок - ${scoresValue[0]} <br>
+                    2)	кількість хороших оцінок (добре, відмінно) - ${scoresValue[1]} <br>
+                    3)	кількість оцінок, які нижче середнього - ${scoresValue[2]} <br>
+                `)
+                
+        </script>
+    </div>
+</body>
+</html>

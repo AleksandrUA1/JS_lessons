@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 7</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 7</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+                    1)	за весь рік;
+                    2)	у першій половині року;
+                    3)	у другій половині року;
+                    4)	за літо;
+                    5)	за ІІ квартал;
+                    6)	за парні місяці (з парними номерами);
+                    7)	за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getPaymentHistory(paymentsQuantity) {
+                let paymentHistory = new Array(paymentsQuantity)
+                for (let i = 0; i < paymentsQuantity; i++) {
+                    let paymentAmount = parseInt(prompt(`Введіть розмір ${i + 1}-го платежа`))
+                    paymentHistory[i] = paymentAmount
+                }
+                return paymentHistory
+            }
+
+            function getPaymentsResults(paymentHistory) {
+                let paymentsSumOfOllTime = 0
+                let paymentsSumOfFirst6Month = 0
+                let paymentsSumOfLast6Month = 0
+                let paymentsSumPerSummer = 0
+                let paymentsSumOf2Quarter = 0
+                let paymentsSumPerEvenMunts = 0
+                let paymentsSumPerFirstMuntsOfEverySeasons = 0
+                
+                paymentHistory.forEach((element, index) => {
+                    paymentsSumOfOllTime += element
+                
+                    if (index < 6) paymentsSumOfFirst6Month += element 
+
+                    if (index >= 6) paymentsSumOfLast6Month += element 
+                
+                    if (index >= 5 && index <= 7) paymentsSumPerSummer += element
+                
+                    if (index >= 3 && index <= 5) paymentsSumOf2Quarter += element    
+               
+                    if (index % 2 !== 0) paymentsSumPerEvenMunts += element    
+                })
+
+                for (let i = 2; i < paymentHistory.length; i += 3) {
+                    paymentsSumPerFirstMuntsOfEverySeasons += paymentHistory[i]
+                }
+                
+                return [paymentsSumOfOllTime,
+                paymentsSumOfFirst6Month,
+                paymentsSumOfLast6Month,
+                paymentsSumPerSummer,
+                paymentsSumOf2Quarter,
+                paymentsSumPerEvenMunts,
+                paymentsSumPerFirstMuntsOfEverySeasons,]
+            }
+
+            
+            // 1) Вводимо дані
+            let paymentsQuantity = 12
+
+            // 2) Генеруємо масив
+            let paymentHistory = getPaymentHistory(paymentsQuantity)
+
+            // 3) Знаходимо розв'язок
+            let paymentsResults = getPaymentsResults(paymentHistory)
+
+            // 4) Виводимо результат
+            document.write(`
+            Послідовність платежів протягом року - ${paymentHistory} <br>
+                    1)	Сума платежів за весь рік - ${paymentsResults[0]} <br>
+                    2)	Сума платежів у першій половині року - ${paymentsResults[1]} <br>
+                    3)	Сума платежів у другій половині року - ${paymentsResults[2]} <br>
+                    4)	Сума платежів за літо - ${paymentsResults[3]} <br>
+                    5)	Сума платежів за ІІ квартал - ${paymentsResults[4]} <br>
+                    6)	Сума платежів за парні місяці (з парними номерами) - ${paymentsResults[5]} <br>
+                    7)	Сума платежів за місяці, які є початковими у сезоні (весна, літо, осінь, зима) - ${paymentsResults[6]} <br>
+            `)
+
+        </script>
+    </div>
+</body>
+</html>
