@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 4</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 4</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+                    •	починаються на букву «А»;
+                    •	перша і остання літери співпадають;
+                    •	складаються з більше ніш 5 символів;
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+                function getlistOfCarNumberSymbols(carsQuontity, symbolQuontity) {
+                    let listOfCarsNumberSymbols = new Array(carsQuontity)
+                    for (let i = 0; i < carsQuontity; i++) {
+                        let listOfSymbols = new Array(symbolQuontity)
+                        for (let j = 0; j < symbolQuontity; j++) {
+                            let carNumberSymbols = prompt(`Введіть ${j + 1}-й символ ${i + 1}-го номерного знаку автомобіля`)
+                            listOfSymbols[j] = carNumberSymbols
+                        }
+                        listOfCarsNumberSymbols[i] = listOfSymbols
+                    }
+                    return listOfCarsNumberSymbols
+                }
+                 
+                function getFindFirstSymbolA(listOfCarsNumberSymbols) {
+                    let findFirstSymbolA = 0
+                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
+                        if (listOfCarsNumberSymbols[i][0] === 'А') findFirstSymbolA++
+                    }
+                    return findFirstSymbolA
+                }
+
+                function getFirstLastSymbolSame(listOfCarsNumberSymbols) {
+                    let firstLastSymbolSame = 0
+                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
+                        if (listOfCarsNumberSymbols[i][0] === listOfCarsNumberSymbols[i][listOfCarsNumberSymbols[i].length - 1])
+                        firstLastSymbolSame++
+                    }
+                    return firstLastSymbolSame
+                }
+
+                function getLengthMore5(listOfCarsNumberSymbols) {
+                    let lengthMore5 = 0
+                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
+                        if (listOfCarsNumberSymbols[i].length > 5) lengthMore5++
+                    }
+                    return lengthMore5
+                }
+
+                // 1) Вводимо дані
+                let carsQuontity = prompt('Яку кількість номерних знаків будемо порівнювати?')
+                let symbolQuontity = prompt('Скільки символів міститься в номерному знакі?')
+
+                // 2) Генеруємо масив
+                let listOfCarsNumberSymbols = getlistOfCarNumberSymbols(carsQuontity, symbolQuontity)
+
+                // 3) Знаходимо розв'язок
+                let findFirstSymbolA = getFindFirstSymbolA(listOfCarsNumberSymbols)
+                let firstLastSymbolSame = getFirstLastSymbolSame(listOfCarsNumberSymbols)
+                let lengthMore5 = getLengthMore5(listOfCarsNumberSymbols)
+
+                // 4) Виводимо результат
+                document.write(`
+                Початкові дані - ${listOfCarsNumberSymbols}<br>
+                Кількість номерів які:<br>
+                Починаються на букву 'А' - ${findFirstSymbolA}<br>
+                Мають однакові перший та останній символ - ${firstLastSymbolSame}<br>
+                Складаються з більше ніж 5 символів - ${lengthMore5}
+                `)
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 1</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 1</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії відноситься учень (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+                function getSchoolGrades(quontityOfSchoolSubjects) {
+                    let schoolGrades = new Array(quontityOfSchoolSubjects)
+                     
+                    for (let i = 0; i < quontityOfSchoolSubjects; i++) {
+                        let grade = parseInt(prompt(`Введіть оцінку ${i + 1}-го предмету (від 2 до 5)`))
+                        schoolGrades[i] = grade
+                    }
+                    return schoolGrades
+                }
+
+                function getStudentCategory(schoolGrades) {
+                    let minimalValue = schoolGrades[0]
+                    for (const element of schoolGrades) {
+                        if (element < minimalValue) 
+                        minimalValue = element 
+                    }
+                    
+                    let studentCategory = ''
+                    switch (minimalValue) {
+                        case 1:
+                        case 2:
+                            studentCategory = 'Двійошник'
+                            break
+                        case 3:
+                            studentCategory = 'Трійошник'
+                            break
+                        case 4:
+                            studentCategory = 'Хорошоист'
+                            break
+                        case 5:
+                            studentCategory = 'Відмінник'
+                            break
+                        default:
+                            alert('Введено хибні дані')
+                            break;
+                    }
+                    return studentCategory
+                }
+
+                function getAverageScore(schoolGrades) {
+                    let sumScore = 0
+                    for (let element of schoolGrades) {
+                        sumScore += element
+                    }
+                    let averageScore = sumScore / schoolGrades.length
+                    return averageScore
+                }
+                
+                // 1) Генеруємо масив 
+                const quontityOfSchoolSubjects = parseInt(prompt('Введіть кількість предметів'))
+               
+                // 2) Знаходимо розв'язок
+                let schoolGrades =  getSchoolGrades(quontityOfSchoolSubjects)
+                let studentCategory = getStudentCategory(schoolGrades)
+                let averageScore = getAverageScore(schoolGrades)              
+
+                //3) Виводимо результат
+                document.write(`Знайти середній бал учня - ${averageScore}<br>
+                Учень відноситься до категорії - ${studentCategory}`)
+                
+        </script>
+    </div>
+</body>
+</html>

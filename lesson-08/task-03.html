@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 3</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 3</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+                function getSchooldoysNamesList(qountityOfSchoolboys) {
+                    let schooldoyName = ''
+                    let schooldoysNamesList = []
+                    for (let i = 0; i < qountityOfSchoolboys; i++) {
+                        schooldoyName = prompt(`Введіть ім'я ${i + 1}-го учня`)
+                        schooldoysNamesList.push(schooldoyName)
+                    }
+                    return schooldoysNamesList
+                }
+
+                function getCountIvanNames(schooldoysNamesList) {
+                    let countIvanNames = 0
+                    
+                    for (const element of schooldoysNamesList) {
+                        if (element === 'Іван') countIvanNames++
+                    }
+                    
+                    return countIvanNames
+                }
+
+                // 1) Вводимо дані
+                let qountityOfSchoolboys = parseInt(prompt('Введіть яку кількість імен будемо перевіряти?'))
+
+                // 2) Генеруємо масив
+                let schooldoysNamesList = getSchooldoysNamesList(qountityOfSchoolboys)
+
+                // 3) Знаходимо ров'язок
+                let counterNameIvan = getCountIvanNames(schooldoysNamesList)
+
+                // 4) Виводимо результат
+                document.write(`
+                Перелік імен учнів<br>
+                ${schooldoysNamesList}<br>
+                Ім'я Іван зустрічається ${counterNameIvan} рази
+                `)
+
+        </script>
+    </div>
+</body>
+</html>

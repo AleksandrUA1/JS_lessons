@@ -35,18 +35,28 @@
                 
                 previosChar = charCode - 1
                 if (previosChar < 97) {
-                    previosChar = undefined
+                    previosChar = ''
                 }
                 previosChar = String.fromCharCode (previosChar)
                 
                 nextChar = charCode + 1
                 if (nextChar > 122) {
-                    nextChar = undefined
+                    nextChar = ''
                 }
                 nextChar = String.fromCharCode (nextChar)
                 
                 document.write(`${previosChar} - ${carrentChar} - ${nextChar}<br>`)
             }
+
+let studentNumber = parseInt(prompt('Введіть кількість учнів'))
+let studentAges = new Array(studentNumber)
+for (let i = 0; i < studentAge.length; i++) {
+    let studentAge = parseInt(prompt(`Введіть вік ${i}-го учня`))
+    studentAges[i] = studentAge
+    
+}
+
+
         </script>
     </div>
 </body>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 31</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 6 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 31</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Морський бій. Комп’ютер випадковим чином розміщує одиночний корамель на полі 5*5. З клавіатури поступово вводяться координати пострілу поки корабель не буде потоплено. Спробуйте відоразити гру графічно.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+                const randonRowShipPosition = Math.floor((Math.random()*10)+1)
+                const randonColumnShipPosition = Math.floor((Math.random()*10)+1)                  
+                const playingFieldSize = 10
+
+                let userRowShipShot = ''
+                let userColumnShipShot = ''
+
+            
+                    
+                    userRowShipShot = parseInt(prompt('Введіть номер ряду, в якому на вашу думку знаходиться корабель'))
+                    userColumnShipShot = parseInt(prompt('Введіть номер стовбця, в якому на вашу думку знаходиться корабель'))   
+                    
+                        document.write(`<table>`)
+                        
+                            for (let tr = 1; tr <= playingFieldSize; tr++) {
+                                document.write(`<tr>`)
+                            
+                                for (let td = 1; td <= playingFieldSize; td++) {
+                                    
+                                    document.write(`<td style="width: 50px; height: 50px; margin: 2px; background-color: rgb(179, 241, 241); `)
+                                    
+                                        if (userRowShipShot === tr && userColumnShipShot === td) // мимо
+                                            {
+                                            document.write(`background-color: rgb(100, 148, 160);`)
+                                            }
+                                    
+                                        else if (userRowShipShot === tr && userColumnShipShot === td && userRowShipShot === randonRowShipPosition && userColumnShipShot === randonColumnShipPosition) 
+                                            {
+                                            document.write(`background-color: rgb(146, 225, 245);`) // попав
+                                            }
+                            
+                                    document.write(`border: #fff;"></td>`)                                   
+                                   
+                                }
+                                document.write(`</tr>`)  
+                            }
+                        document.write(`</table>`)
+        </script>
+    </div>
+</body>
+</html>
