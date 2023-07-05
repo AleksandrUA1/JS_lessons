@@ -28,19 +28,54 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            
+            function getGame(PLAY_SPACE, SHIP_COUNT) {
+
+                let game = new Array(PLAY_SPACE).fill(0)
+                
+                for (let ship = 0; ship < SHIP_COUNT; ) {
+                    let shipPosition = Math.floor(Math.random()*PLAY_SPACE)
+                    if (game[shipPosition] === 0) {
+                        game[shipPosition] = 1
+                        ship++
+                    }                    
+                }
+                return game
+            }
+
+            function getPlayResult(game) {
+                let playResult = [...game]
+                let ship_count = SHIP_COUNT
+                
+                do {
+                    let userShot = parseInt(prompt(`Оберіть номер клітинки для пострілку. Від 0 до ${game.length - 1}`))
+                        if (playResult[userShot] === 1) {
+                            playResult[userShot] = 0
+                            alert('Вітаємо! Ви влучили!')
+                            ship_count--
+                        }
+                        else alert('Мимо')
+                          
+                } while (ship_count > 0);
+                
+                alert('Вітаємо! Всі кораблі потоплені!')
+                return playResult
+            } 
 
             // 1) Вводимо дані
-            
+            const PLAY_SPACE = parseInt(prompt('Введіть розмір ігрового поля'))
+            const SHIP_COUNT = parseInt(prompt('Введіть кількість кораблів'))
 
             // 2) Генеруємо масив
-            
+            let game = getGame(PLAY_SPACE, SHIP_COUNT)
 
             // 3) Знаходимо розв'язок
-            
+            let playResult = getPlayResult(game)
 
             // 4) Виводимо результат
-
+            document.write(`
+            Початкове розміщення корабілв на ігровому полі<br>
+            ${game}
+            `)
         </script>
     </div>
 </body>

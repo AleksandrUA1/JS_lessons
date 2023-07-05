@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 8</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 9 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson09.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 8</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getMassiv(numbersCount) {
+                const massiv = []
+                let elements
+                for (let i = 0; i < numbersCount; i++) {
+                    elements = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
+                    massiv.push(elements)
+                }
+                return massiv
+            }
+
+            function getNewMassivWithFirstLetterA(massiv) {
+                const newMassivWithFirstLetterA = []
+                massiv.forEach((element, index, arr) => {
+                    if (element[0] === "a" || element[0] === "A" ) {
+                        newMassivWithFirstLetterA.push(element)
+                    }
+                })
+                
+                return newMassivWithFirstLetterA
+            }
+           
+            // 1) Вводимо дані
+            const numbersCount = parseInt(prompt(`Скільки номерів будемо порівнювати?`))
+            
+            // 2) Генеруємо масив  
+            const massiv = getMassiv(numbersCount)
+            
+            // 3) Знаходимо розв'язок
+            const newMassiv = getNewMassivWithFirstLetterA(massiv)
+
+            // 4) Виводимо результат
+            document.write(`
+            ${massiv}<br>
+            ${newMassiv}
+            `)
+                
+        </script>
+    </div>
+</body>
+</html>
