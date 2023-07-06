@@ -27,24 +27,31 @@
     
     <div class="script">
         <script>
-             function positiveTemperaturesIndicator() {
-                let quontityPositiveIndicators = 0
-                let totalSumOfPositiveTemperatures = 0
-                let averageTemperature = 0
-                for (let i = 0; ; i++) {
-                    let userNumbers = parseInt(prompt(`Введіть будь-який показник температури`))
-                    if (userNumbers > 0) {
-                        quontityPositiveIndicators++
-                        totalSumOfPositiveTemperatures += userNumbers
+            function getFindAverageOfPositiveNum(temperatureList) {
+                let positiveNum = 0
+                let positiveNumCount = 0
+                temperatureList.forEach(element => {
+                    if (element > 0) {
+                        positiveNum += element
+                        positiveNumCount++
                     }
-                    if (!userNumbers)
-                        break
-                }
-                averageTemperature = totalSumOfPositiveTemperatures / quontityPositiveIndicators
-                return averageTemperature
+                })
+                let averageOfPositiveNum = positiveNum / positiveNumCount
+                return averageOfPositiveNum
+            }
+
+             let temperatureList = []
+             let userData
+             out: for (let i = 0; ; i++) {
+                userData = parseInt(prompt(`Введіть ${i + 1}-й показник температури`)) 
+                temperatureList.push(userData)
+                if ((confirm(`Введені вами показники температур \n${temperatureList} \nБажаєте продовжити?`)) === false)
+                    break out;
              }
-             let result = positiveTemperaturesIndicator()
-             document.write(`Середнє значення для додатних показів температури - ${result}`) 
+
+             let averageOfPositiveNum = getFindAverageOfPositiveNum(temperatureList)
+             
+             document.write(`${averageOfPositiveNum}`)
         </script>
     </div>
 </body>

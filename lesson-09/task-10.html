@@ -21,51 +21,45 @@
             <a class="home-link"  href="lesson09.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 10</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого податку у грн.</p>
+                <p class="home-task__subtitle">Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величини сплаченого податку у грн.</p>
             </div>
         </div>
     </div>
 
     <div class="script" style="text-align: center;">
-        <script>
-            function getMassiv() {
-                let massiv = []
-                let elements
-                out: for (let i = 0; ; i++) {
-                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
-                    massiv.push(elements)
-                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
-                        break out
-                    }
-                }
-                return massiv
-            }
-
-            function getTaxMassiv(massiv) {
-                let taxMassiv = []
+        <script> 
+            function getTaxList(priceList) {
+                let taxList = []
                 let newElement = 0
 
-                massiv.forEach((element, index, arr) => {
+                priceList.forEach((element, index, arr) => {
                     newElement = (element / 100) * 20
-                    taxMassiv.push(newElement)
+                    taxList.push(newElement)
                 })
 
-                return taxMassiv
+                return taxList
             }
            
             // 1) Вводимо дані
-           
             
             // 2) Генеруємо масив  
-            let massiv = getMassiv()
+                let priceList = []
+                let elements
+                out: for (let i = 0; ; i++) {
+                    elements = parseInt(prompt(`Введіть розмір ${i+1}-го платежу?`))
+                    priceList.push(elements)
+                    if (confirm(`${priceList} \nБажаєте продовжити?`) === false) {
+                        break out
+                    }
+                }
             
             // 3) Знаходимо розв'язок
-            let taxMassiv = getTaxMassiv(massiv)
+            let taxList = getTaxList(priceList)
 
             // 4) Виводимо результат
             document.write(`
-           Введений вами масив цін - ${massiv}<br>
-           Розмір податку - ${taxMassiv}
+            Історія платежів - ${priceList}<br>
+            Розмір сплаченого податку (20%) - ${taxList}
             `)
                 
         </script>

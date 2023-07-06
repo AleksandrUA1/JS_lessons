@@ -28,16 +28,7 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getLottery(lotteryListLength) {
-                let lottery = []
-                let lotteryNum 
-                for (let i = 0; i < lotteryListLength; i++) {
-                    lotteryNum = Math.floor(((Math.random()*1000) + 1) - 500)
-                    lottery.push(lotteryNum)
-                }
-                return lottery
-            }
-
+            
             function getLotteryTry(lottery) {
                 let userChoice
                 let lotteryWinSum = 0
@@ -51,12 +42,16 @@
                 }
             }
 
-
             // 1) Вводимо дані
             let lotteryListLength = 10
 
             // 2) Генеруємо масив
-            let lottery = getLottery(lotteryListLength)
+                let lottery = []
+                let lotteryNum 
+                for (let i = 0; i < lotteryListLength; i++) {
+                    lotteryNum = Math.floor(((Math.random()*1000) + 1) - 500)
+                    lottery.push(lotteryNum)
+                }
 
             // 3) Знаходимо розв'язок
             let lotteryTry = getLotteryTry(lottery)

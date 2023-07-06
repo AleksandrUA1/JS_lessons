@@ -33,15 +33,6 @@
 
     <div class="script" style="text-align: center;">
         <script>
-                function getVisitorsQuontityOfOllPeriod() {    
-                    let visitorsQuontityOfOllPeriod = []   
-                    for (let i = 0; i < 7; i++) {              
-                        let visitorsQuontityPerDay = parseInt(prompt(`Введіть кількість відвідувачів ${i + 1}-го дня`))
-                        visitorsQuontityOfOllPeriod.push(visitorsQuontityPerDay)
-                    }
-                    return visitorsQuontityOfOllPeriod
-                }
-
                 function getVisitorsQuontityBelow20PerDay(visitorsQuontityOfOllPeriod) {
                     let visitorsQuontityBelow20PerDay = []
                     
@@ -82,8 +73,12 @@
                     return [quontityVisitorsPerWorkDays, quontityVisitorsPerWeekendkDays]
                 }
                 
-                // 1) Генеруємо масиви
-                let visitorsQuontityOfOllPeriod = getVisitorsQuontityOfOllPeriod()
+                // 1) Вводимо дані та Генеруємо масив
+                let visitorsQuontityOfOllPeriod = []   
+                    for (let i = 0; i < 7; i++) {              
+                        let visitorsQuontityPerDay = parseInt(prompt(`Введіть кількість відвідувачів ${i + 1}-го дня`))
+                        visitorsQuontityOfOllPeriod.push(visitorsQuontityPerDay)
+                    }
                 
                 // 2) Знаходимо розв'язок
                 let visitorsQuontityBelow20PerDay = getVisitorsQuontityBelow20PerDay(visitorsQuontityOfOllPeriod)

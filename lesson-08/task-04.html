@@ -32,59 +32,54 @@
 
     <div class="script" style="text-align: center;">
         <script>
-                function getlistOfCarNumberSymbols(carsQuontity, symbolQuontity) {
-                    let listOfCarsNumberSymbols = new Array(carsQuontity)
-                    for (let i = 0; i < carsQuontity; i++) {
-                        let listOfSymbols = new Array(symbolQuontity)
-                        for (let j = 0; j < symbolQuontity; j++) {
-                            let carNumberSymbols = prompt(`Введіть ${j + 1}-й символ ${i + 1}-го номерного знаку автомобіля`)
-                            listOfSymbols[j] = carNumberSymbols
+                function getFindFirstSymbolA(listOfCarsNumber) {
+                    let findFirstSymbolA = []
+                    listOfCarsNumber.forEach(element => {
+                        if (element[0] === "A" || element[0] === "a") { //букви Латинського алфавіту
+                            findFirstSymbolA.push(element)
                         }
-                        listOfCarsNumberSymbols[i] = listOfSymbols
-                    }
-                    return listOfCarsNumberSymbols
-                }
-                 
-                function getFindFirstSymbolA(listOfCarsNumberSymbols) {
-                    let findFirstSymbolA = 0
-                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
-                        if (listOfCarsNumberSymbols[i][0] === 'А') findFirstSymbolA++
-                    }
+                    })
                     return findFirstSymbolA
-                }
+                }  
 
-                function getFirstLastSymbolSame(listOfCarsNumberSymbols) {
-                    let firstLastSymbolSame = 0
-                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
-                        if (listOfCarsNumberSymbols[i][0] === listOfCarsNumberSymbols[i][listOfCarsNumberSymbols[i].length - 1])
-                        firstLastSymbolSame++
-                    }
+                function getFirstLastSymbolSame(listOfCarsNumber) {
+                    let firstLastSymbolSame = []
+                    listOfCarsNumber.forEach(element => {
+                        if (element[0] === element[element.length - 1]) {
+                            firstLastSymbolSame.push(element)        
+                        }  
+                    })
                     return firstLastSymbolSame
                 }
 
-                function getLengthMore5(listOfCarsNumberSymbols) {
-                    let lengthMore5 = 0
-                    for (let i = 0; i < listOfCarsNumberSymbols.length; i++) {
-                        if (listOfCarsNumberSymbols[i].length > 5) lengthMore5++
-                    }
+                function getLengthMore5(listOfCarsNumber) {
+                    let lengthMore5 = []
+                    listOfCarsNumber.forEach(element => {
+                        if (element.length > 5) {
+                            lengthMore5.push(element)
+                        }    
+                    })
                     return lengthMore5
                 }
 
-                // 1) Вводимо дані
-                let carsQuontity = prompt('Яку кількість номерних знаків будемо порівнювати?')
-                let symbolQuontity = prompt('Скільки символів міститься в номерному знакі?')
+                // 1) Вводимо дані              
 
                 // 2) Генеруємо масив
-                let listOfCarsNumberSymbols = getlistOfCarNumberSymbols(carsQuontity, symbolQuontity)
+                let listOfCarsNumber = []
+                let userData
+                do {
+                    userData = prompt('Введіть номер автомобіля')
+                    listOfCarsNumber.push(userData)
+                } while (confirm(`Номери автомобілів \n${listOfCarsNumber} \nБажаєте продовжити?`) === true);
 
                 // 3) Знаходимо розв'язок
-                let findFirstSymbolA = getFindFirstSymbolA(listOfCarsNumberSymbols)
-                let firstLastSymbolSame = getFirstLastSymbolSame(listOfCarsNumberSymbols)
-                let lengthMore5 = getLengthMore5(listOfCarsNumberSymbols)
+                let findFirstSymbolA = getFindFirstSymbolA(listOfCarsNumber)
+                let firstLastSymbolSame = getFirstLastSymbolSame(listOfCarsNumber)
+                let lengthMore5 = getLengthMore5(listOfCarsNumber)
 
                 // 4) Виводимо результат
                 document.write(`
-                Початкові дані - ${listOfCarsNumberSymbols}<br>
+                Початкові дані - ${listOfCarsNumber}<br>
                 Кількість номерів які:<br>
                 Починаються на букву 'А' - ${findFirstSymbolA}<br>
                 Мають однакові перший та останній символ - ${firstLastSymbolSame}<br>

@@ -28,40 +28,35 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv(numbersCount) {
-                const massiv = []
-                let elements
-                for (let i = 0; i < numbersCount; i++) {
-                    elements = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
-                    massiv.push(elements)
-                }
-                return massiv
-            }
-
-            function getNewMassivWithFirstLetterA(massiv) {
-                const newMassivWithFirstLetterA = []
-                massiv.forEach((element, index, arr) => {
+            function getCarNumberListWithFirstLetterA(carNumberList) {
+                let carNumberListWithFirstLetterA = []
+                carNumberList.forEach(element => {
                     if (element[0] === "a" || element[0] === "A" ) {
-                        newMassivWithFirstLetterA.push(element)
+                        carNumberListWithFirstLetterA.push(element)
                     }
                 })
                 
-                return newMassivWithFirstLetterA
+                return carNumberListWithFirstLetterA
             }
            
             // 1) Вводимо дані
-            const numbersCount = parseInt(prompt(`Скільки номерів будемо порівнювати?`))
+            let carNumbersCount = parseInt(prompt(`Скільки номерів будемо порівнювати?`))
             
             // 2) Генеруємо масив  
-            const massiv = getMassiv(numbersCount)
-            
+                let carNumberList = []
+                let elements
+                for (let i = 0; i < carNumbersCount; i++) {
+                    elements = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
+                    carNumberList.push(elements)
+                }
+               
             // 3) Знаходимо розв'язок
-            const newMassiv = getNewMassivWithFirstLetterA(massiv)
+            const carNumberListWithFirstLetterA = getCarNumberListWithFirstLetterA(carNumberList)
 
             // 4) Виводимо результат
             document.write(`
-            ${massiv}<br>
-            ${newMassiv}
+            ${carNumberList}<br>
+            ${carNumberListWithFirstLetterA}
             `)
                 
         </script>

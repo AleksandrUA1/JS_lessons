@@ -21,51 +21,45 @@
             <a class="home-link"  href="lesson09.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 7</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.</p>
+                <p class="home-task__subtitle">Дано масив цін. Змінити цей масив так, щоб на ціни товарів, які більші за 1000 грн. дати 30% знижки.</p>
             </div>
         </div>
     </div>
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv() {
-                let massiv = []
-                let elements
-                out: for (let i = 0; ; i++) {
-                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
-                    massiv.push(elements)
-                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
-                        break out
-                    }
-                }
-                return massiv
-            }
-
-            function getNewMassiv(massiv) {
-                let newMassiv = [...massiv]
+            function getPriceListDiscount(priceList) {
+                let priceListDiscount = [...priceList]
                 
-                newMassiv.forEach((element, index, arr) => {
+                priceListDiscount.forEach((element, index, arr) => {
                     if (element > 1000) {
                         arr[index] = (element / 100) * 70
                     }
                 })
 
-                return newMassiv
+                return priceListDiscount
             }
            
             // 1) Вводимо дані
-           
             
             // 2) Генеруємо масив  
-            let massiv = getMassiv()
+                let priceList = []
+                let elements
+                out: for (let i = 0; ; i++) {
+                    elements = parseInt(prompt(`Введіть ціну ${i+1}-го товару`))
+                    priceList.push(elements)
+                    if (confirm(`${priceList} \nБажаєте продовжити?`) === false) {
+                        break out
+                    }
+                }
             
             // 3) Знаходимо розв'язок
-            let newMassiv = getNewMassiv(massiv)
+            let priceListDiscount = getPriceListDiscount(priceList)
 
             // 4) Виводимо результат
             document.write(`
-           Введений вами масив - ${massiv}<br>
-           Обчислений масив - ${newMassiv}
+            Введені вами ціни - ${priceList}<br>
+            Ціни зі знижками - ${priceListDiscount}
             `)
                 
         </script>

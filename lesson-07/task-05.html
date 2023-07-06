@@ -36,7 +36,7 @@
                 evenResult++
                 if (c % 2 === 0)
                 evenResult++
-                return (evenResult) 
+                return evenResult 
             }
             function getPositiveNumbers(a, b, c) {
                 let evenResult = 0
@@ -47,7 +47,7 @@
                 evenResult++
                 if (c > 0)
                 evenResult++
-                return (evenResult) 
+                return evenResult 
             }
             function getNumberGreterOf100(a, b, c) {
                 let evenResult = 0
@@ -58,16 +58,16 @@
                 evenResult++
                 if (c > 100)
                 evenResult++
-                return (evenResult) 
+                return evenResult 
             }
             
-            const NumA = parseInt(prompt('Введіть перше число'))
-            const NumB = parseInt(prompt('Введіть друге число'))
-            const NumC = parseInt(prompt('Введіть третє число'))
+            const numA = parseInt(prompt('Введіть перше число'))
+            const numB = parseInt(prompt('Введіть друге число'))
+            const numC = parseInt(prompt('Введіть третє число'))
            
-            let evenOfUserNumbers = getEvenOfNumbers(NumA, NumB, NumC)
-            let positiveOfUserNumbers = getPositiveNumbers(NumA, NumB, NumC)
-            let numberGreterOf100 = getNumberGreterOf100(NumA, NumB, NumC)
+            let evenOfUserNumbers = getEvenOfNumbers(numA, numB, numC)
+            let positiveOfUserNumbers = getPositiveNumbers(numA, numB, numC)
+            let numberGreterOf100 = getNumberGreterOf100(numA, numB, numC)
             
             document.write(`
             Кількість парних чисел серед введених = ${evenOfUserNumbers}<br>

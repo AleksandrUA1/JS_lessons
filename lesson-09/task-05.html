@@ -28,19 +28,6 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv() {
-                let massiv = []
-                let elements
-                out: for (let i = 0; ; i++) {
-                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
-                    massiv.push(elements)
-                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
-                        break out
-                    }
-                }
-                return massiv
-            }
-            
             function getProductOfPositiveNum(massiv) {
                 let productOfPositiveNum = 1
                 for (const element of massiv) {
@@ -52,11 +39,18 @@
             }
            
             // 1) Вводимо дані
-           
             
             // 2) Генеруємо масив  
-            let massiv = getMassiv()
-
+                let massiv = []
+                let elements
+                out: for (let i = 0; ; i++) {
+                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
+                    massiv.push(elements)
+                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
+                        break out
+                    }
+                }
+                
             // 3) Знаходимо розв'язок
             let productOfPositiveNum = getProductOfPositiveNum(massiv)
 

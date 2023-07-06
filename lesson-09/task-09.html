@@ -28,40 +28,33 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv(numbersCount) {
-                const massiv = []
-                let elements
-                for (let i = 0; i < numbersCount; i++) {
-                    elements = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
-                    massiv.push(elements)
-                }
-                return massiv
-            }
-
-            function getFirstLettersOfName(massiv) {
+            function getFirstLettersOfName(namesList) {
                 const firstLetters = []
-                massiv.forEach((element, index) => {
+                namesList.forEach((element, index) => {
                     firstLetters.push(element[0])
-                });
+                })
                 return firstLetters
             }
-            
            
             // 1) Вводимо дані
-            const numbersCount = parseInt(prompt(`Скільки імен будемо порівнювати?`))
+            const namesCount = parseInt(prompt(`Скільки імен будемо порівнювати?`))
             
             // 2) Генеруємо масив  
-            const massiv = getMassiv(numbersCount)
-            
+                const namesList = []
+                let name
+                for (let i = 0; i < namesCount; i++) {
+                    name = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
+                    namesList.push(name)
+                }
+                          
             // 3) Знаходимо розв'язок
-            const firstLetters = getFirstLettersOfName(massiv)
+            const firstLetters = getFirstLettersOfName(namesList)
 
             // 4) Виводимо результат
             document.write(`
-            ${massiv}<br>
+            ${namesList}<br>
             ${firstLetters}
             `)
-                
         </script>
     </div>
 </body>

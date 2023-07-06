@@ -28,7 +28,23 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv() {
+            function getLargElements(massiv) {  
+                let newMassiv = [...massiv]     // щоб зберегти перший масив для порівняння
+                
+                newMassiv.forEach((element, index, arr) => {
+                    if (arr[0] < element) {
+                        arr[index]=element*2
+                    }
+                    else
+                        arr[index]=element
+                })
+                return newMassiv
+            }
+           
+            // 1) Вводимо дані
+           
+            
+            // 2) Генеруємо масив  
                 let massiv = []
                 let elements
                 out: for (let i = 0; ; i++) {
@@ -38,35 +54,15 @@
                         break out
                     }
                 }
-                return massiv
-            }
-
-            function getLargElements(massiv) {
-                let newMassiv = [...massiv]
                 
-                newMassiv.forEach((element, index, arr) => {
-                    if (arr[0] < element) {
-                        arr[index]=element*2
-                    }
-                })
-                return newMassiv
-            }
-           
-            // 1) Вводимо дані
-           
-            
-            // 2) Генеруємо масив  
-            let massiv = getMassiv()
-            
             // 3) Знаходимо розв'язок
             let newMassiv = getLargElements(massiv)
 
             // 4) Виводимо результат
             document.write(`
-           Згенерований вами масив - ${massiv}<br>
-           Оброблений масив - ${newMassiv}
+            Згенерований масив - ${massiv}<br>
+            Оброблений масив - ${newMassiv}
             `)
-                
         </script>
     </div>
 </body>
