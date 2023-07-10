@@ -29,23 +29,7 @@
     <div class="script" style="text-align: center;">
         <script>
             
-            function getLotteryTry(lottery) {
-                let userChoice
-                let lotteryWinSum = 0
-                
-            out: for (let i = 0; ; i++) {
-                    userChoice = parseInt(prompt(`Введіть число від 0 (включно) до ${lotteryListLength - 1}`))
-                    lotteryWinSum += lottery[userChoice]
-                    if (confirm(`Сума вашого виграшу ${lotteryWinSum}$. Бажаєте продовжити?`) ===  false) {
-                        break out
-                    }                        
-                }
-            }
-
-            // 1) Вводимо дані
-            let lotteryListLength = 10
-
-            // 2) Генеруємо масив
+            function getLotteryList(lotteryListLength) {
                 let lottery = []
                 let lotteryNum 
                 for (let i = 0; i < lotteryListLength; i++) {
@@ -53,8 +37,29 @@
                     lottery.push(lotteryNum)
                 }
 
+                return lottery
+            }
+            
+            function getLotteryTry(lotteryList) {
+                let userChoice
+                let lotteryWinSum = 0
+                
+            for (let i = 0; ; i++) {
+                userChoice = parseInt(prompt(`Введіть число від 0 (включно) до ${lotteryListLength - 1}`))
+                lotteryWinSum += lotteryList[userChoice]
+                if (confirm(`Сума вашого виграшу ${lotteryWinSum}$. Бажаєте продовжити?`) ===  false) 
+                    break 
+                }
+            }
+
+            // 1) Вводимо дані
+            let lotteryListLength = 10
+
+            // 2) Генеруємо масив
+            let lotteryList = getLotteryList(lotteryListLength)
+
             // 3) Знаходимо розв'язок
-            let lotteryTry = getLotteryTry(lottery)
+            let lotteryTry = getLotteryTry(lotteryList)
 
             // 4) Виводимо результат
 

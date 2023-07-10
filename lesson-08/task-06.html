@@ -34,7 +34,7 @@
                         if (pricesOfProducts[i] <= userMoney) {
                             document.write(`${namesOfProducts[i]} - ${pricesOfProducts[i]}грн<br>`)
                         } 
-                    };
+                    }
                 }
 
                 // 1) Вводимо дані
@@ -45,17 +45,17 @@
                 let pricesOfProducts = []
                 let userNameData
                 let userPriceData
-                    out: for (let i = 0; ; i++) {
+                    for (let i = 0; ; i++) {
 
-                            userNameData = prompt(`Введіть назву ${i + 1}-го товару`)
-                            userPriceData = parseInt(prompt(`Скільки коштує ${userNameData}?`))
+                        userNameData = prompt(`Введіть назву ${i + 1}-го товару`)
+                        userPriceData = parseInt(prompt(`Скільки коштує ${userNameData}?`))
 
-                            namesOfProducts.push(userNameData)
-                            pricesOfProducts.push(userPriceData)
+                        namesOfProducts.push(userNameData)
+                        pricesOfProducts.push(userPriceData)
+                        
+                        if (confirm('Бажаєте продовжити?') === false) 
+                            break
                             
-                            if (confirm('Бажаєте продовжити?') === false) {
-                                break out
-                            }
                     }
 
                 // 3) Знаходимо розв'язок 

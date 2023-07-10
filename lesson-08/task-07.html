@@ -36,67 +36,50 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            
-            function getPaymentsResults(paymentsHistory) {
-                let paymentsSumOfOllTime = 0
-                let paymentsSumOfFirst6Month = 0
-                let paymentsSumOfLast6Month = 0
-                let paymentsSumPerSummer = 0
-                let paymentsSumOf2Quarter = 0
-                let paymentsSumPerEvenMunts = 0
-                let paymentsSumPerFirstMuntsOfEverySeasons = 0
-                
-                paymentsHistory.forEach((element, index) => {
-                    paymentsSumOfOllTime += element
-                
-                    if (index < 6) paymentsSumOfFirst6Month += element 
-
-                    if (index >= 6) paymentsSumOfLast6Month += element 
-                
-                    if (index >= 5 && index <= 7) paymentsSumPerSummer += element
-                
-                    if (index >= 3 && index <= 5) paymentsSumOf2Quarter += element    
-               
-                    if (index % 2 !== 0) paymentsSumPerEvenMunts += element    
-                })
-
-                for (let i = 2; i < paymentsHistory.length; i += 3) {
-                    paymentsSumPerFirstMuntsOfEverySeasons += paymentsHistory[i]
-                }
-                
-                return [paymentsSumOfOllTime,
-                paymentsSumOfFirst6Month,
-                paymentsSumOfLast6Month,
-                paymentsSumPerSummer,
-                paymentsSumOf2Quarter,
-                paymentsSumPerEvenMunts,
-                paymentsSumPerFirstMuntsOfEverySeasons,]
-            }
-
-            
-            // 1) Вводимо дані
-            let paymentsQuantity = 12
-
-            // 2) Генеруємо масив
-            let paymentsHistory = new Array(paymentsQuantity)
+            function getPaymentHistory(paymentsQuantity) {
+                let paymentsHistory = new Array(paymentsQuantity)
                 for (let i = 0; i < paymentsQuantity; i++) {
                     let paymentOfMonth = parseInt(prompt(`Введіть розмір ${i + 1}-го платежа`))
                     paymentsHistory[i] = paymentOfMonth
+                    }
+                return paymentsHistory
+            }
+
+            function getPaymentsResults(paymentsHistory, countStart = 0, countEnd = 12, iterationStep = 1) {
+                let paymentResult = 0
+                
+                for (let i = countStart; i < countEnd; i = i + iterationStep) {
+                    paymentResult += paymentsHistory[i]
                 }
+                
+                return paymentResult
+            }
+            
+            // 1) Вводимо дані
+            let paymentsQuantity = 12         
+
+            // 2) Генеруємо масив
+            let paymentsHistory = getPaymentHistory(paymentsQuantity)
                             
             // 3) Знаходимо розв'язок
-            let paymentsResults = getPaymentsResults(paymentsHistory)
+            let paymentsSumOfOllPeriod = getPaymentsResults(paymentsHistory)
+            let paymentsSumOfFirst6Month = getPaymentsResults(paymentsHistory, 0, 6)
+            let paymentsSumOfLast6Month = getPaymentsResults(paymentsHistory, 6)
+            let paymentsSumPerSummer = getPaymentsResults(paymentsHistory, 5, 8)
+            let paymentsSumPer2Quarter = getPaymentsResults(paymentsHistory, 3, 6)
+            let paymentsSumPerEvenMonths = getPaymentsResults(paymentsHistory, 1, 12, 2)
+            let paymentsSumPerFirstMonthsOfAllSeasons = getPaymentsResults(paymentsHistory, 2, 12, 3)
 
             // 4) Виводимо результат
-            document.write(`
-            Послідовність платежів протягом року - ${paymentsHistory} <br>
-                    1)	Сума платежів за весь рік - ${paymentsResults[0]} <br>
-                    2)	Сума платежів у першій половині року - ${paymentsResults[1]} <br>
-                    3)	Сума платежів у другій половині року - ${paymentsResults[2]} <br>
-                    4)	Сума платежів за літо - ${paymentsResults[3]} <br>
-                    5)	Сума платежів за ІІ квартал - ${paymentsResults[4]} <br>
-                    6)	Сума платежів за парні місяці (з парними номерами) - ${paymentsResults[5]} <br>
-                    7)	Сума платежів за місяці, які є початковими у сезоні (весна, літо, осінь, зима) - ${paymentsResults[6]} <br>
+            document.write(`Історія платежів ${paymentsHistory}<br>
+            Сумарна кількість грошей за: <br>
+                    1)	за весь рік ${paymentsSumOfOllPeriod}<br>
+                    2)	у першій половині року ${paymentsSumOfFirst6Month}<br>
+                    3)	у другій половині року ${paymentsSumOfLast6Month}<br>
+                    4)	за літо ${paymentsSumPerSummer}<br>
+                    5)	за ІІ квартал ${paymentsSumPer2Quarter}<br>
+                    6)	за парні місяці (з парними номерами) ${paymentsSumPerEvenMonths}<br>
+                    7)	за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${paymentsSumPerFirstMonthsOfAllSeasons}<br>
             `)
 
         </script>
