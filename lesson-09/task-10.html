@@ -45,13 +45,11 @@
             // 2) Генеруємо масив  
                 let priceList = []
                 let elements
-                out: for (let i = 0; ; i++) {
+                                
+                do {
                     elements = parseInt(prompt(`Введіть розмір ${i+1}-го платежу?`))
                     priceList.push(elements)
-                    if (confirm(`${priceList} \nБажаєте продовжити?`) === false) {
-                        break out
-                    }
-                }
+                } while (confirm(`${priceList} \nБажаєте продовжити?`) === true);
             
             // 3) Знаходимо розв'язок
             let taxList = getTaxList(priceList)

@@ -35,8 +35,6 @@
                     if (arr[0] < element) {
                         arr[index]=element*2
                     }
-                    else
-                        arr[index]=element
                 })
                 return newMassiv
             }
@@ -47,11 +45,11 @@
             // 2) Генеруємо масив  
                 let massiv = []
                 let elements
-                out: for (let i = 0; ; i++) {
+                for (let i = 0; ; i++) {
                     elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
                     massiv.push(elements)
                     if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
-                        break out
+                        break
                     }
                 }
                 

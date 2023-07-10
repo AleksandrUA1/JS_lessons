@@ -48,7 +48,7 @@
             function getPaymentsResults(paymentsHistory, countStart = 0, countEnd = 12, iterationStep = 1) {
                 let paymentResult = 0
                 
-                for (let i = countStart; i < countEnd; i = i + iterationStep) {
+                for (let i = countStart; i < countEnd; i += iterationStep) {
                     paymentResult += paymentsHistory[i]
                 }
                 

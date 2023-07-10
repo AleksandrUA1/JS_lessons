@@ -45,11 +45,11 @@
             // 2) Генеруємо масив  
                 let priceList = []
                 let elements
-                out: for (let i = 0; ; i++) {
+                for (let i = 0; ; i++) {
                     elements = parseInt(prompt(`Введіть ціну ${i+1}-го товару`))
                     priceList.push(elements)
                     if (confirm(`${priceList} \nБажаєте продовжити?`) === false) {
-                        break out
+                        break
                     }
                 }
             
