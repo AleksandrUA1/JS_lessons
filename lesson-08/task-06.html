@@ -28,40 +28,48 @@
 
     <div class="script" style="text-align: center;">
         <script>
+                
+                function getProductsList() {
+                    let namesOfProducts = []
+                    let pricesOfProducts = []
+                    let userNameData
+                    let userPriceData
+
+                        do {
+                            userNameData = prompt(`Введіть назву товару`)
+                            userPriceData = parseInt(prompt(`Скільки коштує ${userNameData}?`))
+
+                            namesOfProducts.push(userNameData)
+                            pricesOfProducts.push(userPriceData)
+                        } while (confirm('Бажаєте продовжити?') === true)
+
+                    return [namesOfProducts, pricesOfProducts]
+                }
+
                 function getAvailableProducts(pricesOfProducts, namesOfProducts, userMoney) {
-                    document.write(`Згідно вашого бюджету ${userMoney} грн, ви можете придбати:`)                    
+                    let availableProducts = []
+                                        
                     for (let i = 0; i < pricesOfProducts.length; i++) {
                         if (pricesOfProducts[i] <= userMoney) {
-                            document.write(`${namesOfProducts[i]} - ${pricesOfProducts[i]}грн<br>`)
+                            availableProducts.push(namesOfProducts[i])
+                            availableProducts.push(pricesOfProducts[i])
                         } 
                     }
+                    return availableProducts
                 }
+
 
                 // 1) Вводимо дані
                 let userMoney = parseInt(prompt('Введіть розмір бюджету'))
 
                 // 2) Генеруємо масив
-                let namesOfProducts = []
-                let pricesOfProducts = []
-                let userNameData
-                let userPriceData
-                    for (let i = 0; ; i++) {
-
-                        userNameData = prompt(`Введіть назву ${i + 1}-го товару`)
-                        userPriceData = parseInt(prompt(`Скільки коштує ${userNameData}?`))
-
-                        namesOfProducts.push(userNameData)
-                        pricesOfProducts.push(userPriceData)
-                        
-                        if (confirm('Бажаєте продовжити?') === false) 
-                            break
-                            
-                    }
+                let productsList = getProductsList()
 
                 // 3) Знаходимо розв'язок 
-                getAvailableProducts(pricesOfProducts, namesOfProducts, userMoney)
+                let availableProducts = getAvailableProducts(productsList[1], productsList[0], userMoney)
 
                 // 4) виводимо результат
+                document.write(`Згідно вашого бюджету ${userMoney} грн, ви можете придбати:<br>${availableProducts}`)
                 
         </script>
     </div>
