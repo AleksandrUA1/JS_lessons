@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // //Задача 7. Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+      // // за весь рік;
+      // // у першій половині року;
+      // // у другій половині року;
+      // // за літо;
+      // // за ІІ квартал;
+      // // за парні місяці (з парними номерами);
+      // // за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+      // let array = [122, 3421, 23, 45, 23, 45, 122, 3421, 23, 45, 23, 45]
+      // function getSum(array, startIndex, endIndex, step = 1) {
+      //   let sum = 0
+      //   for (let i = startIndex; i < endIndex; i += step) sum += array[i]
+      //   return sum
+      // }
+
+      // //Функція для обрахування суми платіжок за весь рік
+      // let sumOfYear = getSum(array, 0, 12)
+
+      // // Функція для обрахування суми у першій половині року
+      // let sumFirstHalfOfYear = getSum(array, 0, 6)
+
+      // // Функція для обрахування суми у другій половині року
+      // let sumSecondtHalfOfYear = getSum(array, 6, 12)
+
+      // // Функція для обрахування суми за літо
+      // // function getSumForSummer(array) {
+      // //   let sum = 0
+      // //   for (let i = 5; i <= 7; i++) sum += array[i]
+      // //   return sum
+      // // }
+      // // Функція для обрахування суми за 2 квартал
+      // // function getSumForSecondQuarter(array) {
+      // //   let sum = 0
+      // //   for (let i = 3; i <= 5; i++) sum += array[i]
+      // //   return sum
+      // // }
+      // // Функція для обрахування суми за парні місяці(0,2,4,6,8,10)
+      // let sumEvenMonth = getSum(array, 1, 12, 2)
+
+      // // Функція для обрахування суми за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+      // // function getSumForSeasonStartMonths(array) {
+      // //   let sum = 0
+      // //   for (let i = 2; i < array.length; i += 3) sum += array[i]
+      // //   return sum
+      // // }
+
+      // ------------- MAP ------------
+      //       Дано масив цін. Створити новий масив додавши 20% ( * 1.2).
+      // let prices = [222, 123, 23, 23, 2000]
+      // let newPrices = prices.map((price) => price * 1.2)
+      // let newPricewsForPrint = newPrices.map((el) => el.toFixed(2))
+      // document.write(newPricewsForPrint)
+
+      // Дано масив років народження працівників (усі народились 1 січня). Створити масив з кількістю років (2023 - year)
+      // let birthYearsList = [1998, 1967, 1921, 1976, 2003]
+      // let ages = birthYearsList.map((year) => 2023 - year)
+      // document.write(ages)
+
+      // Дано масив вартості товару у доларах. Створити масив цін у гривнях (*currentCourse)
+      // let pricesDollar = [222, 123, 23, 23, 2000]
+      // const currentCourse = 37
+      // let pricesGRN = pricesDollar.map((priceD) => priceD * currentCourse)
+      // document.write(pricesGRN)
+
+      //Задача.Дано масив імен працівників. Сформувати новий масив, який складається з перших літер імен.
+      //            0123
+      // let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+      // let firstLetters = names.map((name) => name[0])
+      // document.write(firstLetters)
+
+      // Дано масив вартості товару. Створити масив цін, де до цін >100 додано 50
+      // let prices = [222, 123, 23, 23, 2000]
+      // let newPrices = prices.map((price) => (price > 100 ? price + 50 : price))
+      // document.write(newPrices)
+
+      //----------- push/pop
+    //   1) Реєструвати імена працівників (вводити і зберігати у масиві). Виводити та видаляти їх у порядку надходження.
+    //   let users =['Ivan', 'Petro','Olga']
+
+    //   let x = users.shift() // users = ['Petro','Olga'], x = 'Ivan'
+
+    //   let usresNumber = parseInt(prompt('Кількість працівників'))
+    //   let users = []
+    //   for (let i = 0; i < usresNumber; i++) {
+    //     let userName = prompt('І"я юзера')
+    //     users.push(userName)
+    //   }
+
+    //   while (users.length > 0) {
+    //     let removedUser = users.shift() //видаляє і повертає перший елемент масиву
+    //     document.write(removedUser)
+    //   }
+
+      // 2) Реєструвати імена працівників (вводити і зберігати у масиві). Виводити та видаляти їх у порядку зворотному до порядку надходження.
+      // while (users.length > 0) {
+      //   let removedUser = users.pop() //видаляє і повертає останній елемент масиву
+      //   document.write(removedUser)
+      // }
+
+      // 3) Дано упорядкований за зростанням масив цін. Сформувати новий масив, який складається тільки з різних значень
+      // let prices = [67, 89, 89, 89, 76, 90, 90, 122, 122, 122, 900]
+
+      //---------- splice
+    //   Задача 1. Дамно масив років. Після кожного значення 2010 додати 2015.
+    //   let years = [1999, 2011, 2000, 2020, 2010, 2019, 2023, 2010, 2018]
+    //   for (let i = 0; i < years.length; i++) {
+    //     if (years[i] === 2010) {
+    //       years.splice(i + 1, 0, 2015)
+    //       i++
+    //     }
+    //   }
+    //   document.write(years)
+
+      // Задача 2. Дано масив показів темератур за рік (12 місяців). Видалити значення, що відповідають літнім місяцям.
+      // //                     0   1  2   3   4   5   6   7   8   9  10  11
+      // let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let removedValues = temperatures.splice(5, 3)// removedValues = [16, 18, 19]
+      // document.write(removedValues)
+
+      // Задача 1. Дано масив показів темератур за рік (12 місяців). Замінити значення літніх місяців нулями.
+      //                     0   1  2   3   4   5   6   7   8   9  10  11
+      // let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // temperatures.splice(5, 3, 0, 0, 0)
+      // document.write(temperatures)
+
+      //-----------slice
+      // Задача 1. Дано масив  показів темератур за рік (12 місяців). Створити окремі масиви, що скдаюаться зі з начень, які відповідають елементам першого і другого півріччя
+      //                     0   1  2   3   4   5   6   7   8   9  10  11
+      // let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let temp1 = temperatures.slice(0, 6)
+      // let temp2 = temperatures.slice(6)
+      // document.write(temp1)
+      // document.write('<br>')
+      // document.write(temp2)
+
+      //------------- indexOf
+      // Задача 1. Дано масив чисел, що містить два нулі. Створити масив, що складається з елементів між цими нулями
+      //        0    1  2  3  4  5  6  7  8
+      // let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 75]
+      // ------ наша власна функція indexOf ----
+      // function searchElementIndex(arr, searchElement) {
+      //   let searchIndex = -1 //нереальний індекс
+      //   for (let i = 0; i < arr.length; i++) {
+      //     if(arr[i] === searchElement ){
+      //       searchIndex = i
+      //       break
+      //     }
+      //   }
+      //   return searchIndex
+      // }
+
+      // let index = searchElementIndex(arr, 1116)
+      // let zeroIndex1 = arr.indexOf(0) //індекс першого зліва 0 = 3
+      // let zeroIndex2 = arr.indexOf(0, zeroIndex1 + 1) //індекс другого нуля (першого 0 після першого входження)
+      // let newArr = arr.slice(zeroIndex1 + 1, zeroIndex2)
+      // document.write(newArr)
+
+      // Задача 2. Дано масив чисел, що містить нулі. Створити масив, що складається з елементів між першим і другим нулем
+      // let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 0, 2, 11, 8, 4, 53]
+      // let zeroIndex1 = arr.indexOf(0) //індекс першого зліва 0 = 3
+      // let zeroIndex2 = arr.indexOf(0, zeroIndex1 + 1) //індекс другого нуля (першого 0 після першого входження)
+      // let newArr = arr.slice(zeroIndex1 + 1, zeroIndex2)
+      // document.write(newArr)
+
+      // Задача 3. Дано масив чисел, що містить нулі. Створити масив, що складається з елементів між першим і останнім нулем
+      // let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 0, 2, 11, 8, 4, 53]
+      // let zeroIndex1 = arr.indexOf(0) //індекс першого зліва 0 = 3
+      // let lastZeroIndex = arr.lastIndexOf(0) //індекс останнього нуля
+      // let newArr = arr.slice(zeroIndex1 + 1, lastZeroIndex)
+      // document.write(newArr)
+
+      // Задача 4. Дано масив з віком відвідувачів. Визначити індекс першого пенсіонера (>=65)
+      // let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+      // let firstPendionerIndex = ages.findIndex((age) => age >= 65)
+      // document.write(firstPendionerIndex)
+
+      // Задача 5. Дано масив з віком відвідувачів. Визначити індекс останнього пенсіонера
+      // let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+      // let lastPendionerIndex = ages.findLastIndex((age) => age >= 65)
+      // document.write(lastPendionerIndex)
+
+      //----- find/includes
+      // Задача 1. Дано масив оцінок двійочника. Визначити першу погану оцінку (<4).
+      // let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
+      // let firstBadScore = scores.find((score) => score < 4)
+      // document.write(firstBadScore)
+
+      // Задача 2. Дано масив років відвідувачів басейну. Визначити вік останнього пенсіонера (вік більше або рівне за 65)
+      // let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+      // let lastPensionerAge = ages.findLast((age) => age >= 65)
+      // document.write(lastPensionerAge)
+
+      // Задача 3. Дано масив з номерами кімнат, які звернулись на рецепцію. Визначити, чи зверталися з кімнати номер 5.
+      // let rooms = [12, 15, 7, 23, 45, 21, 35, 8, 19]
+      // if (rooms.includes(5)) document.write('Yes')
+      // else document.write('No')
+      // if (rooms.indexOf(5) > -1) document.write('Yes')
+      // else document.write('No')
+
+      // -------------
+      // ------------- Reduce
+      // Задача 0. Знайти суму елементів масиву
+      // let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let sum = arr.reduce((prevSum, el) => prevSum + el)
+      // document.write(sum)
+
+      // Задача 0. Знайти добуток елементів масиву
+      // let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let prod = arr.reduce((prevProd, el) => prevProd * el)
+      // document.write(prod)
+
+      // Задача 1. Знайти добуток від’ємних елементів масиву.
+      // let arr = [10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let prod = arr.reduce(
+      //   (prevProd, el) => (el < 0 ? prevProd * el : prevProd),
+      //   1
+      // )
+      // document.write(prod)
+
+      // Задача 2. Знайти суму парних елементів
+      // let arr = [13, 9, 5, 13, 17, 16, 18, 19, 21, 11, 7, 4]
+      // let sum = arr.reduce(
+      //   (prevSum, el) => (el % 2 === 0 ? prevSum + el : prevSum),
+      //   0
+      // )
+      // document.write(sum)
+
+      // Задача 3. Дано масив. Підрахувати кількість 7
+      // let arr = [10, 9, 5, 13, 7, 16, 18, 19, 21, 11, 7, 4]
+      // let count7 = arr.reduce(
+      //   (prevCount7, el) => (el === 7 ? prevCount7 + 1 : prevCount7),
+      //   0
+      // )
+      // document.write(count7)
+
+      // Задача 4. Знайти максимальний елемент
+      // let arr = [10, 9, 5, 13, 7, 16, 18, 19, 21, 11, 7, 4]
+      // let max = arr.reduce((prevMax, el) => (el > prevMax ? el : prevMax))// let max = Math.max(...arr)
+      // document.write(max)
+
+      // Задача 5. Знайти максимальний серед від"ємних елемент
+      // let arr = [10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let max = arr.reduce(
+      //   (prevMax, el) => (el < 0 && el > prevMax ? el : prevMax),
+      //   -Infinity
+      // )
+      // document.write(max)
+
+      // Задача 6. Дано масив  показів темератур за рік (12 місяців). Підрахувати кількість додатних значень.
+      // let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // let positiveCount = temperatures.reduce(
+      //   (prevPositiveCount, temp) =>
+      //     temp > 0 ? prevPositiveCount + 1 : prevPositiveCount,
+      //   0
+      // )
+
+      // Задача 7. Дано масив оцінок двійочника. Підрахувати кількість поганих оцінок.
+      // let scores = [8, 9, 2, 4, 7, 1, 10, 8, 9, 2]
+
+      // Задача 8. Дано масив років відвідувачів басейну. Визначити середній вік відвідувачів.
+      // let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+
+      // -------------  filter
+      //Задача 1. Дано покази термометра за місяць. Сформувати покази тільки доданих значень(>0)
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+      // let positiveTemp = temperaturesList.filter((el) => el > 0)
+      // document.write(positiveTemp)
+
+      //Задача 2. Дано покази термометра за місяць. Сформувати покази тільки значень, які знаходяться між 10 і 15 градусами цельсія
+      // let temperaturesList = [-10, 3, -21, 10, 18]
+      // let newTemp = temperaturesList.filter((temp) => temp >= 10 && temp <= 15)
+      // document.write(newTemp)
+
+      //Задача 3. Дано масив цін. Сформувати новий масив, який складається з цін більших за 100 грн.
+      // let prices = [124, 6700, 2345, 322, 99, 324, 9000]
+      // let newPrices = prices.filter((price) => price > 100)
+      // document.write(newPrices)
+
+      //Задача 4. Дано масив імен учнів. Сформувати масив, які починаються на букви : 'A', 'B', 'J', 'S'
+      // let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+      // const searchLetters = ['A', 'B', 'J', 'S']
+      // let newNames = names.filter((name) => searchLetters.includes(name[0]))
+      // document.write(newNames)
+
+      // -------------  some - every
+      // Задача 1. Дано масив показників термометра протягом місяця. З’ясувати, чи є серед них дні, коли температура була меншою за 5 градусів.
+      // let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // if (temperatures.some((temp) => temp < 5)) document.write('Yes')
+      // else document.write('No')
+
+      // Задача 2. Визначити, чи є серед вказаних цін товарів ті, які дорожчі за 1000 грн.
+      // Задача 3. Дано масив оцінок
+      // let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
+      //   1)Визначити чи є він хорошистом (усі оцінки більші або рівні 7)
+      // if (scores.every((score) => score >= 7)) document.write('Yes')
+      // else document.write('No')
+
+      //   2)Визначити чи є він двійочником ( є хоча б одна погана оцінка)
+      // if (scores.some((score) => score < 4)) document.write('Yes')
+      // else document.write('No')
+
+      // Задача 4. Дано масив років відвідувачів басейну. Визначити чи були пенсіонери.
+      // let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+      //Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи усі показники є більшими за 10 градусів.
+      // let temperatures = [ -10, -9, 5, 13, 17, 16, 18, 19, 21, 11,  7, -4 ]
+
+      // -------------
+      //------------- Sort
+      // Приклад. Упорядквати масив чисел за зростанням
+      // let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // -- варінат 1
+      // arr.sort((el1, el2) => el1 - el2)
+      //--- варіант 2
+      // arr.sort((el1, el2) => (el1 > el2 ? 1 : el1 < el2 ? -1 : 0))
+      //--- варіант 3
+      // arr.sort((el1, el2) => {
+      //   if(el1 > el2)
+      //     return 1
+      //   else if(el1 < el2)
+      //      return -1
+      //   else return 0
+      // })
+      // document.write(arr)
+
+      // Приклад. Упорядквати масив чисел за спаданням
+      // let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+      // -- варінат 1
+      // arr.sort((el1, el2) => {
+      //   let result
+      //   if (el1 < el2) result = 1
+      //   else if (el1 > el2) result = -1
+      //   else result = 0
+      //   return result
+      // })
+      //--- варіант 2
+      // arr.sort((el1, el2) => el2 - el1)
+      // document.write(arr)
+
+      // Приклад. Упорядкувати масив імен за зростанням
+      // let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+      // names.sort()
+      // document.write(names)
+
+      // Приклад. Упорядкувати масив імен за зростанням за другою буквою
+      // let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+      // names.sort((name1, name2) => {
+      //   if (name1[1] > name2[1]) return 1
+      //   else if (name1[1] < name2[1]) return -1
+      //   else return 0
+      // })
+      // document.write(names)
+
+      // Приклад. Упорядувати числа так, щоб спочатку йшли парні, потім непарні.
+      // let arr = [10, 9, 5, 13, 17, 16, 18, 19, 21, 11, 7, 4]
+      //--- Варіант 1
+      // arr.sort((num1, num2) => {
+      //   if (num1 % 2 === 0 && num2 % 2 !== 0) return -1
+      //   else if (num1 % 2 !== 0 && num2 % 2 === 0) return 1
+      //   else return 0
+      // })
+      //--- Варіант 2
+      // arr.sort((num1, num2) => (num1 % 2) - (num2 % 2 !== 0))
+      // document.write(arr)
+
+      // Приклад. Упорядкувати за спаданням довжини імен буквою
+      // let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+
+      // Приклад. Дано вік відпвідувачів. Упорядкувати відвідувачів так, щоб спочатку йшли пенсіонери, потім всі інші.
+      // let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+    </script>
+  </body>
+</html>

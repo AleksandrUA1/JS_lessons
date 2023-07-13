@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 4</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 10 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 4</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано масив років народження працівників (усі народились 1 січня). Створити масив з кількістю років (2023 - year)
+              </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getWorkerBirthday(workersCount) {
+                let workerBirthdays = []
+                let birthday
+                for (let i = 0; i < workersCount;) {
+                    birthday = Math.floor((Math.random()*2005)+1)
+                    birthday>1920 ? (workerBirthdays.push(birthday), i++) : null;                 
+                }
+                return workerBirthdays
+            }           
+
+            // 1) Вводимо дані
+            let workersCount = 10
+            
+            // 2) Генеруємо масив  
+            let workerBirthdays = getWorkerBirthday(workersCount)
+            
+            // 3) Знаходимо розв'язок
+            let workersAges = workerBirthdays.map(el => 2023 - el)
+                        
+            // 4) Виводимо результат
+            document.write(`
+            Роки народження працівників - ${workerBirthdays}<br>
+            Їх вік - ${workersAges}
+            `)
+            
+        </script>
+    </div>
+</body>
+</html>

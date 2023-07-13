@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 10</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 10 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 10</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дамно масив років. Після кожного значення 2010 додати 2015.
+              </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            // 1) Вводимо дані
+            
+            // 2) Генеруємо масив  
+            let years = [1999, 2011, 2000, 2020, 2010, 2019, 2023, 2010, 2018]
+            let copy = [...years]    // для порівняння у розв'язку
+            
+            // 3) Знаходимо розв'язок
+            for (let i = 0; i < years.length; i++) {
+                if (years[i] === 2010) 
+                    years.splice(i + 1, 0, 2015)
+                    i++             //  ітерація збільшиться на 2, а не на 1. Робиться для того,  
+                                    //  щоб if не перевіряв на відповідність умови щойно додане число
+            }
+            
+            // 4) Виводимо результат
+            document.write(`
+            ${copy}<br> 
+            ${years}
+            `)
+            
+        </script>
+    </div>
+</body>
+</html>

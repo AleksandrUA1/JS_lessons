@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 10 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle"> Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+                    за весь рік;
+                    у першій половині року;
+                    у другій половині року;
+                    за літо;
+                    за ІІ квартал;
+                    за парні місяці (з парними номерами);
+                    за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+              </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getPaymentsList(paymentsCount) {
+                let paymentsList = new Array (paymentsCount)
+                let payment
+                for (let i = 0; i < paymentsList.length; i++) {
+                    payment = Math.floor((Math.random()*1000)+1)
+                    paymentsList[i]=payment
+                }
+                return paymentsList
+            }
+
+            function getPaymentsResult(paymentsList, startIter = 0, endIter = 12, stepIter = 1) {
+                let paymentsResult = 0
+                for (let i = startIter; i < endIter; i += stepIter) {
+                    paymentsResult += paymentsList[i]
+                }
+                return paymentsResult
+            }
+
+            // 1) Вводимо дані
+            let paymentsCount = 12
+            
+            // 2) Генеруємо масив  
+            let paymentsList = getPaymentsList(paymentsCount)
+            
+            // 3) Знаходимо розв'язок
+            let paymentsSumForYear = getPaymentsResult(paymentsList)
+            let paymentsSumForFirstHalfOfYear = getPaymentsResult(paymentsList, 0, 6)
+            let paymentsSumForSecondHalfOfYear = getPaymentsResult(paymentsList, 6)
+            let paymentsSumForSummer = getPaymentsResult(paymentsList, 5, 8)
+            let paymentsSumForSecondQuarter = getPaymentsResult(paymentsList, 3, 6)
+            let paymentsSumForEvenMonth = getPaymentsResult(paymentsList, 1, 12, 2)
+            let paymentsSumForFirstMonthsOfSeasons = getPaymentsResult(paymentsList, 2, 12, 3)
+            
+            // 4) Виводимо результат
+            document.write(`
+            Послідовність платіжок протягом року - ${paymentsList}<br>
+                    Сума платежів за весь рік ${paymentsSumForYear}<br>
+                    Сума платежів у першій половині року ${paymentsSumForFirstHalfOfYear}<br>
+                    Сума платежів у другій половині року ${paymentsSumForSecondHalfOfYear}<br>
+                    Сума платежів за літо ${paymentsSumForSummer}<br>
+                    Сума платежів за ІІ квартал ${paymentsSumForSecondQuarter}<br>
+                    Сума платежів за парні місяці (з парними номерами) ${paymentsSumForEvenMonth}<br>
+                    Сума платежів за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${paymentsSumForFirstMonthsOfSeasons}<br>            
+            `)
+            
+        </script>
+    </div>
+</body>
+</html>

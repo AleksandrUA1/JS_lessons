@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 6</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 10 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 6</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано масив імен працівників. Сформувати новий масив, який складається з перших літер імен.
+              </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            // 1) Вводимо дані
+            let workersNames = prompt('Введіть імена працівників, Без пробілу, розділяючи імена комою ','')
+            
+            // 2) Генеруємо масив  
+            let workersNamesList = workersNames.split(",")
+            
+            // 3) Знаходимо розв'язок
+            let listOfFirstSymbols = workersNamesList.map(el => el[0])
+                        
+            // 4) Виводимо результат
+            document.write(`
+            Список імен працівників - ${workersNamesList}<br>
+            Масив з перших літер імен - ${listOfFirstSymbols}
+            `)
+        </script>
+    </div>
+</body>
+</html>
