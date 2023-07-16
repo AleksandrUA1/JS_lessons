@@ -48,7 +48,6 @@
                     randNum = Math.floor((Math.random() * 10000) + 1)
                     pricesHistory[i] = randNum
                 }
-                
                 return pricesHistory
             }
 
@@ -59,20 +58,74 @@
             let payments = getPricesHistory (historyListLength)
             
             // 3) Знаходимо розв'язок
-            let task1 = payments.filter(el => el > 1000)
-            let task2 = payments.filter((el, index, baseArr) => el > 1000 ? index : null)
-            let task3 = payments.sort()
             
+            // 1 Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+            let numMore1000 = payments.filter(el => el > 1000)
+            
+            // 2 Сформувати новий масив, у якому є номери (індекси) тільки тих, що більші за 1000 грн.
+            let indexOfNumMore1000 = payments.map((el, ind) => el > 1000 ? ind : -1).filter(el => el !== -1)
+            
+            // 3 Сформувати список з тих цін, які більші за попереднє значення 
+            let largetThanPrevios = payments.filter((el, ind, baseArr) => ind === 0 || baseArr[ind - 1] < el)
+            
+            // 4 Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+            let maxPrice = Math.max(...payments)
+            let pricesInPercent = payments.map((el) => ((el*100)/maxPrice).toFixed(1))
+
+            // 5 Підрахувати кількість змін цін
+            // якщо мається на увазі ціна, яка відрізняється від попередньої
+            let changesCount = payments.reduce((prevCount, el, ind, baseArr) => 
+            (baseArr[0] === true || el !== baseArr[ind - 1] ? prevCount + 1 : prevCount), 0)
+            
+            // якщо мається на увазі ціна, яка взагалі не повторюється
+            // let sortPriceList = [...payments].sort((el1, el2) => el1 - el2)
+            // let changesCount = sortPriceList.reduce((prevCount, el, ind, baseArr) => 
+            // (baseArr[0] === true || el !== baseArr[ind - 1] ? prevCount + 1 : prevCount),0)
+
+            // 6 Визначити, чи є ціна, що менше 1000
+            let hasPriceLess1000 = payments.some(el => el < 1000)
+
+            // 7 Визначати, чи усі ціни більше за 1000
+            let allPricesGreater1000 = payments.every(el => el > 1000)
+
+            // 8 Підрахувати кількість цін, що більше за 1000
+            let countPricesGreater1000 = payments.reduce((prevCount, el) => (el > 1000 ? prevCount + 1 : prevCount),0)
+
+            // 9 Підрахувати суму цін, що більше за 1000
+            let sumOfPricesGreater1000 = payments.reduce((prevSum, el) => (el > 1000 ? prevSum + el : prevSum),0)
+            
+            // 10 Знайти першу ціну, що більше за 1000
+            let firstPriceGreater1000 = payments.find(el => el > 1000)
+
+            // 11 Знайти індекс першої ціни, що більше за 1000
+            let indexOfFirstPriceGreater1000 = payments.findIndex(el => el > 1000)
+
+            // 12 Знайти останню ціну, що більше за 1000
+            let lastPriceGreater1000 = payments.findLast(el => el > 1000)
+
+            // 13 Знайти індекс останньої ціни, що більше за 1000
+            let findLastIndexOfLastPriceGreater1000 = payments.findLastIndex(el => el > 1000)
             
             // 4) Виводимо результат
             document.write(`
-            ${payments}
-            ${task1}
-
-            ${task2}
-
+            Історія цін на цінні папери <br>${payments}<br><br>
+            Масив, у якому є тільки ті, що більші за 1000 грн <br>${numMore1000}<br><br>
+            Масив, у якому є номери (індекси) тільки тих, що більші за 1000 грн <br>${indexOfNumMore1000}<br><br>
+            Список з тих цін, які більші за попереднє значення <br>${largetThanPrevios}<br><br>
+            Масив, що містить значення цін у відсотках стосовно максимального - ${maxPrice} <br>${pricesInPercent}<br><br>
+            Кількість змін цін <br>${changesCount}<br><br>
+            Чи є ціна, що менше 1000 - ${hasPriceLess1000}<br><br>
+            Чи усі ціни більше за 1000 - ${allPricesGreater1000}<br><br>
+            Кількість цін, що більше за 1000 - ${countPricesGreater1000}<br><br>
+            Сума цін, що більше за 1000 - ${sumOfPricesGreater1000}<br><br>
+            Перша ціна, що більше за 1000 - ${firstPriceGreater1000}<br><br>
+            Індекс першої ціни, що більше за 1000 - ${indexOfFirstPriceGreater1000}<br><br>
+            Остання ціна, що більше за 1000 - ${lastPriceGreater1000}<br><br>
+            Індекс останньої ціни, що більше за 1000 - ${findLastIndexOfLastPriceGreater1000}
             `)
             
+                    
+                    
         </script>
     </div>
 </body>

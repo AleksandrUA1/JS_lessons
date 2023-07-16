@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 8</title>
+	<title>Home-task 44</title>
 </head>
 <body>
     <header class="header">
@@ -18,9 +18,9 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 8</h2>
+            <h2 class="home-task__title">Задача 44</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"> Реєструвати імена працівників (вводити і зберігати у масиві). Виводити та видаляти їх у порядку надходження.
+                <p class="home-task__subtitle">Упорядкувати масив імен за зростанням за другою буквою let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
               </p>
             </div>
         </div>
@@ -28,29 +28,16 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNamesList(namesCount) {
-                let namesList = []
-                let name
-                for (let i = 0; i < namesCount; i++) {
-                    name = prompt("Введіть ім'я працівника")
-                    namesList.push(name)
-                }
-                return namesList
-            }
-
             // 1) Вводимо дані
-            let namesCount = prompt('Скільки імен працівників будемо реєструвати')
-            
+
             // 2) Генеруємо масив  
-            let namesList = getNamesList(namesCount)
+            let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
             
             // 3) Знаходимо розв'язок
-            while(namesList.length > 0){
-                let removedNamesList = namesList.pop()
-                        
-                // 4) Виводимо результат
-                document.write(`${removedNamesList}<br>`)
-            }
+            names.sort((el1,el2) => (el1[1] > el2[1] ? +1 : el1[1] < el2[1] ? -1 : 0))
+                          
+            // 4) Виводимо результат
+            document.write(names)
             
         </script>
     </div>

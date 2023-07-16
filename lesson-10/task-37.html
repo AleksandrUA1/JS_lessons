@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 8</title>
+	<title>Home-task 37</title>
 </head>
 <body>
     <header class="header">
@@ -18,9 +18,9 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 8</h2>
+            <h2 class="home-task__title">Задача 37</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"> Реєструвати імена працівників (вводити і зберігати у масиві). Виводити та видаляти їх у порядку надходження.
+                <p class="home-task__subtitle">Визначити, чи є серед вказаних цін товарів ті, які дорожчі за 1000 грн.
               </p>
             </div>
         </div>
@@ -28,30 +28,19 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNamesList(namesCount) {
-                let namesList = []
-                let name
-                for (let i = 0; i < namesCount; i++) {
-                    name = prompt("Введіть ім'я працівника")
-                    namesList.push(name)
-                }
-                return namesList
-            }
-
             // 1) Вводимо дані
-            let namesCount = prompt('Скільки імен працівників будемо реєструвати')
-            
+
             // 2) Генеруємо масив  
-            let namesList = getNamesList(namesCount)
+            let pricesList = [1000, 900, 500, 1300, 1700, 1600, 180, 1010, 210, 110, 70, 40]
             
             // 3) Знаходимо розв'язок
-            while(namesList.length > 0){
-                let removedNamesList = namesList.pop()
-                        
-                // 4) Виводимо результат
-                document.write(`${removedNamesList}<br>`)
-            }
+            let pricesMore1000 = pricesList.some(el => el > 1000)
             
+            document.write(`Ціни на товари - ${pricesList}<br>`)
+            if (pricesMore1000 === true) document.write('Серед вказаних цін, є товари дорожчі за 1000грн')
+            else document.write('Серед вказаних цін, на має товарів дорожчих за 1000грн')
+              
+            // 4) Виводимо результат
         </script>
     </div>
 </body>

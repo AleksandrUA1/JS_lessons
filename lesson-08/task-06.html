@@ -38,7 +38,6 @@
                         do {
                             userNameData = prompt(`Введіть назву товару`)
                             userPriceData = parseInt(prompt(`Скільки коштує ${userNameData}?`))
-
                             namesOfProducts.push(userNameData)
                             pricesOfProducts.push(userPriceData)
                         } while (confirm('Бажаєте продовжити?') === true)
@@ -57,7 +56,6 @@
                     }
                     return availableProducts
                 }
-
 
                 // 1) Вводимо дані
                 let userMoney = parseInt(prompt('Введіть розмір бюджету'))

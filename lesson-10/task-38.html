@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 8</title>
+	<title>Home-task 38</title>
 </head>
 <body>
     <header class="header">
@@ -18,9 +18,11 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 8</h2>
+            <h2 class="home-task__title">Задача 38</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"> Реєструвати імена працівників (вводити і зберігати у масиві). Виводити та видаляти їх у порядку надходження.
+                <p class="home-task__subtitle">Дано масив оцінок
+                    1)Визначити чи є він хорошистом (усі оцінки більші або рівні 7)
+                    2)Визначити чи є він двійочником ( є хоча б одна погана оцінка менше 3)
               </p>
             </div>
         </div>
@@ -28,29 +30,24 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNamesList(namesCount) {
-                let namesList = []
-                let name
-                for (let i = 0; i < namesCount; i++) {
-                    name = prompt("Введіть ім'я працівника")
-                    namesList.push(name)
-                }
-                return namesList
-            }
-
             // 1) Вводимо дані
-            let namesCount = prompt('Скільки імен працівників будемо реєструвати')
-            
+
             // 2) Генеруємо масив  
-            let namesList = getNamesList(namesCount)
+            let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
             
             // 3) Знаходимо розв'язок
-            while(namesList.length > 0){
-                let removedNamesList = namesList.pop()
-                        
-                // 4) Виводимо результат
-                document.write(`${removedNamesList}<br>`)
-            }
+            let scoresMore7 = scores.every(el => el >= 7)
+            let scoresLess3 = scores.some(el => el <= 3)
+            let result = ''
+            if (scoresMore7 === true) result = 'Ученик - хорошист'
+            else if (scoresLess3) result = 'Ученик - двійошник'
+            else result = 'Ученик - трійошник'
+
+            // 4) Виводимо результат
+            document.write(`
+            ${scores}<br>
+            ${result}
+            `)
             
         </script>
     </div>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 8</title>
+	<title>Home-task 53</title>
 </head>
 <body>
     <header class="header">
@@ -18,9 +18,9 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson10.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 8</h2>
+            <h2 class="home-task__title">Задача 53</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"> Реєструвати імена працівників (вводити і зберігати у масиві). Виводити та видаляти їх у порядку надходження.
+                <p class="home-task__subtitle">Сформировать убывающий массив из чисел, которые делятся на 3.
               </p>
             </div>
         </div>
@@ -28,29 +28,28 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNamesList(namesCount) {
-                let namesList = []
-                let name
-                for (let i = 0; i < namesCount; i++) {
-                    name = prompt("Введіть ім'я працівника")
-                    namesList.push(name)
-                }
-                return namesList
+            function getRandomArr(arrLength) {
+                let randomArr = []
+                let num
+                for (let i = 0; i < arrLength;) {
+                    num = Math.floor((Math.random()*100)+1)
+                    if (num % 3 === 0) {                    
+                    randomArr.push(num)
+                    i++                    
+                }}
+                return randomArr
             }
 
             // 1) Вводимо дані
-            let namesCount = prompt('Скільки імен працівників будемо реєструвати')
-            
+           
             // 2) Генеруємо масив  
-            let namesList = getNamesList(namesCount)
+            let randomArr = getRandomArr(10)
             
             // 3) Знаходимо розв'язок
-            while(namesList.length > 0){
-                let removedNamesList = namesList.pop()
-                        
-                // 4) Виводимо результат
-                document.write(`${removedNamesList}<br>`)
-            }
+            randomArr.sort((el1,el2) => el2 -el1)
+                          
+            // 4) Виводимо результат
+            document.write(randomArr)
             
         </script>
     </div>
