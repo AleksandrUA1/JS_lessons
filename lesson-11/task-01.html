@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 1</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 11 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson11.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 1</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Знайти суми елементів у вказаній області (масиви розділені на 4 рівні частини -  не звертаємо увагу на криві малюнки  )
+                    1) Облась 1
+                    2) Облась 2
+                    3) Облась 3
+                    4) Облась 4
+                    5) Суму парних рядків
+                    6) Суму непарних стовпців
+                    7) У парних рядках – непарні стовпці, у непарних – парні.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getTable(minValue, maxValue, columnsCount, rowsCount) {
+                let table = []
+                for (let i = 0; i < rowsCount; i++) {
+                    let row = []
+                    for (let i = 0; i < columnsCount; i++) {
+                        let columnValue = minValue + Math.floor((Math.random()*(maxValue - minValue))+1)
+                        row.push(columnValue)
+                    }
+                    table.push(row)                    
+                }
+                return table
+            }
+
+            function getSum(table, firstRowValue, lastRowValue, rowStep, firstColtValue, lastColValue, colStep) {
+                let sum = 0
+                for (let i = firstRowValue; i <= lastRowValue; i = i + rowStep) {
+                    for (let j = firstColtValue; j <= lastColValue; j = j + colStep) {
+                        sum += table[i][j]
+                    }
+                }
+                return sum
+            }
+
+            // 1) Вводимо дані
+            // let minValue = parseInt(prompt('Визначаємо область масиву (Мінімальне та максимальне значення). Введіть менімальне значення '))
+            // let maxValue = parseInt(prompt('Визначаємо область масиву (Мінімальне та максимальне значення). Введіть максимальне значення '))
+            // let columnsCount = parseInt(prompt('Скільки стовпців має бути в одному рядку?'))
+            // let rowsCount = parseInt(prompt('Скільки рядків має бути в масиві?'))
+            
+            // 2) Генеруємо двовимірний масив  
+            let table = getTable(minValue = 1, maxValue = 20, columnsCount = 4, rowsCount = 4)
+            
+            // 3) Знаходимо розв'язок
+            let sumOfFirstSpace = getSum(table,0,1,1,0,1,1)
+            let sumOfSecondSpace = getSum(table,0,1,1,2,3,1)
+            let sumOfThirdSpace = getSum(table,2,3,1,0,1,1)
+            let sumOfFourthSpace = getSum(table,2,3,1,2,3,1)
+            let sumOfEvenRows = getSum(table,1,3,2,0,3,1)
+            let sumOfOddColumns = getSum(table,0,3,1,0,2,2)
+            let sumOfEvenRowAndOddCol = getSum(table,1,3,2,0,2,2)
+            let sumOfOddRowAndEvenCol = getSum(table,0,2,2,1,3,2)
+            
+            // 4) Виводимо результат
+            document.write(`
+            ${table}<br><br>
+            Сума елементів (-х +у)<br>
+            [0][0] + [0][1] + [1][0] + [1][1] - ${sumOfFirstSpace}<br><br>
+            Сума елементів (+х +у)<br>
+            [0][2] + [0][3] + [1][2] + [1][3] - ${sumOfSecondSpace}<br><br>
+            Сума елементів (-х -у)<br>
+            [2][0] + [0][1] + [3][0] + [3][1] - ${sumOfThirdSpace}<br><br>
+            Сума елементів (+х -у)<br>
+            [2][2] + [2][3] + [3][2] + [3][3] - ${sumOfFourthSpace}<br><br>
+            Сума елементів парних рядків<br>[1][0] + ... + [1][3] + [3][0] + ... + [3][3] - ${sumOfEvenRows}<br><br>
+            Сума елементів непарних стовпців<br>
+            [0][0] + [0][2] + [1][0] + [1][2] + [2][0] + [2][2] + [3][0] + [3][2] - ${sumOfOddColumns}<br><br>
+            Сума елементів парних рядків – в непарних стовпцях<br>
+            [1][0] + [1][2] + [3][0] + [3][2] - ${sumOfEvenRowAndOddCol}<br><br>
+            Сума елементів непарних рядків –в парних стовпяц<br>
+            [0][1] + [0][3] + [2][1] + [2][3] - ${sumOfOddRowAndEvenCol}
+            `)
+        </script>
+    </div>
+</body>
+</html>

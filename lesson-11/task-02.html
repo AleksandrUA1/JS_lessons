@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 11 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson11.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+                    1) загальний прибуток кожного масиву за тиждень;
+                    2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+                    3) загальний прибуток за робочі дні
+                    4) загальний прибуток за вихідні дні
+                    5) максимальний прибуток за середу
+                    6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+                    7) відсортувати кожен тиждень за зростанням
+                    8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+                    8) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getTable(minValue, maxValue, rowsCount, columnsCount) {
+                let table = []
+                let columnValue
+                for (let i = 0; i < rowsCount; i++) {
+                    let row = []
+                    for (let j = 0; j < columnsCount; j++) {
+                        columnValue = minValue + Math.floor((Math.random()*(maxValue - minValue))+1)
+                        row.push(columnValue)
+                    }
+                    table.push(row)                    
+                }
+                return table
+            }
+
+            function getSum(table, firstStoreValues, lastStoreValues, storeStep, firstDayValueOfWeek, lastDayValueOfWeek, weekStep) {
+                let sum = 0
+                for (let i = firstStoreValues; i <= lastStoreValues; i = i + storeStep) 
+                    for (let j = firstDayValueOfWeek; j <= lastDayValueOfWeek; j = j + weekStep) 
+                        sum += table[i][j]
+                return sum
+            }
+
+            function getMaxValue(table, firstStoreValues, lastStoreValues, storeStep, firstDayValueOfWeek, lastDayValueOfWeek, weekStep) {
+                let maxValue = -Infinity
+                for (let i = firstStoreValues; i <= lastStoreValues; i = i + storeStep) 
+                    for (let j = firstDayValueOfWeek; j <= lastDayValueOfWeek; j = j + weekStep) 
+                        table[i][j] > maxValue ? maxValue = table[i][j] : maxValue
+                return maxValue
+            }
+            
+            function getElementsMore200(table) {
+                let arrFlat = table.flat(Infinity)
+                let elementsMore200 = arrFlat.filter(el => el > 200)
+                return elementsMore200
+            }
+
+            function getSortDaysOfWeeksInAscendingOrder(table) {
+                let newArr = JSON.parse(JSON.stringify(table))
+                let sortWeeksByGrowth = []
+                for (let i = 0; i < newArr.length; i++) {
+                    newArr[i].sort((el1, el2) => el1 - el2)
+                    sortWeeksByGrowth.push(newArr[i])
+                }
+                return sortWeeksByGrowth
+            }
+
+            function getSortWeeksInDescendingOrderByBigestElement(table) {  
+                let newArr = JSON.parse(JSON.stringify(table))
+                newArr.sort((row1, row2) => {
+                let el1 = Math.max(...row1)
+                let el2 = Math.max(...row2)
+                return el2 - el1}
+                )
+                return newArr
+            }
+
+            function getSortWeeksInDescendingOrderByBigestSumOfElement(table) {
+                let newArr = JSON.parse(JSON.stringify(table))
+                newArr.sort((row1, row2) => {
+                let el1 = row1.reduce((sum, el) => sum + el ,0)
+                let el2 = row2.reduce((sum, el) => sum + el ,0)
+                return el2 - el1}
+                )
+                return newArr
+            }
+                  
+            // 1) Вводимо дані
+            // let minValue = parseInt(prompt('Мінімальний прибуток магазину'))
+            // let maxValue = parseInt(prompt('Максимальний прибуток магазину'))
+            // let storeCount = parseInt(prompt('Скільки магазинів?'))
+            // let workWeeksCount = parseInt(prompt('Кількість робочих тижнів?'))
+            
+            // 2) Генеруємо двовимірний масив  
+            let table = getTable(minValue = 10, maxValue = 300, storeCount = 4, workDaysCount = 7)
+            
+            // 3) Знаходимо розв'язок
+            let ollStoresProfitPerWeek = getSum(table,0,3,1,0,6,1)
+            let ollStoresProfitOfMonday = getSum(table,0,3,1,1,1,1)
+            let ollStoresProfitOfTuesday = getSum(table,0,3,1,2,2,1)
+            let ollStoresProfitOfWednesday = getSum(table,0,3,1,3,3,1)
+            let ollStoresProfitOfThursday = getSum(table,0,3,1,4,4,1)
+            let ollStoresProfitOfFriday = getSum(table,0,3,1,5,5,1)
+            let ollStoresProfitOfSaturday = getSum(table,0,3,1,6,6,1)
+            let ollStoresProfitOfSunday = getSum(table,0,3,1,0,0,1)
+            let ollStoresProfitPerWorkDays = getSum(table,0,3,1,0,4,1)
+            let ollStoresProfitPerWeekendDays = getSum(table,0,3,1,5,6,1)
+            let maxProfitAmongStoresPerWednesday = getMaxValue(table,0,3,1,2,2,1)
+            let arrWithElementsMore200 = getElementsMore200(table)
+            let sortDaysOfWeeksInAscendingOrder = getSortDaysOfWeeksInAscendingOrder(table)
+            let sortWeeksInDescendingOrderByBigestElement = getSortWeeksInDescendingOrderByBigestElement(table)
+            let sortWeeksInDescendingOrderByBigestSumOfElement = getSortWeeksInDescendingOrderByBigestSumOfElement(table)
+            
+            // 4) Виводимо результат
+            document.write(`
+            Прибуток ${storeCount} магазинів протягом тижня: ${table}<br><br>
+            Прибуток всіх магазинів за тиждень - ${ollStoresProfitPerWeek}<br><br>
+            Загальний прибуток усіх магазинів по дням:<br>
+            Пн - ${ollStoresProfitOfMonday}<br>
+            Вт - ${ollStoresProfitOfTuesday}<br>
+            Ср - ${ollStoresProfitOfWednesday}<br>
+            Чт - ${ollStoresProfitOfThursday}<br>
+            Пт - ${ollStoresProfitOfFriday}<br>
+            Сб - ${ollStoresProfitOfSaturday}<br>
+            Нд - ${ollStoresProfitOfSunday}<br><br>
+            Загальний прибуток за робочі дні - ${ollStoresProfitPerWorkDays}<br><br>
+            Загальний прибуток за вихідні дні - ${ollStoresProfitPerWeekendDays}<br><br>
+            Максимальний прибуток за середу - ${maxProfitAmongStoresPerWednesday}<br><br>
+            Список (одновимірний масив) зі значенням, що більші за 200<br>${arrWithElementsMore200}<br><br>
+            Відсортовані дні тижня за зростанням - ${sortDaysOfWeeksInAscendingOrder}<br><br>
+            Відсортовані рядки (тижні) за спаданням, згідно максимального елемента (дні в тижні) у кожному з них<br>
+            ${sortWeeksInDescendingOrderByBigestElement}<br><br>
+            Відсортовані рядки (тижні) за спаданням, згідно максимальної суми елементів у кожному з них<br>
+            ${sortWeeksInDescendingOrderByBigestSumOfElement}<br><br>
+
+            `)
+                       
+            //         8) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+
+
+        </script>
+    </div>
+</body>
+</html>
