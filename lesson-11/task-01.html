@@ -38,7 +38,7 @@
                 let table = []
                 for (let i = 0; i < rowsCount; i++) {
                     let row = []
-                    for (let i = 0; i < columnsCount; i++) {
+                    for (let g = 0; g < columnsCount; g++) {
                         let columnValue = minValue + Math.floor((Math.random()*(maxValue - minValue))+1)
                         row.push(columnValue)
                     }
@@ -49,12 +49,28 @@
 
             function getSum(table, firstRowValue, lastRowValue, rowStep, firstColtValue, lastColValue, colStep) {
                 let sum = 0
-                for (let i = firstRowValue; i <= lastRowValue; i = i + rowStep) {
-                    for (let j = firstColtValue; j <= lastColValue; j = j + colStep) {
+                for (let i = firstRowValue; i < lastRowValue; i = i + rowStep) {
+                    for (let j = firstColtValue; j < lastColValue; j = j + colStep) {
                         sum += table[i][j]
                     }
                 }
                 return sum
+            }
+
+            function getChessTableSum(table) {
+                let chessTableSum = 0
+                for (let i = 0; i < table.length; i++) {
+                    if (i%2 === 0) {
+                        for (let j = 1; j < table[i].length; j = j + 2) {
+                            chessTableSum += table[i][j]
+                        } 
+                    } else {
+                        for (let j = 0; j < table[i].length; j = j + 2) {
+                            chessTableSum += table[i][j]
+                        }
+                    }
+                }
+                return chessTableSum
             }
 
             // 1) Вводимо дані
@@ -67,14 +83,29 @@
             let table = getTable(minValue = 1, maxValue = 20, columnsCount = 4, rowsCount = 4)
             
             // 3) Знаходимо розв'язок
-            let sumOfFirstSpace = getSum(table,0,1,1,0,1,1)
-            let sumOfSecondSpace = getSum(table,0,1,1,2,3,1)
-            let sumOfThirdSpace = getSum(table,2,3,1,0,1,1)
-            let sumOfFourthSpace = getSum(table,2,3,1,2,3,1)
-            let sumOfEvenRows = getSum(table,1,3,2,0,3,1)
-            let sumOfOddColumns = getSum(table,0,3,1,0,2,2)
-            let sumOfEvenRowAndOddCol = getSum(table,1,3,2,0,2,2)
-            let sumOfOddRowAndEvenCol = getSum(table,0,2,2,1,3,2)
+            let halfRow = Math.floor(table.length / 2)
+            let firsRow = 0
+            let lastRow = table.length
+            let firstEvenRow = 1
+            let firstOddRow = 0
+
+            let halfEl = Math.floor(table[0].length / 2)
+            let firstEl = 0
+            let lastEl = table[0].length
+            let firstEvenEl = 1
+            let firstOddEl = 0
+
+            let oneStep = 1
+            let twoStep = 2
+            let threeStep = 3
+
+            let sumOfFirstSpace = getSum(table,firsRow,halfRow,oneStep,firstEl,halfEl,oneStep)
+            let sumOfSecondSpace = getSum(table,firsRow,halfRow,oneStep,halfEl,lastEl,oneStep)
+            let sumOfThirdSpace = getSum(table,halfRow,lastRow,oneStep,firstEl,halfEl,oneStep)
+            let sumOfFourthSpace = getSum(table,halfRow,lastRow,oneStep,halfEl,lastEl,oneStep)
+            let sumOfEvenRows = getSum(table,firstEvenRow,lastRow,twoStep,firstEl,lastEl,oneStep)
+            let sumOfOddColumns = getSum(table,firsRow,lastRow,oneStep,firstOddEl,lastEl,twoStep)
+            let chessTableSum = getChessTableSum(table)
             
             // 4) Виводимо результат
             document.write(`
@@ -90,10 +121,9 @@
             Сума елементів парних рядків<br>[1][0] + ... + [1][3] + [3][0] + ... + [3][3] - ${sumOfEvenRows}<br><br>
             Сума елементів непарних стовпців<br>
             [0][0] + [0][2] + [1][0] + [1][2] + [2][0] + [2][2] + [3][0] + [3][2] - ${sumOfOddColumns}<br><br>
-            Сума елементів парних рядків – в непарних стовпцях<br>
-            [1][0] + [1][2] + [3][0] + [3][2] - ${sumOfEvenRowAndOddCol}<br><br>
-            Сума елементів непарних рядків –в парних стовпяц<br>
-            [0][1] + [0][3] + [2][1] + [2][3] - ${sumOfOddRowAndEvenCol}
+            Сума елементів парних рядків – в непарних стовпцях та непарних рядків в парних стовпцях<br>
+             ${chessTableSum}<br><br>
+            
             `)
         </script>
     </div>

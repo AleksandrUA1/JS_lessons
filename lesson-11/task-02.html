@@ -59,12 +59,14 @@
                 return sum
             }
 
-            function getMaxValue(table, firstStoreValues, lastStoreValues, storeStep, firstDayValueOfWeek, lastDayValueOfWeek, weekStep) {
-                let maxValue = -Infinity
-                for (let i = firstStoreValues; i <= lastStoreValues; i = i + storeStep) 
-                    for (let j = firstDayValueOfWeek; j <= lastDayValueOfWeek; j = j + weekStep) 
-                        table[i][j] > maxValue ? maxValue = table[i][j] : maxValue
-                return maxValue
+            function getMaxValue(table, firstStoreValues, lastStoreValues, storeStep) {
+                let arrClone = JSON.parse(JSON.stringify(table))
+                let maxValues = []
+                for (let i = firstStoreValues; i <= lastStoreValues; i = i + storeStep) {
+                    let max = arrClone[i].splice(2,1)
+                    maxValues.push(max)
+                }
+                return Math.max(...maxValues)
             }
             
             function getElementsMore200(table) {
