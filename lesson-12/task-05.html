@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style-lesson6-task31.css">
-	<title>Home-task 1</title>
+	<title>Home-task 5</title>
 </head>
 <body>
     <header class="header">
@@ -19,9 +19,9 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson12.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 1</h2>
+            <h2 class="home-task__title">Задача 5</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування бульбашкою</p>
+                <p class="home-task__subtitle">Для методу сортування змішуванням спробувати вивести етапи сортування шляхом виведення відповідних таблиць за зразком. Тобто кожного разу після обміну елементів вивести поточний стан масиву на екран.</p>
             </div>
         </div>
     </div>
@@ -39,37 +39,51 @@
             // }
 
             function getChangesCount(numbers) {
-                let changesCount = 0
+                
                 let change
+                let leftInd = 0
+                let rightInd = numbers.length - 1
+                let tmp
                 do {
                     change = false
-                    let tmp
-                    for (let i = 1; i < numbers.length; i++) {
+                    for (let i = leftInd; i < rightInd; i++) {
                         if (numbers[i] < numbers[i - 1]) {
-                            changesCount++
                             tmp = numbers[i]
                             numbers[i] = numbers[i - 1]
                             numbers[i - 1] = tmp
                             change = true
+                            document.write(`
+                            ${numbers}<br>
+                            `)
                         }
                     }
+                    rightInd--
+                    for (let i = rightInd; i > 0; i--) {
+                        if (numbers[i] < numbers[i - 1]) {
+                            tmp = numbers[i]
+                            numbers[i] = numbers[i - 1]
+                            numbers[i - 1] = tmp
+                            change = true
+                            document.write(`
+                            ${numbers}<br>
+                            `)
+                        }
+                    }
+                    leftInd++
                 } while (change)
-                return changesCount
+                
+                
             }
 
             // 1) Вводимо дані
             let numCount = 30
             // 2) Генеруємо масив  
             // let numbersList = getNumbersList(numCount)
-            let numbersList = [13,45,76,34,98,27,18,767,34,743,456,234,65,92,235,115,466,43,62,555,380,76,400,330,290,550,410,200,66,50]  // створи готовий маисв, щоб наглядно побачити різницю в ефективності методів
+            let numbersList = [24,17,12,2,15,]
             // 3) Знаходимо розв'язок
             let changesCount = getChangesCount(numbersList)
 
-            // 4) Виводимо результат
-            document.write(`
-            ${numbersList}<br>
-            Кількість обмінів під час сортування - ${changesCount}`)
-            
+            // 4) Виводимо результат            
         </script>
     </div>
 </body>

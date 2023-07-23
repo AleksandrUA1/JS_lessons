@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //============================================================
+      // let matr = [
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      // ]
+      // 1.Знайти суми елементів у вказаній області
+      //  7) У парних рядках – непарні стовпці, у непарних – парні.
+      // let s = 0
+      // for (let i = 0; i < matr.length; i++) {
+      //   //------ 1
+      //   // let startColIndex
+      //   // if (i % 2 == 0) startColIndex = 1
+      //   // else startColIndex = 0
+      //   // for (let j = startColIndex; j < matr[0].length; j += 2) {
+      //   //   s += matr[i][j]
+      //   // }
+      //   //----2
+      //   for (let j = 1- i%2 ; j < matr[0].length; j += 2) {
+      //     s += matr[i][j]
+      //   }
+      // }
+      // document.write(s)
+
+      //============================================================
+      // 8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+      // let matr = [
+      //   // maxRowsElements=[
+      //   [2, 3, 4], // -> max = 4           4
+      //   [0, 1, 1], //-> max = 1            1
+      //   [1, 2, 3], //-> max = 3            3
+      //   [2, 1, 2], //-> max = 2            2]
+      // ]
+      //------ 1 (з використанням matr.sort, та Math.max при порівнні рядків)
+      // let martCopy1 = JSON.parse(JSON.stringify(matr))
+      // martCopy1.sort((row1, row2) => {
+      //   const maxRow1 = Math.max(...row1)
+      //   const maxRow2 = Math.max(...row2)
+      //   return maxRow2 - maxRow1
+      // })
+      // console.log(martCopy1)
+      //------ 2
+      // 1) поубуємо масив з максимальних елементів рядків
+      // let maxRowsElements = matr.map((row) => Math.max(...row))
+      // document.write(maxRowsElements)
+      // 2) функція сортування одночасно масиву з максимальними і відповідно двовимірного масиву
+
+      // const lastPrevElentIndex = maxRowsElements.length - 2
+      // for (let i = 0; i <= lastPrevElentIndex; i++) {
+      //   //--- шукаємо індекс максимального
+      //   let maxIndex = i
+      //   for (let j = i + 1; j < maxRowsElements.length; j++) {
+      //     if (maxRowsElements[j] > maxRowsElements[maxIndex]) maxIndex = j
+      //   }
+      //   //---- якщо індекс максимального не співпадає, то міняємо місцями елемент з номером і maxIndex
+      //   if (maxIndex !== i) {
+      //     // -- міняємо місцями елементи у масиві з максимальних для рядків
+      //     let temp = maxRowsElements[i]
+      //     maxRowsElements[i] = maxRowsElements[maxIndex]
+      //     maxRowsElements[maxIndex] = temp
+
+      //     // -- міняємо відповідні рядки матриці
+      //     let tempRow = matr[i]
+      //     matr[i] = matr[maxIndex]
+      //     matr[maxIndex] = tempRow
+      //   }
+      // }
+      // console.log(matr)
+      //============================================================
+      // 9) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+
+      //======================= РЕКУРСІЯ =====================================
+
+      //---- Вивести на екран усі перестановки заданої послідовності чисел
+      // function nextB(step, resArr) {
+      //   if (step === 5) document.write(`${resArr} <br>`)
+      //   else {
+      //     nextB(step + 1, [...resArr, 0])
+      //     nextB(step + 1, [...resArr, 1])
+      //   }
+      // }
+
+      // nextB(0, [])
+      //============================================================
+      //---- Вивести на екран усі перестановки заданої послідовності чисел
+      // let arr = [31, 12, 8, 34, 55]
+      // function next(baseArr, resArr) {
+      //   if (baseArr.length === 0) document.write(`${resArr} <br>`)
+      //   else {
+      //     for (let i = 0; i < baseArr.length; i++) {
+      //       next(
+      //         baseArr.filter((el, ind) => ind !== i),
+      //         [...resArr, baseArr[i]]
+      //       )
+      //     }
+      //   }
+      // }
+      // next(arr, [])
+      //======================= ЗАМИКАННЯ =====================================
+
+      //============================================================
+      //--- Створити ітератор по номерам місяців
+
+    //   function getMonthIterator(monthNum, min = 1, max = 12) {
+    //     // --- правило коректної зміни номера місяця
+    //     function getNextMonth() {
+    //       if (monthNum === max) monthNum = 1
+    //       else ++monthNum
+    //       return monthNum
+    //     }
+    //     // --- повертаємо правило зміни місяця
+    //     return getNextMonth
+    //   }
+
+        function getUrlGenerator(domain) {
+            return function(url) {
+                return `https://${url}.${domain}`
+            }
+        }
+
+        let comUrl = getUrlGenerator('com')
+        let uaUrl = getUrlGenerator('ua')
+
+        document.write(`${comUrl('google')}<br>`)      // https://google.com
+        document.write(`${comUrl('netflix')}<br>`)     // https://netflix.com
+
+        document.write(`${uaUrl('google')}<br>`)       // https://google.ua
+        document.write(`${uaUrl('netflix')}`)      // https://netflix.ua
+
+
+      // let nextMonth = getMonthIterator(7)
+      // for (let i = 0; i < 30; i++) {
+      //   document.write(`${nextMonth()}<br>`)
+      // }
+      //---- Створити ітератор для постового обчислення і повертання квадратів деякого масиву
+      // let colors = ['red', 'green', 'blue', 'yellow']
+
+      // function getColorSelector(colors, currentColorIndex) {
+      //   currentColorIndex ??= colors.length - 1
+      //   function getNextColor() {
+      //     currentColorIndex++
+      //     if (currentColorIndex === colors.length) currentColorIndex = 0
+      //     return colors[currentColorIndex]
+      //   }
+      //   return getNextColor
+      // }
+
+      // let nextColorSelector = getColorSelector(colors, 1)
+      // for (let i = 0; i < 30; i++) {
+      //   document.write(`${nextColorSelector()}<br>`)
+      // }
+
+      //--- Створити ітератор по літерам слова
+      // function getLettersInWord(word) {}
+      // function translator(word, description) {
+      //   let taskInfo = alert(
+      //     `Перекладіть англійською мовою: ${description} (${word.length} букв)`
+      //   )
+      //   let wordInLetters = getLettersInWord(word)
+      //   let counter = 0
+      //   let userLettersArr = []
+      //   for (let letter = 0; letter < word.length; letter++) {
+      //     const userLetter = prompt(
+      //       `Введіть ${letter + 1} букву перекладу`
+      //     ).toLowerCase()
+      //     const wrightLetter = wordInLetters()
+
+      //     userLettersArr.push(userLetter)
+      //     if (wrightLetter === userLetter) counter++
+      //   }
+      //   return [userLettersArr, counter]
+      // }
+      // let word = 'spring'
+      // let description =
+      //   'Oдна з чотирьох пір року між зимою та літом, характерна для помірних широт '
+      // let [userLettersArr, counter] = translator(word, description)
+      // document.write(
+      //   `Переклад слова: ${word}. &lt;br&gt; Ви ввели букви: ${userLettersArr}.
+      // Кількість правильно вгаданих букв: ${counter}`
+      // )
+
+      //=========================================
+      // function createCounter(startValue, step) {
+      //   let currentValue = startValue
+      //   function couter() {
+      //     currentValue += step
+      //     return currentValue
+      //   }
+
+      //   return couter
+      // }
+
+      // let cntr1 = createCounter(10, 5)
+      // console.log('--------- cntr1 -----')
+      // console.log(cntr1)
+      // let cntr2 = createCounter(2, 4)
+      // let cntr3 = createCounter(1, 7)
+
+      // document.write(`${cntr1()} <br>`) //15
+      // document.write(`${cntr1()} <br>`) //20
+      // document.write(`${cntr1()} <br>`) //25
+
+      // document.write(`${cntr2()} <br>`) //6
+      // document.write(`${cntr2()} <br>`) //10
+
+      // document.write(`${cntr1()} <br>`) //30
+      //======================= ТАЙМЕРИ =====================================
+
+      //============================================================
+      //   Задача. Чере 3 секунди після відкриття сторінки привітати користувача
+      // setTimeout(() => alert('hello'), 3000)
+      // setTimeout(() => alert('hi'), 1000)
+
+      //============================================================
+      // Встановити інетвал на 5секунд, але якщо користувач підвердить вхід. то відмінити таймер
+      // let intervalId = setInterval(() => alert('Зареєструйтесь'), 5000)
+      // if (confirm('Бажаєте зареєструватись?')) clearInterval(intervalId)
+
+      //============================================================
+      //Через 3 серкунди перейти на укрнет (window.location.href = 'https://www.ukr.net/')
+
+      //============================================================
+      // Задача. Кожні 10 секнуд нагадувати користувачу, що бажано зареєструватися (виводити повідомлення)
+      // Але через 10 секунд припинити нагадування.
+      // let intervalId = setInterval(() => alert('Зареєструйтесь'), 3000)
+      // setTimeout(() => clearInterval(intervalId), 10000)
+
+      //============================================================
+
+      // Що побачить користувач 1
+      // for (let i = 1; i < 5; i++) {
+      //   setTimeout(
+      //     function () {
+      //       alert(i)
+      //     },
+
+      //     2000
+      //   )
+      // }
+      //============================================================
+
+      // Що побачить користувач 2
+      // let i
+      // for (i = 1; i < 5; i++) {
+      //   setTimeout(
+      //     function () {
+      //       alert(i)
+      //     },
+
+      //     2000
+      //   )
+      // }
+
+      //============================================================
+
+      // Що побачить користувач 3
+      // let num = 0
+      // let myTimer = setInterval(() => {
+      //   if (num === 5) {
+      //     alert('Stop')
+      //     clearInterval(myTimer)
+      //   } else alert(num++)
+      // }, 1000)
+      //============================================================
+
+      // Що побачить користувач 4
+      // function myFunc(num) {
+      //   setTimeout(() => {
+      //     if (num < 5) {
+      //       alert(num)
+      //       myFunc(num + 1)
+      //     }
+      //   }, 1000)
+      // }
+      // myFunc(1)
+    </script>
+  </body>
+</html>

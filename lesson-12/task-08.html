@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 8</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 12 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson12.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 8</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 8 символів і під яким індексом.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getSearchNamesLength(namesList, searchingLength) {
+                let firstElIndex = 0
+                let lastElIndex = namesList.length - 1
+                let middleIndex
+                
+                while (firstElIndex<=lastElIndex) {
+                    middleIndex = Math.floor((firstElIndex + lastElIndex) / 2)
+                    if (namesList[middleIndex].length === searchingLength ) {return middleIndex}
+                    else if (namesList[middleIndex].length < searchingLength) {firstElIndex = middleIndex + 1}     
+                    else {lastElIndex = middleIndex - 1}  
+                } 
+                return -1
+            }
+
+            function getNameListSort(namesList) {
+                namesList.sort((el1, el2) => {
+                    if (el1.length>el2.length) return 1
+                    if (el1.length<el2.length) return -1
+                    else return 0
+                    }
+                )   
+            }
+            
+            // 1) Вводимо дані
+            let searchingLength = 8
+            // 2) Генеруємо масив  
+            let namesList = ['Olena','Elena','Olga','Tatiana','Anastasia','Kateryna','Maryna','Anna','Victoria','Ksenia']
+
+            // 3) Знаходимо розв'язок
+            
+
+            let nameListSort = getNameListSort(namesList)
+            let searchNamesLength = getSearchNamesLength(namesList, searchingLength)
+            
+            // 4) Виводимо результат
+            document.write(`
+            ${namesList}<br>
+            Одне з імен довжиною 8 символів знаходиться під яким індексом - ${searchNamesLength}
+            `)
+        </script>
+    </div>
+</body>
+</html>
