@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 2.1</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 13 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson13.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2.1</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Нехай  , де  . Визначити  . Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getNumberX(i, x) {
+                if (i === 0) {return x}
+                if (i === 1) {return x = x + 2 * i}
+                else {return getNumberX(i - 1, x) + 2 * i}
+            }
+
+            // 1) Вводимо дані
+            let i = parseInt(prompt('Введіть число - i'))
+            let x = 1
+
+            // 2) Генеруємо масив  
+            
+           
+            // 3) Знаходимо розв'язок
+            let resultX = getNumberX(i, x)
+
+            // 4) Виводимо результат
+            document.write(`
+            Введене число і = ${i}<br>
+            Результат розрахунку - ${resultX}<br>
+            `)
+            
+        </script>
+    </div>
+</body>
+</html>
