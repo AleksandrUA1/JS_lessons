@@ -47,16 +47,16 @@
                 do {
                     change = false
                     for (let i = leftInd; i < rightInd; i++) {
-                        if (numbers[i] < numbers[i - 1]) {
+                        if (numbers[i] > numbers[i + 1]) {
                             changesCount++
                             tmp = numbers[i]
-                            numbers[i] = numbers[i - 1]
-                            numbers[i - 1] = tmp
+                            numbers[i] = numbers[i + 1]
+                            numbers[i + 1] = tmp
                             change = true
                         }
                     }
                     rightInd--
-                    for (let i = rightInd; i > 0; i--) {
+                    for (let i = rightInd; i > leftInd; i--) {
                         if (numbers[i] < numbers[i - 1]) {
                             changesCount++
                             tmp = numbers[i]

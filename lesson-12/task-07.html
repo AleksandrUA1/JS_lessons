@@ -28,18 +28,17 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getSearchNameOlga(namesList, searchName) {
+            function getSearchName(namesList, searchName) {
                 
                 let firstElIndex = 0
                 let lastElIndex = namesList.length - 1
                 let middleIndex
                 while (firstElIndex<=lastElIndex) {
                     middleIndex = Math.floor((firstElIndex + lastElIndex) / 2)
-                    if (namesList[middleIndex] === searchName) {return middleIndex}
+                    if (namesList[middleIndex] === searchName) {return `Ім'я ${searchName} є в списку. Воно знаходиться під номером ${middleIndex + 1}`}
                     else if (namesList[middleIndex] < searchName) {firstElIndex = middleIndex + 1}     
                     else {lastElIndex = middleIndex - 1}  
-                } 
-                return -1
+                } return `Імені ${searchName} в списку не має.`                
             }
             
             // 1) Вводимо дані
@@ -49,7 +48,7 @@
 
             // 3) Знаходимо розв'язок
             namesList.sort()
-            let searchIndexName = getSearchNameOlga(namesList, searchName)
+            let searchIndexName = getSearchName(namesList, searchName)
             
             // 4) Виводимо результат
             document.write(`
