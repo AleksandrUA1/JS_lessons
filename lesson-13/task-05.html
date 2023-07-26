@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style-lesson6-task31.css">
+	<title>Home-task 5</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 13 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson13.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 5</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по одну букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для користувача опис цього слова і по одну букву користувач вводить переклад цього слова. Підрахувати кількість вгаданих букв.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getOneLetter(wordTranslation, userAnswer, counter = 0) {
+                return function () {
+                    for (let i = 0; i < wordTranslation[0].length; i++) {
+                        userAnswer = prompt(`Прекладіть слово 'яблуко' на англійську. \nВведіть ${i + 1} літеру`)
+                        userWord.push(userAnswer)    // ??
+                        if (userAnswer === wordTranslation[0][i]) {
+                            counter++
+                        }
+                    }
+                    return counter
+                }
+            }
+
+            // 1) Вводимо дані
+            
+            // 2) Генеруємо масив  
+            let wordTranslation = ['Apple']
+
+            // 3) Знаходимо розв'язок
+            let result = getOneLetter(wordTranslation)
+            let userWord = []                   //  Так я і не поняв, чого в нього нічого не пушиться...
+            // 4) Виводимо результат
+            document.write(`
+                Слово "Яблуко" англійською буде - ${wordTranslation}<br>
+                Ви ввели слово - ${userWord.join('')}<br>
+                Кількість вгаданих літер - ${result()}
+            `)
+        </script>
+    </div>
+</body>
+</html>

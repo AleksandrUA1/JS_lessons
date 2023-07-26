@@ -28,17 +28,69 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            
+            function getNumList(listLength) {
+                let numList = []
+                let listEl = 0
+                for (let i = 0; i < listLength; i++) {
+                    listEl = Math.floor((Math.random() * 100) + 1)
+                    numList.push(listEl)
+                }
+                return numList
+            }
+
+            function swap(A, i, j) {
+                let temp = A[i]
+                A[i] = A[j]
+                A[j] = temp
+            }
+
+            function Partition(A, p, q) {
+                let pivot = A[q]  
+                let i = p - 1
+                for (let j = p; j < q; j++) {
+                    if (A[j] <= pivot) {
+                        i = i + 1
+                        swap(A, i, j)
+                    }
+                }
+                swap(A, i + 1, q)
+                return i + 1   
+            }
+
+            function Quicksort(A, p, q) {
+                if (p >= q) return             
+                let i = Partition(A, p, q)   
+                Quicksort(A, p, i - 1)      
+                Quicksort(A, i + 1, q)   
+            }
+                
+            function getFindEl(arr, searchEl, firstInd = 0, lastInd = arr.length - 1) {
+                while (firstInd <= lastInd) {
+                    let middleInd = Math.floor((firstInd + lastInd) / 2)
+                        if (arr[middleInd] === searchEl) {return true}
+                        if (arr[middleInd] > searchEl) {return getFindEl(arr, searchEl, firstInd, middleInd - 1)}
+                        if (arr[middleInd] < searchEl) {return getFindEl(arr, searchEl, middleInd + 1, lastInd)}
+                } return -1
+            }
 
             // 1) Вводимо дані
-            
+            let listLength = 30
+            let lookingFor = parseInt(prompt('Яке число від 1 до 100 шукаємо?'))
+            // let firstInd = 0                
+            // let lastInd = arr.length - 1    
+
             // 2) Генеруємо масив  
-            
+            let numList = getNumList(listLength)
             // 3) Знаходимо розв'язок
-            
+            Quicksort(numList, 0, numList.length - 1)
+            let findEl = getFindEl(numList, lookingFor)
 
             // 4) Виводимо результат
-            document.write(``)
+            document.write(`
+            ${numList}<br>
+            Шуканий елемент - ${lookingFor}<br>
+            ${findEl}
+            `)
             
         </script>
     </div>

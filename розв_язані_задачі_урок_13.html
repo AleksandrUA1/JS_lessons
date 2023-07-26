@@ -124,7 +124,14 @@
     //     return getNextMonth
     //   }
 
-        function getUrlGenerator(domain) {
+      // let nextMonth = getMonthIterator(7)
+      // for (let i = 0; i < 30; i++) {
+      //   document.write(`${nextMonth()}<br>`)
+      // }
+
+      //----------------------------------------------------------------------
+
+      function getUrlGenerator(domain) {
             return function(url) {
                 return `https://${url}.${domain}`
             }
@@ -139,11 +146,6 @@
         document.write(`${uaUrl('google')}<br>`)       // https://google.ua
         document.write(`${uaUrl('netflix')}`)      // https://netflix.ua
 
-
-      // let nextMonth = getMonthIterator(7)
-      // for (let i = 0; i < 30; i++) {
-      //   document.write(`${nextMonth()}<br>`)
-      // }
       //---- Створити ітератор для постового обчислення і повертання квадратів деякого масиву
       // let colors = ['red', 'green', 'blue', 'yellow']
 
