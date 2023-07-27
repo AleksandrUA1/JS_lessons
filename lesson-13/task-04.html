@@ -32,7 +32,7 @@
                 return function () {
                     if ((startValue + 1) % arr.length === 0) {startValue = 11}
                     else if ((startValue + 1) >= arr.length) {startValue = ((startValue + 1) % arr.length) - 1}   // всього 12 місяців 
-                                                                            // якщо користувач введе 26, список почнеться з arr[2]
+                                                                            // якщо користувач введе 26, список почнеться з arr[1]
                     
                     return arr[startValue++]
                 }
