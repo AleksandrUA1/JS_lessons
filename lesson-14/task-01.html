@@ -12,7 +12,7 @@
     <header class="header">
         <div class="container">
             <h2 class="header__title">Бабалик Олександр</h2>
-            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 11 | Масиви</h1>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 14 | Масиви</h1>
         </div>
     </header>
 	<div class="container">
@@ -20,7 +20,25 @@
             <a class="home-link"  href="lesson14.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 1</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"></p>
+                <p class="home-task__subtitle">Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+                    ----- Властивості ------
+                    -	назва компанії на час розробки (назву періодично змінюють)
+                    -	власник компанії
+                    -	споснсори (масив спонсорів)
+                                 * прізвище спонсора
+                          * ім’я  спонсора
+                          * сума вкладень спонсора
+                    -	рік випуску
+                    -	вартість сайту
+                    Знайти:
+                    1) загальну вартість усіх сайтів
+                    2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+                    3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+                    4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+                    5) знайти рік, коли прибуток був найбільшим
+                    6) упорядкувати список за спаданням прибутку
+                    7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+                </p>
             </div>
         </div>
     </div>
@@ -28,17 +46,247 @@
     <div class="script" style="text-align: center;">
         <script>
             
+            let sitesList = [
+                {
+                    companyName: 'company1',
+                    companyOwner: 'owner1',
+                    companySponsors: [
+                        {
+                            sponsorName: 'name1',
+                            sponsorSurname: 'surname1',
+                            investitionOfSponsor: 15000,
+                        },
+                        {
+                            sponsorName: 'name2',
+                            sponsorSurname: 'surname2',
+                            investitionOfSponsor: 5000,
+                        },
+                        {
+                            sponsorName: 'name3',
+                            sponsorSurname: 'surname3',
+                            investitionOfSponsor: 12000,
+                        },
+                        {
+                            sponsorName: 'name4',
+                            sponsorSurname: 'surname4',
+                            investitionOfSponsor: 7000,
+                        }
+                    ],
+                    year: 2002,
+                    siteCost: 24000,
+                },
+                {
+                    companyName: 'company1',
+                    companyOwner: 'owner1',
+                    companySponsors: [
+                        {
+                            sponsorName: 'name1',
+                            sponsorSurname: 'surname1',
+                            investitionOfSponsor: 21000,
+                        },
+                        {
+                            sponsorName: 'name2',
+                            sponsorSurname: 'surname2',
+                            investitionOfSponsor: 18000,
+                        },
+                        {
+                            sponsorName:'name3',
+                            sponsorSurname: 'surname3',
+                            investitionOfSponsor: 10000,
+                        },
+                        {
+                            sponsorName: 'name4',
+                            sponsorSurname: 'surname4',
+                            investitionOfSponsor: 12000,
+                        }
+                    ],
+                    year: 2004,
+                    siteCost: 42000,
+                },
+                {
+                    companyName: 'company1',  
+                    companyOwner: 'owner1',
+                    companySponsors: [
+                        {
+                            sponsorName: 'name1',
+                            sponsorSurname: 'surname1',
+                            investitionOfSponsor: 8000,
+                        },
+                        {
+                            sponsorName: 'name2',
+                            sponsorSurname: 'surname2',
+                            investitionOfSponsor: 2000,
+                        },
+                        {
+                            sponsorName: 'name3',
+                            sponsorSurname: 'surname3',
+                            investitionOfSponsor: 2000,
+                        }
+                    ],
+                    year: 2005,
+                    siteCost: 6000,
+                },
+                {
+                    companyName: 'company2',  
+                    companyOwner: 'owner2',
+                    companySponsors: [
+                        {
+                            sponsorName: 'name1',
+                            sponsorSurname: 'surname1',
+                            investitionOfSponsor: 10000,
+                        },
+                        {
+                            sponsorName: 'name2',
+                            sponsorSurname: 'surname2',
+                            investitionOfSponsor: 25000,
+                        },
+                        {
+                            sponsorName: 'name3',
+                            sponsorSurname: 'surname3',
+                            investitionOfSponsor: 32000,
+                        },
+                        {
+                            sponsorName: 'name4',
+                            sponsorSurname: 'surname4',
+                            investitionOfSponsor: 17000,
+                        }
+                    ],
+                    year: 2010,
+                    siteCost: 49000,
+                },
+                {
+                    companyName: 'company2', 
+                    companyOwner: 'owner2',
+                    companySponsors: [
+                        {
+                            sponsorName: 'name1',
+                            sponsorSurname: 'surname1',
+                            investitionOfSponsor: 25000,
+                        },
+                        {
+                            sponsorName: 'name2',
+                            sponsorSurname: 'surname2',
+                            investitionOfSponsor: 38000,
+                        },
+                        {
+                            sponsorName: 'name3',
+                            sponsorSurname: 'surname3',
+                            investitionOfSponsor: 43000,
+                        }
+                    ],
+                    year: 2014,
+                    siteCost: 64000,
+                }
+            ]
 
-            // 1) Вводимо дані
-            
-            
-            // 2) Генеруємо двовимірний масив  
+            //  Загальну вартість усіх сайтів
+            let totalCostSites = sitesList.reduce((prevTotalCost, site) => prevTotalCost + site.siteCost ,0)
+                function getSitesListWithInvestitionSum(sitesList) {
+                    let sitesListWithInvestitionSum = []
+                    for (let i = 0; i < sitesList.length; i++) {
+                        let investitionSumOfSite = 0
+                        for (let j = 0; j < sitesList[i].companySponsors.length; j++) {
+                            investitionSumOfSite += sitesList[i].companySponsors[j].investitionOfSponsor
+                        }
+                        sitesListWithInvestitionSum.push(investitionSumOfSite)
+                    }
+                    return sitesListWithInvestitionSum
+                }
+    
+                function getNamesOfSponsors(sitesList) {
+                    let namesOfSponsors = []
+                    for (let i = 0; i < sitesList.length; i++) {
+                        for (let j = 0; j < sitesList[i].companySponsors.length; j++) {
+                            namesOfSponsors.push(sitesList[i].companySponsors[j].sponsorName)
+                        }
+                    }
+                    return namesOfSponsors
+                }
+                
+                function getListProfitsOfOllYears(sitesList, sitesListWithInvestitionSum) {
+                    let listProfitsOfOllYears = []
+                    for (let i = 0; i < sitesList.length; i++) {
+                        listProfitsOfOllYears.push(
+                            sitesListWithInvestitionSum[i] - sitesList[i].siteCost
+                        )
+                    }
+                    return listProfitsOfOllYears
+                }
+    
+                function getBigestProfitOfOllYears(listProfitsOfOllYears, sitesList) {
+                    let maxProfit = Math.max(...listProfitsOfOllYears)
+                    let indexOfMaxProfit = listProfitsOfOllYears.indexOf(maxProfit)
+                    return sitesList[indexOfMaxProfit].year
+                }
+    
+                function getSortSiteList(listProfitsOfOllYears, sitesList) {
+                    let copySitesList = JSON.parse(JSON.stringify(sitesList))
+                    copySitesList.sort((site1, site2) => site2.siteCost - site1.siteCost)
+                    return copySitesList
+                }
+    
+                function getSitesListWithCostLess10000(sitesList, maxCost = 10000) {
+                    let sitesListWithCostLess10000 = []
+                    for (let i = 0; i < sitesList.length; i++) {
+                        if (sitesList[i].siteCost <= maxCost) {
+                            sitesListWithCostLess10000.push(sitesList[i])
+                        }
+                    }
+                    return sitesListWithCostLess10000
+                }
+    
+                function getSitesListWithCostBigest10000(sitesList, minCost = 10000) {
+                    let sitesListWithCostBigest10000 = []
                     
-            // 3) Знаходимо розв'язок
+                    for (let i = 0; i < sitesList.length; i++) {
+                        if (sitesList[i].siteCost > minCost) {
+                            sitesListWithCostBigest10000.push(sitesList[i])
+                        }
+                    }
+                    return sitesListWithCostBigest10000
+                }
+
+            //  Кількість сайтів, що було зроблено між 2000 та 2009 рр
+            let sitesCountBetweenOf2000And2009 = 0
+            for (let i = 0; i < sitesList.length; i++) {
+                if (sitesList[i].year >= 2000 && sitesList[i].year <= 2009) sitesCountBetweenOf2000And2009++                
+            }
             
+            //  Кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+            let sitesListWithInvestitionSum = getSitesListWithInvestitionSum(sitesList)
+            let sitesCountWithInvestitionMore100000 = 0
+            for (let i = 0; i < sitesListWithInvestitionSum.length; i++) {
+                if (sitesListWithInvestitionSum[i] > 100000) sitesCountWithInvestitionMore100000++
+            } 
+
+            //  Список усіх спонсорів (споснори можуть повторюватись)
+            let namesOfSponsors = getNamesOfSponsors(sitesList)
+
+            //  Знайти рік, коли прибуток був найбільшим
+            let listProfitsOfOllYears = getListProfitsOfOllYears(sitesList, sitesListWithInvestitionSum)
+            let bigestProfitOfOllYears = getBigestProfitOfOllYears(listProfitsOfOllYears, sitesList)
+
+            //  Упорядкувати список за спаданням прибутку 
+            let sortSiteList = getSortSiteList(listProfitsOfOllYears, sitesList)
             
-            // 4) Виводимо результат
-            document.write(``)
+            //  Список сайтів з вартістю до 10000
+            let sitesListWithCostLess10000 = getSitesListWithCostLess10000(sitesList, maxCost = 10000)
+
+            //  Список сайтів з вартістю більше 10000
+            let sitesListWithCostBigest10000 = getSitesListWithCostBigest10000(sitesList, minCost = 10000)
+
+            document.write(`
+            Загальну вартість усіх сайтів - ${totalCostSites}<br><br>
+            Кількість сайтів, що було зроблено між 2000 та 2009 рр - ${sitesCountBetweenOf2000And2009}<br><br>
+            Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${sitesCountWithInvestitionMore100000}<br><br>
+            Список усіх спонсорів (споснори можуть повторюватись) - ${namesOfSponsors}<br><br>
+            Знайти рік, коли прибуток був найбільшим - ${bigestProfitOfOllYears}<br><br>
+            Упорядкувати список за спаданням прибутку - ${JSON.stringify(sortSiteList)}<br><br>
+            Список сайтів з вартістю до 10000 - ${JSON.stringify(sitesListWithCostLess10000)}<br><br>
+            Список сайтів з вартістю більше 10000 - ${JSON.stringify(sitesListWithCostBigest10000)}
+            `)
+            console.log(sortSiteList)
+            
         </script>
     </div>
 </body>

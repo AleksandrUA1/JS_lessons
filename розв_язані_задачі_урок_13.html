@@ -165,33 +165,33 @@
       // }
 
       //--- Створити ітератор по літерам слова
-      // function getLettersInWord(word) {}
-      // function translator(word, description) {
-      //   let taskInfo = alert(
-      //     `Перекладіть англійською мовою: ${description} (${word.length} букв)`
-      //   )
-      //   let wordInLetters = getLettersInWord(word)
-      //   let counter = 0
-      //   let userLettersArr = []
-      //   for (let letter = 0; letter < word.length; letter++) {
-      //     const userLetter = prompt(
-      //       `Введіть ${letter + 1} букву перекладу`
-      //     ).toLowerCase()
-      //     const wrightLetter = wordInLetters()
+      function getLettersInWord(word) {}
+      function translator(word, description) {
+        let taskInfo = alert(
+          `Перекладіть англійською мовою: ${description} (${word.length} букв)`
+        )
+        let wordInLetters = getLettersInWord(word)
+        let counter = 0
+        let userLettersArr = []
+        for (let letter = 0; letter < word.length; letter++) {
+          const userLetter = prompt(
+            `Введіть ${letter + 1} букву перекладу`
+          ).toLowerCase()
+          const wrightLetter = wordInLetters()
 
-      //     userLettersArr.push(userLetter)
-      //     if (wrightLetter === userLetter) counter++
-      //   }
-      //   return [userLettersArr, counter]
-      // }
-      // let word = 'spring'
-      // let description =
-      //   'Oдна з чотирьох пір року між зимою та літом, характерна для помірних широт '
-      // let [userLettersArr, counter] = translator(word, description)
-      // document.write(
-      //   `Переклад слова: ${word}. &lt;br&gt; Ви ввели букви: ${userLettersArr}.
-      // Кількість правильно вгаданих букв: ${counter}`
-      // )
+          userLettersArr.push(userLetter)
+          if (wrightLetter === userLetter) counter++
+        }
+        return [userLettersArr, counter]
+      }
+      let word = 'spring'
+      let description =
+        'Oдна з чотирьох пір року між зимою та літом, характерна для помірних широт '
+      let [userLettersArr, counter] = translator(word, description)
+      document.write(
+        `Переклад слова: ${word}. &lt;br&gt; Ви ввели букви: ${userLettersArr}.
+      Кількість правильно вгаданих букв: ${counter}`
+      )
 
       //=========================================
       // function createCounter(startValue, step) {

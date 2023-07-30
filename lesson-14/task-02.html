@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 14 | Масиви</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson14.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle"> Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>  //  намучався з ціює задачою. Начебто 
+            function getCountYear(month) {
+                return function() {
+                    return ++obj.userMonth
+                }
+            } 
+            
+            function getNewObj(obj) {
+                
+                for (let i = 0; i < userMonthCount; i++) {
+                    yearCounter()
+                    if (obj.userMonth > 12) {
+                        obj.userMonth = 1
+                        obj.userYear++
+                    } 
+                }
+                return obj
+            }
+
+            let userYear = parseInt(prompt('введіть рік'))
+            let userMonth = parseInt(prompt('введіть місяць'))
+            let userDay = parseInt(prompt('введіть день'))
+            let userMonthCount = parseInt(prompt('введіть кількість місяців'))
+            
+            let obj = {
+                userDay,
+                userMonth,
+                userYear,
+            }
+            let yearCounter = getCountYear(obj.userMonth)
+            let newObj = getNewObj(obj)
+            
+
+            document.write(`${JSON.stringify(newObj)}`)
+
+        </script>
+    </div>
+</body>
+</html>

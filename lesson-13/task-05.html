@@ -28,36 +28,30 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // або я написав неудачний алгоритм. Або я шось не так розумію
-            // яку роль в цьому алгоритмі виконує замикаюча функція?
-            // просто без неї все так само працює  
-            // типу, якщо ми дамо користувачу ще одне слово, counter++ буде не з 0 а з попереднього значення?
-            function getOneLetter(wordTranslation, userAnswer, counter = 0) {
-                return function () {      
-                    for (let i = 0; i < wordTranslation[0].length; i++) {
-                        userAnswer = prompt(`Прекладіть слово 'яблуко' на англійську. \nВведіть ${i + 1} літеру`)
-                        
-                        if (userAnswer === wordTranslation[0][i]) {
-                            counter++
-                        }
-                    }
-                    return counter
+            function getUserAnswer(word, userWord, userLetter, i = 1, counetr = 0) {
+                return function() {
+                    return userLetter=prompt(`${description} \nВведіть ${i++}-у літеру`)
                 }
             }
-
-            // 1) Вводимо дані
             
-            // 2) Генеруємо масив  
-            let wordTranslation = ['Apple']
-
-            // 3) Знаходимо розв'язок
-            let result = getOneLetter(wordTranslation)
+            alert('Відгадайте загадку. Відповідь дайте англійською мовою')
+            let description = `З якого фрукта прийнято готувати шарлотку? Всього ${word[0].length} літер \n`
+            let word = ['apple']
+            let userAnswer = getUserAnswer()
+            let userWordResult = []
+            let counter = 0
+            for (let i = 0; i < word[0].length; i++) {
+                userWordResult.push(userAnswer().toLowerCase())
+                if (userWordResult[i] === word[0][i]) counter++
+            }
            
-            // 4) Виводимо результат
             document.write(`
-                Слово "Яблуко" англійською буде - ${wordTranslation}<br>
-                Кількість вгаданих літер - ${result()}
+            Правильна відповідь - ${word}<br>
+            Ви ввели слово - ${userWordResult.join('')}<br>
+            Кількість вгаданих літер - ${counter}
             `)
+           
+            
         </script>
     </div>
 </body>

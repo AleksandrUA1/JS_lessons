@@ -28,9 +28,8 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getRandomNum() {
-                let randomNum = Math.floor((Math.random() * 100) + 1)
-                return randomNum
+            function getRandomNum(max = 100) {
+                return Math.floor((Math.random() * max) + 1)
             }
 
             function getVerifyUserAnsver() {
@@ -39,9 +38,9 @@
                 let userAnswer = parseInt(prompt(`Якою буде сума чисел?\n
                 ${firstNum} + ${secondNum}`))
                 let sumOfTwoRandomNum = firstNum + secondNum
-                if (userAnswer === sumOfTwoRandomNum) return alert('Ви відповіли правильно')
-                else return alert('Ви помилилися')
-            }
+                if (userAnswer === sumOfTwoRandomNum) return 'Ви відповіли правильно'
+                else return 'Ви помилилися'
+            
             // 1) Вводимо дані
             
             // 2) Генеруємо масив  

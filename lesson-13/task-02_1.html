@@ -28,18 +28,15 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNumberX(i, x) {
-                if (i === 0) {return x}
-                if (i === 1) {return x = x + 2 * i}
-                else {return getNumberX(i - 1, x) + 2 * i}
+            function getNumberX(i) {
+                if (i === 0) {return 1}
+                else {return getNumberX(i - 1) + 2 * i}
             }
 
             // 1) Вводимо дані
             let i = parseInt(prompt('Введіть число - i'))
-            let x = 1
-
-            // 2) Генеруємо масив  
             
+            // 2) Генеруємо масив  
            
             // 3) Знаходимо розв'язок
             let resultX = getNumberX(i, x)

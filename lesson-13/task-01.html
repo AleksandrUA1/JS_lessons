@@ -21,9 +21,7 @@
             <a class="home-link"  href="lesson12.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 6</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Реалізувати рекурсивну функцію знаходження степеня числа а
- 
-                </p>
+                <p class="home-task__subtitle">Реалізувати рекурсивну функцію знаходження степеня числа а</p>
             </div>
         </div>
     </div>
@@ -33,7 +31,6 @@
             function getFindStepin(a, n) {
                 if (n === 0) {return 1}
                 if (n === 1) {return a}
-                if (n === 2) {return a * a}
                 else {return getFindStepin(a, n - 1) * a}
             }
 

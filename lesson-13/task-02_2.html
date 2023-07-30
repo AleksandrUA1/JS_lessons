@@ -28,7 +28,7 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNumberX(userNumber, result) {
+            function getNumberX(userNumber, result = 1) {
                 if (userNumber === 0) return result
                 else
                     for (let i = 1; i <= userNumber; i++) {
@@ -39,13 +39,11 @@
 
             // 1) Вводимо дані
             let userNumber = parseInt(prompt('Введіть число'))
-            let result = 1
 
             // 2) Генеруємо масив  
-            
            
             // 3) Знаходимо розв'язок
-            let resultX = getNumberX(userNumber, result)
+            let resultX = getNumberX(userNumber)
 
             // 4) Виводимо результат
             document.write(`

@@ -67,10 +67,10 @@
             function getFindEl(arr, searchEl, firstInd = 0, lastInd = arr.length - 1) {
                 while (firstInd <= lastInd) {
                     let middleInd = Math.floor((firstInd + lastInd) / 2)
-                        if (arr[middleInd] === searchEl) {return true}
+                        if (arr[middleInd] === searchEl) {return `Шуканий елемент є, він знаходиться у списку під номером ${middleInd + 1}`}
                         if (arr[middleInd] > searchEl) {return getFindEl(arr, searchEl, firstInd, middleInd - 1)}
                         if (arr[middleInd] < searchEl) {return getFindEl(arr, searchEl, middleInd + 1, lastInd)}
-                } return -1
+                } return 'Шуканий елемент відсутній у списку'
             }
 
             // 1) Вводимо дані
