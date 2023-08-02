@@ -21,10 +21,10 @@
             <h2 class="home-task__title">Задача 3</h2>
             <div class="home-task__description">
                 <p class="home-task__subtitle">Приклад відповіді з одного з сайтів (масив об’єктів з інформацією про товари)
-                    1) Загальну вартість (нові ціни)
-                    2)Знайти кількість товарів, у яких ціна зменшилась (price < old_price).
-                    3) Товари, які доступні (sell_status:"available")
-                    4) сформувати новий список об”єктів тільки доступних  для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
+                    1 Загальну вартість (нові ціни)
+                    2 Знайти кількість товарів, у яких ціна зменшилась (price < old_price).
+                    3 Товари, які доступні (sell_status:"available")
+                    4 сформувати новий список об”єктів тільки доступних  для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
                 </p>
             </div>
         </div>
@@ -492,43 +492,51 @@
                 },
             ]
             
+            //   -------  Функції  -------
+
+            //  -------  Загальну вартість (нові ціни)  ---------
             function getTotalSumOfNewPrice(dataList) {
-                let totalSumOfNewPrice = 0   // можна вирішити через редюс, але фор менше нагружає память
-                    for (let i = 0; i < dataList.length; i++) {
-                    totalSumOfNewPrice += dataList[i].price
-                }
+                let totalSumOfNewPrice = 0   // можна вирішити через редюс, але for of менше нагружає память
+                for (const product of dataList) 
+                    totalSumOfNewPrice += product.price
                 return totalSumOfNewPrice
             }
             
+            //  ------  Знайти кількість товарів, у яких ціна зменшилась (price < old_price)  -------
             function getCountOfDescreasedPrices(dataList) {
                 let countOfDescreasedPrices = 0
-                for (let i = 0; i < dataList.length; i++) {
-                    if (dataList[i].price < dataList[i].old_price) countOfDescreasedPrices++
-                }
+                for (const product of dataList) 
+                    if (product.price < product.old_price) 
+                        countOfDescreasedPrices++
                 return countOfDescreasedPrices
             }
 
+            //  ------  Товари, які доступні (sell_status:"available")  ------
             function getAvailableProducts (dataList) {
                 let availableProducts = []
-                
-                for (let i = 0; i < dataList.length; i++) {
-                    if (dataList[i].sell_status === 'available') 
-                        {
-                            let product = JSON.parse(JSON.stringify(dataList[i]))
-                            availableProducts.push(product)
-                        } 
-                }
+                for (const product of dataList) 
+                    if (product.sell_status === 'available') 
+                        availableProducts.push(JSON.parse(JSON.stringify(product)))
                 return availableProducts
             }
             
+            //   ------  Cформувати новий список об”єктів тільки доступних для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
+
             function getNewProductsList(dataList) {
                 let newProductsList = []
-                for (let i = 0; i < dataList.length; i++) {
-                    let { id, price, old_price, usd_price } = dataList[i]
-                    newProductsList.push({ id, price, old_price, usd_price })
-                }
+                for (const product of dataList) 
+                    if (product.sell_status === 'available') {
+                        let { id, price, old_price, usd_price } = product  // списав)
+                        // let id = product.id
+                        // let price = product.price
+                        // let old_price = product.old_price
+                        // let usd_price=product.usd_price
+                        newProductsList.push({id,price,old_price,usd_price,})
+                    }
                 return newProductsList
             }
+
+            //   -----   Виклик функцій  -------
 
             // 1) Загальну вартість (нові ціни)
             let totalSumOfNewPrice = getTotalSumOfNewPrice(dataList)

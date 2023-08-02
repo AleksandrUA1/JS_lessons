@@ -45,7 +45,7 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            
+            // -----------  dataList  -------
             let sitesList = [
                 {
                     companyName: 'company1',
@@ -178,114 +178,112 @@
                     siteCost: 64000,
                 }
             ]
+            
+            //  --------------------------  Функції ----------------------------------------
 
-            //  Загальну вартість усіх сайтів
-            let totalCostSites = sitesList.reduce((prevTotalCost, site) => prevTotalCost + site.siteCost ,0)
-                function getSitesListWithInvestitionSum(sitesList) {
-                    let sitesListWithInvestitionSum = []
-                    for (let i = 0; i < sitesList.length; i++) {
-                        let investitionSumOfSite = 0
-                        for (let j = 0; j < sitesList[i].companySponsors.length; j++) {
-                            investitionSumOfSite += sitesList[i].companySponsors[j].investitionOfSponsor
-                        }
-                        sitesListWithInvestitionSum.push(investitionSumOfSite)
-                    }
-                    return sitesListWithInvestitionSum
-                }
-    
-                function getNamesOfSponsors(sitesList) {
-                    let namesOfSponsors = []
-                    for (let i = 0; i < sitesList.length; i++) {
-                        for (let j = 0; j < sitesList[i].companySponsors.length; j++) {
-                            namesOfSponsors.push(sitesList[i].companySponsors[j].sponsorName)
-                        }
-                    }
-                    return namesOfSponsors
-                }
-                
-                function getListProfitsOfOllYears(sitesList, sitesListWithInvestitionSum) {
-                    let listProfitsOfOllYears = []
-                    for (let i = 0; i < sitesList.length; i++) {
-                        listProfitsOfOllYears.push(
-                            sitesListWithInvestitionSum[i] - sitesList[i].siteCost
-                        )
-                    }
-                    return listProfitsOfOllYears
-                }
-    
-                function getBigestProfitOfOllYears(listProfitsOfOllYears, sitesList) {
-                    let maxProfit = Math.max(...listProfitsOfOllYears)
-                    let indexOfMaxProfit = listProfitsOfOllYears.indexOf(maxProfit)
-                    return sitesList[indexOfMaxProfit].year
-                }
-    
-                function getSortSiteList(listProfitsOfOllYears, sitesList) {
-                    let copySitesList = JSON.parse(JSON.stringify(sitesList))
-                    copySitesList.sort((site1, site2) => site2.siteCost - site1.siteCost)
-                    return copySitesList
-                }
-    
-                function getSitesListWithCostLess10000(sitesList, maxCost = 10000) {
-                    let sitesListWithCostLess10000 = []
-                    for (let i = 0; i < sitesList.length; i++) {
-                        if (sitesList[i].siteCost <= maxCost) {
-                            sitesListWithCostLess10000.push(sitesList[i])
-                        }
-                    }
-                    return sitesListWithCostLess10000
-                }
-    
-                function getSitesListWithCostBigest10000(sitesList, minCost = 10000) {
-                    let sitesListWithCostBigest10000 = []
-                    
-                    for (let i = 0; i < sitesList.length; i++) {
-                        if (sitesList[i].siteCost > minCost) {
-                            sitesListWithCostBigest10000.push(sitesList[i])
-                        }
-                    }
-                    return sitesListWithCostBigest10000
-                }
-
-            //  Кількість сайтів, що було зроблено між 2000 та 2009 рр
-            let sitesCountBetweenOf2000And2009 = 0
-            for (let i = 0; i < sitesList.length; i++) {
-                if (sitesList[i].year >= 2000 && sitesList[i].year <= 2009) sitesCountBetweenOf2000And2009++                
+            //  ------  Загальну вартість усіх сайтів  ---------
+            function getTotalCostSites(sitesList) {
+                let totalCostSites = sitesList.reduce((prevTotalCost, site) => prevTotalCost + site.siteCost ,0)
+                return totalCostSites
             }
             
+             //  ------  Кількість сайтів, що було зроблено між 2000 та 2009 рр  ---------
+            function getSitesCountCreatedBetweenOf2000And2009(sitesList) {
+                let sitesCountCreatedBetweenOf2000And2009 = 0
+                for (let i = 0; i < sitesList.length; i++) {
+                    if (sitesList[i].year >= 2000 && sitesList[i].year <= 2009) sitesCountCreatedBetweenOf2000And2009++                
+                }
+                return sitesCountCreatedBetweenOf2000And2009
+            }
+
+            //  ------  Кількість сайтів, де сума спонсорських вкладень була більшою за 100000  -------                
+            function getSitesCountWithInvestitionsMore100000(sitesList) {
+                let sitesCountWithInvestitionsMore100000  = 0
+                for (let i = 0; i < sitesList.length; i++) {
+                    let investitionSumOfSite = 0
+                    for (let j = 0; j < sitesList[i].companySponsors.length; j++) {
+                        investitionSumOfSite += sitesList[i].companySponsors[j].investitionOfSponsor
+                    }
+                    if (investitionSumOfSite > 100000) sitesCountWithInvestitionsMore100000++
+                }
+                return sitesCountWithInvestitionsMore100000
+            }
+
+            //  ------  Список усіх спонсорів (споснори можуть повторюватись)  -------
+            function getListNamesOfSponsors(sitesList) {
+                let listNamesOfSponsors = []
+                for (let i = 0; i < sitesList.length; i++) {
+                    for (let j = 0; j < sitesList[i].companySponsors.length; j++) {
+                        listNamesOfSponsors.push(sitesList[i].companySponsors[j].sponsorName)
+                    }
+                }
+                return listNamesOfSponsors
+            }
+
+            //  ------ Знайти рік, коли прибуток був найбільшим  -------    
+            function getYearWihtBigestProfit(sitesList) {
+                let yearWihtBigestProfit = 0
+                let bigestProfitPerYaer = -Infinity
+                for (const site of sitesList) {
+                    if (site.siteCost > bigestProfitPerYaer) yearWihtBigestProfit = site.year
+                }
+                return yearWihtBigestProfit
+            }
+
+            //  ------  Упорядкувати список за спаданням прибутку  -------            
+            function getSortSiteListByDescendingOfProfit(sitesList) {
+                let copySitesList = JSON.parse(JSON.stringify(sitesList))
+                copySitesList.sort((site1, site2) => site2.siteCost - site1.siteCost)
+                return copySitesList
+            }
+            
+            // ------  Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000 -------
+            function getSplitSitesList(sitesList, frontCost = 10000) {
+                let sitesListWithCostLess10000 = []
+                let sitesListWithCostMore10000 = []
+                for (const site of sitesList) {
+                    if (site.siteCost <= frontCost) sitesListWithCostLess10000.push(JSON.parse(JSON.stringify(site)))
+                    else if (site.siteCost > frontCost) sitesListWithCostMore10000.push(JSON.parse(JSON.stringify(site)))
+                }
+                return [sitesListWithCostLess10000, sitesListWithCostMore10000]
+            }
+                
+            //   -----   Виклик функцій  -------
+            
+            //  Загальну вартість усіх сайтів
+            let totalCostSites = getTotalCostSites(sitesList)
+
+            //  Кількість сайтів, що було зроблено між 2000 та 2009 рр
+            let sitesCountCreatedBetweenOf2000And2009 = getSitesCountCreatedBetweenOf2000And2009(sitesList)
+            
             //  Кількість сайтів, де сума спонсорських вкладень була більшою за 100000
-            let sitesListWithInvestitionSum = getSitesListWithInvestitionSum(sitesList)
-            let sitesCountWithInvestitionMore100000 = 0
-            for (let i = 0; i < sitesListWithInvestitionSum.length; i++) {
-                if (sitesListWithInvestitionSum[i] > 100000) sitesCountWithInvestitionMore100000++
-            } 
+            let sitesCountWithInvestitionsMore100000  = getSitesCountWithInvestitionsMore100000(sitesList)
 
             //  Список усіх спонсорів (споснори можуть повторюватись)
-            let namesOfSponsors = getNamesOfSponsors(sitesList)
+            let listNamesOfSponsors = getListNamesOfSponsors(sitesList)
 
             //  Знайти рік, коли прибуток був найбільшим
-            let listProfitsOfOllYears = getListProfitsOfOllYears(sitesList, sitesListWithInvestitionSum)
-            let bigestProfitOfOllYears = getBigestProfitOfOllYears(listProfitsOfOllYears, sitesList)
+            let yearWihtBigestProfit = getYearWihtBigestProfit(sitesList)
 
             //  Упорядкувати список за спаданням прибутку 
-            let sortSiteList = getSortSiteList(listProfitsOfOllYears, sitesList)
+            let sortSiteListByDescendingOfProfit = getSortSiteListByDescendingOfProfit(sitesList)
             
-            //  Список сайтів з вартістю до 10000
-            let sitesListWithCostLess10000 = getSitesListWithCostLess10000(sitesList, maxCost = 10000)
+            //  Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+            let splitSitesList = getSplitSitesList(sitesList)
 
-            //  Список сайтів з вартістю більше 10000
-            let sitesListWithCostBigest10000 = getSitesListWithCostBigest10000(sitesList, minCost = 10000)
+            
 
             document.write(`
             Загальну вартість усіх сайтів - ${totalCostSites}<br><br>
-            Кількість сайтів, що було зроблено між 2000 та 2009 рр - ${sitesCountBetweenOf2000And2009}<br><br>
-            Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${sitesCountWithInvestitionMore100000}<br><br>
-            Список усіх спонсорів (споснори можуть повторюватись) - ${namesOfSponsors}<br><br>
-            Знайти рік, коли прибуток був найбільшим - ${bigestProfitOfOllYears}<br><br>
-            Упорядкувати список за спаданням прибутку - ${JSON.stringify(sortSiteList)}<br><br>
-            Список сайтів з вартістю до 10000 - ${JSON.stringify(sitesListWithCostLess10000)}<br><br>
-            Список сайтів з вартістю більше 10000 - ${JSON.stringify(sitesListWithCostBigest10000)}
+            Кількість сайтів, що було зроблено між 2000 та 2009 рр - ${sitesCountCreatedBetweenOf2000And2009}<br><br>
+            Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${sitesCountWithInvestitionsMore100000}<br><br>
+            Список усіх спонсорів (споснори можуть повторюватись) - ${listNamesOfSponsors}<br><br>
+            Знайти рік, коли прибуток був найбільшим - ${yearWihtBigestProfit}<br><br>
+            Упорядкувати список за спаданням прибутку - ${JSON.stringify(sortSiteListByDescendingOfProfit)}<br><br>
+            Список сайтів з вартістю до 10000 - ${JSON.stringify(splitSitesList[0])}<br><br>
+            Список сайтів з вартістю більше 10000 - ${JSON.stringify(splitSitesList[1])}
             `)
-            console.log(sortSiteList)
+            console.log(sortSiteListByDescendingOfProfit)
             
         </script>
     </div>
