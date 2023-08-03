@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 15 | Об'єкти</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson15.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            //  ------  Генеруємо ігрове поле  ------
+            function getTableGame(tableLength, shipCount) {
+                let tableGame = new Array(tableLength).fill(0)
+                let randomTablePosition = 0
+                for (let i = 0; i < shipCount; ) {
+                    randomTablePosition = Math.floor(Math.random() * tableLength) + 1
+                    if (tableGame[randomTablePosition] === 0) { 
+                        tableGame[randomTablePosition] = 1
+                        i++
+                    }
+                }
+                return tableGame
+            }
+
+            //  ------ Створюємо конструктор об'єкта  -------
+            class ShootingRangeGame {
+                //  -------  Властивості  ------
+                constructor(array, shipCount, tableLength, displayTableGame) {
+                    this.array = array
+                    this.shipCount = shipCount
+                    this.tableLength = tableLength
+                    this.displayTableGame = displayTableGame
+                }
+
+                //  -------  Методи -------
+                getShootMethod(userShoot) {
+                    if (userShoot >= this.tableLength) {
+                        throw new Error("Такої комірки не існує")  // Підскажіть будь ласка, чому воно не працює?
+                    }
+                    if (this.array[userShoot] === 1 ) {
+                        this.array[userShoot] = 0
+                        this.displayTableGame[userShoot] = 'x'  //  --Виведення 'попав' в ігровому полі--
+                        this.shipCount--
+                        alert(`Вітаємо! Ви влучили \n${this.displayTableGame}`)
+                    }
+                    else if (this.array[userShoot] === 0 ) {
+                        this.displayTableGame[userShoot] = 'o'  // --Виведення 'мимо' в ігровому полі--
+                        alert(`Ви не попали. \n${this.displayTableGame}`)
+                    }
+                }    
+
+                run(){
+                    do {   
+                        let userShoot = parseInt(prompt(`Оберіть позицію для пострілу (Від 1 до ${this.tableLength}) \nЗалишилось ${this.shipCount} цілей`)) - 1
+                        this.getShootMethod(userShoot)
+                    } while (confirm('Бажаєте продовжити?'));
+                }
+            }
+            
+            //  -------  Вхідні дані  -------
+            let tableLength = 10
+            let shipCount = 4
+            let displayTableGame = new Array(tableLength).fill(' ')  // --Для виведення ігрового поля--
+            let tableGame = getTableGame(tableLength, shipCount)
+
+            //  ------- Генеруємо об'єкт  --------
+            let myGame = new ShootingRangeGame(tableGame, shipCount, tableLength, displayTableGame)
+            myGame.run()
+
+        </script>
+    </div>
+</body>
+</html>

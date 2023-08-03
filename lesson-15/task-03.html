@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 3</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 15 | Об'єкти</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson15.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 3</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити об’єкт «Авто». </p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            //  ------ Створюємо конструктор об'єкта  -------
+            class CarList{
+                //  -------  Властивості  ------
+                constructor(model, tankSize, amountFuelInCar, amountSeatsPlace, amountOfPassengers) {
+                    this.model = model
+                    this.tankSize = tankSize
+                    this.amountFuelInCar = amountFuelInCar
+                    this.amountSeatsPlace = amountSeatsPlace
+                    this.amountOfPassengers = amountOfPassengers
+                }
+
+                //  -------  Методи -------
+                toString() {
+                    return `Модель: ${this.model}<br> Розмір бака: ${this.tankSize}<br> Кількість наявних літрів ${this.amountFuelInCar}<br> Кількість місць ${this.amountSeatsPlace}<br> Кількість пасажирів ${this.amountOfPassengers}`
+                }
+
+                getRefuelCar(amountNewFuel){
+                    if (this.tankSize < (this.amountFuelInCar + amountNewFuel)) {
+                        throw new Error(`Введено хибні дані`)            //  Чомусь throw не працює
+                    }
+                    else if (this.tankSize >= (this.amountFuelInCar + amountNewFuel)) {
+                       return (`Автомобіль заправлено на ${amountNewFuel} літрів.<br>Зараз в бакі ${this.amountFuelInCar + amountNewFuel}`)
+                    }
+                }
+
+                getNewAmountOfPassengers(amountOfNewPassengers){
+                    if (this.amountSeatsPlace < (this.amountOfPassengers + amountOfNewPassengers)) {
+                        throw new Error(`Введено хибні дані`)            //  Чомусь throw не працює
+                    }
+                    else if (this.amountSeatsPlace >= (this.amountOfPassengers + amountOfNewPassengers)) {
+                        this.amountOfPassengers += amountOfNewPassengers
+                       return (`В автомобіль сіло ${amountOfNewPassengers} пасажирів.<br>Зараз в автомобілі ${this.amountOfPassengers} пасажирів`)
+                    }
+                }
+
+                getAmountOFRemainderPassengers(amountOfGotOutPassengers){
+                    if (this.amountOfPassengers < amountOfGotOutPassengers) {
+                        throw new Error(`Введено хибні дані`)            //  Чомусь throw не працює
+                    }
+                    else if (this.amountOfPassengers >= amountOfGotOutPassengers) {
+                       return (`З автомобіля вийшло ${amountOfGotOutPassengers} пасажирів.<br>Зараз в автомобілі ${this.amountOfPassengers - amountOfGotOutPassengers} пасажирів`)
+                    }
+                }
+            }
+
+             //  -------  Вхідні дані  -------
+            let model = "Hyundai"
+            let tankSize = 70
+            let amountFuelInCar = 30
+            let amountSeatsPlace = 5
+            let amountOfPassengers = 3
+
+            let fillUpTank = 40
+            let takeNewPassengers = 2
+            let amountOfGotOutPassengers = 4
+
+            //  ------- Генеруємо об'єкт  --------
+            let myCar = new CarList(model,tankSize,amountFuelInCar,amountSeatsPlace,amountOfPassengers)
+
+            document.write(`${myCar}<br><br>`)
+            console.log(myCar)
+
+            //  ------  Заправка на вказану кількість літрів  ------
+            document.write(`${myCar.getRefuelCar(fillUpTank)}<br><br>`)
+
+            //  ------  Виведення кількості пасажирів  ------  Чи правильно було не створювати функцію?
+            document.write(`Зараз в автомобілі ${myCar.amountOfPassengers} пасажирів<br><br>`)
+
+            //  ------  Додавання пасажирів  ------
+            document.write(`${myCar.getNewAmountOfPassengers(takeNewPassengers)}<br><br>`)
+
+            //  ------  Висадка пасажирів  ------
+            document.write(`${myCar.getAmountOFRemainderPassengers(amountOfGotOutPassengers)}<br><br>`)
+
+        </script>
+    </div>
+</body>
+</html>

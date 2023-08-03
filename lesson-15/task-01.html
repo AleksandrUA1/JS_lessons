@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 1</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 15 | Об'єкти</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson15.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 1</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+                    Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+                    </p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            //  ------  Генеруємо масив з рандомними числами  -----
+            function getRandomNumberList(arrLength = 5, maxNum = 100) {
+                let randomNumberList = []
+                let num = 0
+                for (let i = 0; i < arrLength; i++) {
+                    num = (Math.floor(Math.random() * maxNum) + 1)
+                    randomNumberList.push(num)
+                }
+                return randomNumberList
+            }
+
+            //  ------  Клас, шаблон для об'єкта з масивом та функцією сумою  ------
+            class ArrayWithSumMethod {
+                constructor(numberList) {
+                this.numberList = numberList
+                }
+
+                getSumOfArray(minValue = 10, maxValue = 80){   // Якщо користувач нічого не введе, сюди запшеться NaN. Підскажіть чому?
+                    let sumOfArray = 0
+                    for (const el of this.numberList) {
+                        if (el > minValue && el < maxValue) sumOfArray += el
+                    }
+                    return sumOfArray
+                }
+            }
+
+            //  ------  Клас, шаблон для об'єкта з масивом та функцією добутком  ------
+            class ArrayWithProdMethod {
+                constructor(numberList) {
+                    this.numberList = numberList
+                }
+
+                getProdOfArray(minValue = 20, maxValue = 60){   // Якщо користувач нычого не введе, сюди запшеться NaN 
+                    let prodOfArray = 1
+                    for (const el of this.numberList) {
+                        if (el > minValue && el < maxValue) prodOfArray *= el 
+                    }
+                    return prodOfArray
+                }
+            }
+
+            const userMinValue = parseInt(prompt('Введіть мінімальне значення (від 0 до 100)'))
+            const userMaxValue = parseInt(prompt('Введіть максимальне значення (від 0 до 100)'))
+            
+            //  -------  Масиви з рандомними числами  --------
+            let arr1 = getRandomNumberList() 
+            let arr2 = getRandomNumberList()
+
+            //  -------  Створюємо об'єкт з масивом та функціями  -----
+            let obj1 = new ArrayWithSumMethod(arr1) 
+            let obj2 = new ArrayWithProdMethod(arr2)
+
+            //  -------  Викликаємо функції суми та добутку для обох об'єктів  ------ 
+            let sumOfObj1 = obj1.getSumOfArray(userMinValue, userMaxValue)
+            let sumOfObj2 = obj1.getSumOfArray.call(obj2, userMinValue, userMaxValue)
+
+            let prodOfObj1 = obj2.getProdOfArray.apply(obj1, [userMinValue, userMaxValue])
+            let prodOfObj2 = obj2.getProdOfArray(userMinValue, userMaxValue)
+
+            document.write(`
+            Перший масив - ${arr1}<br>
+            Другий масив - ${arr2}<br>
+            <br>(від ${userMinValue} до ${userMaxValue})<br>
+            Сума елементів 1го масиву  = ${sumOfObj1}<br>
+            Сума елементів 2го масиву = ${sumOfObj2}<br>
+            Добуток елементів 1го масиву = ${prodOfObj1}<br>
+            Добуток елементів 2го масиву = ${prodOfObj2}<br>
+            `)
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 4</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 15 | Об'єкти</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson15.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 4</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Розробити клас MultChecker для перевірки таблиці множення</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>  
+            //  ------  Створюємо конструктор об'єкта  -------
+            class MultChecker {
+                //  -------  Властивості  ------
+                constructor(maxNum, minNum){
+                    this.maxNum = maxNum
+                    this.minNum = minNum
+                    this.rightUserAnswer = 0
+                    this.wrongUserAnswer = 0
+                }
+
+                //  -------  Методи -------
+                getTask(userNumber, randomNum){     //  ------ Генеруємо приклад
+                    let randomTask = randomNum * userNumber
+                    return randomTask
+                }
+
+                getCheckUserAnswer(userNumber, maxNum = 9, minNum = 2){  //  ------ Перевірка правильності вказаної відповіді
+                    let randomNum = Math.floor((Math.random()*(maxNum - minNum + 1))+ minNum)
+                    let userAnswer = parseInt(prompt(`Якою буде відповідь? \n${userNumber} * ${randomNum}`))
+                    if (this.getTask(userNumber, randomNum) === userAnswer) {
+                        this.rightUserAnswer++
+                        alert('Правильно')
+                    }
+                    else {
+                        this.wrongUserAnswer++
+                        alert('Неправильно')
+                    }
+                }
+
+                run(){
+                    do {
+                        let userNumber = parseInt(prompt(`Введіть число від ${minNum} до ${maxNum}`))    //  Я не можу зрозуміти чому, але ці 2 змінні тут з this не працюють
+                        this.getCheckUserAnswer(userNumber, maxNum, minNum)                              //  Дуиаю зараз ці змінні підтягуються з глобального середовища window
+                    } while (confirm('Бажаєте продовжити?'));                                            //  А як це перевірити в консолі, ще не навчився .
+                }                                                                                        //  Поясніть будь ласка чому так.
+            }
+            //  -------  Вхідні дані  -------
+            let maxNum = 9
+            let minNum = 2
+            
+            //  ------- Генеруємо об'єкт  --------
+            let myTask = new MultChecker()
+            myTask.run()
+
+            document.write(`
+            Кількість правильних відповідей - ${myTask.rightUserAnswer}<br>
+            Кількість не правильних відповідей - ${myTask.wrongUserAnswer}
+            `)
+
+        </script>
+    </div>
+</body>
+</html>
