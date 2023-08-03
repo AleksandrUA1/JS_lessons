@@ -26,19 +26,38 @@
     </div>
     <div class="script" style="text-align: center;">
         <script>
-            //  ------ Створюємо конструктор об'єкта  -------
-            
-                //  -------  Властивості  ------
-            
+            class DanceMentor{
+                constructor(boysNamesList,girlsNamesList){
+                    this.boysNamesList = boysNamesList
+                    this.girlsNamesList = girlsNamesList
+                }
 
-                //  -------  Методи -------
-              
+                getRandomBoyName(){
+                    let randomBoyName = Math.floor(Math.random()*this.boysNamesList.length)
+                    return this.boysNamesList[randomBoyName]
+                }
 
-             //  -------  Вхідні дані  -------
-            
+                getRandomGirlName(){
+                    let randomGirlName = Math.floor(Math.random()*this.girlsNamesList.length)
+                    return this.girlsNamesList[randomGirlName]
+                }
 
-            //  ------- Генеруємо об'єкт  --------
-           
+                coupleForDancing(){
+                    console.log(`
+                    Пара для танців - ${this.getRandomBoyName()} ${this.getRandomGirlName()}\n
+                    `)
+                }
+
+                run() {
+                    setInterval(() => {this.coupleForDancing()}, 5000);
+                }
+            }
+
+            let boysNamesList = ['Іван', 'Сашко', 'Павел', 'Ігор', 'Микола', 'Станіслав', 'Петро', 'Денис']
+            let girlsNamesList = ['Марія', 'Олена', 'Анастасія', 'Юлія', 'Оксана']
+
+            let coupleForDancing = new DanceMentor(boysNamesList, girlsNamesList)
+            coupleForDancing.run()
 
         </script>
     </div>

@@ -24,22 +24,50 @@
             </div>
         </div>
     </div>
+    <a href=""></a>
     <div class="script" style="text-align: center;">
         <script>
-            //  ------ Створюємо конструктор об'єкта  -------
+            let bannersArray = [
+                {
+                    imgLink: '../img/img1.jpg',
+                    siteLink: 'https://uk.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BA%D0%B2%D0%B0',
+                },
+                {
+                    imgLink: '../img/img2.jpg',
+                    siteLink: 'https://uk.wikipedia.org/wiki/%D0%90%D0%BF%D0%B5%D0%BB%D1%8C%D1%81%D0%B8%D0%BD',
+                },
+                {
+                    imgLink: '../img/img3.jpg',
+                    siteLink: 'https://uk.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%B0%D0%BD',
+                },
+                {
+                    imgLink: '../img/img4.jpg',
+                    siteLink: 'https://uk.wikipedia.org/wiki/%D0%9B%D0%B8%D0%BC%D0%BE%D0%BD',
+                }
+            ]
             
-                //  -------  Властивості  ------
+            class Banner{
+                constructor(bannersArray){
+                    this.bannersArray = bannersArray
+                }  
+
+                getSelectRandomBanner(){
+                    let selectRandomBanner = Math.floor(Math.random()*this.bannersArray.length)    
+                    return this.bannersArray[selectRandomBanner]
+                } 
+                    
+                printRandomBanner(){
+                    let printRandomBanner =  this.getSelectRandomBanner()
+                    document.write(`
+                    <img src="${printRandomBanner.imgLink}" alt=""><br>
+                    <a href="${printRandomBanner.siteLink}">Читай про це тут</a>
+                    `)
+                }
+                
+            }
+            let p = new Banner(bannersArray)
+            p.printRandomBanner()
             
-
-                //  -------  Методи -------
-              
-
-             //  -------  Вхідні дані  -------
-            
-
-            //  ------- Генеруємо об'єкт  --------
-           
-
         </script>
     </div>
 </body>

@@ -53,7 +53,7 @@
                 //  -------  Методи -------
                 getShootMethod(userShoot) {
                     if (userShoot >= this.tableLength) {
-                        throw new Error("Такої комірки не існує")  // Підскажіть будь ласка, чому воно не працює?
+                        throw new Error("Такої комірки не існує")  
                     }
                     if (this.array[userShoot] === 1 ) {
                         this.array[userShoot] = 0

@@ -57,7 +57,7 @@
 
                 run(){
                     do {
-                        let userNumber = parseInt(prompt(`Введіть число від ${minNum} до ${maxNum}`))    //  Я не можу зрозуміти чому, але ці 2 змінні тут з this не працюють
+                        let userNumber = parseInt(prompt(`Введіть число від ${minNum} до ${maxNum}`))    //  Я не можу зрозуміти чому ці 2 змінні тут з this не працюють?
                         this.getCheckUserAnswer(userNumber, maxNum, minNum)                              //  Дуиаю зараз ці змінні підтягуються з глобального середовища window
                     } while (confirm('Бажаєте продовжити?'));                                            //  А як це перевірити в консолі, ще не навчився .
                 }                                                                                        //  Поясніть будь ласка чому так.
