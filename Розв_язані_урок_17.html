@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=============================================
+      //                 Приклад. Створити об’єкт учень.
+      //        ----------- Властивості - характеристики ---------
+      //        ПІБ (прізвище, ім"я, по-батькові) - ніякого контролю не потрібно
+      //        вік (>7)
+      //        клас, у якому навчається
+      //        оцінки учня - масив (перевіряти не будемо)
+
+      //        ------------ Методи (функіональні можливості) -------------
+      //        середній бал - (розраховується на основі оцінок)
+      //        визначення того, ким він є (відмінник, хорошист, ...)
+      //        визначити кількості років до закінчення школи
+      // class Pupil {
+      //   #age //1) описали приватне поле
+      //   #class
+      //   constructor(initName, initAge, initClass, initScores) {
+      //     this.name = initName
+      //     //4) ініціалізація приватного поля з використанянм властивості
+      //     this.Age = initAge
+      //     this.Class = initClass
+      //     this.scores = initScores
+      //   }
+      //   // 2) описали геттер
+      //   get Age() {
+      //     return this.#age
+      //   }
+      //   // 3) опсиати сеттер вік (>7)
+      //   set Age(newVal) {
+      //     if (newVal <= 7) throw new Error('Вік повинен бути більшим за 7')
+
+      //     this.#age = newVal
+      //   }
+
+      //   get Class() {
+      //     return this.#class
+      //   }
+      //   set Class(newVal) {
+      //     if (newVal < 1 || newVal > 12)
+      //       throw new Error('Значення повинно бути в межах від 1 до 12')
+
+      //     this.#class = newVal
+      //   }
+      //   //        ------------ Методи (функіональні можливості) -------------
+      //   //        середній бал - (розраховується на основі оцінок)
+      //   //---- є геттера, а сеттера нема (властивість тільки для читання) (обчислювальні властвості)
+      //   get AverageScore() {
+      //     const sum = this.scores.reduce((prevSum, score) => prevSum + score)
+      //     return sum / this.scores.length
+      //   }
+      //   //        визначення того, ким він є (відмінник, хорошист, ...)
+      //   get PupilType() {
+      //     const minScore = Math.min(...this.scores)
+      //     let type
+      //     switch (minScore) {
+      //       case 1:
+      //       case 2:
+      //       case 3:
+      //         type = 'Двійочник'
+      //         break
+      //       case 4:
+      //       case 5:
+      //       case 6:
+      //         type = 'Трійочник'
+      //         break
+      //       case 7:
+      //       case 8:
+      //       case 9:
+      //         type = 'Хорошист'
+      //         break
+      //       case 10:
+      //       case 11:
+      //       case 12:
+      //         type = 'Відмінник'
+      //         break
+      //       default:
+      //         throw new Error('Значення оцінок некоректні')
+      //         break
+      //     }
+      //     return type
+      //   }
+      //   //        визначити кількості років до закінчення школи
+      //   getLeftYearsToEnd() {
+      //     return 12 - this.Class
+      //   }
+
+      //   toString() {
+      //     return `${this.name} - ${this.Age}`
+      //   }
+      // }
+      // let p1 = new Pupil('Ivan', 12, 7, [7, 9, 8, 10, 11, 5])
+      // let s = p1.Age
+      // p1.Age = 10
+      // p1.AverageScore = 90
+      // // document.write(p1.AverageScore)
+      // document.write(p1.PupilType)
+      // console.log(p1)
+
+      //========================================
+      //       Приклад. Створити клас «Клієнт»
+      // (ім’я – довільний доступ (відкрите поле),
+      // номер рахунку – тільки для читання,
+      // кількість грошей – контрольований доступ (і читання і запис))
+
+      //=====================================================
+      //       Задача 2. Створити клас Product, що представляє товар на складі
+      // поля:
+      // 	Назва товару
+      // 	Кількість одиниць
+      // 	Ціна одиниці
+      // методи:
+      // 	зменшення кількості товару
+      // 	збільшення кількості товару
+      // 	визначення вартості вказаної кількості товару
+      // 	нарахування вказаної знижки (у відсотках)
+      // 	визначення загальної вартості товару
+
+      //=====================================================
+      // Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+      //----- TMoney
+      //--- Властивості
+      // сума в доларах
+      // курс долара
+      //--- Методи1
+      // додвання суми
+      // вилучення суми
+      // курсу долара, при якому сума у гривнях збільшиться на 100
+      // class Money {
+      //   #dollarBalance
+      //   constructor(initGRNBalance, dollarRate) {
+      //     this.dollarRate = dollarRate // тут так само добре би зробити курс долара контрольованим
+      //     this.Balance = initGRNBalance
+      //   }
+      //   get Balance() {
+      //     return this.#dollarBalance * this.dollarRate
+      //   }
+      //   set Balance(grnSum) {
+      //     if (grnSum < 0)
+      //       throw new Error(
+      //         'Помилка. Початкова сума не може бути меншою за нуль'
+      //       )
+      //     this.#dollarBalance = grnSum / this.dollarRate
+      //   }
+      //   //--- Методи1
+      //   // додвання суми
+      //   addMoney(grnSum) {
+      //     if (grnSum < 0)
+      //       throw new Error('Сума попвонення має бути більшою за нуль')
+      //     this.Balance += grnSum
+      //   }
+      //   // вилучення суми
+      //   getMoney(grnSum) {
+      //     if (grnSum < 0)
+      //       throw new Error('Сума попвонення має бути більшою за нуль')
+      //     if (grnSum > this.Balance)
+      //       throw new Error('Немає стільки грошей на рахунку')
+      //     this.Balance -= grnSum
+      //   }
+      //   // курсу долара, при якому сума у гривнях збільшиться на 100
+      //   getTarget100Rate() {
+      //     return (this.Balance + 100) / this.#dollarBalance
+      //   }
+      // }
+
+      // Задача.  Описати клієнта банку
+      // ----- Властивості ------
+      // ПІБ
+      //       * прізвище
+      //       * ім’я
+      // адреса
+      //       * код
+      //       * місто
+      //       * вулиця
+      //       * номер будинку
+      // номер рахунку
+      // кількість грошей
+      //-----------------------------
+      // class TestClass {
+      //   static stField = 10
+      //   constructor(initField2) {
+      //     this.field2 = initField2
+      //   }
+
+      //   toString() {
+      //     return `stField  = ${TestClass.stField},   field2 = ${this.field2}`
+      //   }
+      // }
+
+      // let t1 = new TestClass(11)
+      // let t2 = new TestClass(22)
+
+      // document.write(t1)
+      // document.write('<br>')
+      // document.write(t2)
+
+      // TestClass.stField = 77
+      // document.write('<hr>')
+      // document.write(t1)
+      // document.write('<br>')
+      // document.write(t2)
+
+      // console.log(t1)
+      //--------------------------------------
+      // class Reminder {
+      //   static interval = 1000
+      //   static stop = false
+      //   constructor(message) {
+      //     this.message = message
+      //   }
+      //   run() {
+      //     setTimeout(() => {
+      //       document.write(this.message)
+      //       document.write('<br>')
+      //       if (!Reminder.stop) this.run()
+      //     }, Reminder.interval)
+      //   }
+      // }
+      // const r1 = new Reminder('1111111')
+      // r1.run()
+      // const r2 = new Reminder('2222222')
+      // r2.run()
+      // const r3 = new Reminder('3333333')
+      // r3.run()
+
+      // setTimeout(() => {
+      //   document.write('=====================')
+      //   Reminder.interval = 2000
+      // }, 3000)
+
+      // setTimeout(() => {
+      //   Reminder.stop = true
+      // }, 10000)
+
+      //============================================= static
+      // Задача. Реалізувати конвертер валют. Курси валют та методи перетвоення повинні бути статичними
+      // class Converter {
+      //   static dollarRate = 36
+      //   static dolarToGrn(dollarSum) {
+      //     return dollarSum * Converter.dollarRate
+      //   }
+      //   static GrnToDolar(grnSum) {
+      //     return grnSum / Converter.dollarRate
+      //   }
+      // }
+
+      // document.write(Converter.GrnToDolar(400000))
+      // Converter.dollarRate = 24
+      // document.write('<br>')
+      // document.write(Converter.GrnToDolar(400000))
+
+      //=============================================
+      //   Задача. Розробити "Рекламний агент". Випадковим чином у зададному діапазоні задається інтервал,
+      //   і через згенеровану кількість секунд виводиться деяка реклама. Після цього знову генерується випадковий інтервал.
+      //   У процесі роботи для усіх раніше створених об"єктів - рекламних агентів мінімальне/максимальне значення інтевалу можуть змінюватись.
+      //Мінмальне і максимальне значення інтервалу - статичні
+
+      //=============================================
+      //Задача. Статистика методів.Дано клас Масив, який зберігає масив і має методи для знаходження суми, добутку, максимального.
+      // Користувач може створити довільну кількість об’єктів даного класу. Підрахувати загальну кількість викликів
+      // кожного із  методів (незалежно від об’єкта)
+      //Потрібно описати статичні каунтери для кожного метода
+
+      //=============================================
+      //Задача. Черговий. Дано список студентів одного курсу (ПІБ). Розробити менеджер чергових, який
+      // дозволяє випадковим чином обирати і запам’ятовувати обраного чергового студента (один раз обрали і не змінюємо)
+
+      //=============================================
+
+      //=============================================
+
+      //Команда. Дано список студентів (ім"я, кількість балів). По черзі випадковим чином вибирають дві команди. Виграє той, у кого середній бал менше
+      //Порівняння статичний метод
+
+      //================
+
+      //=============================================
+      //   Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, філтрація за назвою товару, фільтрація за назвою фірми
+      class Product {
+        constructor(initData) {
+          Object.assign(this, initData)
+        }
+        toString() {
+          let res = ''
+          for (const key in this) {
+            res += `${key}-${this[key]},  `
+          }
+          return res
+        }
+      }
+      //-------------------
+      class Store {
+        constructor(title, initProductList) {
+          this.title = title
+          // this.productList = JSON.parse(JSON.stringify(initProductList))
+          this.productList = initProductList
+        }
+        addProduct(product) {
+          this.productList.push(product)
+        }
+        removeProduct(productTitle) {
+          this.productList = this.productList.filter(
+            (product) => product.title !== productTitle
+          )
+        }
+        filterByTitle(productTitle) {
+          return this.productList.filter(
+            (product) => product.title === productTitle
+          )
+          // return this.productList.filter(product=>product.title.includes(productTitle))
+        }
+        filterByManufacturer(manufacturerTitle) {
+          return this.productList.filter(
+            (product) => product.manufacturer === manufacturerTitle
+          )
+          // return this.productList.filter(product=>product.title.includes(pro
+        }
+      }
+
+      let productList = [
+        new Product({
+          title: 'Tea',
+          measureUnit: 'kg',
+          manufacturer: 'Deli',
+        }),
+        new Product({
+          title: 'Milk',
+          measureUnit: 'liter',
+          manufacturer: 'Zorja',
+        }),
+        new Product({
+          title: 'Meat',
+          measureUnit: 'kg',
+          manufacturer: 'Kolos',
+        }),
+      ]
+
+      const store = new Store('Super store', productList)
+      store.addProduct(
+        new Product({
+          title: 'Solt',
+          measureUnit: 'kg',
+          manufacturer: 'Best S',
+        })
+      )
+      console.log(store)
+
+      //=============================================
+      //Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий опис), назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи бібліотеки (спеціальна література, хобі, домашнє господарство і т.д.), походження книги і наявність на даний час. Організувати додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+      //=============================================
+      // Задача. Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+      //=============================================
+      //=============================================
+    </script>
+  </body>
+</html>

@@ -225,7 +225,10 @@
                 let yearWihtBigestProfit = 0
                 let bigestProfitPerYaer = -Infinity
                 for (const site of sitesList) {
-                    if (site.siteCost > bigestProfitPerYaer) yearWihtBigestProfit = site.year
+                    if (site.siteCost > bigestProfitPerYaer) {
+                        bigestProfitPerYaer = site.siteCost
+                        yearWihtBigestProfit = site.year
+                    }
                 }
                 return yearWihtBigestProfit
             }

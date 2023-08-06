@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 3</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 16 | Класи - інкапсуляція</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson16.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 3</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Об’єкт “Фірма” (використати члени-класи)</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            //  ------  Клас - конструктор. Дата заснування (рік, місяць)  ------
+            class CompanyCreationDate{      // Звичайний об`єкт з 2 властивостями
+                constructor(year,month){
+                this.year = year
+                this.month = month
+                }
+
+                toString() {
+                    return `Рік - ${this.year} \nМісяць - ${this.month}`
+                }
+            }
+            //  ------  Клас - конструктор. Послуги (назва послуги, вартість, термін виконання)  ------
+            class CompanyServices{            // Об`єкт з 3 властивостями, елемент масиву
+                constructor(title,cost,term){
+                this.title = title
+                this.cost = cost
+                this.term = term
+                }
+
+                toString() {
+                    return `Назва послуги - ${this.title}\nВартість - ${this.cost} грн\nТермін виконання - ${this.term} годин\n\n`
+                }
+            }
+            //  ------  Клас - конструктор. Адреси філіалів (країна, місто, вулиця, номер будинку)  ------
+            class BranchesAddresses{          // Об`єкт з 4 властивостями, майбутній масив
+                constructor(country,city,street,house){
+                this.country = country
+                this.city = city
+                this.street = street
+                this.house = house
+                }
+
+                toString() {
+                    return `Країна - ${this.country}\nМісто - ${this.city}\nВулиця - ${this.street}\nНомер будинку - ${this.house}\n\n`
+                }
+            }
+            //  ------  Клас - конструктор. Об’єкт “Фірма” ------
+            class CompanyData{                
+                constructor(companyName){
+                this.companyName = companyName                                              // 1 властивість - властивість
+                this.companyCreationDate = new CompanyCreationDate()                        // 2 власт - об"єкт
+                this.companyServices = []                                                   // 3 власт - масив об"єктів
+                this.branchesAddresses = []                                                 // 4 власт - масив об"єктів
+                }
+
+                addCompanyServices(serviceTitle1,serviceCost1,serviceTerm1){              // функція, 
+                    let initService = new CompanyServices(serviceTitle1,serviceCost1,serviceTerm1)  // яка викликає конструктор 
+                    this.companyServices.push(initService)  // конструктор повертає об"єкт, який пушиться в масив
+                }
+
+                addBranchesAddresses(branchesCountry, branchesCity, branchesStreet, branchesHouse){
+                    let initBranche = new BranchesAddresses(branchesCountry,branchesCity,branchesStreet,branchesHouse)
+                    this.branchesAddresses.push(initBranche)
+                }
+
+                //  ------  визначення кількості років існування фірми  ------
+                existencePeriod(carrentYear){
+                    return carrentYear - this.companyCreationDate.year
+                }
+
+                //  ------  виведення всіх філіалів фірми у вказаному місті  ------
+                printBranches(chooseCity){
+                    return this.branchesAddresses.filter((el) => el.city === chooseCity)
+                }
+
+                //  ------  виведення на екран послуг, що можуть бути виконан  ------
+                printAvailableService(userAvaliableSum, userAvaliableTerm){
+                    return this.companyServices.filter((el) => el.cost <= userAvaliableSum && el.term <= userAvaliableTerm)
+                }
+
+                run(){
+                    let carrentYear = 2023
+                    document.write(`Компанія існує - ${this.existencePeriod(carrentYear)} років`)
+
+                    let chooseCity = prompt('Філіали компнії знаходяться в містах - Одеса та Київ. Введіть назву міста', 'Одеса')
+                    console.log(`${this.printBranches(chooseCity)}`)
+
+                    let userAvaliableSum = parseInt(prompt('Введіть максимальну суму, до 8000 грн', 4000))
+                    let userAvaliableTerm = parseInt(prompt('Введіть максимальний термін часу, максимум 80 годин', 55))
+                    console.log(`${this.printAvailableService(userAvaliableSum, userAvaliableTerm)}`)
+                }
+
+                toString() {
+                    return `Назва компанії - ${this.companyName}<br> Дата заснування - ${this.companyCreationDate}<br>`
+                }
+            }
+
+            //  ------  Створюємо об"єкт "Фірма" з назвою sony  ------
+            let sony = new CompanyData('sony')
+           
+            //  ------  Дата заснування  ------
+            sony.companyCreationDate = new CompanyCreationDate(1968,02)
+
+            //  ------  Послуги (назва послуги, вартість, термін виконання)  ------
+            sony.addCompanyServices('ремонт1',8000,80)
+            sony.addCompanyServices('ремонт2',7000,70)
+            sony.addCompanyServices('ремонт3',4500,25)
+            sony.addCompanyServices('ремонт4',1200,7)
+            sony.addCompanyServices('ремонт5',800,1)
+            sony.addCompanyServices('ремонт6',2300,15)
+
+            //  ------  Адреси філіалів (країна, місто, вулиця, номер будинку)  ------
+            sony.addBranchesAddresses('Україна','Одеса','Пантелеймонівська',20/1)
+            sony.addBranchesAddresses('Україна','Одеса','Михайлівська',15)
+            sony.addBranchesAddresses('Україна','Одеса','Преображенська',112)
+            sony.addBranchesAddresses('Україна','Одеса','Проспект_Шевченка',37/1)
+            sony.addBranchesAddresses('Україна','Киів','Богдана_Хмельницького',41)
+            sony.addBranchesAddresses('Україна','Киів','Перемоги',8)
+            sony.addBranchesAddresses('Україна','Киів','Качалова',39)
+            sony.addBranchesAddresses('Україна','Киів','Проспект_Гагаріна',114)
+
+            
+            document.write(sony) 
+            sony.run()         
+            console.log(sony)
+
+        </script>
+    </div>
+</body>
+</html>

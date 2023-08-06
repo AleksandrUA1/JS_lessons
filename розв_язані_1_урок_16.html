@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //============================================================
+      //Задача 1. п. 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+
+      let sitesList = [
+        {
+          title: 'Company 1',
+          companyOwner: 'John Smith',
+          sponsors: [
+            {
+              surname: 'Brown',
+              name: 'Charlie',
+              investment: 235,
+            },
+            {
+              surname: 'Ivanov',
+              name: 'Ivan',
+              investment: 1000,
+            },
+            {
+              surname: 'Petrenko',
+              name: 'Petro',
+              investment: 575,
+            },
+          ],
+          release: 2017,
+          cost: 9000,
+        },
+        {
+          title: 'Company 2',
+          companyOwner: 'Symon Petlura',
+          sponsors: [
+            {
+              surname: 'Kovalenko',
+              name: 'Bob',
+              investment: 5674,
+            },
+            {
+              surname: 'Shevchenko',
+              name: 'Ann',
+              investment: 30000,
+            },
+            {
+              surname: 'Ivanov',
+              name: 'Ivan',
+              investment: 20050,
+            },
+            {
+              surname: 'Smith',
+              name: 'John',
+              investment: 34000,
+            },
+          ],
+          release: 2004,
+          cost: 100000,
+        },
+        {
+          title: 'Company 3',
+          companyOwner: 'John Smith',
+          sponsors: [
+            {
+              surname: 'Simpson',
+              name: 'Homer',
+              investment: 100000,
+            },
+            {
+              surname: 'Shevchenko',
+              name: 'Taras',
+              investment: 50000,
+            },
+            {
+              surname: 'Smith',
+              name: 'Jane',
+              investment: 20050,
+            },
+          ],
+          release: 2007,
+          cost: 87000,
+        },
+        {
+          title: 'Company 4',
+          companyOwner: 'Homer Simpson',
+          sponsors: [
+            {
+              surname: 'Smith',
+              name: 'John',
+              investment: 4500,
+            },
+            {
+              surname: 'Shevchenko',
+              name: 'Taras',
+              investment: 3000,
+            },
+          ],
+          release: 2009,
+          cost: 5000,
+        },
+      ]
+      //-- 1) створюємо списки з об"єктів (не копіюємо об"єкти)
+      // let sitesListLess10000 = sitesList.filter((site) => site.cost < 10000).map(site=>JSON.parse(JSON.stringify(site)))
+      // let sitesListGreater10000 = sitesList.filter((site) => site.cost > 10000)
+      //-- 2) ефективніший створюємо списки з об"єктів (не копіюємо об"єкти)
+      // let sitesListLess10000 =[]
+      // let sitesListGreater10000 =[]
+      // for (const site of sitesList) {
+      //   if(site.cost<10000) sitesListLess10000.push(site)
+      //    else if(site.cost>10000) sitesListGreater10000.push(site)
+      // }
+      //-- 3) ефективніший створюємо списки з об"єктів (копіюємо об"єкти)
+      // let sitesListLess10000 = []
+      // let sitesListGreater10000 = []
+      // for (const site of sitesList) {
+      //   if (site.cost < 10000) sitesListLess10000.push(JSON.parse(JSON.stringify(site)))
+      //   else if (site.cost > 10000) sitesListGreater10000.push(JSON.parse(JSON.stringify(site)))
+      // }
+      //-- 4)  створюємо списки з об"єктів (копіюємо об"єкти)
+      // let sitesListLess10000 = sitesList
+      //   .filter((site) => site.cost < 10000)
+      //   .map((site) => JSON.parse(JSON.stringify(site)))
+      // let sitesListGreater10000 = sitesList
+      //   .filter((site) => site.cost > 10000)
+      //   .map((site) => JSON.parse(JSON.stringify(site)))
+
+      //============================================================
+      //Задача 3. п. 4) сформувати новий список об”єктів тільки доступних  для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
+      let dataList = [
+        {
+          id: 344277463,
+          old_price: 1395,
+          old_usd_price: '37.70',
+          price: 1099,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '29.70',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 363766641,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 90,
+          min_month_price: 0,
+          sell_status: 'unavailable',
+          status: 'active',
+          usd_price: '2.43',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 339273715,
+          old_price: 38,
+          old_usd_price: '1.03',
+          price: 25,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '0.68',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 330746665,
+          old_price: 3087,
+          old_usd_price: '83.43',
+          price: 2548,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '68.86',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 344972806,
+          old_price: 699,
+          old_usd_price: '18.89',
+          price: 549,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '14.84',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 318302299,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 8500,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '229.73',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 361430565,
+          old_price: 3500,
+          old_usd_price: '94.59',
+          price: 1999,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '54.03',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 14429030,
+          old_price: 3339,
+          old_usd_price: '90.24',
+          price: 2999,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '81.05',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 56340912,
+          old_price: 2094,
+          old_usd_price: '56.59',
+          price: 1776,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '48.00',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 315292225,
+          old_price: 1799,
+          old_usd_price: '48.62',
+          price: 1499,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '40.51',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 28437961,
+          old_price: 42999,
+          old_usd_price: '1162.14',
+          price: 33999,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '918.89',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 339896833,
+          old_price: 6399,
+          old_usd_price: '172.95',
+          price: 5899,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '159.43',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 364354149,
+          old_price: 1600,
+          old_usd_price: '43.24',
+          price: 1500,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '40.54',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 363184995,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 4499,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '121.59',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 98077846,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 3113,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '84.14',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 310694668,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 3000,
+          min_month_price: 0,
+          sell_status: 'unavailable',
+          status: 'active',
+          usd_price: '81.08',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 362812029,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 21700,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '586.49',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 361422708,
+          old_price: 4100,
+          old_usd_price: '110.81',
+          price: 2699,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '72.95',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 318302257,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 8500,
+          min_month_price: 0,
+          sell_status: 'unavailable',
+          status: 'active',
+          usd_price: '229.73',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 310694498,
+          old_price: 0,
+          old_usd_price: '0.00',
+          price: 2963,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '80.08',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 363651273,
+          old_price: 5199,
+          old_usd_price: '140.51',
+          price: 4890,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '132.16',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 330747022,
+          old_price: 3087,
+          old_usd_price: '83.43',
+          price: 2606,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '70.43',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 362617635,
+          old_price: 4872,
+          old_usd_price: '131.68',
+          price: 2436,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '65.84',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+        {
+          id: 363614439,
+          old_price: 5199,
+          old_usd_price: '140.51',
+          price: 4890,
+          min_month_price: 0,
+          sell_status: 'available',
+          status: 'active',
+          usd_price: '132.16',
+          pl_charge_pcs: 0,
+          pl_use_instant_bonus: false,
+          pl_premium_bonus_charge_pcs: 0,
+          rests: -1,
+          min_price: 0,
+          max_price: 0,
+          has_shops: false,
+          info: null,
+          show_in_site: null,
+        },
+      ]
+      // //--- 1)
+      //       let availableProductsList = dataList
+      //         .filter((product) => product.sell_status === 'available')
+      //         .map(({ id, price, old_price, usd_price }) => ({
+      //           id,
+      //           price,
+      //           old_price,
+      //           usd_price,
+      //         }))
+      //       console.log(availableProductsList)
+      //--- 2)
+      // let availableProductsList = []
+      // for (const product of dataList) {
+      //   if (product.sell_status === 'available') {
+      //     const { id, price, old_price, usd_price } = product
+      //     //попередній рядок аналогічний окремому опису констат, назви яких співпадають з назвами властивостей об"єктів
+      //     // const id = product.id
+      //     // const price = product.price
+      //     // const old_price = product.old_price
+      //     // const usd_price = product.usd_price
+
+      //     availableProductsList.push({
+      //       id, // id:id
+      //       price, //price:price
+      //       old_price,
+      //       usd_price,
+      //     })
+      //   }
+      // }
+
+      // console.log(availableProductsList)
+      //============================================================
+      //============================================================
+      // let ob = {
+      //   a: 11,
+      //   b: 22,
+      //   c: 55,
+      // }
+
+      // // let { a, c } = ob
+      // // console.log(`a= ${a},  c=${c}`)
+
+      // // function sum(obj) {
+      // //   return obj.a + obj.c
+      // // }
+      // function sum({ a, c }) {
+      //   return a + c
+      // }
+      // let s = sum(ob)
+      // console.log(`s= ${s}`)
+      //============================================================
+
+      let obj = {
+        a: 11,
+        print: function () {
+          document.write(`${this.a} <br>`)
+        },
+        print2: function () {
+          return function () {
+            document.write(this.a)
+          }
+        },
+        print3: function () {
+          return () => {
+            document.write(this.a) //this==obj буде зафіксовано
+          }
+        },
+        sum: function (x = 1, b = 3, c = 9) {
+          return x + b + this.a + c
+        },
+      }
+      let obj2 = {
+        a: 77,
+        r: 909,
+      }
+      // document.write(obj.sum(1, 2, 3)) //17
+
+      // let fs = obj.sum.bind(obj2, 10, 20) //this = obj2, x=10, b=20
+      // document.write(fs(3))
+
+      document.write(obj.sum.call(obj2, 10, 20, 3))
+
+      // //----- 1
+      // //---- без фіксування конетсту
+      // let f = obj.print
+      // //--- це рівносильно тому, що ми скопіювали опис функції
+      // // let f = function () {
+      // //   document.write(this.a) // this==window
+      // // }
+      // f()
+      //----- з фіксуванням контексту
+      // let f_fix = obj.print.bind(obj)
+      // f_fix() // 11
+
+      // let f_fix2 = obj.print.bind(obj2)
+      // f_fix2() //77
+
+      //----- 2
+      // // let f2 = obj.print2()
+      // // //--- це рівносильно тому, що ми скопіювали опис функції
+      // let f2 = function () {
+      //   document.write(this.a) // this === window
+      // }
+      // f2()
+      //----- 3
+      // let f3 = obj.print3()
+
+      // f3() //11
+
+      //============================================================
+      //============================================================
+    </script>
+  </body>
+</html>

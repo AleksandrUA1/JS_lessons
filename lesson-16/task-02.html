@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 16 | Класи - інкапсуляція</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson16.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            class TMoney{
+                #dollarRate 
+                #balance
+
+                constructor(initUserBalance, dollarRate = 38){
+                    this.DollarRate = dollarRate
+                    this.Balance = initUserBalance
+                }
+
+                get DollarRate() {return this.#dollarRate}
+                get Balance() {return this.#balance * this.DollarRate}
+
+                set DollarRate(newDollarRate){
+                    if (newDollarRate < 36 || newDollarRate > 40) throw new Error('Введено некоректний newDollarRate')
+                    else this.#dollarRate = newDollarRate
+                }
+
+                set Balance(initUserBalance){
+                    if (initUserBalance < 1) throw new Error('Введено некоректний initUserBalance')
+                    else this.#balance = initUserBalance / this.DollarRate
+                }
+
+                increaseBalance(increaseSum){    
+                    if (increaseSum < 1) throw new Error('Введено некоректний increaseSum')
+                    else this.Balance += increaseSum   
+                }
+
+                reduceBalance(reduceSum){
+                    if (reduceSum < 1 || reduceSum > this.Balance) throw new Error('Введено некоректний reduceSum')
+                    else this.Balance -= reduceSum
+                }
+
+                getFindNewCource(){
+                    return (this.Balance + 100) / this.#balance
+                }
+
+                toString() {
+                    return `На вашому рахунку - ${this.Balance}грн. Або ${this.Balance / this.DollarRate}$.`
+                }
+
+
+                run(){
+                    let increaseSum = parseInt(prompt('Введіть суму попвнення рахунку (в грн)'))
+                    this.increaseBalance(increaseSum)
+
+                    let reduceSum = parseInt(prompt('Яку суму знімаємо з рахунку (в грн)'))
+                    this.reduceBalance(reduceSum)
+                }
+
+
+            }
+            
+            let initUserBalance = parseInt(prompt('Введіть початкову cуму в грн'))
+
+            let myMoney = new TMoney(initUserBalance)
+
+            myMoney.run()
+            document.write(`Курс долара, при якому сума у гривнях збільшиться на 100 - ${myMoney.getFindNewCource()}<br>`)
+            document.write(myMoney)
+            console.log(myMoney)
+
+        </script>
+    </div>
+</body>
+</html>

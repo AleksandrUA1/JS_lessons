@@ -20,13 +20,64 @@
             <a class="home-link"  href="lesson16.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 1</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"></p>
+                <p class="home-task__subtitle">Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата представляється структурою із трьома полями. Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та виведення дати реалізувати за допомогою методу  toString.</p>
             </div>
         </div>
     </div>
     <div class="script" style="text-align: center;">
         <script>
-           
+            class TDate{
+                #day
+                #month
+                #year
+                
+                constructor(day, month, year, maxDay = 31, maxMonth = 12){    
+                    this.Day = day                           
+                    this.Month = month
+                    this.Year = year
+                    this.maxDay = maxDay
+                    this.maxMonth = maxMonth
+                }
+                
+                get Day(){return this.#day}
+                get Month(){return this.#month}
+                get Year(){return this.#year}
+
+                set Day(newDayValue){
+                    if (newDayValue > this.maxDay || newDayValue < 1) throw new Error('Введено некоректне значення day')
+                    else this.#day = newDayValue
+                }
+                set Month(newMonthValue){
+                    if (newMonthValue > this.maxMonth || newMonthValue < 1) throw new Error('Введено некоректне значення month') 
+                    else this.#month = newMonthValue
+                }
+                set Year(newYearValue){
+                    if (newYearValue < 1) throw new Error('Введено некоректне значення year')
+                    else this.#year = newYearValue
+                }                
+
+                run(){
+                    document.write(`Початкова дата - ${this.Day}.${this.Month}.${this.Year}<br>`)
+                    do {
+                        this.Day = parseInt(prompt('Введіть нове значення - День'))
+                        this.Month = parseInt(prompt('Введіть нове значення - Місяць'))
+                        this.Year = parseInt(prompt('Введіть нове значення - Рік'))
+                        document.write(`${newData}<br>`)
+                    } while (confirm('Бажаєте внести зміни?'))
+                }
+
+                toString() {
+                    return `Нова дата - ${this.Day}.${this.Month}.${this.Year}`
+                }
+            }
+
+            let initDay = parseInt(prompt('Введіть початкове значення - День'))
+            let initMonth = parseInt(prompt('Введіть числом початкове значення - Місяць'))
+            let initYear = parseInt(prompt('Введіть початкове значення - Рік'))
+            
+            let newData = new TDate(initDay, initMonth, initYear)
+            newData.run()
+            
         </script>
     </div>
 </body>

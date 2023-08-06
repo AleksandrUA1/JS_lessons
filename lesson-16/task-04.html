@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 4</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 16 | Класи - інкапсуляція</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson16.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 4</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            //  ------  Об"єкт (купюра) > з 2 властивостями - номінал та кількість  ------
+            class moneyBill{
+                #nominal
+                #quantity
+                
+                constructor(nominal, quantity = 0){
+                this.Nominal = nominal
+                this.Quantity = quantity
+                }
+
+                get Nominal(){return this.#nominal}
+                get Quantity(){return this.#quantity}
+                
+                set Nominal(userNominal){
+                    if (![5,10,20,50,100,200].includes(userNominal)) throw new Error('Введено некоректний userNominal')
+                    else this.#nominal = userNominal
+                }
+                set Quantity(userQuantity){
+                    if (userQuantity < 0) throw new Error('Введено некоректний userQuantity')
+                    else this.#quantity = userQuantity
+                }
+            }
+            
+            //  ------  Oб"єкт (Банкомат) > 1 властивість (масив) > 6 елементів (об"єктів) > 2 властивості
+            class TBankomat{
+                
+                constructor(){
+                    this.moneyBills = []
+                }
+                //  ------  Банкомат > 1 властивість (масив) - додаємо елементи (об"єкти) - купюри одного номіналу
+                addMoneyBill(nominal, quantity){
+                    let bill = new moneyBill(nominal, quantity)
+                    this.moneyBills.push(bill)
+                }
+                
+                //  ------  Загальна сума грошей в терміналі
+                getTotalSum(){
+                    let totalSum = 0
+                    for (const bill of this.moneyBills) {
+                        let prod = bill.Nominal * bill.Quantity
+                        totalSum += prod
+                    }
+                    return totalSum
+                }
+
+                //  ------  Мінімальна сума можлива лля видачі (1 купюра мінімального номіналу)
+                getMinBill(){
+                    let minBill = Infinity
+                    for (const bill of this.moneyBills) {
+                        if (bill.Quantity > 0 && bill.Nominal < minBill) minBill = bill.Nominal
+                    }
+                    return minBill
+                }
+                
+                //  ------  Метод зняття деякої суми
+                getTakeOfCash(cashToTakeOf){
+                    if (cashToTakeOf <= this.getTotalSum() && cashToTakeOf > 4) { // якщо бажана сума для зняття є в терміналі
+                    let temporaryCash = cashToTakeOf                  // створюємо тимчасову змінну = бажана сума до зняття
+                        this.moneyBills.sort((bill1, bill2) => bill2.Nominal - bill1.Nominal) // сортуємо купюри по номіналу el2 - el1
+                        
+                        for (const bill of this.moneyBills) {  // по черзі перебираємо номінали купюр, починаючи з 200 
+                            if (bill.Quantity > 0) {   // якщо, купюри N-го номіналу Є (к-ть > 0)
+                                let totalSumOfBill = bill.Quantity * bill.Nominal // рахуємо їх загальну суму
+                                if (totalSumOfBill >= temporaryCash) {  // якщо їх сума >= бажаної суми до зняття
+                                    bill.Quantity = bill.Quantity - Math.floor(temporaryCash / bill.Nominal)  // знаходимо
+                                    // максимальну кількість купюр, які можна видати клієнту
+                                    temporaryCash = temporaryCash % bill.Nominal  // якщо сума до видачі була не кртатною
+                                    // до N-го номіналу, остача переходить на наступний цикл
+                                }
+                                else if (totalSumOfBill < temporaryCash ) {  // якщо сума купюр N-го номіналу < бажаної суми до зняття
+                                    for (let i = 0; i < bill.Quantity; ) {  
+                                        temporaryCash = temporaryCash - bill.Nominal  // віднімаємо по одній купюрі від бажаної суми
+                                            bill.Quantity--   // поки к-ть купюр стане = 0                                  
+                                    }
+                                }
+                            }
+                            if (temporaryCash === 0) break 
+                        }
+                        if (temporaryCash === 0) alert(`Візьміть ${cashToTakeOf} грн. Гарного дня!`)
+                        if (temporaryCash !== 0) alert(`Вибачте, в терміналі не достатньо купюр щоб видати ${cashToTakeOf}. Термінал може видати тільки ${cashToTakeOf - temporaryCash} грн. Бажаєте отримати?`)
+                    }
+                    else alert('Вибачте, термінал не може видати таку суму')
+                }
+                
+                run(){
+                    let cashToTakeOf = parseInt(prompt(`Загальна сума грошей - ${bankomat.getTotalSum()} грн\nМінімальна сума для видачі - ${bankomat.getMinBill()} грн\nВведіть суму, яку бажаєте отримати`))
+                    this.getTakeOfCash(cashToTakeOf)
+                }
+                
+                toString() {
+                    return `Загальна сума грошей в терміналі - ${this.totalSum}<br>
+                    Мінімальна сума можлива лля видачі - ${this.minSum}
+                    `
+                }
+            }
+
+            let bankomat = new TBankomat()
+            
+            bankomat.addMoneyBill(50, 265)
+            bankomat.addMoneyBill(5, 5)
+            bankomat.addMoneyBill(200, 760)
+            bankomat.addMoneyBill(20, 330)
+            bankomat.addMoneyBill(100, 0)
+            bankomat.addMoneyBill(10, 120)
+                        
+            let totalSum = bankomat.getTotalSum()
+            let minSum = bankomat.getMinBill()
+            
+            bankomat.run()
+            console.log(bankomat)
+            console.log(`Залишок грошей в банкоматі - ${bankomat.getTotalSum()} грн\nМінімальна сума для видачі - ${bankomat.getMinBill()} грн`)
+            document.write(`Залишок грошей в банкоматі - ${bankomat.getTotalSum()} грн<br>Мінімальна сума для видачі - ${bankomat.getMinBill()} грн`)
+
+        </script>
+    </div>
+</body>
+</html>
