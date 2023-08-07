@@ -20,12 +20,67 @@
             <a class="home-link"  href="lesson17.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 1</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle"></p>
+                <p class="home-task__subtitle">Створити клас, що дозволяє виконувати такі операції над масивами: знаходження кількості додатних, кількості від’ємних, кількість входжень деякого числа (статичні методи)</p>
             </div>
         </div>
     </div>
     <div class="script" style="text-align: center;">
         <script>
+            function getRandomArr(arrLength, maxPosNum, minNegNum) {
+                let randomArr = []
+                let randomNum = 0
+                for (let i = 0; i < arrLength; i++) {
+                    randomNum = Math.floor(Math.random() * (maxPosNum - minNegNum)) + 1 + minNegNum
+                    randomArr.push(randomNum)
+                }
+                return randomArr
+            }
+
+            class calculationArr {
+                constructor(randomArr, lookingNum){
+                    this.randomArr = randomArr
+                    this.lookingNum = lookingNum
+                }
+
+                getPositiveNumCount(){
+                    let positiveNumCount = this.randomArr.reduce((prevPosCount, el) => (el > 0 ? ++prevPosCount : prevPosCount), 0)
+                    return positiveNumCount
+                }
+
+                getNegativeNumCount(){
+                    let negativeNumCount = this.randomArr.reduce((prevPosCount, el) => (el < 0 ? ++prevPosCount : prevPosCount), 0)
+                    return negativeNumCount
+                }
+
+                getFindQuantityRepeatOfNum(){
+                    let findQuantityRepeatOfNum = this.randomArr.reduce((prevPosCount, el) => (el === this.lookingNum ? ++prevPosCount : prevPosCount), 0)
+                    return findQuantityRepeatOfNum
+                }
+
+                run(){
+                    document.write(`Кількість додатних елементів масиву - ${this.getPositiveNumCount()}<br>`)
+                    console.log(`Кількість додатних елементів масиву - ${this.getPositiveNumCount()}`)
+                    document.write(`Кількість від'ємних елементів масиву - ${this.getNegativeNumCount()}<br>`)
+                    console.log(`Кількість від'ємних елементів масиву - ${this.getNegativeNumCount()}`)
+                    document.write(`Кількість повторень числа ${this.lookingNum} - ${this.getFindQuantityRepeatOfNum()}<br>`)
+                    console.log(`Кількість повторень числа ${this.lookingNum} - ${this.getFindQuantityRepeatOfNum()}`)
+                }
+
+                toString(){
+                    return `Обчислюємий масив - ${this.randomArr}<br>`
+                }
+            }
+
+            let arrLength = 20
+            let maxPosNum = 20
+            let minNegNum = -15
+            let lookingNum = 0
+            let randomArr = getRandomArr(arrLength, maxPosNum, minNegNum)
+
+            let arr1 = new calculationArr(randomArr, lookingNum)
+            document.write(arr1)
+            console.log(randomArr)
+            arr1.run()
         </script>
     </div>
 </body>
