@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 17 | Класи. Статичні поля і методи. Композиція, агрегація</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson17.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 2</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Створити службове авто (водій, марка, номер). Створити клас таким чином, щоб можна було створити тільки один екземпляр цього класу.</p>
+            </div>
+        </div>
+    </div>
+    <div class="script" style="text-align: center;">
+        <script>
+            class CompanyCar{
+                static #companyCarRef
+                
+                constructor(driverName, carBrand, carNumber){
+                    if (CompanyCar.#companyCarRef) return CompanyCar.#companyCarRef
+                    else
+                        this.driverName = driverName
+                        this.carBrand = carBrand
+                        this.carNumber = carNumber
+
+                        CompanyCar.#companyCarRef = this
+                    
+                }
+
+                toString(){
+                    return `${this.driverName} - ${this.carBrand} - ${this.carNumber}`
+                }
+            }
+
+            let firstDriver = new CompanyCar('Володимир','MAN','ВН1111ЕХ')
+            document.write(`Перший водій - ${firstDriver}<br>`)
+            console.log(`Перший водій - ${firstDriver}`)
+
+            let secondDriver = new CompanyCar('Сергій','DAF','ВН2222ЕХ')
+            document.write(`Другий водій - ${secondDriver}<br>`)
+            console.log(`Другий водій - ${secondDriver}`)
+            
+            let thirdDriver = new CompanyCar('Микола','Volvo','ВН3333ЕХ')
+            document.write(`Третій водій - ${thirdDriver}<br>`)
+            console.log(`Третій водій - ${thirdDriver}`)
+            
+        </script>
+    </div>
+</body>
+</html>

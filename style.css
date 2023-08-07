@@ -85,7 +85,7 @@ body {
 }
 
 .lessons__item.checked-task:hover::after{
-    content: 'checked 👋';
+    content: 'checked 👍';
     color: #94c02f;
     letter-spacing: 1px;
 }
@@ -102,7 +102,7 @@ body {
 }
 
 .lessons__item.in-progress:hover::after{
-    content: 'in progress 👋';
+    content: 'in progress 🧐';
     color: #94c02f;
     letter-spacing: 1px;
 }

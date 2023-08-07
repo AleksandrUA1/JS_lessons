@@ -25,7 +25,8 @@
         </div>
     </div>
     <div class="script" style="text-align: center;">
-        <script>
+        <script>    // по ідєї, умова каже - клас, що дозволяє виконувати такі операції над масивами
+                    // значить, масив має додаватись додаватись в клас, а не генеруватись в ньому
             function getRandomArr(arrLength, maxPosNum, minNegNum) {
                 let randomArr = []
                 let randomNum = 0
@@ -36,7 +37,7 @@
                 return randomArr
             }
 
-            class calculationArr {
+            class CalculationArr {
                 constructor(randomArr, lookingNum){
                     this.randomArr = randomArr
                     this.lookingNum = lookingNum

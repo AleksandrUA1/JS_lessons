@@ -111,7 +111,7 @@
                 }
                 
                 run(){
-                    let cashToTakeOf = parseInt(prompt(`Загальна сума грошей - ${bankomat.getTotalSum()} грн\nМінімальна сума для видачі - ${bankomat.getMinBill()} грн\nВведіть суму, яку бажаєте отримати`))
+                    let cashToTakeOf = parseInt(prompt(`Загальна сума грошей в банкоматі - ${bankomat.getTotalSum()} грн\nМінімальна сума для видачі - ${bankomat.getMinBill()} грн\nВведіть суму, яку бажаєте отримати`))
                     this.getTakeOfCash(cashToTakeOf)
                 }
                 
