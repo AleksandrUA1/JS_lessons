@@ -85,7 +85,7 @@ body {
 }
 
 .lessons__item.checked-task:hover::after{
-    content: 'homework already checked 👋';
+    content: 'checked 👋';
     color: #94c02f;
     letter-spacing: 1px;
 }

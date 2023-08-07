@@ -52,32 +52,61 @@
                     else this.#month = newMonthValue
                 }
                 set Year(newYearValue){
-                    if (newYearValue < 1) throw new Error('Введено некоректне значення year')
+                    if (newYearValue <= 0) throw new Error('Введено некоректне значення year')
                     else this.#year = newYearValue
-                }                
+                }      
+                
+                changeDay(userDayValue){
+                    if (userDayValue + this.Day <= this.maxDay) this.Day += userDayValue
+                    else {
+                        this.Day = (userDayValue + this.Day) % this.maxDay
+                        let remainderMonth = Math.floor((userDayValue + this.Day) / this.maxDay)
+                        if (remainderMonth + this.Month <= this.maxMonth) this.Month += remainderMonth
+                        else {
+                            this.Year += (Math.floor((remainderMonth + this.Month) / this.maxMonth))
+                            this.Month = (remainderMonth + this.Month) % this.maxMonth
+                        }
+                    }
+                }
+
+                changeMonth(userMonthValue){
+                    if (userMonthValue + this.Month <= this.maxMonth) this.Month += userMonthValue
+                    else {
+                        this.Year += (Math.floor((userMonthValue + this.Month) / this.maxMonth))
+                        this.Month = (userMonthValue + this.Month) % this.maxMonth
+                    }
+                }
+
+                changeYear(userYearValue){
+                    this.Year += userYearValue
+                }
 
                 run(){
-                    document.write(`Початкова дата - ${this.Day}.${this.Month}.${this.Year}<br>`)
+                    document.write(`Початкове значення дати - ${newData}`)
                     do {
-                        this.Day = parseInt(prompt('Введіть нове значення - День'))
-                        this.Month = parseInt(prompt('Введіть нове значення - Місяць'))
-                        this.Year = parseInt(prompt('Введіть нове значення - Рік'))
-                        document.write(`${newData}<br>`)
-                    } while (confirm('Бажаєте внести зміни?'))
+                        let userDayValue = parseInt(prompt('Введіть нове значення - день'))
+                        this.changeDay(userDayValue)
+                        document.write(`Дата збільшена на (${userDayValue}) днів - ${newData}`)
+                        let userMonthValue = parseInt(prompt('Введіть нове значення - місяць'))
+                        this.changeMonth(userMonthValue)
+                        document.write(`Дата збільшена на (${userMonthValue}) місяців - ${newData}`)
+                        let userYearValue = parseInt(prompt('Введіть нове значення - рік'))
+                        this.changeYear(userYearValue)
+                        document.write(`Дата збільшена на (${userYearValue}) рік - ${newData}`)
+                    } while (confirm('Бажаєте ввести нову дату?'))
                 }
 
                 toString() {
-                    return `Нова дата - ${this.Day}.${this.Month}.${this.Year}`
+                    return `День-${this.Day} Місяць-${this.Month} Рік-${this.Year}<br>`
                 }
             }
 
-            let initDay = parseInt(prompt('Введіть початкове значення - День'))
-            let initMonth = parseInt(prompt('Введіть числом початкове значення - Місяць'))
-            let initYear = parseInt(prompt('Введіть початкове значення - Рік'))
+            let initDay = parseInt(prompt('Введіть початкове значення - День (від 1 до 31)', 11))
+            let initMonth = parseInt(prompt('Введіть числом початкове значення - Місяць (від 1 до 12)', 9))
+            let initYear = parseInt(prompt('Введіть початкове значення - Рік (від 0 до...)', 1991))
             
             let newData = new TDate(initDay, initMonth, initYear)
             newData.run()
-            
         </script>
     </div>
 </body>
