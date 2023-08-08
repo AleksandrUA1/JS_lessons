@@ -31,12 +31,14 @@
                 #month
                 #year
                 
-                constructor(day, month, year, maxDay = 31, maxMonth = 12){    
+                constructor(day, month, year, maxDay = 31, maxMonth = 12, maxNegativeDay = -31, maxNegativeMonth = -12){    
                     this.Day = day                           
                     this.Month = month
                     this.Year = year
                     this.maxDay = maxDay
                     this.maxMonth = maxMonth
+                    this.maxNegativeDay = maxNegativeDay
+                    this.maxNegativeMonth = maxNegativeMonth
                 }
                 
                 get Day(){return this.#day}
@@ -44,11 +46,11 @@
                 get Year(){return this.#year}
 
                 set Day(newDayValue){
-                    if (newDayValue > this.maxDay || newDayValue < 1) throw new Error('Введено некоректне значення day')
+                    if (newDayValue > this.maxDay) throw new Error('Введено некоректне значення day')
                     else this.#day = newDayValue
                 }
                 set Month(newMonthValue){
-                    if (newMonthValue > this.maxMonth || newMonthValue < 1) throw new Error('Введено некоректне значення month') 
+                    if (newMonthValue > this.maxMonth) throw new Error('Введено некоректне значення month') 
                     else this.#month = newMonthValue
                 }
                 set Year(newYearValue){
@@ -57,20 +59,35 @@
                 }      
                 
                 changeDay(userDayValue){
-                    if (userDayValue + this.Day <= this.maxDay) this.Day += userDayValue
-                    else {
-                        this.Day = (userDayValue + this.Day) % this.maxDay
-                        let remainderMonth = Math.floor((userDayValue + this.Day) / this.maxDay)
-                        if (remainderMonth + this.Month <= this.maxMonth) this.Month += remainderMonth
-                        else {
-                            this.Year += (Math.floor((remainderMonth + this.Month) / this.maxMonth))
-                            this.Month = (remainderMonth + this.Month) % this.maxMonth
+                    if (userDayValue + this.Day <= this.maxDay && userDayValue > -this.Day) this.Day += userDayValue
+                    else if (userDayValue <= -this.Day) {
+                        let aaa = Math.floor((userDayValue + this.Day) / this.maxDay)
+                        this.Day =  this.maxDay +((userDayValue + this.Day) % this.maxDay)                         
+                        if (this.Month + aaa < 1) {
+                            this.Month += (this.Month + aaa) % this.maxMonth
+                            this.Year += (Math.floor((this.Month + aaa) / this.maxMonth))
                         }
+                        else
+                        this.Month = this.Month +aaa
+                    }
+                    else {
+                        let remainderMonth = Math.floor((userDayValue + this.Day) / this.maxDay)
+                        this.Day = (userDayValue + this.Day) % this.maxDay
+                        if (remainderMonth + this.Month > this.maxMonth) {
+                            this.Month = (this.Month + remainderMonth) % this.maxMonth
+                            this.Year += (Math.floor((this.Month + remainderMonth) / this.maxMonth))
+                        }
+                        else
+                        this.Month += remainderMonth
                     }
                 }
 
                 changeMonth(userMonthValue){
-                    if (userMonthValue + this.Month <= this.maxMonth) this.Month += userMonthValue
+                    if (userMonthValue + this.Month <= this.maxMonth && userMonthValue > -this.Month) this.Month += userMonthValue
+                    else if(userMonthValue <= -this.Month){
+                        this.Year += (Math.floor((userMonthValue + this.Month) / this.maxMonth))
+                        this.Month = this.maxMonth + (userMonthValue + this.Month) % this.maxMonth
+                    }
                     else {
                         this.Year += (Math.floor((userMonthValue + this.Month) / this.maxMonth))
                         this.Month = (userMonthValue + this.Month) % this.maxMonth
@@ -97,7 +114,7 @@
                 }
 
                 toString() {
-                    return `День-${this.Day} Місяць-${this.Month} Рік-${this.Year}<br>`
+                    return `День(${this.Day}) Місяць(${this.Month}) Рік(${this.Year})<br>`
                 }
             }
 
