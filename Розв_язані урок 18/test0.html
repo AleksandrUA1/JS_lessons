@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Title</h1>
+      <p class="edge">
+        Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello.
+        Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello.
+        Hello. Hello. Hello. Hello. Hello. Hello.
+      </p>
+      <h1>Title</h1>
+      <section>
+        <p id="MyTitle2" class="middle">
+          222222222222222222 From From From From From From From From From From
+          From From From From From From From From From From From From From From
+          From From From From From From From From
+        </p>
+      </section>
+
+      <h1 id="First">Title first</h1>
+      <p>
+        From From From From From From From From From From From From From From
+        From From From From From From From From From From From From From From
+        From From From From
+      </p>
+      <section>
+        <p class="middle">
+          <b> Text Text Text Text Text Text </b>
+          <b> Text Text Text Text Text Text </b>
+          <b> Text Text Text Text Text Text </b>
+        </p>
+      </section>
+    </div>
+
+    <script>
+      //Задача. Доступ до елементів з використанням різних підходів
+      // let m = document.getElementById('First')
+      // m.style.color = 'red'
+
+      // document.getElementById('First').style.color = 'red'
+      // document.getElementById('First').style.backgroundColor = 'blue'
+
+      // document.getElementById('MyTitle2').style.color = 'green'
+
+      // let x = document.getElementsByClassName('middle')
+      // x[1].style.backgroundColor = 'yellow'
+      // console.log(x)
+
+      // // document.getElementsByTagName('h1')[0].style.backgroundColor = 'purple'
+      // const h1List = document.getElementsByTagName('h1')
+      // for (const el of h1List) {
+      //   el.style.backgroundColor = 'purple'
+      // }
+      // //background-color
+
+      // // document.querySelector('section').style.border = '2px solid black'
+      // const sectionsList = document.querySelectorAll('section')
+      // for (const el of sectionsList) {
+      //   el.style.border = '2px solid black'
+      // }
+
+      // // document.querySelector('.middle').style.color = 'blue'
+      // const elList = document.querySelectorAll('.middle')
+      // for (const el of elList) {
+      //   el.style.color = 'blue'
+      // }
+
+      //-------------------- створення елементів ---------------
+      // //1. створюємо елемент
+      // const inp = document.createElement('input')
+      // //2. знаходимо базовий елемент орієнтир
+      // const baseElement = document.getElementById('First')
+      // //3. вставляємо створений елемент
+      // baseElement.after(inp)
+
+      //--------------- видалення
+      // document.getElementById('First').remove()
+      // document.getElementById('MyTitle2').innerHTML = ''
+      document.querySelector('body>div').innerHTML = ''
+    </script>
+  </body>
+</html>

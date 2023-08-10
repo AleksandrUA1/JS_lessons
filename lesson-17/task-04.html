@@ -26,49 +26,117 @@
     </div>
     <div class="script" style="text-align: center;">
         <script>
-            
-
-
-            class Autors{
-                constructor(){
-
-                }
-            }
-
-            class bookTitle{
-                constructor(){
-
-                }
-            }
-
-            class bookGenre{
-                constructor(){
-                    bookGenre
-                }
-            }
-
-            class publishingHouse{
-                constructor(){
-
-                }
-            }
-
-            class Book{
-                constructor(){
-                    this.Autors = new Autors()
-                    this.bookTitle = new bookTitle()
-                    this.bookGenre = new bookGenre()
-                    this.publishingHouse = new publishingHouse()
-                }
-            }          
-            
             class HomeLibrary{
                 constructor(){
-                    this.book = new Book()
+                    this.books = []
+                }
+        
+                addBook(book){  //  метод додавання книг
+                    this.books.push(book)
                 }
 
+                removeBook(bookTitle){  //  метод вилучення книг (якщо потрібно вилучити якусь конкретну книгу)
+                    let findIndOfChosenBook = this.books.findIndex(book => book.bookTitle === bookTitle)
+                    this.findChosenBook(findIndOfChosenBook)
+                }
+                takeBookByTitle(chooseBookByTitle){  //  метод вибору книг за назвою
+                    let findIndOfChosenBook = this.books.findIndex(book => book.bookTitle === chooseBookByTitle)
+                    this.findChosenBook(findIndOfChosenBook)
+                }
                 
+                takeBookByAuthorFullName(chooseBookByAuthorFullName){   //  метод вибору книг за ПІБ автора
+                    let findIndOfChosenBook = this.books.findIndex(book => book.Author.fullName === chooseBookByAuthorFullName)
+                    this.findChosenBook(findIndOfChosenBook)
+                }
+                
+                takeBookByPublisher(chooseBookByPublisher){   //  метод вибору книг за видавництвом
+                    let findIndOfChosenBook = this.books.findIndex(book => book.Publisher.title === chooseBookByPublisher)
+                    this.findChosenBook(findIndOfChosenBook)
+                }
+
+                findChosenBook(findIndOfChosenBook){
+                    if (findIndOfChosenBook === -1) throw new Error('Введено некоректне значення findIndOfChosenBook')
+                    else console.log(this.books.splice(findIndOfChosenBook,1)) 
+                }
             }
+            
+            
+            class Book{   //  клас, який є членом класу HomeLibrary
+                constructor(author,bookTitle,bookGenre,publisher){
+                    this.Author = author            //  Агрегація
+                    this.bookTitle = bookTitle
+                    this.bookGenre = bookGenre
+                    this.Publisher = publisher      //  Агрегація
+                }
+            }       
+
+            class Author{   // клас, який є членом класу Book
+                constructor(fullName,birthYear,description){
+                    this.fullName = fullName
+                    this.birthYear = birthYear
+                    this.description = description
+                }
+            }
+                                         
+            class Publisher{   // клас, який є членом класу Book
+                constructor(title,registrationNumber,foundationYear){
+                    this.title = title
+                    this.registrationNumber = registrationNumber
+                    this.foundationYear = foundationYear
+                }
+            }
+
+            let author1 = new Author('Автор 1ї книги','1980.5.12','Біографія 1 автора')
+            let author2 = new Author('Автор 2ї книги','1940.2.30','Біографія 2 автора')
+            let author3 = new Author('Автор 3ї книги','1978.4.7','Біографія 3 автора')
+            let author4 = new Author('Автор 4ї книги','1970.2.19','Біографія 4 автора')
+            let author5 = new Author('Автор 5ї книги','1890.4.27','Біографія 5 автора')
+            let author6 = new Author('Автор 6ї книги','1940.7.29','Біографія 6 автора')
+            let author7 = new Author('Автор 7ї книги','1978.5.21','Біографія 7 автора')
+
+            let publisher1 = new Publisher('Заголовок 1','1111','2010')
+            let publisher2 = new Publisher('Заголовок 2','2222','1982')
+            let publisher3 = new Publisher('Заголовок 3','3333','2011')
+            let publisher4 = new Publisher('Заголовок 4','4444','1998')
+            let publisher5 = new Publisher('Заголовок 5','5555','1950')
+            let publisher6 = new Publisher('Заголовок 6','6666','1981')
+            let publisher7 = new Publisher('Заголовок 7','7777','2011')
+                       
+            let myBook1 = new Book(author1,'Заголовок 1 книги','Жанр 1 книги',publisher1)
+            let myBook2 = new Book(author2,'Заголовок 2 книги','Жанр 2 книги',publisher2)
+            let myBook3 = new Book(author3,'Заголовок 3 книги','Жанр 3 книги',publisher3)
+            let myBook4 = new Book(author4,'Заголовок 4 книги','Жанр 4 книги',publisher4)
+            let myBook5 = new Book(author5,'Заголовок 5 книги','Жанр 5 книги',publisher5)
+            let myBook6 = new Book(author6,'Заголовок 6 книги','Жанр 6 книги',publisher6)
+            let myBook7 = new Book(author7,'Заголовок 7 книги','Жанр 7 книги',publisher7)
+
+            let myLibrary = new HomeLibrary()
+            //  Додати книгу
+            myLibrary.addBook(myBook1)
+            myLibrary.addBook(myBook2)
+            myLibrary.addBook(myBook3)
+            myLibrary.addBook(myBook4)
+            myLibrary.addBook(myBook5)
+            myLibrary.addBook(myBook6)
+            myLibrary.addBook(myBook7)
+           
+            //  Вилучити книгу
+            myLibrary.removeBook('Заголовок 1 книги')
+
+            //  Отримати книгу за назвою
+            let chooseBookByTitle = prompt('Введіть назву книги, яку бажаєте отримати','Заголовок 2 книги')
+            myLibrary.takeBookByTitle(chooseBookByTitle)
+
+            //  Отримати книгу за ПІБ автора
+            let chooseBookByAuthorFullName = prompt('Введіть ПІБ автора книги, яку бажаєте отримати','Автор 5ї книги')
+            myLibrary.takeBookByAuthorFullName(chooseBookByAuthorFullName)
+
+            //  Отримати книгу за назвою видавництва
+            let chooseBookByPublisher = prompt('Введіть назву видавництва книги, яку бажаєте отримати','Заголовок 6')
+            myLibrary.takeBookByPublisher(chooseBookByPublisher)
+
+            console.log(myLibrary)
+        
         </script>
     </div>
 </body>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача. Знайти загальну суму обіду
+      // ---- напої ---
+      // • чай -10 грн.
+      // • сік – 20 грн
+      // • кава – 35 грн
+      // -----перше ---
+      // • суп – 45 грн
+      // • борщ - 37 грн.
+      // ---- друге –
+      // • паста – 60 грн.
+      // • картопля з катлетою – 55 грн.
+      // • гречка з грибами – 49 грн.  if (inp.checked)
+
+      function getTotalPrice() {
+        const inpList = document.querySelectorAll('input')
+        let s = 0
+        for (const inp of inpList) {
+          if (inp.checked) s += parseFloat(inp.value)
+        }
+        document.getElementById('result').innerText = s.toFixed(2)
+      }
+      window.onload = function () {
+        document.querySelector('button').onclick = getTotalPrice
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Напої</h1>
+    <div>
+      <label>
+        Чай
+        <input type="checkbox" value="10" />
+      </label>
+      <label>
+        Сік
+        <input type="checkbox" value="20" />
+      </label>
+      <label>
+        Кава
+        <input type="checkbox" value="35" />
+      </label>
+    </div>
+
+    <h1>Перша стрва</h1>
+    <div>
+      <label>
+        Суп
+        <input type="checkbox" value="45" />
+      </label>
+      <label>
+        Борщ
+        <input type="checkbox" value="37" />
+      </label>
+    </div>
+    <h1>Друга стрва</h1>
+    <div>
+      <label>
+        Паста
+        <input type="checkbox" value="60" />
+      </label>
+      <label>
+        Картопля з катлетою
+        <input type="checkbox" value="55" />
+      </label>
+      <label>
+        Гречка з грибами
+        <input type="checkbox" value="49" />
+      </label>
+    </div>
+    <div>
+      <button>Розрахувати загальну вартість</button>
+    </div>
+    <div>Загалом : <span id="result"></span></div>
+
+    <table border="2px">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Задача. Створити дочірнє вікно (url='https://www.ukr.net/') з розмірами, що дорівнюють половині розмірів поточного вікна і закрити його через 2 секнуди
+      let w = open(
+        'https://www.ukr.net/',
+        '_blank',
+        `location=yes, height=${parseInt(screen.height) / 2},width=${
+          parseInt(screen.width) / 2
+        },scrollbars=yes,status=yes`
+      )
+
+      setTimeout(() => {
+        w.close()
+      }, 2000)
+    </script>
+  </body>
+</html>

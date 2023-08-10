@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача. Конвертер валют (курс і кількість валюти, що треба обміняти задаються)
+      function convert() {
+        const rate = parseFloat(document.getElementById('course').value)
+        const grn = parseFloat(document.getElementById('grn').value)
+        const dol = grn / rate
+        document.getElementById('res').innerText = dol.toFixed(2)
+      }
+      window.onload = function () {
+        document.getElementById('grn').oninput = convert
+        // document.getElementById('grn').onchange = convert
+      }
+    </script>
+  </head>
+  <body>
+    <label>
+      Course
+      <input type="number" id="course" value="39" />
+    </label>
+    <label>
+      Кількість гривень
+      <input type="number" id="grn" value="0" />
+    </label>
+
+    <div>Кількість доларів = <span id="res"> </span></div>
+  </body>
+</html>

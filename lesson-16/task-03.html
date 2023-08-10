@@ -64,9 +64,9 @@
             }
             //  ------  Клас - конструктор. Об’єкт “Фірма” ------
             class CompanyData{                
-                constructor(companyName){
+                constructor(companyName,companyCreationDate){
                 this.companyName = companyName                                              // 1 властивість - властивість
-                this.companyCreationDate = new CompanyCreationDate()                        // 2 власт - об"єкт
+                this.companyCreationDate = {}                                               // 2 власт - об"єкт
                 this.companyServices = []                                                   // 3 власт - масив об"єктів
                 this.branchesAddresses = []                                                 // 4 власт - масив об"єктів
                 }
@@ -117,7 +117,7 @@
             let sony = new CompanyData('sony')
            
             //  ------  Дата заснування  ------
-            sony.companyCreationDate = new CompanyCreationDate(1968,02)
+            sony.companyCreationDate = new CompanyCreationDate(1968,2)
 
             //  ------  Послуги (назва послуги, вартість, термін виконання)  ------
             sony.addCompanyServices('ремонт1',8000,80)

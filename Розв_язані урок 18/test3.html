@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Задача. Створити таблицю з 3 ряками і 4 стовпцями з рандомними числами
+      function createTable(rowNum, colNum) {
+        const tableEl = document.createElement('table')
+        for (let i = 0; i < rowNum; i++) {
+          const trEl = document.createElement('tr')
+          for (let j = 0; j < colNum; j++) {
+            const tdEl = document.createElement('td')
+            tdEl.innerText = Math.floor(Math.random() * 100)
+            trEl.append(tdEl)
+          }
+          tableEl.append(trEl)
+        }
+        document.body.append(tableEl)
+      }
+      createTable(3, 4)
+    </script>
+  </body>
+</html>

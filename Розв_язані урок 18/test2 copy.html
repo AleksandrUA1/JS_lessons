@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .danger {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+      .bkg {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      //Задача. Створити дів з текстом "Hello" червоного кольору. Через 2 секунди зробити його зеленим
+      const divEl = document.createElement('div')
+      divEl.className = 'danger'
+      divEl.innerText = 'Hello'
+      divEl.setAttribute('hello', '1111')
+      document.body.append(divEl)
+
+      setTimeout(() => {
+        divEl.className = 'success'
+      }, 2000)
+
+      setTimeout(() => {
+        divEl.classList.add('bkg')
+      }, 4000)
+    </script>
+  </body>
+</html>
