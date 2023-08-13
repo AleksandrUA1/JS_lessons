@@ -1,0 +1,18 @@
+.wrap{
+    width: 350px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.inputRow{
+    display: flex;
+    justify-content: space-between;
+}
+#birthdayInput{
+    max-height: 25px;
+}
+button{
+    display: block;
+    width: 60px;
+    padding: 3px;
+    margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+.converter{
+    width: 350px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.inputRow{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.buttonRow{
+    padding: 0 0 10px 10px;
+    border-bottom: 1px solid rgb(83, 82, 82);
+    margin-bottom: 10px;
+}
