@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="css/style_18_7.css">
+    <script defer src="js/script_18_7.js"></script>
+	<title>Home-task 7</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 18 | DOM_BOM_Document</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson18.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 7</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту (авто, автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х гідів(використати  - radio buttons). Ціни визначте самі. Підрахувати загальну вартість.</p>
+            </div>
+        </div>
+    </div>
+    <form class="taskWrap">
+        <ul>
+            <li>
+                <select name="typeAuto" id="typeAuto" size="1">
+                    <option selected disabled value="0">Оберіть тип транспорту</option>
+                    <option id="car" value="1600">Автомобіль ( 1600 грн )</option>
+                    <option id="bus" value="1800">Автобус ( 1800 грн )</option>
+                    <option id="plane" value="2800">Літак ( 2800 грн )</option>
+                </select>
+            </li>
+            <li class="mealTime">
+                <h2 class="titleStyle">Оберіть бажані варіанти харчування</h2>
+                <ul>
+                    <li class="listStyle">
+                        <label>
+                            <input class="meal" id="breakfast" type="checkbox" value="120">Сніданок ( 120 грн )
+                        </label>
+                    </li>
+                    <li class="listStyle">
+                        <label>
+                            <input class="meal" id="lunch" type="checkbox" value="240">Обід ( 240 грн )
+                        </label>
+                    </li>
+                    <li class="listStyle">
+                        <label>
+                            <input class="meal" id="dinner" type="checkbox" value="190">Вечеря ( 190 грн )
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="guides">
+                <h2>Оберіть собі гіда</h2>
+                <ul>
+                    <li class="listStyle">
+                        <label>
+                            <input class="guide" id="guideOleksandr" type="radio" name="chooseGuide" value="4500">Олександр ( 4500 грн )
+                        </label>
+                    </li>
+                    <li class="listStyle">
+                        <label>
+                            <input class="guide" id="guideAnastasia" type="radio" name="chooseGuide" value="3800">Анастасія ( 3800 грн )
+                        </label>
+                    </li>
+                    <li class="listStyle">
+                        <label>
+                            <input class="guide" id="guideOlena" type="radio" name="chooseGuide" value="6200">Олена ( 6200 грн )
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="buttons">
+            <input class="buttons__button" type="reset" value="Очистити">
+            <input id="travelCost" class="buttons__button" type="button" value="Розрахувати вартість подорожі">
+        </div>
+        <div class="result">
+            <label for="result">Загальна вартість подорожі:</label>
+            <input id="result"></input>
+        </div>
+    </form>
+</body>
+</html>

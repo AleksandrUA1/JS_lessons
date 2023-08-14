@@ -1,0 +1,32 @@
+.taskWrap{
+    width: 400px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.listStyle{
+    margin-bottom: 10px;
+}
+
+.listStyle:last-child{
+    margin-bottom: 25px;
+}
+
+#typeAuto{
+    margin-bottom: 25px;
+}
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+.buttons__button{
+    display: block;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 30px;
+}
+.result{
+    display: flex;
+}
+

@@ -1,0 +1,28 @@
+.taskWrap{
+    min-width: 400px;
+    margin: 0 auto;
+    padding: 5px;
+}
+.inputRow{
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+button{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.tableStyles{
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.answerFieldStyles{
+    display: block;
+    width: 150px;
+    text-align: center;
+    margin: 0 auto;
+}
