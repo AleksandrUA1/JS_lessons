@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 2px solid black;
+        margin: 20px;
+        padding: 20px;
+        width: 400px;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        margin: 20px;
+      }
+      strong {
+        margin: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+      </ul>
+    </div>
+
+    <strong id="operation">Select</strong>
+    <script>
+      //nav4. nav4. Для першого елемента списоку у кінець додати «-first», для останнього – «last»
+      const el = document.querySelector('ul')
+      console.log(el.firstElementChild)
+      el.firstElementChild.innerText += '-first'
+      el.lastElementChild.innerText += '-last'
+    </script>
+  </body>
+</html>

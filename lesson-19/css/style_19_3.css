@@ -1,0 +1,13 @@
+.taskWrap{
+    padding: 10px 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.olListStyles{
+    margin-right: 30px;
+}
+
+.btnStyles{
+    display: block;
+    margin: 0 auto;
+}

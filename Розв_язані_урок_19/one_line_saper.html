@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+      }
+    </style>
+    <script>
+      // Задача. Однорядковий сапер. Однорядкова таблиця, до клітинок якої додано інформацію про наявність міни (використати атрибути). Спочатку клітинки сірі. При натисненні на клітинку аналізується чи є там міна і тоді колір стає червоним, якщо немає – зеленим. Додати можливість відкриття усіх сусідніх незамінованих клітинок при відкритті незамінованої клітинки.
+    </script>
+  </head>
+  <body>
+    <table border="2px">
+      <tr>
+        <td mine="1"></td>
+        <td mine="0"></td>
+        <td mine="1"></td>
+        <td mine="0"></td>
+        <td mine="0"></td>
+        <td mine="0"></td>
+        <td mine="0"></td>
+        <td mine="0"></td>
+        <td mine="1"></td>
+      </tr>
+    </table>
+    <script>
+      function cellClick() {
+        const thisTd = this
+        const hasMine = thisTd.getAttribute('mine')
+        if (hasMine === '1') thisTd.style.backgroundColor = 'red'
+        else {
+          thisTd.style.backgroundColor = 'green'
+          //перебрати усі попередні поки немає міни і робити їх зеленими
+          let td = thisTd
+          while (td.previousElementSibling !== null) {
+            td = td.previousElementSibling
+            if (td.getAttribute('mine') === '1') break
+            td.style.backgroundColor = 'green'
+          }
+          //перебрати усі наступні поки немає міни і робити їх зеленими
+          td = thisTd
+          while (td.nextElementSibling !== null) {
+            td = td.nextElementSibling
+            if (td.getAttribute('mine') === '1') break
+            td.style.backgroundColor = 'green'
+          }
+        }
+      }
+      const tdList = document.querySelectorAll('td')
+      for (const td of tdList) {
+        td.onclick = cellClick
+      }
+    </script>
+  </body>
+</html>

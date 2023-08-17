@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cards {
+        display: flex;
+      }
+      .card-container {
+        width: 50px;
+        margin: 10px;
+        background-color: cyan;
+      }
+      .img-container {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-image {
+        width: 30px;
+      }
+      .card-title {
+        text-align: center;
+      }
+    </style>
+
+    <script>
+      // Задача. Дано масив з даними про сайти (графічне зображення, назва, посилання). Розробити клас LinkCard, що дозволяє генерувати картку за зразком.
+      class LinkCard {
+        constructor({ imgSrc, title, link }) {
+          this.imgSrc = imgSrc
+          this.title = title
+          this.link = link
+        }
+        render(containerSelector) {
+          const containerA = document.createElement('a')
+          containerA.setAttribute('href', this.link)
+          containerA.className = 'card-container'
+
+          const imgContainer = document.createElement('div')
+          imgContainer.className = 'img-container'
+          containerA.append(imgContainer)
+
+          const img = document.createElement('img')
+          img.setAttribute('src', this.imgSrc)
+          img.className = 'card-image'
+          imgContainer.append(img)
+
+          const cardTitle = document.createElement('div')
+          cardTitle.className = 'card-title'
+          cardTitle.innerText = this.title
+
+          containerA.append(cardTitle)
+
+          if (containerSelector)
+            document.querySelector(containerSelector).append(containerA)
+
+          return containerA
+        }
+      }
+
+      //--------------------------
+      const linksSet = [
+        {
+          imgSrc: './images/globe.png',
+          title: 'Globa',
+          link: 'https://en.wikipedia.org/wiki/Globe',
+        },
+        {
+          imgSrc: './images/ukr_net.png',
+          title: 'Ukrnet',
+          link: 'https://www.ukr.net/',
+        },
+      ]
+
+      window.onload = function () {
+        for (const linkData of linksSet) {
+          // const c1 = new LinkCard(linkData)
+          // c1.render('.cards')
+          new LinkCard(linkData).render('.cards')
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cards"></div>
+    <!-- <a href="" class="card-container">
+      <div class="img-container">
+        <img src="..." class="card-image" alt="" />
+      </div>
+      <div class="card-title">title</div>
+    </a> -->
+  </body>
+</html>

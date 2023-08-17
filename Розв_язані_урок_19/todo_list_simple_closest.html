@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .taskItem {
+        width: 200px;
+        border: 2px solid black;
+        margin: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Додати задачу</h1>
+      <div>
+        <div>
+          <label>
+            Назва задачі
+            <input type="text" id="taskTitle" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Пріоритетність задачі
+            <input type="text" id="taskPriority" />
+          </label>
+        </div>
+      </div>
+      <button id="addButton">Зберегти задачу</button>
+    </div>
+    <hr />
+
+    <div id="taskList"></div>
+    <script>
+      function deleteTask() {
+        const btn = this
+        btn.closest('.taskItem').remove()
+      }
+      function onAddTask() {
+        const taskTitle = document.querySelector('#taskTitle').value
+        const taskPriority = document.querySelector('#taskPriority').value
+
+        const container = document.createElement('div')
+        container.className = 'taskItem'
+
+        const titleDiv = document.createElement('div')
+        titleDiv.innerText = taskTitle
+        container.append(titleDiv)
+
+        const priorityDiv = document.createElement('div')
+        priorityDiv.innerText = taskPriority
+        container.append(priorityDiv)
+
+        const button = document.createElement('button')
+        button.innerText = 'Видалити'
+        button.onclick = deleteTask
+        container.append(button)
+
+        document.querySelector('#taskList').append(container)
+      }
+
+      document.getElementById('addButton').onclick = onAddTask
+    </script>
+  </body>
+</html>

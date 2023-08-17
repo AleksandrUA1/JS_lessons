@@ -1,0 +1,18 @@
+.taskWrap{
+    padding: 20px 200px;
+}
+
+.cardsList{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.toogle{
+    
+    border: none;
+}
