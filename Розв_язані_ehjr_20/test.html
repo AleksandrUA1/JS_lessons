@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="testBtn">Go</button>
+
+    <script>
+      function f1() {
+        console.log('1111 <br>')
+      }
+      function f2() {
+        console.log('22222 <br>')
+      }
+      function f3() {
+        console.log('33333333 <br>')
+      }
+
+      testBtn.addEventListener('click', f2)
+      testBtn.addEventListener('click', f1)
+      testBtn.onclick = f3
+
+      //   testBtn.onclick = f1
+      //   testBtn.onclick = f2
+
+      //   testBtn.removeEventListener('click', f2)
+    </script>
+  </body>
+</html>

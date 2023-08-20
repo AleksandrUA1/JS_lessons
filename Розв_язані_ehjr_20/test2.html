@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="testBtn1">Go1</button>
+    <button id="testBtn2">Go2</button>
+
+    <script>
+      function func(event) {
+        const btn = event.target
+        console.log(btn.innerText)
+      }
+
+      testBtn1.onclick = func
+      testBtn2.onclick = func
+    </script>
+  </body>
+</html>

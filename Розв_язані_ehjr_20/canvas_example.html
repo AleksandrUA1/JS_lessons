@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="ccc" style="border: solid 2px"></canvas> //елемент, у якому
+    здійснюємо графічні побудови
+    <script>
+      let isActive = false //Змінна, яка містить true/false (прапорець – малювати/не_малювати).
+      let x
+      let y
+
+      ccc.onmousedown = function (e) {
+        isActive = true //Увімкнути режим малювання
+        x = e.clientX //Отримати клієнтські координати миші
+        y = e.clientY
+      }
+      ccc.onmouseup = function (e) {
+        isActive = false //Відімкнути режим малювання
+      }
+      ccc.onmousemove = function (e) {
+        if (isActive) {
+          //let pos = document.getElementById("ccc").getBoundingClientRect();
+          let pos = this.getBoundingClientRect() //Одержуємо інформацію про положення елемента
+          let cx = document.querySelector('canvas').getContext('2d')
+          cx.beginPath()
+          cx.moveTo(x - pos.left, y - pos.top) //Малюємо лінію від попередньої точки до поточної
+          x = e.clientX
+          y = e.clientY
+          cx.lineTo(x - pos.left, y - pos.top)
+          cx.stroke()
+        }
+      }
+    </script>
+  </body>
+</html>

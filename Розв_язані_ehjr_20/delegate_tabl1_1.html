@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+      }
+    </style>
+    <script>
+      // Приклад. Створити таблицю. При натисканні на клітинку вміст змінює на червоний колір.
+    </script>
+  </head>
+  <body>
+    <table border="2px">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <script>
+      function clickTest(event) {
+        if (event.target.tagName === 'TD')
+          event.target.style.backgroundColor = 'red'
+      }
+      //--------- можна і кожному дочірньому присвоювати, але це дуже довго---
+      // const tdList = document.querySelectorAll('td')
+      // for (const td of tdList) {
+      //   td.onclick = clickTest
+      // }
+      document.querySelector('table').onclick = clickTest
+    </script>
+  </body>
+</html>

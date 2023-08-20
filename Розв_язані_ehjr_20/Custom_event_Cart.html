@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .product {
+        border: 2px solid black;
+        margin: 20px;
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <script>
+      //---- Описати клас Product, що представляє товар онлайн магазину (з можливістю видалення). Потім описати клас корзина "Cart", у якому є список продуктів. При видаленні продукту повинна змінюватись загальна вартість у корзині.
+      class Product {
+        constructor({ title, price }) {
+          this.title = title
+          this.price = price
+        }
+        onDelete() {
+          //---- створюємо власну подію
+          const deleteEvent = new CustomEvent('deleteProduct', {
+            detail: {
+              priceOfDeletedObject: this.price,
+            },
+          })
+          //---- відправляємо подію
+          this.el.dispatchEvent(deleteEvent)
+          //----- видалення елемента
+          this.el.remove()
+        }
+        render(containerSelector) {
+          const el = document.createElement('div')
+          el.className = 'product'
+
+          const span = document.createElement('span')
+          span.innerText = this.title
+          el.append(span)
+
+          const span2 = document.createElement('span')
+          span2.innerText = this.price
+          el.append(span2)
+
+          const btn = document.createElement('button')
+          btn.innerText = 'delete'
+          btn.onclick = this.onDelete.bind(this)
+          el.append(btn)
+          this.el = el
+
+          if (containerSelector)
+            document.querySelector(containerSelector).append(el)
+          return el
+        }
+      }
+      //-----------------------
+      class Cart {
+        constructor(productList) {
+          this.productList = productList
+        }
+        onProductDelete(event) {
+          const priceToDelete = event.detail.priceOfDeletedObject
+          this.totalPrice -= priceToDelete
+          this.priceSpan.innerText = this.totalPrice
+        }
+        render(containerSelector) {
+          const el = document.createElement('div')
+
+          for (const product of this.productList) {
+            const productObj = new Product(product)
+            el.append(productObj.render())
+
+            productObj.el.addEventListener(
+              'deleteProduct',
+              this.onProductDelete.bind(this)
+            )
+          }
+
+          const totalDiv = document.createElement('div')
+          totalDiv.innerText = 'Total : '
+          const span = document.createElement('span')
+          this.totalPrice = this.productList.reduce(
+            (prevSum, prod) => prevSum + prod.price,
+            0
+          )
+          span.innerText = this.totalPrice
+          this.priceSpan = span
+          totalDiv.append(span)
+          el.append(totalDiv)
+
+          if (containerSelector)
+            document.querySelector(containerSelector).append(el)
+        }
+      }
+      //-----------------------
+      const productList = [
+        {
+          title: 'Prod1',
+          price: 111,
+        },
+        {
+          title: 'Prod2',
+          price: 2222,
+        },
+        {
+          title: 'Prod3',
+          price: 1000,
+        },
+        {
+          title: 'Prod4',
+          price: 2000,
+        },
+      ]
+      window.onload = function () {
+        const cart = new Cart(productList)
+        cart.render('#productList')
+      }
+    </script>
+  </head>
+  <body>
+    <div id="productList"></div>
+    <!-- <div class="product">
+      <span>Product</span>
+      <span>123</span>
+      <button>delete</button>
+    </div>
+
+    <div class="product">
+      Product2
+      <span>123</span>
+      <button>delete</button>
+    </div>
+    <div class="product">
+      Product2
+      <span>123</span>
+      <button>delete</button>
+    </div>
+    <div>Total : <span>23344</span></div> -->
+    <script></script>
+  </body>
+</html>

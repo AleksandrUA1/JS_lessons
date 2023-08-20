@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Кількість кліків = <span id="click_num"></span></div>
+
+    <button id="btn1" onclick="alert('1')">btn 1</button>
+    <button onclick="alert('2')">btn 2</button>
+    <input type="text" onclick="alert('3')" />
+    <a href="https://www.ukr.net/">НОВИНИ</a>
+    <div>TEXT 1</div>
+
+    <script>
+      //-------- Підраховуємо кількість кліків -----
+      let num = 0
+      window.captureEvents(Event.CLICK)
+      window.onclick = (event) => {
+        num++
+        click_num.innerText = num
+        //заблокувати натистення на посилання
+        if (event.target.tagName === 'A') return false
+      }
+    </script>
+  </body>
+</html>
