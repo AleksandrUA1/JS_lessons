@@ -1,0 +1,26 @@
+body{
+    overflow: hidden;
+    height: 100vh;
+}
+
+.taskWrap{
+    padding: 15px 300px;
+}
+
+.formWrap{
+    border: 1px solid #1b1b1b;
+    padding: 15px;
+    width: 350px;
+    margin: 0 auto;
+    
+}
+
+.inputRow{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 15px;
+}
+
+.inputRow:last-child{
+    margin: 0;
+}

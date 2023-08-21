@@ -28,7 +28,6 @@ class tank{
         clearInterval(this.tankMoveInterval)
         this.bang.style.display = 'block'
         
-        
         let explosionInterval = setInterval(() => {
             
             let currentBangSize = parseInt(this.bang.style.width)

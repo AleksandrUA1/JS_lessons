@@ -24,7 +24,7 @@
         console.log(screen)
         console.log(event.target.innerText)
         if (event.target.tagName === 'BUTTON')
-          document.getElementById('screen').value += event.target.innerText
+          event.target.innerText = ''
       }
     </script>
   </body>
