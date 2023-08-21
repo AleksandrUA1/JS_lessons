@@ -11,7 +11,7 @@ class tank{
         return Math.floor((Math.random() * maxValue) + 1)
     }
 
-    tankMove(){     //  Я подумав що в цю функцію немає сену передавати параматри, так як користувач не взаємодіє з нею.
+    tankMove(){     //  Вирішив що немає сенcу в цю функцію передавати параматри, так як користувач не взаємодіє з нею.
                     //  всі необхідні параметри лежать в this
         let currentTankPosition = parseFloat(this.tankWrapper.style.top)
         let newTankPosition = currentTankPosition + this.tankStepValue
@@ -23,7 +23,7 @@ class tank{
         }
     }
 
-    explosion(){    //  Я подумав що в цю функцію немає сену передавати параматри, так як користувач не взаємодіє з нею.
+    explosion(){    //  Вирішив що немає сенcу в цю функцію передавати параматри, так як користувач не взаємодіє з нею.
                     //  всі необхідні параметри лежать в this
         clearInterval(this.tankMoveInterval)
         this.bang.style.display = 'block'
@@ -45,8 +45,8 @@ class tank{
         }, 1)
     }
 
-    render(containerSelector, tankImgSize = 50, bangImgSize = 25, bangMaxImgSize = 70, funnelImgSize = 90, tankStartPosition = -15, tankEndPosition = 115, explosionStepValue = 5, tankStepValue = 0.15){
-        //  Канєшно якась колбаса получилась...
+    render(containerSelector, tankImgSize = 50, bangImgSize = 25, bangMaxImgSize = 70, funnelImgSize = 90, tankStartPosition = -15, tankEndPosition = 115, explosionStepValue = 5, tankStepValue = 0.15){    //  Канєшно якась колбаса получилась...
+        
 
         let tankWrapper = document.createElement('div')      
         let tank = document.createElement('img')
@@ -95,7 +95,7 @@ class tank{
             this.tankMove()
         }, this.interval)
         
-        this.tankWrapper.onclick = this.explosion.bind(this)
+        this.tank.onclick = this.explosion.bind(this)
         
         if (containerSelector) {
             document.querySelector(containerSelector).prepend(this.tankWrapper)
