@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class NoAttemps extends Error {
+        constructor() {
+          super('Спроби закінчились')
+          this.name = 'NoAttemps'
+        }
+      }
+
+      class Game {
+        constructor(cellsNumber = 5, attempsNumber = 3) {
+          this.arr = this.getGameField(cellsNumber)
+          this.attempsNumber = attempsNumber
+        }
+        getGameField(cellsNumber) {
+          const arr = new Array(cellsNumber).fill(0)
+          const randomIndex = Math.floor(Math.random() * cellsNumber)
+          arr[randomIndex] = 1
+          return arr
+        }
+        play() {
+          while (this.attempsNumber--) {
+            const userIndex = parseInt(prompt('Index = '))
+            if (this.arr[userIndex]) return
+          }
+          throw new NoAttemps()
+        }
+      }
+
+      //=======================
+      window.onload = function () {
+        const game = new Game()
+        console.log(game)
+        try {
+          game.play()
+          alert('Win!')
+        } catch {
+          alert('Loose')
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

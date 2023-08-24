@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //---- КЛАС ПРЕДОК -----
+      class Class_parent {
+        constructor(b = 5) {
+          this.b = b
+        }
+        method() {
+          document.write(' -- parent -- ')
+        }
+      }
+      //---- КЛАС НАЩАДОК -----
+      class Child1 extends Class_parent {
+        constructor(b, c) {
+          super(b)
+          this.c = c
+        }
+        show() {
+          document.write('Hello!')
+        }
+      }
+      //---------------
+
+      //---- КЛАС НАЩАДОК -----
+      class Child2 extends Class_parent {
+        constructor(b) {
+          super(b)
+          this.a = 1000
+        }
+        method() {
+          super.method()
+          document.write('Child 2')
+        }
+      }
+      const c2 = new Child2(77)
+      console.log(c2)
+
+      // let obj = new Class_child(55)
+      // obj.method()
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        border: 2px solid red;
+      }
+    </style>
+    <script>
+      //Створити контрольований елемент для введення числа у межах заданого діапазону. Оформити у вигляді користувацького тегу.
+
+      //https://learn.javascript.ru/custom-elements
+      //https://web.dev/custom-elements-v1/
+      class RangeInput extends HTMLElement {
+        constructor() {
+          super()
+        }
+        onChange() {
+          const minV = parseInt(this.getAttribute('min-v'))
+          const maxV = parseInt(this.getAttribute('max-v'))
+          const val = parseInt(this.input.value)
+          if (val < minV || val > maxV) this.input.style.backgroundColor = 'red'
+          else this.input.style.backgroundColor = 'green'
+        }
+        connectedCallback() {
+          const contentElement = this.createContentElement()
+          this.append(contentElement)
+          contentElement.addEventListener('change', this.onChange.bind(this))
+        }
+        createContentElement() {
+          this.input = document.createElement('input')
+          this.input.type = 'number'
+          this.input.min = this.getAttribute('min-v')
+          this.input.max = this.getAttribute('max-v')
+
+          return this.input
+        }
+      }
+
+      window.customElements.define('range-input', RangeInput)
+
+      function onInp(e) {
+        console.log(e.lastChild.value)
+      }
+    </script>
+  </head>
+  <body>
+    <range-input
+      min-v="18"
+      max-v="65"
+      oninput="onInp(this)"
+      value="9"
+    ></range-input>
+    <range-input min-v="3" max-v="6" value="5"></range-input>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="ed1" contenteditable="true">40</div>
+    <div></div>
+
+    <script>
+      const dollarRate = 36
+      try {
+        //проблемний фрагмент
+        const val = parseInt(ed1[5].innerText) / dollarRate
+        //фрагмент, який треба робити якщо все ок
+        alert(val)
+      } catch (err) {
+        //що треба робити коли сталася помилка
+        console.log(err.message)
+        console.log(err.name)
+        console.log(err.stack)
+      } finally {
+        //що треба зробити ОБОВ"ЯЗКОВО у будь-якому випадку
+        document.write('Дякуюємо за користування сервісом!')
+      }
+    </script>
+  </body>
+</html>

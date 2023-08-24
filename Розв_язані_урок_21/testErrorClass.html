@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Person {
+        #age
+        constructor(name, age) {
+          this.name = name
+          this.Age = age
+        }
+        get Age() {
+          return this.#age
+        }
+        set Age(newValue) {
+          if (newValue < 0) throw new Error('Вік некоректний')
+          this.#age = newValue
+        }
+        toString() {
+          return `${this.name} - ${this.Age}`
+        }
+      }
+      //----------------
+      try {
+        const p1 = new Person('Ivan', -21)
+        document.write(p1)
+      } catch (err) {
+        document.write('Вибачте стався збій')
+        console.log(err)
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

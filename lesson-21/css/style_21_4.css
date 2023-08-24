@@ -1,0 +1,17 @@
+.validator{
+    padding: 30px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.validator__monthSetting, .validator__scoreSetting {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.validator__resultAnswer{
+    display: block;
+    margin-top: 30px;
+}
+

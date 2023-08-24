@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //         DataList
+      // --- властивості ---
+      // масив з числами
+      // --- методи ---
+      // знаходження найбільшого числа
+      // знаходження найменшого числа
+      // знаходження середнього числа
+      // виведення чесел у формі нумерованого списку при цьому ті, що більші за середнє значення відмічаються червоним кольором
+      // введення даних з використанням елементів(селектор, відповідні властивостіелемента вводу задаються)
+      class DataList {
+        constructor(numbersList) {
+          this.numbersList = numbersList
+        }
+        getMax() {
+          return Math.max(...this.numbersList)
+        }
+        getMin() {
+          return Math.min(...this.numbersList)
+        }
+        getSum() {
+          return this.numbersList.reduce((prevSum, el) => prevSum + el)
+        }
+        getAverage() {
+          return this, getSum() / this.numbersList.length
+        }
+        createNumberElement(num, average) {
+          const li = document.createElement('li')
+          li.innerText = num
+          if (num > average) li.style.color = 'red'
+          return li
+        }
+        render(containerId) {
+          const container = document.getElementById(containerId)
+          const average = this.getAverage()
+          const ol = document.createElement('ol')
+          container.append(ol)
+
+          this.numbersList.forEach((num) => {
+            ol.append(this.createNumberElement(num, average))
+          })
+        }
+
+        readList(elSelector, elValueProp) {
+          const elements = document.querySelectorAll(elSelector)
+          this.numbersList = []
+          for (const el of elements) {
+            this.numbersList.push(parseInt(el[elValueProp]) ?? 0)
+          }
+        }
+      }
+      //======================
+      //       PriceList
+      // --- методи ---
+      // знаходження найбільшої ціни
+      // знаходження найменшої ціни
+      // знаходження середньої ціни
+      // введення з використанням елементів div
+      // знаходежння загальної вартості товарів
+      class PriceList extends DataList {
+        constructor(priceList) {
+          super(priceList)
+        }
+        getMinPrice() {
+          this.getMin()
+        }
+        getMaxPrice() {
+          this.getMax()
+        }
+        getAveragePrice() {
+          return this.getAverage()
+        }
+        readPrices(divSelector) {
+          this.readList(divSelector, 'innerText')
+        }
+        getTotalPrice() {
+          return this.getSum()
+        }
+      }
+
+      //-------------
+      window.onload = function () {
+        // const d1 = new DataList([3, 1, 5, 23, 54, 3, 23, 56])
+        // d1.render('cnt')
+        // const d2 = new DataList()
+        // d2.readList('input', 'value')
+
+        const d3 = new DataList()
+        d3.readList('.data', 'innerText')
+        d3.render('cnt')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="data" contenteditable="true">11</div>
+    <div class="data" contenteditable="true">2</div>
+    <div class="data" contenteditable="true">33</div>
+    <div class="data" contenteditable="true">44</div>
+    <div id="cnt"></div>
+  </body>
+</html>

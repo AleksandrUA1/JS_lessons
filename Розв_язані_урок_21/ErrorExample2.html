@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="ed1" contenteditable="true">40</div>
+    <div></div>
+    <script>
+      const dollarRate = 36
+      try {
+        const val = parseInt(ed1[1].value) / dollarRate
+        alert(val)
+      } catch (err) {
+        if (err instanceof ReferenceError)
+          console.log('Елемента вводу не знайдено')
+        else if (err instanceof TypeError)
+          console.log('Елемента з таким номером немає')
+        else console.log('Якась інша помилка')
+      } finally {
+        document.write('Дякуюємо за користування сервісом!')
+      }
+    </script>
+  </body>
+</html>

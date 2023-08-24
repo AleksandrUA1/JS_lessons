@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //  Задача 1. Створити клас Dice, який представляє гральний кубик (одне поле faceCount - кліькістьграней) і дозволяє генерувати випадкове число від 1 до кількості граней.
+      class Dice {
+        constructor(faceCount = 6) {
+          this.faceCount = faceCount
+        }
+        //Метод підкидання грального кубика
+        getScore() {
+          return 1 + Math.floor(Math.random() * this.faceCount)
+        }
+      }
+      //Потім на основі цього класу створити клас , який дозволяє вказати не тільки кількість граней, а й кількість спроб - attemptCount (при цьому як випадкове число повертається середнє значення).
+      class SuperDice extends Dice {
+        constructor(faceCount = 5, attemptCount = 3) {
+          super(faceCount) //інціалізація успадкованих полів - задача конструктора предка
+          this.attemptCount = attemptCount
+        }
+        getScore() {
+          let sum = 0
+          for (let i = 0; i < this.attemptCount; i++) {
+            sum += super.getScore()
+          }
+          return sum / this.attemptCount
+        }
+      }
+      //=========================
+      let s1 = new SuperDice(6, 3)
+      document.write(s1.getScore())
+    </script>
+  </head>
+  <body></body>
+</html>

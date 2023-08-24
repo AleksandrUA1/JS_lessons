@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .card {
+      border: 2px solid transparent;
+      margin: 10px;
+      padding: 10px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .selected {
+      border-color: blue;
+    }
+
+    .wrong {
+      border-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" data-lang="en">Cat</div>
+  <div class="card" data-lang="uk">Кіт</div>
+  <div class="card" data-lang="en">Dog</div>
+  <div class="card" data-lang="uk">Собака</div>
+  <!-- Додайте більше карток за необхідності -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+      let selectedCards = [];
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('selected');
+          selectedCards.push(card);
+
+          if (selectedCards.length === 2) {
+            const [card1, card2] = selectedCards;
+
+            if (card1.dataset.lang !== card2.dataset.lang) {
+              card1.classList.add('wrong');
+              card2.classList.add('wrong');
+
+              setTimeout(() => {
+                card1.classList.remove('selected', 'wrong');
+                card2.classList.remove('selected', 'wrong');
+                const wrongPairEvent = new CustomEvent('wrongpair', { bubbles: true });
+                card1.dispatchEvent(wrongPairEvent);
+                card2.dispatchEvent(wrongPairEvent);
+              }, 1000);
+            } else {
+              card1.remove();
+              card2.remove();
+            }
+
+            selectedCards = [];
+          }
+        });
+
+        card.addEventListener('wrongpair', () => {
+          card.classList.remove('selected', 'wrong');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

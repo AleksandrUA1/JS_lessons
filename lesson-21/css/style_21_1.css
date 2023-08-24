@@ -1,0 +1,16 @@
+.taskWrap{
+    padding: 30px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.client__account{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.client__increaseBalanceWrap, .client__reduceBalanceWrap{
+    display: flex;
+    justify-content: space-between;
+}

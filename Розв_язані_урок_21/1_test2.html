@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const obj1 = {
+        a: 11,
+        b: 22,
+      }
+      const obj2 = {
+        a: 11,
+        b: 22,
+        c: 45,
+      }
+      const obj3 = {
+        a: 11,
+        b: 22,
+        v: 'Hello',
+      }
+      const obj_base = {
+        x: 55,
+        getSum: function () {
+          return this.a + this.b
+        },
+      }
+      //----------
+      obj1.__proto__ = obj_base
+      obj2.__proto__ = obj_base
+      obj3.__proto__ = obj_base
+      console.log('obj1.x')
+      console.log(obj1.x)
+      obj1.x = 77
+      console.log(obj1)
+      console.log(obj2)
+    </script>
+  </head>
+  <body></body>
+</html>
