@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .list-container {
+        display: flex;
+      }
+      .list-container > div {
+        border: 2px solid black;
+        margin: 20px;
+        width: 150px;
+        padding: 10px;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+      }
+      img {
+        width: 30px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Задача 6. Дано список спортсменів. Потрібно сформувати список тих, які будуть брати участь у змаганні. При цьому є два стовпці. В одному відображені всі спортсмени, в іншому – список тих, хто був вибраний. При натисканні на зелену стрілку спортсмен переміщається у список для змагань. При натисканні на червону стрілку спортсмен переміщається у загальний список. -->
+
+    <script>
+      //   let successArrow =
+      //     'https://carlosgraphicsprinting.com/wp-content/uploads/2020/07/plain-arrow-green-600x571.png'
+      //   let errorArrow =
+      //     'https://t4.ftcdn.net/jpg/03/05/91/99/360_F_305919942_nF9rIuUHxaWwZQITvce7ydC0sfQMPip2.jpg'
+    </script>
+
+    <div class="list-container">
+      <div class="list-not-selected">
+        <div class="item">
+          <span>Man 1</span>
+          <img
+            src="https://carlosgraphicsprinting.com/wp-content/uploads/2020/07/plain-arrow-green-600x571.png"
+          />
+        </div>
+        <div class="item">
+          <span>Man 2</span>
+          <img
+            src="https://carlosgraphicsprinting.com/wp-content/uploads/2020/07/plain-arrow-green-600x571.png"
+          />
+        </div>
+        <div class="item">
+          <span>Man 3</span>
+          <img
+            src="https://carlosgraphicsprinting.com/wp-content/uploads/2020/07/plain-arrow-green-600x571.png"
+          />
+        </div>
+      </div>
+
+      <div class="list-selected">
+        <div class="item">
+          <span>Man 1</span>
+          <img
+            src="https://t4.ftcdn.net/jpg/03/05/91/99/360_F_305919942_nF9rIuUHxaWwZQITvce7ydC0sfQMPip2.jpg"
+          />
+        </div>
+        <div class="item">
+          <span>Man 2</span>
+          <img
+            src="https://t4.ftcdn.net/jpg/03/05/91/99/360_F_305919942_nF9rIuUHxaWwZQITvce7ydC0sfQMPip2.jpg"
+          />
+        </div>
+        <div class="item">
+          <span>Man 3</span>
+          <img
+            src="https://t4.ftcdn.net/jpg/03/05/91/99/360_F_305919942_nF9rIuUHxaWwZQITvce7ydC0sfQMPip2.jpg"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

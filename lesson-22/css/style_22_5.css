@@ -1,0 +1,11 @@
+.answerWrap, .userAgeWrapper{
+    width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.answerWrap{
+    justify-content: center;
+}

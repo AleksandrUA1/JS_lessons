@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .list-container {
+        display: flex;
+      }
+      .list-container > div {
+        border: 2px solid black;
+        margin: 20px;
+        width: 150px;
+        padding: 10px;
+      }
+      .list-not-selected .arrow {
+        width: 30px;
+        height: 20px;
+        display: inline-block;
+        background: no-repeat
+          url('https://carlosgraphicsprinting.com/wp-content/uploads/2020/07/plain-arrow-green-600x571.png');
+        background-size: cover;
+        cursor: pointer;
+      }
+      .list-selected .arrow {
+        width: 30px;
+        height: 10px;
+        display: inline-block;
+        background: no-repeat
+          url('https://t4.ftcdn.net/jpg/03/05/91/99/360_F_305919942_nF9rIuUHxaWwZQITvce7ydC0sfQMPip2.jpg');
+        background-size: cover;
+        cursor: pointer;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+      }
+      img {
+        width: 30px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Задача 6. Дано список спортсменів. Потрібно сформувати список тих, які будуть брати участь у змаганні. При цьому є два стовпці. В одному відображені всі спортсмени, в іншому – список тих, хто був вибраний. При натисканні на зелену стрілку спортсмен переміщається у список для змагань. При натисканні на червону стрілку спортсмен переміщається у загальний список. -->
+
+    <div class="list-container">
+      <div class="list-not-selected">
+        <div class="item">
+          <span>Man 1</span>
+          <div class="arrow"></div>
+        </div>
+        <div class="item">
+          <span>Man 2</span>
+          <div class="arrow"></div>
+        </div>
+        <div class="item">
+          <span>Man 3</span>
+          <div class="arrow"></div>
+        </div>
+      </div>
+
+      <div class="list-selected">
+        <div class="item">
+          <span>Man 4</span>
+          <div class="arrow"></div>
+        </div>
+        <div class="item">
+          <span>Man 5</span>
+          <div class="arrow"></div>
+        </div>
+        <div class="item">
+          <span>Man 6</span>
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function onClick(e) {
+        const targetElement = e.target
+        if (targetElement.className === 'arrow') {
+          // const item  = targetElement.parent
+          const item = targetElement.closest('.item')
+
+          // const listContainer = item.parent
+          const listContainer = item.closest('[class^=list]')
+          if (listContainer.className === 'list-not-selected')
+            listContainer.nextElementSibling.append(item)
+          else listContainer.previousElementSibling.append(item)
+        }
+      }
+      window.onload = function () {
+        document.querySelector('.list-container').onclick = onClick
+      }
+    </script>
+  </body>
+</html>

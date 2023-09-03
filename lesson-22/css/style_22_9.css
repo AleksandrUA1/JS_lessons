@@ -1,0 +1,15 @@
+.productWraper{
+    width: 600px;
+    height: 150px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.product_productionDate, .product_expirationDate{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
