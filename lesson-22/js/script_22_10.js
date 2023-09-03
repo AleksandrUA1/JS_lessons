@@ -1,5 +1,5 @@
 
-function getRandomArr(maxValue, minValue, arrLength = 1000){
+function getRandomArr(maxValue, minValue, arrLength = 10000){  // 10 000
 
     let randomArray = []
     for (let i = 0; i < arrLength; i++) {
@@ -14,7 +14,7 @@ function getRandomNum(maxValue = 800, minValue = 1) {
 }
 
 function getBubbleSort(arr) {
-    let startDateBubbleSort = new Date().getTime()
+    this.startDateBubbleSort = new Date().getTime()
     let changed
     do {
         changed = false
@@ -28,13 +28,13 @@ function getBubbleSort(arr) {
             }
         }
     } while (changed)
-    let endDateBubbleSort = new Date().getTime()
+    this.endDateBubbleSort = new Date().getTime()
     this.bubbleSortUsedTime = endDateBubbleSort - startDateBubbleSort
     return arr
 }
 
 function getInsertionSort(arr) {
-    let startDateInsertionSort = new Date().getTime()
+    this.startDateInsertionSort = new Date().getTime()
     for (let i = 1; i < arr.length; i++) {
           let currentElement = arr[i]
           let j = i - 1
@@ -44,13 +44,11 @@ function getInsertionSort(arr) {
           }
           arr[j + 1] = currentElement
     }
-    let endDateInsertionSort = new Date().getTime()
+    this.endDateInsertionSort = new Date().getTime()
     this.insertionSortUsedTime = endDateInsertionSort - startDateInsertionSort
 
 return arr
 }
-
-
 
 window.onload = function () {
     let randomArr = getRandomArr()
@@ -58,12 +56,13 @@ window.onload = function () {
 
     let bubbleSort = getBubbleSort(randomArr)
     console.log(bubbleSort)
+    console.log(this.startDateBubbleSort)
+    console.log(this.endDateBubbleSort)
     console.log(this.bubbleSortUsedTime)
 
     let insertionSort = getInsertionSort(randomArr)
     console.log(insertionSort)
+    console.log(this.startDateInsertionSort)
+    console.log(this.endDateInsertionSort)
     console.log(this.insertionSortUsedTime)
-
-
-
 }
