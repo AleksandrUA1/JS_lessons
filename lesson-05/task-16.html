@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 14</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 16</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).</p>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="script">
+        <script>            
+            let imagesAddressesCount = 4
+            let lotteryPositionsCount = 3
+            let randomImageAddress
+            let imagesValueSum = 0
+                
+            for (let img = 0; img < lotteryPositionsCount; img++) {
+                randomImageAddress = Math.floor((Math.random() * imagesAddressesCount) + 1)
+                document.write(`<img src="../img/img${randomImageAddress}.jpg" alt="" style:"display: block">`)
+                imagesValueSum += Math.pow(10, randomImageAddress - 1)
+            }
+
+            switch (imagesValueSum) {
+                case 3:
+                    document.write('Вітаємо! Ви виграли 100 грн')
+                    break;
+                case 30:
+                    document.write('Вітаємо! Ви виграли 200 грн')
+                    break;
+                case 300:
+                    document.write('Вітаємо! Ви виграли 500 грн')
+                    break;
+                case 3000:
+                    document.write('Вітаємо! Ви виграли 1000 грн')
+                    break;
+                default:
+                    document.write('Спробуйте ще!')
+                    break;
+            }
+        </script>
+    </div>
+</body>
+</html>

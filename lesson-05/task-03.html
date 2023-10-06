@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 3</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,22 +20,19 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 3</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
-                </p>
+                <p class="home-task__subtitle">Вивести на екран 8 кнопок з написом “Hello”.</p>
             </div>
         </div>
     </div>
 
     <div class="script">
-      <script>                                                               
-        alert(`Загадайте число від 1 до 20`)
-        let randomNumber = 0
-        let guessNumber 
-        do {
-            randomNumber = Math.floor((Math.random()*20)+1)
-            guessNumber = confirm(`Ви загадали число ${randomNumber}?`)       
-        } while (!guessNumber)
-      </script>
+        <script>
+            let buttonCount = 8
+
+            for (let btn = 1; btn <= buttonCount; btn++) {
+                document.write(`<button>Hello ${btn}</button> `)
+            }
+        </script>
     </div>
 </body>
 </html>

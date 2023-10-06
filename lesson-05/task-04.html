@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 04</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -18,33 +18,26 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 04</h2>
+            <h2 class="home-task__title">Задача 4</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести). 
-                </p>
+                <p class="home-task__subtitle">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел вводиться користувачем. </p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            let purchasePrice = Math.floor(Math.random()*10000)+1
-            let userPay = 0
-            let userTotlaPaySum = 0
-            let returnCashToUser = 0
-            alert(`Вітаємо на касі самообслуговування! Всього досплати - ${purchasePrice}`)
-            alert('Будь-ласка, оплатіть покупку. Термінал приймає купюри - 1; 2; 5; 10; 20; 50; 100; 200; 500; 1000')
+            let countRandomNumbers = parseInt(prompt('Введіть розмір маркованого списку'))
+            let minValue = 1
+            let maxValue = 100
+            let randomNumber
 
-            do {
-                userPay = parseInt(prompt('Ввнесіть кошти'))
-                userTotlaPaySum += userPay
-            } while(userTotlaPaySum < purchasePrice)
-            
-            if(userTotlaPaySum === purchasePrice) 
-                alert('Дякуємо за покупку, прихожьте ще!')
-            else
-                returnCashToUser = userTotlaPaySum - purchasePrice
-                alert(`Дякуємо за покупку. Візьміть вашу решту ${returnCashToUser}`)
+            document.write('<ul>')
+            for (let currentNumber = 0; currentNumber < countRandomNumbers; currentNumber++) {
+                randomNumber = Math.floor((Math.random() * maxValue + minValue) + 1) - minValue
+                document.write(`<li>${randomNumber}</li>`)
+            }
+            document.write('</ul>')
         </script>
     </div>
 </body>

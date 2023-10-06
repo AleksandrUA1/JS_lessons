@@ -26,30 +26,20 @@
     </div>
 
     <script>
-        // 1. Вводимо необхідні дані
-        let randomNumber = Math.floor((Math.random()*5)+1);
-        
-        let firstTry = parseInt(prompt('Введіть ціле число від 1 до 5 включно')); // вводимо перше число
-        if (firstTry === randomNumber) // якщо перше введене число відповідає рандомному, виконуємо document.write
-            document.write (` 
-            Випадкове число згенероване компютером - ${randomNumber}<br>
-            Вітаємо! Ви вгадали число з першого разу!
-            `) 
-            else { let secondTry = parseInt(prompt('Введіть ціле число від 1 до 5 включно')); // інакше, вводимо друге число
-        
-                if (secondTry === randomNumber) // якщо друге введене число відповідає рандомному, виконуємо document.write
-                    document.write (`
-                    Випадкове число згенероване компютером - ${randomNumber}<br>
-                    Вітаємо! Ви вгадали число з другого разу!
-                    `)
-                        else document.write // якщо жодна умова не виконалась, виконуємо document.write
-                        (`
-                        Випадкове число згенероване компютером - ${randomNumber}<br>
-                        Ваше перше число - ${firstTry}<br>
-                        Ваше друге число - ${secondTry}<br>
-                        Нажаль ви не вгадали.
-                        `)
-    }
+        let randomNumber = Math.floor((Math.random()*5)+1)
+        console.log('Рандомне число ' + randomNumber)
+        let firstUserChoice = parseInt(prompt('Спробуйте вгадати число від 1 до 5'))
+        console.log('Перше загадане число ' + firstUserChoice)
+        if (randomNumber === firstUserChoice) {
+            alert('Ви вгадали. Це число ' + randomNumber)
+        } else {
+            alert('Ви не вгадали. Спробуйте ще раз')
+            let secondUserChoice = parseInt(prompt('Спробуйте ще раз вгадати число від 1 до 5'))
+            console.log('Друге загадане число ' + secondUserChoice)
+            if (randomNumber === secondUserChoice) {
+               alert('Ну тепер ви вгадали. Це число ' + randomNumber)
+            } else alert('Нажаль ви знову не вгадали')
+        }
     </script>
 </body>
 </html>

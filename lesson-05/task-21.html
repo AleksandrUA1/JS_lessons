@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 21</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,33 +20,26 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 21</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель. 
-                </p>
+                <p class="home-task__subtitle">Вводимо початкову кількість тортів які треба продати.  Поки залишаються торти продавати їх клієнтам</p>
             </div>
         </div>
+       
     </div>
 
     <div class="script">
-        <script>
-            const rowNum = parseInt(prompt('Введіть кількість строк'))
-            const columnNum = parseInt(prompt('Введіть кількість стовбців'))
-            const shotsTry = parseInt(prompt('Скільки разів бажаєте спробувати попасти по кораблю?'))
-            
-            let randomShipRowPosition = Math.floor(Math.random()*rowNum)+1
-            let randomShipColumnPosition = Math.floor(Math.random()*columnNum)+1            
+        <script>       
+            let cakeCount = parseInt(prompt('Введіть початкову кількість тортів'))
+            let sellCake
 
-            for (let i = 0; i < shotsTry; i++) {
-                let userShipRowPosition = parseInt(prompt('Введіть номер рядка на якому розтошований корабель?'))
-                let userShipColumnPosition = parseInt(prompt('Введіть номер стовбчика у якому розтошований корабель?'))
-                if (userShipRowPosition === randomShipRowPosition && userShipColumnPosition === randomShipColumnPosition) {
-                    confirm(`Вітаємо! Ви влучили`)
-                    break;
+            do {
+                sellCake = parseInt(prompt('Скільки тортів бажаєте придбати?'))
+                if (sellCake <= cakeCount) {
+                    cakeCount -= sellCake
+                    alert('Дякуємо. Візьміть ваше замовлення.')
                 }
-                else if (i < shotsTry-1)
-                    confirm(`Мимо! Спробуйте ще!`)
-                else
-                    confirm(`Нажаль спроби закінчились. Ви не попали. Корабель розташований у ${randomShipRowPosition} рядку, та у ${randomShipColumnPosition} стовпчику`)   
-            }
+                else alert(`Вибачте. Такої кількості тортів не має.\nВсього залишилось ${cakeCount} тортів.`)
+            } while (cakeCount !== 0)
+
         </script>
     </div>
 </body>

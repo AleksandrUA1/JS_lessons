@@ -26,29 +26,20 @@
         </div>
     </div>
 
-    <script>
-        // 1. Вводимо необхідні дані
-       let firstChilderName = prompt("Введіть ім'я першої дитини");
-       let firstChildrenCandy = parseInt(prompt("Введіть кількість цукерок у першої дитини"));
-       let secondChildrenName = prompt("Введіть ім'я другої дитини");
-       let secondChildrenCandy = parseInt(prompt("Введіть кількість цукерок у другої дитини"));
-
-        // 2. Знаходимо та виводимо результат
-       if (firstChildrenCandy > secondChildrenCandy) 
-        alert (`
-            ${firstChilderName} має більше цукерок ніж ${secondChildrenName}
-             `)
-      
-       else if (firstChildrenCandy < secondChildrenCandy) 
-        alert (`
-            ${secondChildrenName} має більше цукерок ніж ${firstChilderName}`)
-       
-       else {
-            alert (`
-                ${firstChilderName} та ${secondChildrenName} мають однакову кількість цукерок.
-                `)
-            } 
-    </script>
+    <div class="script">
+        <script>
+            let firstChildrenName = prompt('Введіть ім\'я першої дитини')
+            let firstChildrenCandyQuantity = parseInt(prompt('Введіть кількість кукерок першої дитини'))
+            let secondChildrenName = prompt('Введіть ім\'я другої дитини')
+            let secobdChildrenCandyQuantity = parseInt(prompt('Введіть кількість кукерок другої дитини'))
+            
+            if (firstChildrenCandyQuantity > secobdChildrenCandyQuantity) {
+                alert(firstChildrenName + ' має більше цукерок')
+            } else if (secobdChildrenCandyQuantity > firstChildrenCandyQuantity)
+                alert(secondChildrenName + ' має більше цукерок')
+            else alert('У дітей однакова кількість цукерок')
+        </script>
+    </div>
 
 </body>
 </html>

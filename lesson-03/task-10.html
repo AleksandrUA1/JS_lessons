@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Home-task 7</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 3</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson03.html" class="home-task__link-back">Назад</a>
+            <h3 class="home-task__title">Задача 10</h3>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. Виграє той, у кого число знаходиться ближче до загаданого комп’ютером числа.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            let maxIntervalValue = 10
+            let randomNumber = Math.floor((Math.random() * maxIntervalValue) + 1)
+            console.log(randomNumber)
+
+            let firstUserValue = parseInt(prompt('Введіть число від 1 до 10'))
+            let secondUserValue = parseInt(prompt('Введіть число від 1 до 10'))
+
+            let firstUserDifferentValue = Math.abs(randomNumber - firstUserValue)
+            let secondUserDifferentValue = Math.abs(randomNumber - secondUserValue)
+
+
+            if (firstUserDifferentValue > secondUserDifferentValue) {
+                alert(`Комп\`ютер загадав число ${randomNumber}\nПерший користувач ввів число  ${firstUserValue}\nДругий користувач ввів число  ${secondUserValue}\nВиграв другий користувач`)
+            } else if (firstUserDifferentValue < secondUserDifferentValue) {
+                alert(`Комп\`ютер загадав число ${randomNumber}\nПерший користувач ввів число  ${firstUserValue}\nДругий користувач ввів число  ${secondUserValue}\nВиграв перший користувач`)
+            } else if (firstUserDifferentValue === secondUserDifferentValue) {
+                alert(`Комп\`ютер загадав число ${randomNumber}\nПерший та другий користувач ввели однакове число ${firstUserValue}\nНічія!`)
+            } else alert('Введено хибні дані')
+        </script>
+    </div>
+</body>
+</html>

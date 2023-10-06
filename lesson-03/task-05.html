@@ -26,14 +26,22 @@
     </div>
 
     <script>
-        // 1. Вводимо необхідні дані
-        let drivCategory = prompt('Введіть Англійською мовою одну з запропонованих категорій водія А | B | C');
-        let result;
-        // 2. Знаходимо результат та виводимо його
-        if (drivCategory === "A") result = "Мотоцикл";
-        else if (drivCategory === "B") result = "Легковий автомобіль";
-        else result = "Вантажний автомобіль";
-        document.write (`${result}`)
+        let driverCategoryName = prompt('Введіть назву категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль)')
+        let result
+
+        switch (driverCategoryName) {
+            case 'A': result = 'мотоцикл'
+                break;
+            case 'B': result = 'легковий автомобіль'
+                break;
+            case 'C': result = 'вантажний автомобіль'
+                break;
+            default: result = 'Введено хибні дані'
+                break;
+        }
+
+        alert(result)
+        console.log(result)
     </script>
 </body>
 </html>

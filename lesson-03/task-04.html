@@ -26,18 +26,24 @@
     </div>
 
     <script>
-        // 1. Вводимо необхідні дані
-        let humanAge = parseInt(prompt('Введіть вік людини'));
-        let result 
-        // 2. Знаходимо результат та виводимо його
-        if (humanAge < 1 || humanAge > 150) result = "Введено хибні дані"
-        else if (humanAge <= 6) result = "Дитина яка ходить до садочку"            
-        else if (humanAge <= 17) result = "Дитина яка ходить до школи"     
-        else if (humanAge <= 22) result = "Студент" 
-        else if (humanAge <= 55) result = "Працівник"
-        else result = "Пенсіонер" 
+        let userAge = parseInt(prompt('Введіть ваш вік'))
+        let minCorrectAge = 1
+        let maxCorrectAge = 120
+        let maxChildrenAge = 6
+        let maxSchoolboyAge = 16
+        let maxStudentAge = 22
+        let maxWorkerAge = 60
+        let result
+
+        if (userAge < minCorrectAge || userAge > maxCorrectAge) result ='Введено некоректні дані'
+        else if (userAge <= maxChildrenAge) result ='Ви дитина у садочку'
+        else if (userAge <= maxSchoolboyAge) result ='Ви школяр'
+        else if (userAge <= maxStudentAge) result ='Ви студент'
+        else if (userAge <= maxWorkerAge) result = 'Ви працівник'
+        else result = 'Ви пенсіонер'
         
-        document.write (`Введений вік ${humanAge}p. <br> Це ${result}`)
+        alert(result)
+        console.log(result)
     </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 12</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,25 +20,32 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 12</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести таблицю з 3 рядків і 7 стовпців
-                </p>
+                <p class="home-task__subtitle">Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm)</p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            document.write(`<table style="color: #94c02f; border: 1px solid #101011;">`)
-                for (let num1 = 1; num1 <= 3; num1++) {
-                    document.write (`<tr>`)
-                        for (let num2 = 1; num2 <= 7; num2++) {
-                                document.write(` 
-                                <td style="border: 1px solid #101011; font-size: 20px; min-width: 50px; line-height: 50px;">${num2}</td> 
-                                `)
-                            }
-                    document.write (`</tr>`)
-                    }
-            document.write(`</table>`)
+            let minValue = 1
+            let maxValue = 20
+            let userNumber = parseInt(prompt(`Введіть число від ${minValue} до ${maxValue}`))
+            console.log(userNumber)
+            let attempCount = 3
+            let randomNumber
+            let result = false
+
+            for (let attemp = 0; attemp < attempCount; attemp++) {
+                randomNumber = Math.floor((Math.random() * (maxValue + minValue)) + 1) - minValue
+                if (confirm(`Ви загадали число ${randomNumber}?`)) {
+                    result = true
+                    break
+                } 
+            }
+            if (result) {
+                alert('Комп\'ютер вгадав ваше число. Гра закінчена')
+            }
+            else alert('Комп\'ютер не вгадав ваше число')
         </script>
     </div>
 </body>

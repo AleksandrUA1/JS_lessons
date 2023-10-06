@@ -26,15 +26,19 @@
     </div>
 
     <script>
-        // 1. Вводимо необхідні дані
-        let productCost = parseFloat(prompt('Волоський горіх очищений EXTRA' , 'Введіть загальну вартість (грн)'));  
-        let clientMoney = parseFloat(prompt('Кількість грошей отриманих від покупця (грн)'));
-        const lotteryTicketPrice = 4;
+        let productPrice = parseFloat(prompt('Введіть вартість товару'))
+        let moneyCount = parseFloat(prompt('Введіть розмір вашого бюджету'))
+        let lotteryCost = 4
+        let moneyBalance
 
-        if (clientMoney < productCost)  document.write (`Грошей не вистачає. Йдіть працювати.`)
-        else {
-            document.write (` Дякуємо за покупку!`)
-            if (clientMoney - productCost >= 4) document.write (`Пропонуємо купити лотерею`)
+        if (productPrice > moneyCount ) {
+            alert('Грошей не вистачає')
+        } else if (productPrice <= moneyCount ) {
+            alert('Дякуємо за покупку')
+            moneyBalance = moneyCount - productPrice
+            if (moneyBalance >= lotteryCost) {
+                alert('Купіть лотерею за 4 грн')
+            }
         }
     </script>
 </body>

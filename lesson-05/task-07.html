@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 7</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,35 +20,30 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 7</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран номери місяців весни і літа (від 3 до 8)
-                </p>
+                <p class="home-task__subtitle">Вивести таблицю з 3 рядків і 7 стовпців</p>
             </div>
         </div>
+
+        
     </div>
 
     <div class="script">
         <script>
-            // 1. Вводимо необхідні дані
-            let monthNum
-    
-            // 2. Знаходимо та виводимо результат
-            for (let monthNum = 3; monthNum <= 8; monthNum++) {
-                switch (monthNum) {
-                    case 3 : document.write (`Березень `)
-                    break
-                    case 4 : document.write (`Квітень `)
-                    break
-                    case 5 : document.write (`Травень `)
-                    break
-                    case 6 : document.write (`Червень `)
-                    break
-                    case 7 : document.write (`Липень `)
-                    break
-                    case 8: document.write (`Серпень `)
+            let rowCount = 3
+            let columnCount = 7
+
+            document.write('<table style="border: 1px solid black;">')
+                for (let row = 0; row < rowCount; row++) {
+                    document.write('<tr>')
+                        for (let column = 1; column <= columnCount; column++) {
+                            document.write(`<td style="min-width: 50px; line-height: 50px; margin: 3px; border: 1px solid #101011;">${column}</td>`)
+                            
+                        }
+                    document.write('<tr>')
+                    
                 }
-            }
+            document.write('</table>')
         </script>
     </div>
-
 </body>
 </html>

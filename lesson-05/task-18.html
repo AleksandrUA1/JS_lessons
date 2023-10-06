@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 18</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,37 +20,32 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 18</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
-                </p>
+                <p class="home-task__subtitle">Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести). </p>
             </div>
         </div>
+       
     </div>
 
     <div class="script">
-        <script>
-            const userNum1 = parseInt(prompt('Введіть перше ціле число'))
-            const userNum2 = parseInt(prompt('Введіть друге ціле число'))
-            let firstNum = 0
-            let secondNum = 0
-            let sumNum = 0
+        <script>       
+            let minSumValue = 100
+            let maxSumValue = 5000
 
-            if(userNum1 < userNum2) {
-                firstNum = userNum1
-                secondNum = userNum2 
-            }
-            else if (userNum1 > userNum2) {
-                firstNum = userNum2
-                secondNum = userNum1 
-            }
-            else
-            confirm('Введіть різні числа')
+            let sumToPay = Math.floor((Math.random() * (minSumValue + maxSumValue)) + 1) - minSumValue
+            let userDepositAmount 
+            let userPay
+            let leftToPay = sumToPay
 
-            for (let i = firstNum; i < secondNum; i++) {
-                if (i % 2 !== 0) 
-                sumNum += i
-            }
-            
-            confirm(`В діапазоні від ${firstNum} до ${secondNum} сума всіх непарних чисел дорівнює ${sumNum}`)
+            do {
+                userPay = parseInt(prompt(`Всього до сплати ${sumToPay} грн\nВнесено ${userDepositAmount ??= 0} грн\nЗалишок до сплати ${leftToPay} грн`))
+                userDepositAmount += userPay
+                leftToPay -= userPay
+            } while (leftToPay > 0)
+
+            if (leftToPay === 0) {
+                alert('Дякуємо за покупку. Приходьте ще!')
+            } 
+            else alert(`Візьміть вашу рашету ${Math.abs(leftToPay)} грн`)
         </script>
     </div>
 </body>

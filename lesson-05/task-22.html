@@ -18,20 +18,28 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 2</h2>
+            <h2 class="home-task__title">Задача 22</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран номери місяців весни і літа (від 3 до 8)</p>
+                <p class="home-task__subtitle">3 рази дати можливість ввести пароль (правильний пароль «123»)</p>
             </div>
         </div>
+       
     </div>
 
     <div class="script">
-        <script>
-            let firstMonth = 3
-            let lastMotnh = 8
-            for (let currentMonth = firstMonth; currentMonth <= lastMotnh; currentMonth++) {
-                document.write(` ${currentMonth},`)
-            }  
+        <script>       
+            let correctPassword = 'abc'
+            let quantityAttemps = 3
+            let userPassword
+
+            for (let attemp = 0; attemp < quantityAttemps; attemp++) {
+                userPassword = prompt('Введіть пароль')
+                if (userPassword.toUpperCase()  === correctPassword.toUpperCase()) {
+                    alert('Вітаємо!')
+                    break
+                }
+                else alert('Введено не правильний пароль')
+            }
         </script>
     </div>
 </body>

@@ -18,9 +18,9 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 15</h2>
+            <h2 class="home-task__title">Задача 14</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами</p>
+                <p class="home-task__subtitle">Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами</p>
             </div>
         </div>
     </div>
@@ -29,8 +29,6 @@
         <script>
             let firstUserNumber = parseInt(prompt('Введіть перше значення'))
             let secondUserNumber = parseInt(prompt('Введіть друге значення'))
-            let maxNumbersCount = 5
-            let counter = 1
             let totalSum = 0
             let maxValue
             let minValue
@@ -45,13 +43,12 @@
             }
 
             for (let number = minValue; number <= maxValue; number++) {
-                if (number % 2 !== 0 && counter <= maxNumbersCount) {
-                    counter++
+                if (number % 2 !== 0) {
                     totalSum += number
                 }
             }
 
-            alert(`В діапазоні від ${minValue} до ${maxValue} сума перших 5 непарних чисел = ${totalSum}`)
+            alert(`В діапазоні від ${minValue} до ${maxValue} сума всіх непарних чисел = ${totalSum}`)
 
         </script>
     </div>

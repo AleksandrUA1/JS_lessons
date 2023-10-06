@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Home-task 7</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 3</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson03.html" class="home-task__link-back">Назад</a>
+            <h3 class="home-task__title">Задача 9</h3>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            let minValue = 1
+            let maxValue = 100
+            let userValueLimiter = 10
+            
+            let startValue = Math.floor((Math.random()*(maxValue + minValue) + 1) - minValue)
+            let endValue = Math.floor(Math.random()*(maxValue - startValue) + 1) + startValue
+
+            console.log('first number '+ startValue)
+            console.log('last number ' + endValue)
+
+            let userNumber = parseInt(prompt('Комп\'ютер згенерував 2 числа, в діапазоні від 1 до 100\nСпробуйте вгадати число яке знаходиться всередині цього проміжку'))
+
+            if (userNumber >= startValue && userNumber <= endValue) {
+                alert(`Ви вгадали.\nКомп'ютер створив проміжок в діапазоні від ${startValue} до ${endValue}.\nЧисло ${userNumber} знаходиться в середині цього проміжку`)
+            } else if (userNumber + userValueLimiter >= startValue && userNumber - userValueLimiter <= endValue) {
+                alert(`Ви майже вгадали.\nКомп'ютер створив проміжок в діапазоні від ${startValue} до ${endValue}.\nЧисло ${userNumber} знаходиться біля цього проміжку`)
+            } else alert(`Не вгадали.\nКомп'ютер створив проміжок в діапазоні від ${startValue} до ${endValue}.\nЧисло ${userNumber} не входить до нього`)
+
+        </script>
+    </div>
+</body>
+</html>

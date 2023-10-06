@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 6</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,37 +20,28 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 6</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
-                </p>
+                <p class="home-task__subtitle">Вивести таблицю з одним рядком і  7 стовпцями.</p>
             </div>
         </div>
+
+        
     </div>
 
     <div class="script">
         <script>
-            // 1. Вводимо необхідні дані
-            let mono = 0
-            let solo = 0
-            // 2. Знаходимо та виводимо результат
-            for (let i = 0; i < 100; i++) {
-                let randomNum = Math.floor((Math.random()*1000)+1)
-                if (randomNum % 2 === 0)
-                solo++
-                else 
-                mono++
-                document.write(`${randomNum} `)        
-                
-            }
-           
-            if (mono > solo)
-            document.write (`<br>Непарних чисел ${mono} > Парних чисел ${solo}`)
-            else if (mono < solo)
-            document.write (`<br>Парних чисел ${solo} > Непарних чисел ${mono}`)
-            else 
-            document.write (`<br>Парних чисел ${solo} = Непарних чисел ${mono}`)
-           
+            let rowCount = 1
+            let columnCount = 7
+
+            document.write('<table style="border: 1px solid black;">')
+                document.write('<tr >')
+                    for (let td = 1; td <= columnCount; td++) {
+                        document.write(`<td style="min-width: 50px; line-height: 50px; margin: 3px; border: 1px solid #101011;">${td}</td>`)
+                    }
+                document.write('</td>')
+
+            document.write('</table>')
+
         </script>
     </div>
-
 </body>
 </html>

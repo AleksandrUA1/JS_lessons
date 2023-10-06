@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 10</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,21 +20,49 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 10</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Створити 10 елементів для введення цін продуктів
-                </p>
+                <p class="home-task__subtitle">Знайти 2 найбільший числа з 4 цілих чисел</p>
             </div>
         </div>
     </div>
-    
+
     <div class="script">
         <script>
-            for (let i = 1; i <= 10; i++) {
-                document.write (`
-                    Product #${i} <input type="text" style="margin-bottom: 10px;" placeholder="Введіть назву продукту"><br>
-                `)
-            }            
+            let num1 = 65
+            let num2 = 155
+            let num3 = 1874
+            let num4 = 54
+            
+            let max1 
+            let max2 
+
+            if (num1 > num2) {
+                max1 = num1
+                max2 = num2
+            } 
+            else {
+                max1 = num2
+                max2 = num1
+            }
+
+            if (num3 > max1) {
+                max2 = max1
+                max1 = num3
+            } 
+            else if (num3 > max2) {
+                max2 = num3
+            }
+
+            if (num4 > max1) {
+                max2 = max1
+                max1 = num4
+            } 
+            else if (num4 > max2) {
+                max2 = num4
+            }
+
+            console.log(max1)
+            console.log(max2)
         </script>
     </div>
-
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Home-task 7</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 3</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson03.html" class="home-task__link-back">Назад</a>
+            <h3 class="home-task__title">Задача 8</h3>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">На екран виводиться меню:
+                    1. Веселий
+                    2. Сумний
+                    3. Обурений
+                    Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення смайла. 
+                    </p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="script">
+        <script>
+            let userChoice = parseInt(prompt('Оберіть один з запропонованих смайлів\n1. Веселий\n2. Сумний\n3. Обурений\nВведіть його номер'))
+            let result
+    
+            switch (userChoice) {
+                case 1:
+                    result = '<img src="img/1.png" alt="Веселий смайлик">'
+                    break;
+                case 2:
+                    result = '<img src="img/2.png" alt="Сумний смайлик">'
+                    break;
+                case 3:
+                    result = '<img src="img/3.png" alt="Обурений смайлик">'
+                    break;
+                default:
+                    result = 'Введено хибні дані'
+                    break;
+            }
+    
+            document.write(result)
+        </script>
+    </div>
+</body>
+</html>

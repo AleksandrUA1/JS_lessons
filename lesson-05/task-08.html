@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 8</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,21 +20,31 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 8</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран 8 кнопок з написом “Hello”.
-                </p>
+                <p class="home-task__subtitle">Вивести таблицю</p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            for (let i = 0; i < 8; i++) {
-                document.write (`
-                <button>Hello</button>
-                `)
-            }
+            let rowCount = 3
+            let columnCount = 3
+            let counter = 1
+
+            document.write('<table style="border: 1px solid black";>')
+                for (let row = 0; row < rowCount; row++) {
+                    document.write('<tr>')
+
+                        for (let column = 0; column < columnCount; column++) {
+                            document.write(`<td style="min-width: 50px; line-height: 50px; margin: 3px; border: 1px solid #101011;">${counter}</td>`)
+                            counter++
+                        }
+
+                    document.write('</tr>')
+                    
+                }
+            document.write('</table>')
         </script>
     </div>
-
 </body>
 </html>

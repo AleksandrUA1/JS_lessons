@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 13</title>
+	<title>Home-task 14</title>
 </head>
 <body>
     <header class="header">
@@ -20,27 +20,31 @@
             <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 13</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести таблицю 3 x 3, з послідовно збільшуваною нумерацією комірок 
-                </p>
+                <p class="home-task__subtitle">Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm). Підрахувати кількість спроб</p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            let tdNumber = 0
-            document.write(`<table style="color: #94c02f; border: 1px solid #101011;">`)
-                for (let num1 = 1; num1 <= 3; num1++) {
-                    document.write (`<tr>`)
-                        for (let num2 = 1; num2 <= 3; num2++) {
-                                tdNumber++
-                                document.write(` 
-                                <td style="border: 1px solid #101011; font-size: 20px; min-width: 50px; line-height: 50px;">${tdNumber}</td> 
-                                `)
-                            }
-                    document.write (`</tr>`)
-                    }
-            document.write(`</table>`)
+            let minValue = 1
+            let maxValue = 20
+            let attempCount = 0
+            let userNumber = parseInt(prompt(`Введіть число від ${minValue} до ${maxValue}`))
+            let randomNumber 
+            let result = false
+
+            do {
+                randomNumber = Math.floor((Math.random() * (maxValue + minValue)) + 1) - minValue
+                attempCount++
+                if (confirm(`Ви загадали число ${randomNumber}`)) {
+                    result = true
+                }
+
+            } while (!result)
+
+            alert(`Комп\'ютер вгадав загадане число з ${attempCount} разу`)
+
         </script>
     </div>
 </body>

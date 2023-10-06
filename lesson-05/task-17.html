@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 14</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 17</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель. </p>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="script">
+        <script>       
+
+            let userRowCount = parseInt(prompt('Введіть кількість рядків ігрового поля'))
+            let userColumnCount = parseInt(prompt('Введіть кількість стовбців ігрового поля'))
+            let userShotCount = parseInt(prompt('Введіть кількість пострілів'))
+
+            let randomShipRowPosition = Math.floor((Math.random() * userRowCount) + 1)
+            let randomShipColumnPosition = Math.floor((Math.random() * userColumnCount) + 1)
+            console.log('row position ' + randomShipRowPosition)
+            console.log('column position ' + randomShipColumnPosition)
+
+            let userShipRowPosition
+            let userShipColumnPosition
+            let gameResultMessage = false
+
+            for (let shot = 0; shot < userShotCount; shot++) {
+                userShipRowPosition = parseInt(prompt('Оберіть номер рядка для пострілу'))
+                userShipColumnPosition = parseInt(prompt('Оберіть номер стовпця для пострілу'))
+
+                if (userShipRowPosition === randomShipRowPosition && userShipColumnPosition === randomShipColumnPosition) {
+                    gameResultMessage = true
+                    alert('Вітаємо, ви влучили! Корабель потоплено.\nПеремога!')
+                    break
+                }
+                else alert('Ви не влучили...')
+            }
+
+            if (!gameResultMessage) {
+                alert('Спроби закінчились. Ви програли...')
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -33,6 +33,11 @@ function getBubbleSort(arr) {
     return arr
 }
 
+for (let index = 0; index < array.length; index++) {
+    
+    
+}
+
 function getInsertionSort(arr) {
     this.startDateInsertionSort = new Date().getTime()
     for (let i = 1; i < arr.length; i++) {
@@ -49,6 +54,8 @@ function getInsertionSort(arr) {
 
 return arr
 }
+
+
 
 window.onload = function () {
     let randomArr = getRandomArr()

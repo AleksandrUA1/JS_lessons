@@ -26,35 +26,35 @@
     </div>
 
     <script>
-        // 1. Вводимо необхідні дані
-        let userData = parseInt(prompt('Оберіть один з 7 днів тижня, ввівши число від 1 до 7')); 
-        let dayPerWeek;
+        let userDayNumber = parseInt(prompt('Введіть номер дня тижня'))
+        let result
 
-        // 2. Знаходимо результат та виводимо його
-        switch (userData) {
-            case 1: dayPerWeek="Понеділок";
+        switch (userDayNumber) {
+            case 1:
+                result = 'Понеділок'
                 break;
-            case 2: dayPerWeek="Вівторок";
+            case 2:
+                result = 'Вівторок'
                 break;
-            case 3: dayPerWeek="Середа";
+            case 3:
+                result = 'Середа'
+                break;    
+            case 4:
+                result = 'Четвер'
                 break;
-            case 4: dayPerWeek="Четвер";
+            case 5:
+                result = 'Пятниця'
                 break;
-            case 5: dayPerWeek="П'ятниця";
+            case 6:
+                result = 'Субота'
                 break;
-            case 6: dayPerWeek="Субота";
+            case 7:
+                result = 'Неділя'
                 break;
-            case 7: dayPerWeek="Неділя";
+            default: result = 'Введено хибні дані'
                 break;
-            default: dayPerWeek = "Хибні дані";
-                break;
-
         }
-
-        document.write(`
-        Ви ввели число - ${userData}<br>
-        День тижня якому воно відповідає - ${dayPerWeek}
-        `)       
+        alert(result)
     </script>
 </body>
 </html>
