@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 7</title>
 </head>
 <body>
@@ -28,40 +27,23 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getPriceListDiscount(priceList) {
-                let priceListDiscount = [...priceList]
-                
-                priceListDiscount.forEach((element, index, arr) => {
-                    if (element > 1000) {
-                        arr[index] = (element / 100) * 70
+            function getSale(pricesList) {
+                let minPrice = 1000
+                let oneHundredPercent = 100
+                let discount = 30
+                pricesList.forEach((element,ind,baseArr) => {
+                    if (element > minPrice) {
+                        baseArr[ind] = element - (element / oneHundredPercent * discount)
                     }
                 })
-
-                return priceListDiscount
+                return pricesList
             }
-           
-            // 1) Вводимо дані
-            
-            // 2) Генеруємо масив  
-                let priceList = []
-                let elements
-                for (let i = 0; ; i++) {
-                    elements = parseInt(prompt(`Введіть ціну ${i+1}-го товару`))
-                    priceList.push(elements)
-                    if (confirm(`${priceList} \nБажаєте продовжити?`) === false) {
-                        break
-                    }
-                }
-            
-            // 3) Знаходимо розв'язок
-            let priceListDiscount = getPriceListDiscount(priceList)
 
-            // 4) Виводимо результат
-            document.write(`
-            Введені вами ціни - ${priceList}<br>
-            Ціни зі знижками - ${priceListDiscount}
-            `)
-                
+            let pricesList = [1200,320,840,600,920,1680,5000,3100,1900,350]
+            document.write(`${pricesList}<br>`)
+
+            document.write(getSale(pricesList))
+        
         </script>
     </div>
 </body>

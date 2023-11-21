@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 18</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,20 +20,21 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 18</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран усі двоцифрові числа, у яких перша цифра є більшою або рівною за другу.</p>
+                <p class="home-task__subtitle">Дано ціле число N. Вивести ті натуральні числа, квадрати яких є меншими або рівними за N.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            for (let firstSymbol = 1; firstSymbol < 10; firstSymbol++) {
-                for (let secondSymbol = 0; secondSymbol < 10; secondSymbol++) {
-                    if (firstSymbol>=secondSymbol) {
-                        document.write(`${firstSymbol}${secondSymbol} `) 
-                    }
-                }
-                document.write(`<br>`)
-                }
+            let userNumber = parseInt(prompt('Введіть будь-яке ціле число'))
+            document.write(`Введене число - ${userNumber}<br>`)
+            let checkedNumber = Number
+            for (let number = 0; Math.pow(number,2) <= userNumber; number++) {
+                document.write(`${number}, `)
+                
+            }
+           
         </script>
     </div>
 </body>

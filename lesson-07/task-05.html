@@ -27,53 +27,55 @@
 
     <div class="script">
         <script>
-            function getEvenOfNumbers(a, b, c) {
-                let evenResult = 0
+            //  Правельніше було б ретурнити масив з декількома результатами. Але ми масиви ще не розбирали
+            let evenValues = 0
+            let positiveValues = 0
+            let valuesGreaterThan100 = 0
 
-                if (a % 2 === 0)
-                evenResult++
-                if (b % 2 === 0)    
-                evenResult++
-                if (c % 2 === 0)
-                evenResult++
-                return evenResult 
-            }
-            function getPositiveNumbers(a, b, c) {
-                let evenResult = 0
-                
-                if (a > 0)
-                evenResult++
-                if (b > 0)    
-                evenResult++
-                if (c > 0)
-                evenResult++
-                return evenResult 
-            }
-            function getNumberGreterOf100(a, b, c) {
-                let evenResult = 0
-                
-                if (a > 100)
-                evenResult++
-                if (b > 100)    
-                evenResult++
-                if (c > 100)
-                evenResult++
-                return evenResult 
-            }
-            
-            const numA = parseInt(prompt('Введіть перше число'))
-            const numB = parseInt(prompt('Введіть друге число'))
-            const numC = parseInt(prompt('Введіть третє число'))
+            function func1(num1, num2, num3) {
            
-            let evenOfUserNumbers = getEvenOfNumbers(numA, numB, numC)
-            let positiveOfUserNumbers = getPositiveNumbers(numA, numB, numC)
-            let numberGreterOf100 = getNumberGreterOf100(numA, numB, numC)
+                function calcEvenValues(num) {
+                    if (!(num % 2)) {
+                        evenValues++
+                    }
+                }
+    
+                function calcPositiveValues(num) {
+                    if (num>0) {
+                        positiveValues++
+                    }
+                }
+    
+                function calcValuesGreaterThan100(num) {
+                    if (num>100) {
+                        valuesGreaterThan100++
+                    }
+                }
+                
+                calcEvenValues(num1)
+                calcEvenValues(num2)
+                calcEvenValues(num3)
+                
+                calcPositiveValues(num1)
+                calcPositiveValues(num2)
+                calcPositiveValues(num3)
+
+                calcValuesGreaterThan100(num1)
+                calcValuesGreaterThan100(num2)
+                calcValuesGreaterThan100(num3)
+            }
+
+
+            let num1 = -16
+            let num2 = 24
+            let num3 = 167
+            func1(num1,num2,num3)
             
-            document.write(`
-            Кількість парних чисел серед введених = ${evenOfUserNumbers}<br>
-            Кількість додатніх чисел = ${positiveOfUserNumbers}<br>
-            Кількість чисел більших за 100 = ${numberGreterOf100}<br>
-            `)
+            document.write('Watch console')
+            console.log(`Числа: ${num1} ${num2} ${num3}`);
+            console.log(`Кількість парних - ${evenValues}`)
+            console.log(`Кількість додатних - ${positiveValues}`)
+            console.log(`Кількість більших за 100 - ${valuesGreaterThan100}`)
         </script>
     </div>
 </body>

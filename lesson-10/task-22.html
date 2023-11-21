@@ -28,19 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+            let array = [10,9,5,13]
             
-            // 3) Знаходимо розв'язок
-            let arrSum = arr.reduce((prevSum, el) => prevSum + el)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${arr}<br>
-            ${arrSum}
-            `)
+            console.log(array)
+            console.log(array.reduce((prevSum,el,ind,arr) => prevSum + el))
+            document.write('look in console')
             
         </script>
     </div>

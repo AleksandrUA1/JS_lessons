@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 9</title>
 </head>
 <body>
@@ -28,54 +27,55 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getGame(PLAY_SPACE, SHIP_COUNT) {
+            function getGameTable(gameShipCount,gameTableCount) {
+                let gameTable = new Array(gameTableCount).fill(0)
+                let randomPosition = 0
 
-                let game = new Array(PLAY_SPACE).fill(0)
-                
-                for (let ship = 0; ship < SHIP_COUNT; ) {
-                    let shipPosition = Math.floor(Math.random()*PLAY_SPACE)
-                    if (game[shipPosition] === 0) {
-                        game[shipPosition] = 1
+                for (let ship = 0; ship < gameShipCount; ) {
+                    randomPosition = Math.floor((Math.random() * gameTableCount) + 1)
+                    if (gameTable[randomPosition] === 0) {
+                        gameTable[randomPosition] = 1
                         ship++
-                    }                    
+                    }
                 }
-                return game
+                return gameTable
             }
 
-            function getPlayResult(game) {
-                let playResult = [...game]
-                let ship_count = SHIP_COUNT
+            function playGame(gameTable,gameShipCount,gameTableCount) {
+                let printTable = new Array(gameTableCount).fill(' ')
+                let shotCounter = gameShipCount
                 
                 do {
-                    let userShot = parseInt(prompt(`Оберіть номер клітинки для пострілку. Від 0 до ${game.length - 1}`))
-                        if (playResult[userShot] === 1) {
-                            playResult[userShot] = 0
-                            alert('Вітаємо! Ви влучили!')
-                            ship_count--
-                        }
-                        else alert('Мимо')
-                          
-                } while (ship_count > 0);
+                    let userShot = parseInt(prompt(`Оберіть клітинку для пострілу. Від 1 до ${gameTableCount}`)) - 1
+                    if (gameTable[userShot] === 1) {
+                        gameTable[userShot] = 0
+                        printTable[userShot] = 'x'
+                        shotCounter--
+                        alert(`
+                            Вітаю. Ви влучили!<br>
+                            ${printTable}
+                        `)
+                    }
+                    else if (gameTable[userShot] === 0) {
+                        printTable[userShot] = 'o'
+                        alert(`
+                            Мимо.<br>
+                            ${printTable}
+                        `)
+                    }
+                } while (shotCounter)
                 
-                alert('Вітаємо! Всі кораблі потоплені!')
-                return playResult
-            } 
-
-            // 1) Вводимо дані
-            const PLAY_SPACE = parseInt(prompt('Введіть розмір ігрового поля'))
-            const SHIP_COUNT = parseInt(prompt('Введіть кількість кораблів'))
-
-            // 2) Генеруємо масив
-            let game = getGame(PLAY_SPACE, SHIP_COUNT)
-
-            // 3) Знаходимо розв'язок
-            let playResult = getPlayResult(game)
-
-            // 4) Виводимо результат
-            document.write(`
-            Початкове розміщення корабілв на ігровому полі<br>
-            ${game}
-            `)
+                alert(`
+                    Вітаю! Ви перемогли!<br>
+                    ${printTable}
+                `)
+            }
+            
+            let gameTableCount = parseInt(prompt('Введіть кількість клітинок ігрового поля'))
+            let gameShipCount = parseInt(prompt(`Введіть кількість кораблів на ігровому полі. Не більше ніж ${gameTableCount}`))
+            let gameTable = getGameTable(gameShipCount,gameTableCount)
+            console.log(gameTable)
+            playGame(gameTable,gameShipCount,gameTableCount)
         </script>
     </div>
 </body>

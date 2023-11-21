@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 7</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,34 +20,41 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 7</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">2. Відобразити трикутник за допомогою символів «о»
-                    о
-                    оо
-                    ооо
-                    оооо
-                    ооооо
-                    оооооо
-                    ооооооо
-                </p>
+                <p class="home-task__subtitle">Побудувати ялинку<br>
+                    о<br>
+                    оо<br>
+                    ооо<br>
+                    оооо<br>
+                    ооооо<br>
+                    о<br>
+                    оо<br>
+                    ооо<br>
+                    оооо<br>
+                    ооооо<br>
+                    о<br>
+                    оо<br>
+                    ооо<br>
+                    оооо<br>
+                    ооооо<br>
+                    </p>
             </div>
         </div>
     </div>
+
     <div class="script" style="text-align: left;">
         <script>
-            const symbol = "o"
-            const br = "<br>"
-
-            let rowQuontity = 7
-            let symbolCellQuontity = 0
-           
-            for (let row = 1; row <= rowQuontity; row++) {
-                
-                symbolCellQuontity = row
-
-                for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
-                    document.write(`${symbol}`)
+            let userSymbol = 'o'
+            let iterationCount = 5
+            let treeSectionCount = 3
+            
+            for (let section = 0; section < treeSectionCount; section++) {
+                for (let rowIter = 0; rowIter < iterationCount; rowIter++) {
+                    for (colIter = 0; colIter <= rowIter; colIter++) {
+                        document.write(`${userSymbol}`)
+                    }    
+                document.write(`<br>`)
                 }
-                document.write(`<br>`)             
+                
             }
         </script>
     </div>

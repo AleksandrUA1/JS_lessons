@@ -28,31 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getWorkerBirthday(workersCount) {
-                let workerBirthdays = []
-                let birthday
-                for (let i = 0; i < workersCount;) {
-                    birthday = Math.floor((Math.random()*2005)+1)
-                    birthday>1920 ? (workerBirthdays.push(birthday), i++) : null;                 
-                }
-                return workerBirthdays
-            }           
-
-            // 1) Вводимо дані
-            let workersCount = 10
+            let birthdayList = [1980,1991,1987,1998,2000,2001,1998,1960,1984]
+            let currentYear = 2023
+            let agesList = birthdayList.map(el => (currentYear - el))
             
-            // 2) Генеруємо масив  
-            let workerBirthdays = getWorkerBirthday(workersCount)
-            
-            // 3) Знаходимо розв'язок
-            let workersAges = workerBirthdays.map(el => 2023 - el)
-                        
-            // 4) Виводимо результат
-            document.write(`
-            Роки народження працівників - ${workerBirthdays}<br>
-            Їх вік - ${workersAges}
-            `)
-            
+            console.log(birthdayList)
+            console.log(agesList)
+            document.write('look in console')
         </script>
     </div>
 </body>

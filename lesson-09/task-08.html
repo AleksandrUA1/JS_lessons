@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 8</title>
 </head>
 <body>
@@ -28,37 +27,15 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getCarNumberListWithFirstLetterA(carNumberList) {
-                let carNumberListWithFirstLetterA = []
-                carNumberList.forEach(element => {
-                    if (element[0] === "a" || element[0] === "A" ) {
-                        carNumberListWithFirstLetterA.push(element)
-                    }
-                })
-                
-                return carNumberListWithFirstLetterA
+            function getNewArr(carsNumbers) {               
+                let newArr = carsNumbers.filter(el => el[0] === 'а')
+                return newArr
             }
-           
-            // 1) Вводимо дані
-            let carNumbersCount = parseInt(prompt(`Скільки номерів будемо порівнювати?`))
-            
-            // 2) Генеруємо масив  
-                let carNumberList = []
-                let elements
-                for (let i = 0; i < carNumbersCount; i++) {
-                    elements = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
-                    carNumberList.push(elements)
-                }
-               
-            // 3) Знаходимо розв'язок
-            const carNumberListWithFirstLetterA = getCarNumberListWithFirstLetterA(carNumberList)
 
-            // 4) Виводимо результат
-            document.write(`
-            ${carNumberList}<br>
-            ${carNumberListWithFirstLetterA}
-            `)
-                
+            let carsNumbers = ['ав 1234 ва','вн 8654 ав','аа 3777 аа','сн 5467 ап']
+
+            document.write(`${carsNumbers}<br>`)
+            document.write(getNewArr(carsNumbers))
         </script>
     </div>
 </body>

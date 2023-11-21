@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 5</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,33 +20,31 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 5</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">З клавіатури вводяться два числа N i M (N менше M). Вивести на екран числа
-                    N---M
-                    N+1 --- M-1
-                    N+2 --- M-2
-                    N+3 --- M-3
+                <p class="home-task__subtitle">Відобразити трикутник за допомогою символів «о»<br>
+                    оооооооооооо<br>
+                    ооооооооооо<br>
+                    оооооооооо<br>
+                    ооооооооо<br>
+                    оооооооо<br>
+                    …<br>
+                    оо<br>
+                    о<br>
                     </p>
             </div>
         </div>
     </div>
-    <div class="script">
+
+    <div class="script" style="text-align: left;">
         <script>
-            let firstUserNumber = parseInt(prompt('Введіть перше число'))
-            let secondUserNumber = parseInt(prompt('Введіть друге число'))
-            let grandmotherGalya = 0
-
-            if (firstUserNumber > secondUserNumber) {
-                grandmotherGalya = firstUserNumber
-                firstUserNumber = secondUserNumber
-                secondUserNumber = grandmotherGalya
+            let userSymbol = 'o'
+            let iterationCount = 9
+            
+            for (let rowIter = iterationCount; rowIter >= 1; rowIter--) {
+                for (colIter = rowIter; colIter >= 1; colIter--) {
+                    document.write(`${userSymbol}`)
+                }    
+                document.write(`<br>`)
             }
-                else if (firstUserNumber === secondUserNumber)
-                alert(`Введено хибні дані`)
-
-                while (firstUserNumber < secondUserNumber) {
-                                        
-                    document.write(`${firstUserNumber++} ---- ${secondUserNumber--} <br>`)
-                }
         </script>
     </div>
 </body>

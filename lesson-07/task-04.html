@@ -20,48 +20,35 @@
             <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 4</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Створити окремі функції, які для 4 чисел знаходять:
-                    1)суму;
-                    2)добуток;
-                    3)середнє арифметичне;
+                <p class="home-task__subtitle">Створити окремі функції, які для 4 чисел знаходять:<br>
+                    1)суму;<br>
+                    2)добуток;<br>
+                    3)середнє арифметичне;<br>
                     4)мінімальне значення. 
-                </p>
+                    </p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            function getSumOfNumbers(a, b, c, d) {
-                return a +  b + c + d 
+            function getSum(num1, num2, num3, num4) {
+                return num1 + num2 + num3 + num4
             }
-            function getProductOfNumbers(a, b, c, d) {
-                return a * b * c * d
+            function getProduct(num1, num2, num3, num4) {
+                return num1 * num2 * num3 * num4
             }
-            function getAverageOfNumder(a, b, c, d) {
-                return (a +  b + c + d) / 4
+            function getAverageValue(num1, num2, num3, num4) {
+                return (num1 + num2 + num3 + num4) / 4
             }
-            function getMinimalOfNumbers(a, b, c, d) {              
-                return Math.min(a, b, c, d)
+            function minValue(num1, num2, num3, num4) {
+                return Math.min(num1, num2, num3, num4)
             }
-            
-            const numA = parseInt(prompt('Введіть перше число'))
-            const numB = parseInt(prompt('Введіть друге число'))
-            const numC = parseInt(prompt('Введіть третє число'))
-            const numD = parseInt(prompt('Введіть четверте число'))
-
-            let sumOfUserNumbers = getSumOfNumbers(numA, numB, numC, numD)
-            let productOfUserNumbers = getProductOfNumbers(numA, numB, numC, numD)
-            let averageOfUserNumbers = getAverageOfNumder(numA, numB, numC, numD)
-            let minOfUsernumber = getMinimalOfNumbers(numA, numB, numC, numD)
-
-            document.write(`
-            Сума введених вами чисел = ${sumOfUserNumbers}<br>
-            Добуток введених вами чисел = ${productOfUserNumbers}<br>
-            Середнє арифметичне серед введених вами чисел = ${averageOfUserNumbers}<br>
-            Мінімальне число серед введених вами чисел = ${minOfUsernumber}<br>
-            `)
-
+            document.write('Watch console')
+            console.log(`Сума 4х чисел 1 2 3 4 = ${getSum(1,2,3,4)}`)
+            console.log(`Добуток 4х чисел 1 2 3 4 = ${getProduct(1,2,3,4)}`)
+            console.log(`Середнє арифметичне 4х чисел 2 4 6 8 = ${getAverageValue(2,4,6,8)}`)
+            console.log(`Мінімальне значення серед 1 2 3 4 = ${minValue(1,2,3,4)}`)
         </script>
     </div>
 </body>

@@ -28,19 +28,12 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
+            let scoresList = [8,9,12,4,7,1,10,8,9,2]
             
-            // 3) Знаходимо розв'язок
-            let findScoresLess4 = scores.find(el => el<4)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${scores}<br>
-            ${findScoresLess4}
-            `)
+            console.log(scoresList)
+            let indOfFirstBadScore = scoresList.findIndex(el => el < 4)
+            console.log(indOfFirstBadScore)
+            document.write('look in console')
             
         </script>
     </div>

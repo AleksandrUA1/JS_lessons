@@ -28,21 +28,17 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+            let temperaturesList = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
             
-            // 3) Знаходимо розв'язок
-            let temperaturesForFirstHalfOfYear = temperatures.slice(0,6)
-            let temperaturesForSecondHalfOfYear = temperatures.slice(6)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            Масив  показів темератур за рік (12 місяців) - ${temperatures}<br>
-            Масив  показів темератур першого півріччя - ${temperaturesForFirstHalfOfYear}<br>
-            Масив  показів темератур другого півріччя - ${temperaturesForSecondHalfOfYear}
-            `)
+            console.log(temperaturesList)
+
+            let firstHalfOfYear = []
+            let secondHalfOfYear = []
+            
+            temperaturesList.filter((el,ind,arr) => ind < 6? firstHalfOfYear.push(el) : secondHalfOfYear.push(el))
+            console.log(firstHalfOfYear)
+            console.log(secondHalfOfYear)
+            document.write('look in console')
             
         </script>
     </div>

@@ -27,28 +27,31 @@
 
     <div class="script">
         <script>
-            function getWeekDay(weekDay) {
-                let result 
-                switch (weekDay) {
-                    case 1:
+            function getStatusDay(currentMonth) {
+                let result
+                switch (currentMonth) {
+                    case 1: 
                     case 2:
                     case 3:
                     case 4:
-                    case 5: 
-                        result = 'Робочий'
+                    case 5:
+                        result = "Робочий"
                         break
-                    case 6: 
+                    case 6:
                     case 7: 
                         result = 'Вихідний'
+                        break 
+                    default:
+                        alert('Введено хибні дані')
                         break
                 }
                 return result
             }
-
-            const userWeekDayNum = parseInt(prompt('Введіть номер тижня - від 1 до 7'))
-            const weekDayResult = getWeekDay(userWeekDayNum)
-            document.write(`Числу ${userWeekDayNum} відповідає день тижня - ${weekDayResult}`)
-
+            let userData = parseInt(prompt('Введіть номер дня тижня'))
+            let userEnteredMonth = getStatusDay(userData)
+            if (userEnteredMonth) {
+                alert(`День тижня під номером ${userData} це ${userEnteredMonth} день`)
+            }
         </script>
     </div>
 </body>

@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 4</title>
 </head>
 <body>
@@ -32,59 +31,46 @@
 
     <div class="script" style="text-align: center;">
         <script>
-                function getFindFirstSymbolA(listOfCarsNumber) {
-                    let findFirstSymbolA = []
-                    listOfCarsNumber.forEach(element => {
-                        if (element[0] === "A" || element[0] === "a") { //букви Латинського алфавіту
-                            findFirstSymbolA.push(element)
-                        }
-                    })
-                    return findFirstSymbolA
-                }  
-
-                function getFirstLastSymbolSame(listOfCarsNumber) {
-                    let firstLastSymbolSame = []
-                    listOfCarsNumber.forEach(element => {
-                        if (element[0] === element[element.length - 1]) {
-                            firstLastSymbolSame.push(element)        
-                        }  
-                    })
-                    return firstLastSymbolSame
+            function getCountNumbersWhoStartedWithSomeSymbol(symbol, ...numList) {
+                let countNumbers = 0
+                for (let carNumber = 0; carNumber < numList.length; carNumber++) {
+                    if (numList[carNumber][0] === symbol) {
+                        countNumbers++
+                    }
                 }
+                return countNumbers
+            }
 
-                function getLengthMore5(listOfCarsNumber) {
-                    let lengthMore5 = []
-                    listOfCarsNumber.forEach(element => {
-                        if (element.length > 5) {
-                            lengthMore5.push(element)
-                        }    
-                    })
-                    return lengthMore5
+            function getCountNumbersWithSameFirstAndLastSymbols(...numList) {
+                let countNumbers = 0
+                for (let carNumber = 0; carNumber < numList.length; carNumber++) {
+                    if (numList[carNumber][0] === numList[carNumber][numList[carNumber].length - 1]) {
+                        countNumbers++
+                    }  
                 }
+                return countNumbers
+            }
 
-                // 1) Вводимо дані              
+            function getCountNumbersWithSymbolLengthMore5(...numList) {
+                let countNumbers = 0
+                for (let carNumber = 0; carNumber < numList.length; carNumber++) {
+                    if (numList[carNumber].length > 5) {
+                        countNumbers++
+                    }
+                }
+                return countNumbers
+            }
 
-                // 2) Генеруємо масив
-                let listOfCarsNumber = []
-                let userData
-                do {
-                    userData = prompt('Введіть номер автомобіля')
-                    listOfCarsNumber.push(userData)
-                } while (confirm(`Номери автомобілів \n${listOfCarsNumber} \nБажаєте продовжити?`) === true);
+            let firstSymbol = 'А'
+            let carsNumberList = ['ОВ 8675 ВО','АН 9009 ЕХ','АА 0001 АА','ВР 7377 ВР','ВН 666 УК','Х 7 Х']
 
-                // 3) Знаходимо розв'язок
-                let findFirstSymbolA = getFindFirstSymbolA(listOfCarsNumber)
-                let firstLastSymbolSame = getFirstLastSymbolSame(listOfCarsNumber)
-                let lengthMore5 = getLengthMore5(listOfCarsNumber)
+            document.write(`
+            Список номерів автомобілів - <br>${carsNumberList} <br>(Всього ${carsNumberList.length} шт)<br><br>
+            Кількість номерів, які починаються на букву «А» - ${getCountNumbersWhoStartedWithSomeSymbol(firstSymbol, ...carsNumberList)}<br>
+            Кількість номерів, у яких перша і остання літери співпадають - ${getCountNumbersWithSameFirstAndLastSymbols(...carsNumberList)}<br>
+            Кількість номерів, які складаються з більше ніш 5 символів - ${getCountNumbersWithSymbolLengthMore5(...carsNumberList)}
+            `)
 
-                // 4) Виводимо результат
-                document.write(`
-                Початкові дані - ${listOfCarsNumber}<br>
-                Кількість номерів які:<br>
-                Починаються на букву 'А' - ${findFirstSymbolA}<br>
-                Мають однакові перший та останній символ - ${firstLastSymbolSame}<br>
-                Складаються з більше ніж 5 символів - ${lengthMore5}
-                `)
         </script>
     </div>
 </body>

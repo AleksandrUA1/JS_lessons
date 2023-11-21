@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 10</title>
 </head>
 <body>
@@ -28,38 +27,19 @@
 
     <div class="script" style="text-align: center;">
         <script> 
-            function getTaxList(priceList) {
-                let taxList = []
-                let newElement = 0
-
-                priceList.forEach((element, index, arr) => {
-                    newElement = (element / 100) * 20
-                    taxList.push(newElement)
-                })
-
-                return taxList
+            function getNewArr(pricesList) {
+                let taxSize = 20
+                let oneHundredPercent = 100
+                let newArr = pricesList.map(el => el / oneHundredPercent * taxSize)    
+                return newArr
             }
-           
-            // 1) Вводимо дані
-            
-            // 2) Генеруємо масив  
-                let priceList = []
-                let elements
-                                
-                do {
-                    elements = parseInt(prompt(`Введіть розмір ${i+1}-го платежу?`))
-                    priceList.push(elements)
-                } while (confirm(`${priceList} \nБажаєте продовжити?`) === true);
-            
-            // 3) Знаходимо розв'язок
-            let taxList = getTaxList(priceList)
 
-            // 4) Виводимо результат
+            let pricesList = [1600,2200,3800,1900,2400,3100,3000,2700]
+
             document.write(`
-            Історія платежів - ${priceList}<br>
-            Розмір сплаченого податку (20%) - ${taxList}
+            Масив цін: ${pricesList}<br>
+            Масив з розміром податків: ${getNewArr(pricesList)}
             `)
-                
         </script>
     </div>
 </body>

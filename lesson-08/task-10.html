@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 3</title>
+	<title>Home-task 10</title>
 </head>
 <body>
     <header class="header">
@@ -18,32 +18,30 @@
 	<div class="container">
         <div class="home-task">
             <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
-            <h2 class="home-task__title">Задача 3</h2>
+            <h2 class="home-task__title">Задача 10</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
+                <p class="home-task__subtitle">Створити функцію, яка приймає рік виходу на пенсію, та довільну кількість значень років працівників. Визначити кількість пенсіонерів.</p>
             </div>
         </div>
     </div>
 
     <div class="script" style="text-align: center;">
         <script>
-            function getCountName(findingName, ...namesList) {
-                let countName = 0
-                for (let name = 0; name < namesList.length; name++) {
-                    if (namesList[name] === findingName) {
-                        countName++
-                    }
+            function getPensionerCount(pensionerAge, ...ageList) {
+                let pensionerCount = 0
+                for (let age = 0; age < ageList.length; age++) {
+                    if (ageList[age] > pensionerAge) pensionerCount++
                 }
-                return countName
+                return pensionerCount
             }
-            
-            let findingName = 'Іван'
-            let childrenNamesList = ['Іван','Микола','Олександр','Іван','Олена','Сергій','Віктор','Андрій']
+
+            let pensionerAge = 60
+            let ageList = [52,37,87,32,70,61,55,59,19]
 
             document.write(`
-            Список імен учнів - ${childrenNamesList}<br>
-            Ім'я '${findingName}' зустрічається ${getCountName(findingName, ...childrenNamesList)} рази`)
-
+                Список років працівників: ${ageList}<br>    
+                Кількість пенсіонерів: ${getPensionerCount(pensionerAge, ...ageList)}
+            `)
         </script>
     </div>
 </body>

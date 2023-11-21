@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 2</title>
 </head>
 <body>
@@ -33,67 +32,83 @@
 
     <div class="script" style="text-align: center;">
         <script>
-                function getVisitorsQuontityBelow20PerDay(visitorsQuontityOfOllPeriod) {
-                    let visitorsQuontityBelow20PerDay = []
-                    
-                    visitorsQuontityOfOllPeriod.forEach((element, index, baseArr) => {
-                        if (element < 20) visitorsQuontityBelow20PerDay.push(index + 1)
-                    })                   
-                    return visitorsQuontityBelow20PerDay
-                }
-
-                function getDaysWithMinimumVisitors(visitorsQuontityOfOllPeriod) {
-                    let daysWithMinimumVisitors = []
-                    let minVisitorsQuontityPerDay = Math.min(...visitorsQuontityOfOllPeriod)
-                    
-                    visitorsQuontityOfOllPeriod.forEach((element, index, baseArr)  => {
-                        if (element === minVisitorsQuontityPerDay) daysWithMinimumVisitors.push(index + 1)
-                        })
-                    return daysWithMinimumVisitors
-                }
-
-                function getDaysWithMaximumVisitors(visitorsQuontityOfOllPeriod) {
-                    let daysWithMaximumVisitors = []
-                    let maxVisitorsQuontityPerDay = Math.max(...visitorsQuontityOfOllPeriod)
-                    
-                    visitorsQuontityOfOllPeriod.forEach((element, index, baseArr) => {
-                        if (element === maxVisitorsQuontityPerDay) daysWithMaximumVisitors.push(index + 1)
-                    })
-                    return daysWithMaximumVisitors
-                }
-
-                function getQuontityVisitorsPerWeekDays(visitorsQuontityOfOllPeriod) {
-                    let quontityVisitorsPerWorkDays = 0
-                    let quontityVisitorsPerWeekendkDays = 0
-                    visitorsQuontityOfOllPeriod.forEach((element, index) => {
-                        if (index < 5) quontityVisitorsPerWorkDays += element
-                        else quontityVisitorsPerWeekendkDays += element
+                function getVisitorsList() {
+                    let daysOfWeek = 7
+                    let visitorsCountPerDay = 0
+                    let visitorsList = []
+                    for (let day = 1; day <= daysOfWeek; day++) {
+                        visitorsCountPerDay = parseInt(prompt(`Введіть кількість відвідувачів за ${day}-й день`))
+                        visitorsList.push(visitorsCountPerDay)
                     }
-                    )
-                    return [quontityVisitorsPerWorkDays, quontityVisitorsPerWeekendkDays]
+                    return visitorsList
                 }
-                
-                // 1) Вводимо дані та Генеруємо масив
-                let visitorsQuontityOfOllPeriod = []   
-                    for (let i = 0; i < 7; i++) {              
-                        let visitorsQuontityPerDay = parseInt(prompt(`Введіть кількість відвідувачів ${i + 1}-го дня`))
-                        visitorsQuontityOfOllPeriod.push(visitorsQuontityPerDay)
+
+                function getDaysWithVisitorsLessThan20(visitorsList) {
+                    let daysWithVisitorsLessThan20 = []
+                    let visitorsLimit = 20
+                    for (let day = 0; day < arguments.length; day++) {
+                        if (arguments[day] < visitorsLimit) {
+                            daysWithVisitorsLessThan20.push(day + 1)
+                        }
                     }
-                
-                // 2) Знаходимо розв'язок
-                let visitorsQuontityBelow20PerDay = getVisitorsQuontityBelow20PerDay(visitorsQuontityOfOllPeriod)
-                let daysWithMinimumVisitors = getDaysWithMinimumVisitors(visitorsQuontityOfOllPeriod)
-                let daysWithMaximumVisitors = getDaysWithMaximumVisitors(visitorsQuontityOfOllPeriod)
-                let quontityVisitorsPerWeekDays = getQuontityVisitorsPerWeekDays(visitorsQuontityOfOllPeriod)
+                    return daysWithVisitorsLessThan20
+                }
 
-                // 3) Виводимо результат
+                function getDaysWithMinVisitors(visitorsList) {
+                    let minVisitorsCountValue = Infinity
+                    for (let day = 0; day < arguments.length; day++) {
+                        if (arguments[day] < minVisitorsCountValue) minVisitorsCountValue = arguments[day]
+                    }
 
-                document.write(`Показники відвідування магазину за 7 днів - ${visitorsQuontityOfOllPeriod}<br>
-                Номери днів, протягом яких кількість відвідувачів була меншою за 20 - ${visitorsQuontityBelow20PerDay}<br>
-                    Номери днів, коли кількість відвідувачів була мінімальною - ${daysWithMinimumVisitors}<br>
-                    Номери днів, коли кількість відвідувачів була максимальною - ${daysWithMaximumVisitors}<br>
-                    Загальнa кількість клієнтів у робочі дні - ${quontityVisitorsPerWeekDays[0]}<br>
-                    3агальнa кількість клієнтів на вихідних - ${quontityVisitorsPerWeekDays[1]}`)
+                    let daysWithMinVisitors = []
+                    for (let day = 0; day < arguments.length; day++) {
+                        if (arguments[day] === minVisitorsCountValue) 
+                            daysWithMinVisitors.push(day + 1)
+                    }
+                    return daysWithMinVisitors
+                }
+
+                function getDaysWithMaxVisitors(visitorsList) {
+                    let maxVisitorsCountValue = -Infinity
+                    for (let day = 0; day < arguments.length; day++) {
+                        if (arguments[day] > maxVisitorsCountValue) maxVisitorsCountValue = arguments[day]
+                    }
+
+                    let daysWithMaxVisitors = []
+                    for (let day = 0; day < arguments.length; day++) {
+                        if (arguments[day] === maxVisitorsCountValue) 
+                            daysWithMaxVisitors.push(day + 1)
+                    }
+                    return daysWithMaxVisitors
+                }
+
+                function getTotalVisitorsCount(visitorsList) {
+                    let visitorsPerWorkDays = 0
+                    let visitorsPerWeekendDays = 0
+                    let lastWorkDay = 5
+
+                    for (let day = 0; day < arguments.length; day++) {
+                        if (day < lastWorkDay) visitorsPerWorkDays += arguments[day]
+                        else visitorsPerWeekendDays += arguments[day]
+                    }
+
+                    return [visitorsPerWorkDays,visitorsPerWeekendDays]
+                }
+
+                let visitorsList = getVisitorsList()
+                let daysWithVisitorsLessThan20 = getDaysWithVisitorsLessThan20(...visitorsList)
+                let daysWithMinVisitors = getDaysWithMinVisitors(...visitorsList)
+                let daysWithMaxVisitors = getDaysWithMaxVisitors(...visitorsList)
+                let totalVisitorsCount = getTotalVisitorsCount(...visitorsList)
+
+                document.write(`
+                Список відвідувачів протягом тижня - ${visitorsList}<br>
+                Номери днів, протягом яких кількість відвідувачів була меншою за 20 - ${daysWithVisitorsLessThan20}<br>
+                Номери днів, коли кількість відвідувачів була мінімальною - ${daysWithMinVisitors}<br>
+                Номери днів, коли кількість відвідувачів була максимальною - ${daysWithMaxVisitors}<br>
+                Загальна кількість клієнтів у робочі дні - ${totalVisitorsCount[0]}<br>
+                Загальна кількість клієнтів у вихідні дні - ${totalVisitorsCount[1]}
+                `)
         </script>
     </div>
 </body>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 19</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,22 +20,44 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 19</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран усі трицифрові числа, у яких перша цифра є більшою або рівною за суму другої і третьої.</p>
+                <p class="home-task__subtitle">Знайти суму всіх непарних чисел з діапазону, який вводить користувач з клавіатури.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            for (let firstSymbol = 1; firstSymbol < 10; firstSymbol++) {
-                for (let secondSymbol = 0; secondSymbol < 10; secondSymbol++) {
-                    for (let thirdSymbol = 0; thirdSymbol < 10; thirdSymbol++) {
-                            if (firstSymbol>=(secondSymbol + thirdSymbol)) {
-                            document.write(`${firstSymbol}${secondSymbol}${thirdSymbol} `) 
-                        }
-                    }
-                }
-            document.write(`<br>`)
+            let firstUserNumber = parseInt(prompt('Введіть будь-яке число'))
+            let secondUserNumber = parseInt(prompt('Введіть ще одне будь-яке число'))
+
+            let minNumber = Number
+            let maxNumber = Number
+            let sum = 0
+
+            while (firstUserNumber === secondUserNumber) {
+                alert('Друге число має бути більшим або меншим за перше')
+                secondUserNumber = parseInt(prompt('Введіть ще одне будь-яке число'))
             }
+
+            if (firstUserNumber > secondUserNumber) {
+                minNumber = secondUserNumber
+                maxNumber = firstUserNumber
+            }
+            else {
+                minNumber = firstUserNumber
+                maxNumber= secondUserNumber
+            }
+
+            for (let number = minNumber; number <= maxNumber; number++) {
+                if (number % 2 !== 0) {
+                    sum += number
+                }
+            }
+
+            document.write(`Перше введене число - ${firstUserNumber}<br>\
+            Друге введене число - ${secondUserNumber}<br>\
+            Cума всіх непарних чисел в діапазоні між ${minNumber} та ${maxNumber} = ${sum} `)
+
         </script>
     </div>
 </body>

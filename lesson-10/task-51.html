@@ -28,30 +28,16 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getArithmeticProgression(x, b, arrLength = 20) {
-                let arithmeticProgression = new Array(arrLength)
-                for (let i = 0; i < arithmeticProgression.length; i++, x += b) {
-                    arithmeticProgression.splice(i,1,x)
-                }
-                return arithmeticProgression
+            let array = new Array(10)
+            let firstEl = 1
+            let step = 5
+
+            for (let el = firstEl, ind = 0; ind < array.length; el += step, ind++) {
+                array.splice(ind,1,el)
             }
-            
-            // 1) Вводимо дані
-            let arrLength = parseInt(prompt('Введіть довжину арифметичної прогресії'))
-            let x = parseInt(prompt('Введіть перший елемент арифметичної прогресії'))
-            let b = parseInt(prompt('Введіть різницю прогресії'))
-            
-            // 2) Генеруємо масив  
-            
-            
-            
-            
-            // 3) Знаходимо розв'язок
-            let arithmeticProgression = getArithmeticProgression(x, b, arrLength)
-                          
-            // 4) Виводимо результат
-            document.write(arithmeticProgression)
-            
+
+            console.log(array)
+            document.write('look in console')
         </script>
     </div>
 </body>

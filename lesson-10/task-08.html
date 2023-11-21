@@ -28,30 +28,25 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getNamesList(namesCount) {
-                let namesList = []
-                let name
-                for (let i = 0; i < namesCount; i++) {
-                    name = prompt("Введіть ім'я працівника")
-                    namesList.push(name)
+            function getWorkersNamesList() {
+                let workersNamesList = []
+                let workerName = ''
+                for (let worker = 1; ; worker++) {
+                    workerName = prompt(`Введіть ім\'я ${worker}-го працівника`)
+                    workersNamesList.push(workerName)
+                    if (!confirm('Бажаєте ввести ще одне ім\'я?')) break 
                 }
-                return namesList
+                return workersNamesList
             }
 
-            // 1) Вводимо дані
-            let namesCount = prompt('Скільки імен працівників будемо реєструвати')
-            
-            // 2) Генеруємо масив  
-            let namesList = getNamesList(namesCount)
-            
-            // 3) Знаходимо розв'язок
-            while(namesList.length > 0){
-                let removedNamesList = namesList.pop()
-                        
-                // 4) Виводимо результат
-                document.write(`${removedNamesList}<br>`)
-            }
-            
+            let workersNamesList = getWorkersNamesList()
+            console.log(workersNamesList)
+
+            do {
+                console.log(workersNamesList.shift())
+            } while (workersNamesList.length)
+
+            document.write('look in console')
         </script>
     </div>
 </body>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 03</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,22 +20,31 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 3</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">З клавіатури вводиться початкове знчення суми. Поки сума є меншою за 100 додавати до неї числа, які вводяться з клавіатури.</p>
+                <p class="home-task__subtitle">Відобразити трикутник за допомогою символів «о»<br>
+                    о<br>
+                    оо<br>
+                    ооо<br>
+                    оооо<br>
+                    ооооо<br>
+                    оооооо<br>
+                    ооооооо
+                    </p>
             </div>
         </div>
     </div>
 
-    <div class="script">
+    <div class="script" style="text-align: left;">
         <script>
-            let firstUserNumber = 0
-            let counterNumber = 0
-            alert('Почніть вводитичисла. Цикл завершиться, коли сума введених чисел буде більшою за 100')
-            do {
-                firstUserNumber = parseInt(prompt('Введіть будь яке число'))
-                counterNumber += firstUserNumber
-                alert(`${counterNumber}`)
-            } while (counterNumber <= 100)
-            alert('От і все')
+            let userSymbol = 'o'
+            let iterationCount = 7
+
+            
+            for (let rowIter = 1; rowIter <= iterationCount; rowIter++) {
+                for (let colIter = 1; colIter <= rowIter; colIter++) {
+                    document.write(`${userSymbol}`)
+                }  
+                document.write(`<br>`)              
+            }
         </script>
     </div>
 </body>

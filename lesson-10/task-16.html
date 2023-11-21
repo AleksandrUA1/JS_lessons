@@ -28,21 +28,16 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 0, 2, 11, 8, 4, 53]
+            let numList = [23,1,4,0,4,6,9,0,2,12,0,2,11,8,4,53]
             
-            // 3) Знаходимо розв'язок
-            let findFirstSymbol = arr.indexOf(0)
-            let findLastSymbol = arr.lastIndexOf(0)
-            let newArr = arr.slice(findFirstSymbol + 1, findLastSymbol)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${arr}<br>
-            ${newArr}
-            `)
+            console.log(numList)
+
+            let firstInd = numList.indexOf(0)
+            let lastInd = numList.lastIndexOf(0)
+            let newNumList = numList.slice(firstInd + 1, lastInd)
+
+            console.log(newNumList)
+            document.write('look in console')
         </script>
     </div>
 </body>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 16</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,30 +20,31 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 16</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран 
-                    1 1
-                    2 1 2
-                    3 1 2 3
-                    4 1 2 3 4
-                    …
-                    i 1 2 3 ..i
-                    23 1 2 3 .. 22 23
-                    </p>
+                <p class="home-task__subtitle">З клавіатури вводяться числа до тих пір, поки послідовність є зростаючою або спадною.</p>
             </div>
         </div>
     </div>
+
     <div class="script" style="text-align: left;">
         <script>
-            const rowQuontity = parseInt(prompt('Введіть бажану кількість строк, наприклад 23'))
-            const columnQuontity = rowQuontity
+            let previosNumber = parseInt(prompt('Введіть будь-яке число'))           
+            let nextNumber = parseInt(prompt('Введіть будь-яке число'))
+            document.write(`${previosNumber} ${nextNumber} `)
             
-            for (let row = 1; row <= rowQuontity; row++) {
-                document.write(`${row}`)
-                for (let column = 1; column <= row; column++) {
-                    document.write(`${column}`)
+            if (previosNumber > nextNumber) {
+                while (previosNumber > nextNumber) {
+                    previosNumber = nextNumber
+                    nextNumber = parseInt(prompt('Введіть будь-яке число'))
+                    document.write(`${nextNumber} `)
                 }
-                document.write(`<br>`)
             }
+            else {
+                while (previosNumber < nextNumber) {
+                    previosNumber = nextNumber
+                    nextNumber = parseInt(prompt('Введіть будь-яке число'))
+                    document.write(`${nextNumber} `)
+                }
+            } 
         </script>
     </div>
 </body>

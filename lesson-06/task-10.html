@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 10</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,36 +20,24 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 10</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">3.1. Відобразити трикутник за допомогою символів «о»
-                    оооооооооооо
-                     ооооооооооо
-                      оооооооооо
-                       ооооооооо
-                        оооооооо
-                            …
-                              оо
-                               о                    
-                </p>
+                <p class="home-task__subtitle">Вивести на екран послідовність символів<br>
+                    а о а о а о а о а о …<br>
+                    Всього символів 82.
+                    </p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: center;">
-        <script>    
-            const symbol = "o"
-            const br = "<br>"
 
-            let rowQuontity = parseInt(prompt('Скільки рядків має містити в собі трикутник?'))
-            let symbolCellQuontity = 0
+    <div class="script">
+        <script>
+            let firstSymbol = 'a'
+            let secondSymbol = 'o'
+            let iterationCount = 41
 
-            for (let row = 0; row < rowQuontity; row++) {
-                
-                symbolCellQuontity = rowQuontity - row
-
-                for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
-                    document.write(`${symbol}`)
-                }
-                document.write(`<br>`)             
+            for (let ietr = 0; ietr < iterationCount; ietr++) {
+                document.write(`${firstSymbol} ${secondSymbol} `)
             }
+
         </script>
     </div>
 </body>

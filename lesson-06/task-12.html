@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 12</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,20 +20,29 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 12</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Інвестор вклав N тис. грн на 20 років під 20% річних. Визначити за допомогою циклів суму, яку він одержить (без оподаткування).</p>
+                <p class="home-task__subtitle">Вивести на екран <br>
+                    1 1<br>
+                    2 1234<br>
+                    3 123456789<br>
+                    4 1234…16<br>
+                    5 1 … 25<br>
+                    6 1…36<br>
+                    </p>
             </div>
         </div>
     </div>
-    <div class="script">
-        <script>    
-            const userInvestment = parseInt(prompt('Введіть суму яку ви бажаєте вкласти на 20 років під 20% річних'))
-            let investmentSum = userInvestment
 
-            for (let year = 0; year < 20; year++) {
-                investmentSum = investmentSum + investmentSum * 0.2; 
+    <div class="script" style="text-align: left;">
+        <script>
+            let iterationCount = 6
+
+            for (let row = 1; row <= iterationCount; row++) {
+                document.write(`${row} `)
+                for (let col = 1; col <= Math.pow(row,2); col++) {
+                    document.write(`${col}`)
+                }
+                document.write(`<br>`)
             }
-            
-            document.write(`Сума вкладу - ${userInvestment}, через 20 років ви отримаєтк ${investmentSum}`)
         </script>
     </div>
 </body>

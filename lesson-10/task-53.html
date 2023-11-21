@@ -28,29 +28,22 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getRandomArr(arrLength) {
-                let randomArr = []
-                let num
-                for (let i = 0; i < arrLength;) {
-                    num = Math.floor((Math.random()*100)+1)
-                    if (num % 3 === 0) {                    
-                    randomArr.push(num)
-                    i++                    
-                }}
-                return randomArr
+            let array = new Array(10)
+            let firstValue = 652
+
+            for (let index = 0, val = firstValue; index < array.length; ) {
+                if (val % 3 !== 0) val -= 1
+                
+                if (val % 3 === 0) {
+                    array.splice(index,1,val)
+                    index++
+                    val -= 3
+                }
             }
 
-            // 1) Вводимо дані
-           
-            // 2) Генеруємо масив  
-            let randomArr = getRandomArr(10)
-            
-            // 3) Знаходимо розв'язок
-            randomArr.sort((el1,el2) => el2 -el1)
-                          
-            // 4) Виводимо результат
-            document.write(randomArr)
-            
+            console.log(array)
+
+            document.write('look in console')
         </script>
     </div>
 </body>

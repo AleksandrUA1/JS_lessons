@@ -28,19 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+            let temperaturesList = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
             
-            // 3) Знаходимо розв'язок
-            let positiveCountElements = temperatures.reduce((prevCount, el) => (el > 0 ? prevCount + 1 : prevCount), 0)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${temperatures}<br>
-            ${positiveCountElements}
-            `)
+            console.log(temperaturesList)
+            console.log(temperaturesList.reduce((prevVal,el,ind,arr) => el > 0 ? prevVal +1 : prevVal, 0))
+            document.write('look in console')
             
         </script>
     </div>

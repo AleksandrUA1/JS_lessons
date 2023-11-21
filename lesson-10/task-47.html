@@ -28,17 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+            let agesList = [21,13,45,68,23,74,66,9,25,56,69]
             
-            // 3) Знаходимо розв'язок
-            ages.sort((el1,el2) => el1 >= 65 && el2 < 65 ? -1 : el1 < 65 && el2 >= 65 ? +1 : 0)
-            // ages.sort((el1,el2) => el2 - el1)
-                          
-            // 4) Виводимо результат
-            document.write(ages)
+            console.log(agesList)
+            console.log(agesList.sort((el1,el2) => 
+                el1 > 65 && el2 < 65 ? -1 : el1 < 65 && el2 > 65 ? +1 : 0
+            ))
+            document.write('look in console')
             
         </script>
     </div>

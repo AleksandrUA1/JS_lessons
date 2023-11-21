@@ -20,20 +20,24 @@
             <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 9</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення (тег img повине знаходитись у середині тега a: <!--<a> <img src=”шлях”> </a>--></p>
+                <p class="home-task__subtitle">Створити функцію, яка виводить банер. У функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення (тег img повине знаходитись у середині тега a)</p>
             </div>
         </div>
     </div>
-    
+   
+
     <div class="script">
         <script>
-            function banner() {
-                document.write(`<h2>Посилання на гугл</h2>`)
-                document.write(`<a href="https://www.google.com/">`)
-                    document.write(`<img src="../img/google.jpg" alt="">`)
-                document.write(`</a>`)
+            function printBanner(img,title,link) {
+                document.write(`<h1>${title}</h1>`)
+                document.write(`<a href="${link}"><img src="${img}" alt=""></a>`)
             }
-            banner()
+
+            let userImage = '../img/img1.jpg'
+            let userTitle = 'Тыква превращается в...'
+            let userLink = 'https://www.google.com/'
+
+            printBanner(userImage,userTitle,userLink)
         </script>
     </div>
 </body>

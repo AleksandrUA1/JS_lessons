@@ -28,19 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let pricesList = [1000, 900, 500, 1300, 1700, 1600, 180, 1010, 210, 110, 70, 40]
+            let pricesList = [1000,900,500,1300,1700,1600,180,1010,210,110,70,40]
             
-            // 3) Знаходимо розв'язок
-            let pricesMore1000 = pricesList.some(el => el > 1000)
-            
-            document.write(`Ціни на товари - ${pricesList}<br>`)
-            if (pricesMore1000 === true) document.write('Серед вказаних цін, є товари дорожчі за 1000грн')
-            else document.write('Серед вказаних цін, на має товарів дорожчих за 1000грн')
-              
-            // 4) Виводимо результат
+            console.log(pricesList)
+            console.log(pricesList.some(el => el > 1000))
+            document.write('look in console')
         </script>
     </div>
 </body>

@@ -27,20 +27,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+            let namesList = ['Nona','John','Sara','Peter','Monica','Andrew','Niko']
             
-            // 3) Знаходимо розв'язок
-            let firstLetters = ['A', 'B', 'J', 'S']
-            let newNames = names.filter(el => firstLetters.includes(el[0]))
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${names}<br>
-            ${newNames}
-            `)
+            console.log(namesList)
+            console.log(namesList.filter(el => el[0] === 'A' || el[0] === 'B' || el[0] === 'J' || el[0] === 'S'))
+            document.write('look in console')
         </script>
     </div>
 </body>

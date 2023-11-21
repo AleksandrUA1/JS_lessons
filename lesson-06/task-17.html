@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 17</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,29 +20,33 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 17</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран 
-                    1 1
-                    2 1234
-                    3 123456789
-                    4 1234…16
-                    5 1 … 25
-                    6 1…36
-                    </p>
+                <p class="home-task__subtitle">Знайти суму цифр числа, що знаходяться між першою цифрою 7 і останньою цифрою 7 (у числі є всього дві цифри 7, наприклад: 2679328712)</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            const rowQuontity = parseInt(prompt('Введіть бажану кількість строк, наприклад 23'))
-            const columnQuontity = rowQuontity
-            
-            for (let row = 1; row <= rowQuontity; row++) {
-                document.write(`${row}`)
-                for (let column = 1; column <= Math.pow(row,2); column++) {
-                    document.write(`${column}`)
+            let userNumber = prompt('Введіть п\'ятизначне або більше число , в якому є дві 7')
+            let check = false
+            let checkedNumber = '7'.charCodeAt()
+            let sum = 0
+
+            for (let i = 0; ; i++) {
+                if (check === true) {
+                    if (check === true && userNumber.charCodeAt(i) === checkedNumber) {
+                        break
+                    }
+                    sum += parseInt(String.fromCharCode(userNumber.charCodeAt(i)))
                 }
-                document.write(`<br>`)
+                
+                if (check === false && userNumber.charCodeAt(i) === checkedNumber) {
+                    check = true
+                }
+                
             }
+            document.write(`Введене число - ${userNumber}<br>\
+            Сума цифр що знаходяться між першими двома 7-ми = ${sum}`)
         </script>
     </div>
 </body>

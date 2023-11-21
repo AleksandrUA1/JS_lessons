@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 11</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 8 | Функції - продовження. Масиви - вступ</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson08.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 11</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Знайти суму цифр числа, що знаходяться між першою цифрою 7 і останньою цифрою 7. У числі є всього дві цифри 7,  наприклад: 2679328712</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="script" style="text-align: center;">
+        <script>
+            function getFindSumBetweenSameNumbers(userNumber) {
+                let checkingNumber = 0
+                let totalSum = 0
+                do {
+                    checkingNumber = userNumber % 10
+                    userNumber = Math.floor(userNumber / 10)
+                } while (checkingNumber !== 7)
+
+                do {
+                    checkingNumber = userNumber % 10
+                    if (checkingNumber !== 7) totalSum += checkingNumber
+                    userNumber = Math.floor(userNumber / 10)
+                } while (checkingNumber !== 7)
+
+                return totalSum
+            }
+
+            let userNumber = 2679328712
+            let result = getFindSumBetweenSameNumbers(userNumber)
+
+            document.write(`
+            Число: ${userNumber}<br>
+            Сума цифр між першою цифрою 7 і останньою цифрою 7: ${result}
+            `)
+        </script>
+    </div>
+</body>
+</html>

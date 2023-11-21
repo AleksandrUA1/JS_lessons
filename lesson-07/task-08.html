@@ -27,17 +27,32 @@
 
     <div class="script">
         <script>
-            function getRandomImage(imageAdress) {
-                let randomImage 
-                let randomIndex = Math.floor(Math.random()*4)
-                return randomImage = imageAdress[randomIndex]
-            }   
-            
-            let imageAdress = ['<img src="../img/img1.jpg" alt="">', '<img src="../img/img2.jpg" alt="">', '<img src="../img/img3.jpg" alt="">', '<img src="../img/img4.jpg" alt="">']
+            function printImage(url1,url2,url3,url4) {
+                let imageQuantity = 4
+                let randomAddres = Math.floor((Math.random() * imageQuantity) + 1)
+                let result
+                switch (randomAddres) {
+                    case 1:
+                        result = url1
+                        break
+                    case 2:
+                        result = url2
+                        break
+                    case 3:
+                        result = url3
+                        break
+                    case 4:
+                        result = url4
+                        break
+                }
+            document.write(`<img src="${result}" alt="">`)
+            }
 
-            let randomImage = getRandomImage(imageAdress)
-
-            document.write(randomImage)
+            let url1 = '../img/img1.jpg'
+            let url2 = '../img/img2.jpg'
+            let url3 = '../img/img3.jpg'
+            let url4 = '../img/img4.jpg'
+            printImage(url1,url2,url3,url4)
         </script>
     </div>
 </body>

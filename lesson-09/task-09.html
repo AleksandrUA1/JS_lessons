@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 9</title>
 </head>
 <body>
@@ -28,32 +27,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getFirstLettersOfName(namesList) {
-                const firstLetters = []
-                namesList.forEach((element, index) => {
-                    firstLetters.push(element[0])
-                })
-                return firstLetters
-            }
-           
-            // 1) Вводимо дані
-            const namesCount = parseInt(prompt(`Скільки імен будемо порівнювати?`))
-            
-            // 2) Генеруємо масив  
-                const namesList = []
-                let name
-                for (let i = 0; i < namesCount; i++) {
-                    name = prompt(`Введіть значення ${i+1}-го елемента в масиві?`)
-                    namesList.push(name)
-                }
-                          
-            // 3) Знаходимо розв'язок
-            const firstLetters = getFirstLettersOfName(namesList)
+                        
+            let namesList = ['Елена','Лев','Анастасия','Александр','Иван','Елена','Евгения']
+            let newArr = namesList.map(el => el[0])
 
-            // 4) Виводимо результат
             document.write(`
-            ${namesList}<br>
-            ${firstLetters}
+            Масив імен: ${namesList}<br>
+            Маисив з перших літер цих імен: ${newArr}
             `)
         </script>
     </div>

@@ -28,20 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
-            let copy = [...temperatures]  //  для порівняння у розв'язку
+            let temperaturesList = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
             
-            // 3) Знаходимо розв'язок
-            temperatures.splice(5,3)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${copy}<br>
-            ${temperatures}
-            `)
+            console.log(temperaturesList)
+
+            temperaturesList.splice(5,3)
+            console.log(temperaturesList)
+            document.write('look in console')
             
         </script>
     </div>

@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 8</title>
 </head>
 <body>
@@ -28,41 +27,34 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            
-            function getLotteryList(lotteryListLength) {
-                let lottery = []
-                let lotteryNum 
-                for (let i = 0; i < lotteryListLength; i++) {
-                    lotteryNum = Math.floor(((Math.random()*1000) + 1) - 500)
-                    lottery.push(lotteryNum)
+            function getWinningList(listLength) {
+                let winningList = []
+                let minValue = -500
+                let maxValue = 500
+                for (let winValue = 0; winValue < listLength; winValue++) {
+                    winningList.push(Math.floor(Math.random() * (maxValue - minValue + 1) + minValue))
                 }
-
-                return lottery
-            }
-            
-            function getLotteryTry(lotteryList) {
-                let userChoice
-                let lotteryWinSum = 0
-                
-            for (let i = 0; ; i++) {
-                userChoice = parseInt(prompt(`Введіть число від 0 (включно) до ${lotteryListLength - 1}`))
-                lotteryWinSum += lotteryList[userChoice]
-                if (confirm(`Сума вашого виграшу ${lotteryWinSum}$. Бажаєте продовжити?`) ===  false) 
-                    break 
-                }
+                return winningList
             }
 
-            // 1) Вводимо дані
-            let lotteryListLength = 10
+            function getWinningResult(winningList) {
+                let winningResult = 0
+                do {
+                    let playerChoice = parseInt(prompt(`Введіть номер ячейки - від 1 до ${winningList.length}`)) - 1
+                    if (playerChoice >= 0 && playerChoice < winningList.length) {                        
+                        winningResult += winningList[playerChoice]
+                        alert(`На вашому рахунку ${winningResult}`)
+                    } 
+                    else alert('Введено хибні дані')
+                } while (confirm('Бажаєте спробувати ще?'))
+                return winningResult
+            }
 
-            // 2) Генеруємо масив
-            let lotteryList = getLotteryList(lotteryListLength)
+            let listLength = 10
+            let winningList = getWinningList(listLength)
+            let winningResult = getWinningResult(winningList)
 
-            // 3) Знаходимо розв'язок
-            let lotteryTry = getLotteryTry(lotteryList)
-
-            // 4) Виводимо результат
-
+            document.write(`Ваш виграш складає: ${winningResult}`)
         </script>
     </div>
 </body>

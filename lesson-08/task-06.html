@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 6</title>
 </head>
 <body>
@@ -28,47 +27,27 @@
 
     <div class="script" style="text-align: center;">
         <script>
-                
-                function getProductsList() {
-                    let namesOfProducts = []
-                    let pricesOfProducts = []
-                    let userNameData
-                    let userPriceData
+            function getAvaliableProducts(clientBudget, productPriceList, productTitleList) {
+                let avaliableProducts = []
 
-                        do {
-                            userNameData = prompt(`Введіть назву товару`)
-                            userPriceData = parseInt(prompt(`Скільки коштує ${userNameData}?`))
-                            namesOfProducts.push(userNameData)
-                            pricesOfProducts.push(userPriceData)
-                        } while (confirm('Бажаєте продовжити?') === true)
-
-                    return [namesOfProducts, pricesOfProducts]
-                }
-
-                function getAvailableProducts(pricesOfProducts, namesOfProducts, userMoney) {
-                    let availableProducts = []
-                                        
-                    for (let i = 0; i < pricesOfProducts.length; i++) {
-                        if (pricesOfProducts[i] <= userMoney) {
-                            availableProducts.push(namesOfProducts[i])
-                            availableProducts.push(pricesOfProducts[i])
-                        } 
+                for (let prod = 0; prod < productPriceList.length; prod++) {
+                    if (productPriceList[prod] >= clientBudget) {
+                        avaliableProducts.push(productTitleList[prod])
+                        avaliableProducts.push(productPriceList[prod])
                     }
-                    return availableProducts
                 }
+                return avaliableProducts
+            }
 
-                // 1) Вводимо дані
-                let userMoney = parseInt(prompt('Введіть розмір бюджету'))
+            let productPriceList = [120,540,840,1200,600,310,180,560,480,670]
+            let productTitleList = ['Товар 1','Товар 2','Товар 3','Товар 4','Товар 5','Товар 6','Товар 7','Товар 8','Товар 9','Товар 10']
+            
+            let clientBudget = parseInt(prompt('Введіть розмір бюджету'))
 
-                // 2) Генеруємо масив
-                let productsList = getProductsList()
+            document.write(`Згідно вашого бюджету ${clientBudget} грн, ви можете придбати:<br>${getAvaliableProducts(clientBudget, productPriceList, productTitleList)}`)
 
-                // 3) Знаходимо розв'язок 
-                let availableProducts = getAvailableProducts(productsList[1], productsList[0], userMoney)
+            console.log(getAvaliableProducts(clientBudget, productPriceList, productTitleList));
 
-                // 4) виводимо результат
-                document.write(`Згідно вашого бюджету ${userMoney} грн, ви можете придбати:<br>${availableProducts}`)
-                
         </script>
     </div>
 </body>

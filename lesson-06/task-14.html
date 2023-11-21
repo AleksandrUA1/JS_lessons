@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 14</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,30 +20,24 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 14</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Інвестор вклав N тис. грн на 20 років під 20% річних, а потім на 17 років під 27% річних. Визначити за допомогою циклів суму, яку він одержить.</p>
+                <p class="home-task__subtitle">Вивести на екран усі трицифрові числа, у яких перша цифра є більшою або рівною за суму другої і третьої.</p>
             </div>
         </div>
     </div>
-    <div class="script">
-        <script>
-            const firstUserInvestment = parseInt(prompt('Введіть суму яку ви бажаєте вкласти на 20 років під 20% річних'))
-            const secondUserInvestment = parseInt(prompt('Введіть суму яку ви бажаєте вкласти на 17 років під 27% річних'))
-            let firstInvestmentSum = firstUserInvestment
-            let secondInvestmentSum = secondUserInvestment
-            let investmentSum = 0
 
-            for (let year = 0; year < 20; year++) {
-                firstInvestmentSum = firstInvestmentSum + firstInvestmentSum * 0.2; 
-            }
-
-            for (let year = 0; year < 17; year++) {
-                secondInvestmentSum = secondInvestmentSum + secondInvestmentSum * 0.27; 
-            }
-
-            investmentSum = firstInvestmentSum + secondInvestmentSum
+    <div class="script" style="text-align: left;">
+        <script>            
+            for (let hundreds = 1; hundreds <= 9; hundreds++) {
+                for (let tens = 0; tens <= 9; tens++) {
+                    for (let units = 0; units <= 9; units++) {
+                        if (hundreds >= (tens + units)) {
+                            document.write(`${hundreds}${tens}${units}, `)
+                        }
+                    }
+                }
+                document.write(`<br>`)
             
-            document.write(`Сума вкладу - ${firstUserInvestment}грн та ${secondUserInvestment}грн, через 20 років ви отримаєтк ${investmentSum}грн`)
-
+            }
         </script>
     </div>
 </body>

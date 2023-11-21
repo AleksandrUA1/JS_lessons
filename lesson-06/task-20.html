@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 20</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,43 +20,22 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 20</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Написати програму виведення на екран кожного символу латинського алфавіту та поруч з кожним з них символу, що передує йому та що слідує за ним.</p>
+                <p class="home-task__subtitle">Зобразити рівнобедрений трикутник із символів ^. Висоту задає користувач. Наприклад, на екрані висота =5.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            let carrentChar
-            let previosChar
-            let nextChar
+            let symbol = '^'
+            let figureHeight = parseInt(prompt('Введіть висоту фігури'))
 
-            for (let charCode = 97; charCode <= 122; charCode++) {
-                carrentChar = String.fromCharCode (charCode)
-                
-                previosChar = charCode - 1
-                if (previosChar < 97) {
-                    previosChar = ''
+            for (let row = 1; row <= figureHeight; row++) {
+                for (let col = 1; col <= row; col++) {
+                    document.write(`${symbol}`)
                 }
-                previosChar = String.fromCharCode (previosChar)
-                
-                nextChar = charCode + 1
-                if (nextChar > 122) {
-                    nextChar = ''
-                }
-                nextChar = String.fromCharCode (nextChar)
-                
-                document.write(`${previosChar} - ${carrentChar} - ${nextChar}<br>`)
+                document.write(`<br>`)
             }
-
-let studentNumber = parseInt(prompt('Введіть кількість учнів'))
-let studentAges = new Array(studentNumber)
-for (let i = 0; i < studentAge.length; i++) {
-    let studentAge = parseInt(prompt(`Введіть вік ${i}-го учня`))
-    studentAges[i] = studentAge
-    
-}
-
-
         </script>
     </div>
 </body>

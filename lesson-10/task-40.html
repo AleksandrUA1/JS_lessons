@@ -28,22 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let temperatures = [ -10, -9, 5, 13, 17, 16, 18, 19, 21, 11,  7, -4 ]
+            let temperaturesList = [ -10, -9, 5, 13, 17, 16, 18, 19, 21, 11,  7, -4 ]
             
-            // 3) Знаходимо розв'язок
-            let result = ''
-            let temperaturesIndicatorMore10 = temperatures.every(el => el> 10)
-            if (temperaturesIndicatorMore10 === true) result = 'Усі показники є більшими за 10'
-            else result = 'Не усі показники є більшими за 10'
-                          
-            // 4) Виводимо результат
-            document.write(`
-            Показники температури - ${temperatures}<br>
-            ${result}
-            `)
+            console.log(temperaturesList)
+            console.log(temperaturesList.every(el => el > 10))
+            document.write('look in console')
             
         </script>
     </div>

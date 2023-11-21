@@ -21,13 +21,13 @@
             <h2 class="home-task__title">Задача 2</h2>
             <div class="home-task__description">
                 <p class="home-task__subtitle"> Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
-                    за весь рік;
-                    у першій половині року;
-                    у другій половині року;
-                    за літо;
-                    за ІІ квартал;
-                    за парні місяці (з парними номерами);
-                    за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+                    1. за весь рік;
+                    2. у першій половині року;
+                    3. у другій половині року;
+                    4. за літо;
+                    5. за ІІ квартал;
+                    6. за парні місяці (з парними номерами);
+                    7. за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
               </p>
             </div>
         </div>
@@ -35,51 +35,26 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getPaymentsList(paymentsCount) {
-                let paymentsList = new Array (paymentsCount)
-                let payment
-                for (let i = 0; i < paymentsList.length; i++) {
-                    payment = Math.floor((Math.random()*1000)+1)
-                    paymentsList[i]=payment
-                }
-                return paymentsList
-            }
+            let paymentList = [30,50,80,30,10,40,90,60,20,20,70,90]
 
-            function getPaymentsResult(paymentsList, startIter = 0, endIter = 12, stepIter = 1) {
-                let paymentsResult = 0
-                for (let i = startIter; i < endIter; i += stepIter) {
-                    paymentsResult += paymentsList[i]
-                }
-                return paymentsResult
-            }
+            let task1 = paymentList.reduce((prevSum, el, ind, arr) => prevSum + el,0)
+            let task2 = paymentList.reduce((prevSum, el, ind, arr) => ind < 6 ? prevSum + el : prevSum, 0)
+            let task3 = paymentList.reduce((prevSum, el, ind, arr) => ind > 5 ? prevSum + el : prevSum, 0)
+            let task4 = paymentList.reduce((prevSum, el, ind, arr) => ind > 4 && ind < 8 ? prevSum + el : prevSum, 0)
+            let task5 = paymentList.reduce((prevSum, el, ind, arr) => ind > 2 && ind < 6 ? prevSum + el : prevSum, 0)
+            let task6 = paymentList.reduce((prevSum, el, ind, arr) => (ind + 1) % 2 === 0 ? prevSum + el : prevSum, 0)
+            let task7 = paymentList.reduce((prevSum, el, ind, arr) => (ind + 3) % 3 === 0 ? prevSum + el : prevSum, 0)
 
-            // 1) Вводимо дані
-            let paymentsCount = 12
-            
-            // 2) Генеруємо масив  
-            let paymentsList = getPaymentsList(paymentsCount)
-            
-            // 3) Знаходимо розв'язок
-            let paymentsSumForYear = getPaymentsResult(paymentsList)
-            let paymentsSumForFirstHalfOfYear = getPaymentsResult(paymentsList, 0, 6)
-            let paymentsSumForSecondHalfOfYear = getPaymentsResult(paymentsList, 6)
-            let paymentsSumForSummer = getPaymentsResult(paymentsList, 5, 8)
-            let paymentsSumForSecondQuarter = getPaymentsResult(paymentsList, 3, 6)
-            let paymentsSumForEvenMonth = getPaymentsResult(paymentsList, 1, 12, 2)
-            let paymentsSumForFirstMonthsOfSeasons = getPaymentsResult(paymentsList, 2, 12, 3)
-            
-            // 4) Виводимо результат
-            document.write(`
-            Послідовність платіжок протягом року - ${paymentsList}<br>
-                    Сума платежів за весь рік ${paymentsSumForYear}<br>
-                    Сума платежів у першій половині року ${paymentsSumForFirstHalfOfYear}<br>
-                    Сума платежів у другій половині року ${paymentsSumForSecondHalfOfYear}<br>
-                    Сума платежів за літо ${paymentsSumForSummer}<br>
-                    Сума платежів за ІІ квартал ${paymentsSumForSecondQuarter}<br>
-                    Сума платежів за парні місяці (з парними номерами) ${paymentsSumForEvenMonth}<br>
-                    Сума платежів за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${paymentsSumForFirstMonthsOfSeasons}<br>            
-            `)
-            
+            console.log(paymentList)
+            console.log(task1)
+            console.log(task2)
+            console.log(task3)
+            console.log(task4)
+            console.log(task5)
+            console.log(task6)
+            console.log(task7)
+            document.write('look in console')
+
         </script>
     </div>
 </body>

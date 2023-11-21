@@ -28,26 +28,15 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-            
-            // 2) Генеруємо масив  
-            let years = [1999, 2011, 2000, 2020, 2010, 2019, 2023, 2010, 2018]
-            let copy = [...years]    // для порівняння у розв'язку
-            
-            // 3) Знаходимо розв'язок
-            for (let i = 0; i < years.length; i++) {
-                if (years[i] === 2010) 
-                    years.splice(i + 1, 0, 2015)
-                    i++             //  ітерація збільшиться на 2, а не на 1. Робиться для того,  
-                                    //  щоб if не перевіряв на відповідність умови щойно додане число
+            let yearsList = [2000,2005,2010,2011,2008,2020,2010,2007,2011]
+            console.log(yearsList)
+            for (let ind = 0; ind < yearsList.length; ind++) {
+                if (yearsList[ind] === 2010) {
+                    yearsList.splice(ind + 1, 0, 2015)
+                }
             }
-            
-            // 4) Виводимо результат
-            document.write(`
-            ${copy}<br> 
-            ${years}
-            `)
-            
+            console.log(yearsList)
+            document.write('look in console')
         </script>
     </div>
 </body>

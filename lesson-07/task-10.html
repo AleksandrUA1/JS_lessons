@@ -24,23 +24,43 @@
             </div>
         </div>
     </div>
-    
+   
+
     <div class="script">
         <script>
-             function negativeTemperaturesIndicator() {
-                let quontityNegativeIndicator = 0
-                for (let i = 0; ; i++) {
-                    let userNumbers = parseInt(prompt(`Введіть будь-який показник температури`))
-                    if (userNumbers < 0) {
-                        quontityNegativeIndicator++
+            //  Адекватним рішенням було б використати масиви... але ми їх ще не розбирали
+            function getOddValuesQuantity(val1,val2,val3,val4,val5,val6,val7,val8) {
+                let oddValuesQuantity = 0
+
+                function findOddValues(val) {
+                    if (val<0) {
+                        oddValuesQuantity++
                     }
-                    if (!userNumbers)
-                        break
                 }
-                return quontityNegativeIndicator
-             }
-             let result = negativeTemperaturesIndicator()
-             document.write(`Кількість від’ємних показів температури - ${result}`) 
+
+                findOddValues(val1)
+                findOddValues(val2)
+                findOddValues(val3)
+                findOddValues(val4)
+                findOddValues(val5)
+                findOddValues(val6)
+                findOddValues(val7)
+                findOddValues(val8)
+
+                return oddValuesQuantity
+            }
+
+            let val1 = 12
+            let val2 = 14
+            let val3 = -5
+            let val4 = 23
+            let val5 = 36
+            let val6 = -12
+            let val7 = -1
+            let val8 = 27
+            
+            document.write(`Показники температури: ${val1}, ${val2}, ${val3}, ${val4}, ${val5}, ${val6}, ${val7}, ${val8},<br>`)
+            document.write(`Кількість від’ємних показів температури: ${getOddValuesQuantity(val1,val2,val3,val4,val5,val6,val7,val8)}`)
         </script>
     </div>
 </body>

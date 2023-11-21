@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 21</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,36 +20,27 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 21</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">З клавіатури вводяться числа до тих пір, поки послідовність є зростаючою або спадною.
-                </p>
+                <p class="home-task__subtitle">На складі зберігається певна кількість ящиків з яблуками (наприклад, 15). Коли під’їде машина для завантаження, попросити користувача ввести, скільки ящиків завантажити у першу машину, у другу і т. д., поки на складі не закінчаться ящики з яблуками. Передбачити той випадок, коли користувач вводить кількість, що перевищує поточну кількість ящиків на складі.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
-        <script>
-            let userNumber = parseInt(prompt('Введіть перше число'))
-            let temporarilyStoredNumber = userNumber
-            userNumber = parseInt(prompt('Введіть друге число, воно має відрізнятись від першого'))
 
-            if (userNumber > temporarilyStoredNumber) {
-                do {
-                    temporarilyStoredNumber = userNumber
-                    userNumber = parseInt(prompt('Продовжіть вводити числа в зростаючому порядку. Інакше цикл завершиться'))
-                } while (userNumber > temporarilyStoredNumber)
-                alert(`Цикл завершено`)
+    <div class="script">
+        <script>
+            let boxCount = parseInt(prompt('Яка кількість ящиків з яблуками зберігається на складі?'))
+            let shippedBoxes = Number
+            let carCounter = 1
+
+            while (boxCount > 0) {
+                shippedBoxes = parseInt(prompt(`В наявності є ${boxCount} ящиків яблук.\nВведіть кількість коробок для завантаження у ${carCounter} машину`))
+                if (shippedBoxes <= boxCount) {
+                    carCounter++
+                    boxCount -= shippedBoxes
+                }
+                else alert('Такої кількость ящиків на складі не має')
             }
-           
-            else if (userNumber < temporarilyStoredNumber) {
-                do {
-                    temporarilyStoredNumber = userNumber
-                    userNumber = parseInt(prompt('Продовжіть вводити числа в спадаючому порядку. Інакше цикл завершиться'))
-                } while (userNumber < temporarilyStoredNumber)
-                alert(`Цикл завершено`)
-            }
-            
-            else
-            alert(`Числа повторюються`)
-                
+
+            alert("Ящики закінчились")
         </script>
     </div>
 </body>

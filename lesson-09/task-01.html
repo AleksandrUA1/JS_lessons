@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 1</title>
 </head>
 <body>
@@ -28,20 +27,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv(elementsCount) {
-                let massiv = new Array(elementsCount)
-                massiv.fill(0)
-                return massiv
+            function getArray(elementsCount) {
+                return arr = new Array(elementsCount).fill(0)
             }
 
-            // 1) Вводимо дані
-            let elementsCount = parseInt(prompt('Введіть якою має бути кількість елементів в масиві?'))
-            
-            // 2) Генеруємо масив  // 3) Знаходимо розв'язок
-            let massiv = getMassiv(elementsCount)
-            
-            // 4) Виводимо результат
-            document.write(massiv)
+            let elementsCount = parseInt(prompt('Введыть кількість елементів'))
+
+            document.write(getArray(elementsCount))
         </script>
     </div>
 </body>

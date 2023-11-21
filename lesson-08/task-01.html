@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 1</title>
 </head>
 <body>
@@ -28,65 +27,69 @@
 
     <div class="script" style="text-align: center;">
         <script>
-                function getSchoolGrades(quontityOfSchoolSubjects) {
-                    let schoolGrades = new Array(quontityOfSchoolSubjects)
-                     
-                    for (let i = 0; i < quontityOfSchoolSubjects; i++) {
-                        let grade = parseInt(prompt(`Введіть оцінку ${i + 1}-го предмету (від 2 до 5)`))
-                        schoolGrades[i] = grade
+            function getUserScores() {
+                let disciplineQuantity = parseInt(prompt('Введіть кількість предметів'))
+                let userScoresList = []
+                let userScor = 0
+                for (let i = 1; i <= disciplineQuantity; ) {
+                    userScor = parseInt(prompt(`Введіть оцінку ${i}-го предмета (Від 2 до 5 балів)`))
+                    if (userScor >= 2 && userScor <= 5) {
+                        userScoresList.push(userScor)
+                        i++
                     }
-                    return schoolGrades
+                    else {
+                        alert('Введено хибні дані')
+                        continue
+                    }
+                }
+                return userScoresList
+            }
+
+            function getAverageScores(scoresList) {
+                let scoresSum = 0
+                for (let scor = 0; scor < arguments.length; scor++) {
+                    scoresSum += arguments[scor]
+                }
+                return (scoresSum / arguments.length).toFixed()
+            }
+
+            function getUserCategory(scoresList) {
+                let minScor = Infinity
+                let category = ''
+                for (let scor = 0; scor < arguments.length; scor++) {
+                    if (minScor > arguments[scor]) minScor = arguments[scor]
+                    console.log(typeof(arguments[scor]))
                 }
 
-                function getStudentCategory(schoolGrades) {
-                    let minimalValue = schoolGrades[0]
-                    for (const element of schoolGrades) {
-                        if (element < minimalValue) 
-                        minimalValue = element 
-                    }
-                    
-                    let studentCategory = ''
-                    switch (minimalValue) {
-                        case 1:
-                        case 2:
-                            studentCategory = 'Двійошник'
-                            break
-                        case 3:
-                            studentCategory = 'Трійошник'
-                            break
-                        case 4:
-                            studentCategory = 'Хорошоист'
-                            break
-                        case 5:
-                            studentCategory = 'Відмінник'
-                            break
-                        default:
-                            alert('Введено хибні дані')
-                            break;
-                    }
-                    return studentCategory
-                }
+                console.log(minScor);
 
-                function getAverageScore(schoolGrades) {
-                    let sumScore = 0
-                    for (let element of schoolGrades) {
-                        sumScore += element
-                    }
-                    let averageScore = sumScore / schoolGrades.length
-                    return averageScore
+                switch (minScor) {
+                    case 2:
+                        category = 'Двійочник'
+                        break
+                    case 3:
+                        category = 'Трійочник'
+                        break
+                    case 4:
+                        category = 'Хорошист'
+                        break
+                    case 5:
+                        category = 'Відмінник'
+                        break
+                    default:
+                        return 'Введено хибні дані'
                 }
-                
-                // 1) Генеруємо масив 
-                const quontityOfSchoolSubjects = parseInt(prompt('Введіть кількість предметів'))
-               
-                // 2) Знаходимо розв'язок
-                let schoolGrades =  getSchoolGrades(quontityOfSchoolSubjects)
-                let studentCategory = getStudentCategory(schoolGrades)
-                let averageScore = getAverageScore(schoolGrades)              
+                return category
+            }
 
-                //3) Виводимо результат
-                document.write(`Знайти середній бал учня - ${averageScore}<br>
-                Учень відноситься до категорії - ${studentCategory}`)
+            let userScoresList = getUserScores()
+            let averageScores = getAverageScores(...userScoresList)
+            let userCategory = getUserCategory(...userScoresList)
+
+            document.write(`Введені оцінки - ${userScoresList}<br>
+            Середній бал - ${averageScores}<br>
+            Категорія учня - ${userCategory}
+            `)
                 
         </script>
     </div>

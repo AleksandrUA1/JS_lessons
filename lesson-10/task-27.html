@@ -28,20 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let arr = [10, 9, 5, 13, 7, 16, 18, 19, 21, 11, 7, 4]
+            let array = [10, 9, 5, 13, 7, 16, 18, 19, 21, 11, 7, 4]
             
-            // 3) Знаходимо розв'язок
-            let max = arr.reduce((prevMax, el) => (el > prevMax ? prevMax = el : prevMax))
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${arr}<br>
-            ${max}
-            `)
-            
+            console.log(array)
+            console.log(Math.max(...array))
+            document.write('look in console')
         </script>
     </div>
 </body>

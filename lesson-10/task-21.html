@@ -28,19 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let rooms = [12, 15, 7, 23, 45, 21, 35, 8, 19]
+            let roomsList = [12,15,7,23,45,21,35,8,19]
             
-            // 3) Знаходимо розв'язок
-            let findRoomNum5 = rooms.includes(5)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${rooms}<br>
-            ${findRoomNum5}
-            `)
+            console.log(roomsList)
+            console.log(roomsList.some(el => el === 5))
+            document.write('look in console')
         </script>
     </div>
 </body>

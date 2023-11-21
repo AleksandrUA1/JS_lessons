@@ -28,20 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-            let workersNames = prompt('Введіть імена працівників, Без пробілу, розділяючи імена комою ','')
-            
-            // 2) Генеруємо масив  
-            let workersNamesList = workersNames.split(",")
-            
-            // 3) Знаходимо розв'язок
-            let listOfFirstSymbols = workersNamesList.map(el => el[0])
-                        
-            // 4) Виводимо результат
-            document.write(`
-            Список імен працівників - ${workersNamesList}<br>
-            Масив з перших літер імен - ${listOfFirstSymbols}
-            `)
+           let namesList = ['Іван','Олена','Олександр','Сергій','Микола','Анастасія']
+
+           let newList = namesList.map(el => el[0])
+
+           console.log(namesList)
+           console.log(newList)
+           document.write('look in console')
         </script>
     </div>
 </body>

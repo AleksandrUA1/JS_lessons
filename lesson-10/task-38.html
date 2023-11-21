@@ -30,25 +30,12 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
+            let scoresList = [8,9,12,4,7,1,10,8,9,2]
             
-            // 3) Знаходимо розв'язок
-            let scoresMore7 = scores.every(el => el >= 7)
-            let scoresLess3 = scores.some(el => el <= 3)
-            let result = ''
-            if (scoresMore7 === true) result = 'Ученик - хорошист'
-            else if (scoresLess3) result = 'Ученик - двійошник'
-            else result = 'Ученик - трійошник'
-
-            // 4) Виводимо результат
-            document.write(`
-            ${scores}<br>
-            ${result}
-            `)
-            
+            console.log(scoresList)
+            console.log(scoresList.every(el => el >= 7))
+            console.log(scoresList.some(el => el < 3))
+            document.write('look in console')
         </script>
     </div>
 </body>

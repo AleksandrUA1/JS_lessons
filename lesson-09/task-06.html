@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 6</title>
 </head>
 <body>
@@ -28,39 +27,18 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getLargElements(massiv) {  
-                let newMassiv = [...massiv]     // щоб зберегти перший масив для порівняння
-                
-                newMassiv.forEach((element, index, arr) => {
-                    if (arr[0] < element) {
-                        arr[index]=element*2
-                    }
+            function getDoubledElements(arr) {
+                arr.forEach((element,ind,baseArr) => {
+                    if (element > baseArr[0]) {
+                        baseArr[ind] = element * 2
+                    }  
                 })
-                return newMassiv
+                return arr
             }
-           
-            // 1) Вводимо дані
-           
-            
-            // 2) Генеруємо масив  
-                let massiv = []
-                let elements
-                for (let i = 0; ; i++) {
-                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
-                    massiv.push(elements)
-                    if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
-                        break
-                    }
-                }
-                
-            // 3) Знаходимо розв'язок
-            let newMassiv = getLargElements(massiv)
 
-            // 4) Виводимо результат
-            document.write(`
-            Згенерований масив - ${massiv}<br>
-            Оброблений масив - ${newMassiv}
-            `)
+            let arr = [32,54,-5,0,31,32,65,8,-65,33]
+            console.log(arr)
+            document.write(getDoubledElements(arr))
         </script>
     </div>
 </body>

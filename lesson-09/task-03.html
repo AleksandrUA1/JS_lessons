@@ -28,23 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getMassiv(elementsCount) {
-                let massiv = new Array(elementsCount)
-
-                massiv.fill(1)
-                massiv.fill(7, 5)
-                return massiv
+            function getArray(elementCount) {
+                return arr = new Array(elementCount).fill(1).fill(7,5)
             }
-           
-            // 1) Вводимо дані
-            let elementsCount = parseInt(prompt('Введіть якою має бути кількість елементів в масиві?'))
-            
-            // 2) Генеруємо масив  // 3) Знаходимо розв'язок
-            let massiv = getMassiv(elementsCount)
 
-            // 4) Виводимо результат
-            document.write(`${massiv}`)
-                
+            let elementCount = parseInt(prompt('Який розмір масиву?'))
+
+            document.write(getArray(elementCount))
         </script>
     </div>
 </body>

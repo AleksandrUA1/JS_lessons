@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 04</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,27 +20,31 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 4</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">З клавіатури поступово вводяться числа. Знайти суму перших N парних чисел.</p>
+                <p class="home-task__subtitle" style="text-align: center;">Відобразити трикутник за допомогою символів «о»<br>
+                    о<br>
+                    оо<br>
+                    ооо<br>
+                    оооо<br>
+                    ооооо<br>
+                    оооооо<br>
+                    ооооооо
+                    </p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            let userNumber 
-            let evenNumbersSum = 0
-            let evenNumbersQuontitu = parseInt(prompt('Скільки парних чисел будемо додавати?'))
-            let iterationCounter = 0
+            let userSymbol = 'o'
+            let iterationCount = 7
 
-            do {
-                userNumber = parseInt(prompt('Введіть будь яке число'))
-                if(userNumber % 2 === 0) {
-                evenNumbersSum += userNumber
-                iterationCounter++
-                }
-            } while(iterationCounter < evenNumbersQuontitu)
-
-            alert(`Сума перших ${evenNumbersQuontitu} парних чисел = ${evenNumbersSum}`)
+            
+            for (let rowIter = 1; rowIter <= iterationCount; rowIter++) {
+                for (let colIter = 1; colIter <= rowIter; colIter++) {
+                    document.write(`${userSymbol}`)
+                }  
+                document.write(`<br>`)              
+            }
         </script>
     </div>
 </body>

@@ -28,22 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+            let agesList = [21,13,45,68,23,74,66,9,25,56,69]
             
-            // 3) Знаходимо розв'язок
-            let result = ''
-            let findPensioner = ages.some(el => el > 64)
-            if (findPensioner === true) result = 'Пенсіонери були'
-            else result = 'Пенсіонерів не було'
-                          
-            // 4) Виводимо результат
-            document.write(`
-            Роки відвідувачів - ${ages}<br>
-            ${result}
-            `)
+            console.log(agesList)
+            console.log(agesList.some(el => el >= 65))
+            document.write('look in console')
             
         </script>
     </div>

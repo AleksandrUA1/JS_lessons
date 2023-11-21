@@ -28,18 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+            let agesList = [21,13,45,68,23,74,66,9,25,56,69]
             
-            // 3) Знаходимо розв'язок
-            let ageSum = ages.reduce((prevSum, el) => prevSum + el)
-            let averageAge = ageSum / ages.length
-
-            // 4) Виводимо результат
-            document.write(averageAge.toFixed())   // вивело стрінгу
-            
+            console.log(agesList)
+            console.log((agesList.reduce((prevVal,el,ind,arr) => prevVal + el, 0) / agesList.length).toFixed())
+            document.write('look in console')
         </script>
     </div>
 </body>

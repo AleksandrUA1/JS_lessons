@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 15</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,19 +20,27 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 15</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран послідовність символів
-                    а о а о а о а о а о …
-                    Всього символів 82.
-                    </p>
+                <p class="home-task__subtitle">Написати програму виведення на екран кожного символу латинського алфавіту та поруч з кожним з них символу, що передує йому та що слідує за ним.
+                </p>
             </div>
         </div>
     </div>
-    <div class="script">
-        <script>
-            for (let i = 0; i < 41; i++) {
+
+    <div class="script" style="text-align: left;">
+        <script>            
+            let firstSymbol = 'A'
+            let lastSymbol = 'Z'
+
+            let previosSymbol = ''
+            let currentSymbol = ''
+            let nextSymbol = ''
+
+            for (let symbol = firstSymbol.charCodeAt(); symbol <= lastSymbol.charCodeAt(); symbol++) {
+                currentSymbol = symbol
+                previosSymbol = symbol - 1 < firstSymbol.charCodeAt() ? lastSymbol.charCodeAt() : symbol - 1
+                nextSymbol = symbol + 1 > lastSymbol.charCodeAt() ? firstSymbol.charCodeAt() : symbol + 1
                 
-                document.write(`a o `)
-                
+                document.write(`${String.fromCharCode(previosSymbol)} < ${String.fromCharCode(currentSymbol)} > ${String.fromCharCode(nextSymbol)}<br>`)
             }
         </script>
     </div>

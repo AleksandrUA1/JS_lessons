@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 22</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,13 +20,19 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 22</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Знайти суму цифр числа, що знаходяться між першою цифрою 7 і останньою цифрою 7 (у числі є всього дві цифри 7, наприклад: 2679328712)</p>
+                <p class="home-task__subtitle">Написати програму, яка показуватиме на екрані піднесене до квадрату число, що вводиться користувачем. Користувач вирішує самостійно – виходити з програми або продовжувати ввід. (Підказка: потрібно запустити нескінчений цикл, в тілі якого передбачити його переривання у випадку настання певної умови).</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            
+            do {
+                let userNumber = parseInt(prompt('Введіть будь-яке число'))
+                alert(`${userNumber} піднесене до квадрату = ${Math.pow(userNumber,2)}`)
+                document.write(`${userNumber} піднесене до квадрату = ${Math.pow(userNumber,2)}<br>`)
+
+            } while (confirm('Бажаєте продовжити?'));
         </script>
     </div>
 </body>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //============================
+      // Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+
+      //функція для знаходження мінмального елемента масиву
+      // function getMinValue(arr) {
+      //   let min = arr[0]
+      //   for (let i = 1; i < arr.length; i++) {
+      //     //Як змінюються номери елементів
+      //     if (arr[i] < min)
+      //       //Що треба зробити з кожним із елементів
+      //       min = arr[i]
+      //   }
+      //   return min
+      // }
+      // // function getMinValue(arr) {
+      // //   return Math.min(...arr)
+      // // }
+      // //функція для знаходження категорії студента
+      // function getStudentCategory(scores) {
+      //   let category
+      //   switch (getMinValue(scores)) {
+      //     case 1:
+      //     case 2:
+      //       category = 'двійочник'
+      //       break
+      //     case 3:
+      //       category = 'трійочник'
+      //       break
+      //     case 4:
+      //       category = 'хорошист'
+      //       break
+      //     case 5:
+      //       category = 'відмінник'
+      //       break
+      //     default:
+      //       throw new Error('Некоректна оцінка')
+      //       break
+      //   }
+      //   return category
+      // }
+
+      // let scores = [3, -4, 5, 4, 5, 3, 4]
+      // let category = getStudentCategory(scores)
+      // document.write(category)
+
+      //=======================
+      // Задача 7. Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у функцію)
+      // //---------------- 1) РОЗВ"ЯЗОК БЕЗ МАСИІВ ---------------
+      // function getRandomImagePath(imgPath1, imgPath2, imgPath3, imgPath4) {
+      //   let randomNum = 1 + Math.floor(Math.random() * 4)
+      //   let resPath
+      //   switch (randomNum) {
+      //     case 1:
+      //       resPath = imgPath1
+      //       break
+      //     case 2:
+      //       resPath = imgPath2
+      //       break
+      //     case 3:
+      //       resPath = imgPath3
+      //       break
+      //     case 4:
+      //       resPath = imgPath4
+      //       break
+      //   }
+      //   return resPath
+      // }
+
+      // let imgPath = getRandomImagePath(
+      //   'https://media.istockphoto.com/id/1124532572/vector/big-smile-emoticon-with-thumbs-up.jpg?s=612x612&w=0&k=20&c=9DJwHpzMgBAkAYFAPVIvkjNKNN8tHZPlVFy5-d1uLjc=',
+      //   'https://st2.depositphotos.com/1001911/7684/v/600/depositphotos_76840867-stock-illustration-pointing-at-himself-emoticon.jpg',
+      //   'https://www.creativefabrica.com/wp-content/uploads/2021/07/30/Emoticon-Smile-Emoji-Icon-14-Graphics-15275601-1.jpeg',
+      //   'https://www.creativefabrica.com/wp-content/uploads/2021/07/30/Emoticon-Smile-Emoji-Icon-14-Graphics-15275601-1.jpeg'
+      // )
+
+      // document.write(`<img src="${imgPath}" width="100"/>`)
+      //---------------- 2) РОЗВ"ЯЗОК З МАСИВАМИ ---------------
+      // function getRandomImagePath(imgPathList) {
+      //   let randomImgIndex = Math.floor(Math.random() * 4) // 0<=randomImgIndex<=3
+      //   return imgPathList[randomImgIndex]
+      // }
+
+      // let imgList = [
+      //   'https://media.istockphoto.com/id/1124532572/vector/big-smile-emoticon-with-thumbs-up.jpg?s=612x612&w=0&k=20&c=9DJwHpzMgBAkAYFAPVIvkjNKNN8tHZPlVFy5-d1uLjc=',
+      //   'https://st2.depositphotos.com/1001911/7684/v/600/depositphotos_76840867-stock-illustration-pointing-at-himself-emoticon.jpg',
+      //   'https://www.creativefabrica.com/wp-content/uploads/2021/07/30/Emoticon-Smile-Emoji-Icon-14-Graphics-15275601-1.jpeg',
+      //   'https://www.creativefabrica.com/wp-content/uploads/2021/07/30/Emoticon-Smile-Emoji-Icon-14-Graphics-15275601-1.jpeg',
+      // ]
+      // let imgPath = getRandomImagePath(imgList)
+
+      // document.write(`<img src="${imgPath}" width="100"/>`)
+      // -----------------------
+      //=======================
+      // Задача 9. Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+      // let shipNumber = parseInt(prompt('Кількість кораблів'))
+      // let cellNumber = parseInt(prompt('Кількість клітинок'))
+
+      // function getGameTable(shipNumber, cellNumber) {
+      //   let gameTable = []
+      //   //-- створюємо масив з нулями
+      // for (let i = 0; i < cellNumber; i++) {
+      //   gameTable.push(0)
+      // }
+      // // Скорочено створення масиву з нулями // let gameTable = new Array(cellNumber).fill(0)
+
+      //   //-- Розміщуємо випадково кораблі
+      //   for (let ship = 0; ship < shipNumber; ) {
+      //     let randIndex = Math.floor(Math.random() * cellNumber)
+      //     if (gameTable[randIndex] === 0) {
+      //       gameTable[randIndex] = 1
+      //       ship++
+      //     }
+      //   }
+      //   return gameTable
+      // }
+      // function playGame(shipNumber, gameTable) {
+      //   do {
+      //     let userIndex = parseInt(
+      //       prompt('Введіть індекс клітинки куди стрілєте')
+      //     )
+      //     if (gameTable[userIndex] === 1) {
+      //       alert('Попав')
+      //       gameTable[userIndex] = 0
+      //       shipNumber--
+      //     } else alert('Пропмазав')
+      //   } while (shipNumber > 0)
+      // }
+
+      // let gameTable = getGameTable(shipNumber, cellNumber)
+      // console.log(gameTable)
+      // playGame(shipNumber, gameTable)
+
+      //================== задачі по функціях
+      // Задача 4. Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.
+
+      //======================
+      //Задача. Дано масив оцінок учнів у 12 бальній шкалі. Користувач задає шкалу, у якій він хоче отримат результати
+      // учнів (оцінки прописом або оцінки у 5 бальній шкалі). Вивести на екран маркований список з переведеними у
+      // дану шкалу оцінками.
+
+      //======================
+      //Приклад. Описати порожній масив products
+
+      //Приклад. Описати масив з 7 порожніх елементів
+
+      // Приклад. Описати масив з 7 елементів зі значенням 22
+
+      //Приклад. Описати масив, що містить перелік посад, що є у компанії
+
+      // Приклад. Описати масив, що містить назви моделей автомобілів, що використовуються у компанії
+
+      // Приклад. Описати масив, що містить номери місяців, коли треба подавати декларації
+
+      //-------- for - of -   forEach-----
+      //Приклад. Дано масив показників температур. Вивести на екран додатні значення показників
+      //               0  1  2   3  4   5    6
+      // let tempList = [-2, 0, 7, -8, 10, 23, -9]
+      // ----- 1) використанням for-of
+      // for (const tmp of tempList) {
+      //   if (tmp > 0) document.write(`${tmp}<br>`)
+      // }
+      // ----- 2) використанням forEach
+      // tempList.forEach((el) => {
+      //   if (el > 0) document.write(el + '<br>')
+      // })
+      //--- Виведемо не покази додатніх температур, а їх номери
+      // tempList.forEach((el, ind) => {
+      //   if (el > 0) document.write(ind + '<br>')
+      // })
+      //Приклад. Масив цін товарів. Знайти суму цін, які більші за 100.
+      //       let prices = [23, 600, 45, 900]
+      //       let sum = 0
+      //       for (const price of prices) {
+      //         if (price > 100) sum += price
+      //       }
+      //       document.write(sum)
+      // //Розв"язок з використанням іншого циклу
+      //       for (let i = 0; i < prices.length; i++) {
+      //         if(prices[i]>100) sum+=prices[i]
+      //       }
+
+      //Приклад. Дано масив показників температур. Від’ємні замінити на 0
+
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+      // // ----- 1) використанням for
+      // // for (let i = 0; i < temperaturesList.length; i++) {
+      // //   if (temperaturesList[i] < 0) temperaturesList[i] = 0
+      // // }
+      // // ----- 2) використанням forEach
+      // temperaturesList.forEach((temp, ind, arr) => {
+      //   if (temp < 0) arr[ind] = 0
+      // })
+
+      // document.write(temperaturesList)
+
+      //Задача.Кожне парне число збільшити на 5.
+      // let arr = [2, 5, 7, 6, 78, 2]
+      // for (let i = 0; i < arr.length; i++) {
+      //   if (arr[i] % 2 === 0) arr[i] += 5
+      // }
+      // document.write(arr)
+
+      //-------------------------------------------
+      // let arr1 = [11, 2, 9]
+      // let arr2 = [...arr1] ///копія масиву arr1
+      // arr2[0] = -11
+      // document.write(arr1)
+
+      // ------------- MAP ------------
+      //       Дано масив цін. Створити новий масив додавши 20% ( * 1.2).
+      // let prices = [222, 123, 23, 23, 2000]
+
+      // Дано масив років народження працівників (усі народились 1 січня). Створити масив з кількістю років (2023 - year)
+      // let birthYearsList = [1998, 1967, 1921,1976, 2003]
+
+      // Дано масив вартості товару у доларах. Створити масив цін у гривнях (*kurs)
+      // let pricesDollar = [222, 123, 23, 23, 2000]
+      // const currentCourse = 40
+
+      //Задача.Дано масив імен працівників.
+      //Сформувати новий масив, який складається з
+      //перших літер імен.
+
+      //Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи усі показники є більшими за 10 градусів.
+      // -------------  filter
+      //       Дано покази термометра за місяць. Сформувати покази тільки доданих значень(>0)
+
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+
+      // Дано покази термометра за місяць. Сформувати покази тільки значень, які знаходяться між 10 і 15 градусами цельсія
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+
+      // Дано масив цін. Сформувати новий масив, який складається з цін більших за 100 грн.
+
+      // -------------
+      // -------------
+      // -------------
+      // -------------
+      // -------------  some - every
+      // Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи є серед них дні, коли температура була меншою за 5 градусів.
+
+      // Задача. Визначити, чи є серед вказаних цін товарів ті, які дорожчі за 1000 грн.
+      // -------------
+      // ------------- Reduce
+      // Задача. Знайти добуток від’ємних елементів масиву.
+      // Задача. Знайти суму парних елементів
+      // -------------
+      /*------------- Sort
+Приклад. Упорядквати за спаданням
+
+
+Приклад. Упорядкувати за зростанням за другою буквою
+
+*/
+
+      /*
+       */
+
+      //Створити новий масив, у якому усі елемени помножині на 3
+
+      //Базовий масив (з якого будемо брати елементи для обчислення нових)
+
+      // const oldArray = [1, 33, 2, 1, 9]
+
+      // ------ Створення нового масиву  -----
+      // const newArray = oldArray.map((element) => element * 3)
+
+      // // Функція обчислення нового елемента
+      // function transformOperationFunction(element, index, baseArrRef) {
+      //   return item * 3
+      // }
+
+      // // ------ Створення нового масиву  -----
+      // let newArray = []   //Спочатку масив порожній
+
+      // //-- перегляду усіх елементів базового масиву, обчислення нових і додвання у новий масив
+
+      // const newArray = oldArray.map(element => element*3)
+
+      //Дано масив чисел. Елементи більші за 7 замінити на 0
+      // let arr = [2, 3, 9, 8, 1, 51]
+
+      // //---- Функція для виконання операцій над одним елементом масиву
+      // function elementOperation(element, index, baseArrRef) {
+      //   if (element > 7) baseArrRef[index] = 0 // рівносильно arr[index]=0
+      // }
+
+      // //---- Перегляд усіх елементів
+      // for (let index = 0; index < arr.length; index++) {
+      //   const element = arr[i] //Копія поточного (і-го) елемента
+      //   const index = i //індекс поточного елемента
+      //   const baseArrRef = oldArray //посилання на базовий масив
+      //   //Виклик фунції для викоання дій на поточним елментом масиву
+      //   elementOperation(element, index, baseArrRef)
+      // }
+
+      // arr.forEach((element, index, baseArrRef) => {
+      //   if (element > 7) baseArrRef[index] = 0 // рівносильно arr[index]=0
+      // })
+
+      //===================================================
+      //       Задача. Дано масив оцінок учнів у 12 бальній шкалі. Користувач задає шкалу, у якій він хоче отримат результати
+      // учнів :
+      // «високий(>=7)»/«нижче середнього(<7)»
+      // «переводиться у наступний клас (>=5)» / «залишається, не вистає ${5-бал} якщо (<5)»
+      // Вивести на екран маркований список з переведеними у дану шкалу оцінками.
+
+      // let scores = [3, 9, 2, 10, 8]
+
+      // //--- Результа за шкалою 1
+      // function getResultByScale1(score) {
+      //   return score >= 7 ? 'високий' : 'нижче середнього'
+      // }
+
+      // //--- Результа за шкалою 2
+      // function getResultByScale2(score) {
+      //   return score >= 5
+      //     ? 'переводиться'
+      //     : `залишається, не вистачає ${5 - score}`
+      // }
+
+      // function printByScale(scores, userScale) {
+      //   document.write('<ul>')
+      //   for (const score of scores) {
+      //     document.write(`
+      //       <li>
+      //         ${userScale(score)}
+      //       </li>
+      //       `)
+      //   }
+      //   document.write('</ul>')
+      // }
+      // let userAnswer = parseInt(
+      //   prompt(`
+      // 1)Шкала  «високий(>=7)»/«нижче середнього(<7)»
+      // 2)«переводиться у наступний клас (>=5)» / «залишається, не вистає {5-бал} якщо (<5)»
+      // `)
+      // )
+
+      // const userScale = userAnswer === 1 ? getResultByScale1 : getResultByScale2
+      // printByScale(scores, userScale)
+      //----- ЦЕ МОЖНА ВИДАЛИТИ ---
+      // //--- Вивід за заданою шкалою
+      // function print1(scores) {
+      //   document.write('<ul>')
+      //   for (const score of scores) {
+      //     document.write(`
+      //       <li>
+      //         ${score >= 7 ? 'високий' : 'нижче середнього'}
+      //       </li>
+      //       `)
+      //   }
+      //   document.write('</ul>')
+      // }
+
+      // //--- Вивід за шкалою 2
+      // function print2(scores) {
+      //   document.write('<ul>')
+      //   for (const score of scores) {
+      //     document.write(`
+      //     <li>
+      //      ${
+      //        score >= 5
+      //          ? 'переводиться'
+      //          : `залишається, не вистачає ${5 - score}`
+      //      }
+      //     </li>
+      //       `)
+      //   }
+      //   document.write('</ul>')
+      // }
+      // if (userAnswer === 1) print1(scores)
+      // else print2(scores)
+      //=============================================
+      //--- якісь тестові функції, які я буду передавати у інші функції як параметри
+      // function f1() {
+      //   document.write('111111')
+      // }
+
+      // function f2() {
+      //   document.write('2222')
+      // }
+      // //------------------
+      // //--- Функція, яка як параметри приймає інші функції
+      // function rnd(fun1, fun2) {
+      //   if (Math.random() < 0.5) fun1()
+      //   else fun2()
+      // }
+      // //--- Виклаємо функцію, і як значення передаємо інші функції
+      // rnd(f1, f2)
+      //================================
+      // Дано масив. Для кожного елемента вивести квадрат цього числа
+      // let arr = [3, 2, 56, 23, 5, 2, 32, 345]
+      //--- функція, яка для числа виводить квадрат
+      // function printKvad(num) {
+      //   document.write(num * num)
+      //   document.write('<br>')
+      // }
+      //--- у циклі  для кожного елемента викликаємо функцію printKvad
+      // for (const el of arr) {
+      //   printKvad(el)
+      // }
+
+      // З forEach ЦЕ РОБИТЬСЯ НАБАГАТО КОРОТШЕ У ЗАПИСІ (МЕНШЕ ПИСАТИ)
+      // arr.forEach((num) => document.write(`${num * num}<br>`))
+    </script>
+  </body>
+</html>

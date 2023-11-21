@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 6</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,24 +20,29 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 6</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Вивести на екран
-                    A B C D E 
-                    B C D E F 
-                    C D E F G 
-                    D E F G H 
-                    E F G H I
+                <p class="home-task__subtitle" style="text-align: center;">Відобразити трикутник за допомогою символів «о»<br>
+                    оооооооооооо<br>
+                    ооооооооооо<br>
+                    оооооооооо<br>
+                    ооооооооо<br>
+                    оооооооо<br>
+                    …<br>
+                    оо<br>
+                    о<br>
                     </p>
             </div>
         </div>
     </div>
-    <div class="script">
+
+    <div class="script" >
         <script>
-            let firstSymbol
-            for (let row = 0; row < 5; row++) {
-                for (let column = 65 + row; column <= 69 + row; column++) {
-                    symbolToString = String.fromCharCode (column)
-                    document.write(` ${symbolToString} `)
-                }
+            let userSymbol = 'o'
+            let iterationCount = 9
+            
+            for (let rowIter = iterationCount; rowIter >= 1; rowIter--) {
+                for (colIter = rowIter; colIter >= 1; colIter--) {
+                    document.write(`${userSymbol}`)
+                }    
                 document.write(`<br>`)
             }
         </script>

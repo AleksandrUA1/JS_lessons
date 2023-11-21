@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 24</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,32 +20,32 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 24</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Знайти суму всіх непарних чисел з діапазону, який вводить користувач з клавіатури.</p>
+                <p class="home-task__subtitle">Комерсант, володіючи стартовим капіталом N грн, зайнявся торгівлею, що збільшує його капітал щомісячно на р%. Через скільки років він накопичить суму S, достатню для того, щоб придбати власний магазин?</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            let firstUserNumber = parseInt(prompt('Введіть перше число'))
-            let secondUserNumber = parseInt(prompt('Введіть друге число'))
-            let grandMotherGalya = 0
-            let sumNum = 0
+            let initialCapital = parseInt(prompt('Введіть початковий капітал'))     // 10 000
+            let finalCapital = parseInt(prompt('Введіть кінцевий капітал'))         // 200 000
+            let increasePercent = parseInt(prompt('Щомісячний приріст у %'))        // 5
+            let oneHundredPercent = 100
+            let twelveMonth = 12
+            let yearsQuantity = Number
+            let monyhQuantity = Number
 
-            if (firstUserNumber > secondUserNumber) {
-                grandMotherGalya = firstUserNumber
-                firstUserNumber = secondUserNumber
-                secondUserNumber = grandMotherGalya
-            }
-            else if (firstUserNumber === secondUserNumber)
-            alert(`Потрібно ввести різні числа`)
-
-            for (let i = firstUserNumber + 1; i < secondUserNumber; i++) {
-                if (i % 2 !== 0) {
-                    sumNum += i
+            for (let month = 1; ; month++) {
+                initialCapital += (initialCapital * (increasePercent / oneHundredPercent))
+                if (initialCapital >= finalCapital) {
+                    yearsQuantity = Math.floor(month / twelveMonth)
+                    monthQuantity = month % twelveMonth
+                    alert(`Для накопичення кінцевого капіталу знадобиться ${yearsQuantity} р. та ${monthQuantity} міс.
+                    `)
+                    break
                 }
-                
             }
-            document.write(`Сума всіх непарних чисел в діапазоні від ${firstUserNumber} до ${secondUserNumber} = ${sumNum}`)
+
 
         </script>
     </div>

@@ -28,30 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getPricesList(pricesCount) {
-                let pricesList = new Array(pricesCount)
-                let price
-                for (let i = 0; i < pricesList.length; i++) {
-                    price = Math.floor((Math.random()*500)+1)
-                    pricesList[i]=price
-                }
-                return pricesList
-            }
+            let pricesList = [150,280,90,56,150,320,40]
 
-            // 1) Вводимо дані
-            let pricesCount = 20
-            
-            // 2) Генеруємо масив  
-            let pricesList = getPricesList(pricesCount)
-            
-            // 3) Знаходимо розв'язок
-            let newPriceList = pricesList.map((el) => (el > 100 ? el + 50 : el))
-            
-            // 4) Виводимо результат
-            document.write(`
-            Початковий масив цін - ${pricesList}<br>
-            Масив цін, де до цін >100 додано 50 - ${newPriceList}
-            `)
+            let newPricesList = pricesList.map(el => el > 100 ? el + 50 : el)
+
+            document.write('look in console')
+            console.log(pricesList)
+            console.log(newPricesList)
         </script>
     </div>
 </body>

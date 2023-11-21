@@ -20,33 +20,32 @@
             <a class="home-link"  href="lesson07.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 7</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).
-                    </p>
+                <p class="home-task__subtitle">Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).</p>
             </div>
         </div>
     </div>
 
     <div class="script">
         <script>
-            function getTable(rows, columns, message) {
-                document.write(`<table>`)
-                    for (let row = 0; row < rows; row++) {
-                        document.write(`<tr>`)
-                            for (let column = 0; column < columns; column++) {
-                                document.write(`<td style="min-width: 40px; line-height: 20 px; border: 1px solid #fff">`)
+            function printTable(rowCount, colCount, message) {
+                document.write('<table>')
+                    for (let row = 0; row < rowCount; row++) {
+                        document.write('<tr>')
+                            for (let column = 0; column < colCount; column++) {
+                                document.write('<td>')
                                     document.write(`${message}`)
-                                document.write(`</td>`)
+                                document.write('</td>')
                             }
-                        document.write(`</tr>`)
+                        document.write('</tr>')
                     }
-                document.write(`</table>`)
+                document.write('</table>')
             }
 
-            const userRowsQuontity = parseInt(prompt('Введіть кількість рядків'))
-            const userColumnsQuontity = parseInt(prompt('Введіть кількість стовбців'))
-            const userMessage = prompt('Введіть повідомлення яке буде відображатисьв таблиці')
+            let userRowCount = parseInt(prompt('Введіть кількість рядків'))
+            let userColCount = parseInt(prompt('Введіть кількість стовпців'))
+            let userMessage = prompt('Введіть кількість рядків')
 
-            getTable(userRowsQuontity, userColumnsQuontity, userMessage)
+            printTable(userRowCount, userColCount, userMessage)
 
         </script>
     </div>

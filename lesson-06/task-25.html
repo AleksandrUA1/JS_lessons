@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 25</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,22 +20,14 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 25</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Зобразити рівнобедрений трикутник із символів ^. Висоту задає користувач. Наприклад, на екрані висота =5.
-                </p>
+                <p class="home-task__subtitle">Для заданого натурального числа n знайти найменше число k, яке задовольняє нерівність k!>=n.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: center;">
-        <script>
-            const trangleHeight = parseInt(prompt('Яка має бути висота трикутника?'))
 
-            for (let row = 0; row < trangleHeight; row++) {
-                for (let column = 0; column < 2 * row + 1 ; column++) {
-                    document.write(`^`)
-                    
-                }
-                document.write(`<br>`)
-            }
+    <div class="script">
+        <script>
+            let userNumber = parseInt(prompt('Введіть будь-яке натуральне число'))
         </script>
     </div>
 </body>

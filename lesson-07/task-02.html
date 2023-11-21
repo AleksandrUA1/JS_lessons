@@ -27,51 +27,56 @@
 
     <div class="script">
         <script>
-            function getSeason(munth) {
+            function getMonthTitle(currentMonth) {
                 let result
-                switch (munth) {
-                    case (1 || 01):
+                switch (currentMonth) {
+                    case 1: 
                         result = 'Січень'
-                        break
-                    case (2 || 02):
+                        break 
+                    case 2:
                         result = 'Лютий'
                         break
-                    case (12): 
-                        result = 'Грудень'
-                        break
-                    case (3 || 03):
+                    case 3:
                         result = 'Березень'
-                        break
-                    case (4 || 04):
+                        break 
+                    case 4:
                         result = 'Квітень'
+                        break 
+                    case 5:
+                        result = "Травень"
                         break
-                    case (5 || 05): 
-                        result = 'Тревень'
-                        break
-                    case (6 || 06):
+                    case 6:
                         result = 'Червень'
-                        break
-                    case (7 || 07):
+                        break 
+                    case 7: 
                         result = 'Липень'
-                        break
-                    case (8 || 08): 
+                        break 
+                    case 8:
                         result = 'Серпень'
                         break
-                    case (9 || 09):
+                    case 9:
                         result = 'Вересень'
-                        break
-                    case (10):
+                        break 
+                    case 10:
                         result = 'Жовтень'
-                        break
-                    case (11): 
+                        break 
+                    case 11:
+                        result = 'Листопад'
+                        break 
+                    case 12:
                         result = 'Грудень'
-                        break                  
+                        break            
+                    default:
+                        alert('Введено хибні дані')
+                        break
                 }
                 return result
             }
-            const userMunthNum = parseInt(prompt('Введіть номер місяця'))
-            let munthResult = getSeason(userMunthNum)
-            document.write(`Номеру ${userMunthNum} відповідає пора року ${munthResult}`)
+            let userData = parseInt(prompt('Введіть номер місяця'))
+            let userEnteredMonth = getMonthTitle(userData)
+            if (userEnteredMonth) {
+                alert(`Місяць під номером ${userData} - ${userEnteredMonth}`)
+            }
         </script>
     </div>
 </body>

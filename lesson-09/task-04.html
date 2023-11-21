@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-lesson6-task31.css">
 	<title>Home-task 4</title>
 </head>
 <body>
@@ -28,40 +27,20 @@
 
     <div class="script" style="text-align: center;">
         <script>       
-            function getNumOver100(massiv) {
-                let numOver100 = []
-                for (const element of massiv) {
-                    if (element > 100) {
-                        numOver100.push(element)
-                    }
-                }
-                return numOver100
+            function getElementsMoreThan100(array) {
+                let minValue = 100
+                array.forEach(element => {
+                    if (element > minValue) {
+                        document.write(`${element}<br>`)
+                    }  
+                })
             }
-           
-            // 1) Вводимо дані
-           
-            // 2) Генеруємо масив  
-                let massiv = []
-                let elements
-                for (let i = 0; ; i++) {
-                    elements = parseInt(prompt(`Введіть значення ${i+1}-го елемента в масиві?`))
-                    massiv.push(elements)
-                        if (confirm(`${massiv} \nБажаєте продовжити?`) === false) {
-                            break
-                        }
-                }
+            
+            let array = [24,94,549,513,5489,1541,1254,84,9,4,46,51,65,4,9]
+            
+            console.log(array)
+            getElementsMoreThan100(array)
 
-            // 3) Знаходимо розв'язок
-            let numOver100 = getNumOver100(massiv)
-
-            // 4) Виводимо результат
-            document.write(`
-            Згенероманий вами масив<br>
-            ${massiv}<br>
-            <br>
-            Елементи, які більші за 100<br>
-            ${numOver100}
-            `)
                 
         </script>
     </div>

@@ -28,19 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let arr = [10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+            let array = [10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
             
-            // 3) Знаходимо розв'язок
-            let maxNegative = arr.reduce((prevMax, el) => (el < 0 && el < prevMax? prevMax = el : prevMax))
-                          
-            // 4) Виводимо результат
-            document.write(`
-            ${arr}<br>
-            ${maxNegative}
-            `)
+            console.log(array)
+            console.log(array.reduce((maxValue,el,ind,arr) => el < 0 && el > maxValue ? maxValue = el : maxValue, -Infinity))
+            document.write('look in console')
             
         </script>
     </div>

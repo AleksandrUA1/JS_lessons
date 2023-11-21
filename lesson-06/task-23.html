@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 23</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,18 +20,35 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 23</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">Дано ціле число N. Вивести ті натуральні числа, квадрати яких є меншими або рівними за N.</p>
+                <p class="home-task__subtitle">Щоденно спортзал відвідує певна кількість людей. Користувач вводить такі дані: скільки людей відвідало спортзал за день та вік кожного відвідувача. Потрібно вивести вік найстаршого та наймолодшого відвідувачів, а також середній вік всіх відвідувачів спортзалу за день.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            const userNum = parseInt(prompt('Введіть будь-яке ціле число'))
-            let resaltNum = 0
-            for (let number = 2; number < userNum; number++) {
-                if (Math.pow(number, 2) <= userNum)
-                    document.write(` ${number} `)
+            let visiterCount = parseInt(prompt('Введіть кількість відвідувачів'))
+            let visiterAge = Number
+            let maxVisiterAge = -Infinity
+            let minVisiterAge = Infinity
+            let averageVisiterAge = 0
+            let ageCounter = 0
+
+            for (let visiter = 1; visiter <= visiterCount; visiter++) {
+                visiterAge = parseInt(prompt(`Введіть вік ${visiter} відвідувача`))
+                document.write(`${visiterAge}, `)
+                if (visiterAge > maxVisiterAge) maxVisiterAge = visiterAge
+                if (visiterAge < minVisiterAge) minVisiterAge = visiterAge
+                ageCounter++
+                averageVisiterAge += visiterAge
             }
+            document.write(`<br>`)
+
+            averageVisiterAge = averageVisiterAge  / ageCounter
+
+            document.write(`Вік найстаршого відвідувача - ${maxVisiterAge} років<br>\
+            Вік наймолодшого відвідувача - ${minVisiterAge} років<br>\
+            Середній вік всіх відвідувачів - ${averageVisiterAge.toFixed()} років`)
         </script>
     </div>
 </body>

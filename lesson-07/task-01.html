@@ -27,35 +27,40 @@
 
     <div class="script">
         <script>
-            function getSeason(season) {
+            function getSeason(currentMonth) {
                 let result
-                switch (season) {
-                    case (1 || 01):
-                    case (2 || 02):
-                    case (12): 
+                switch (currentMonth) {
+                    case 12:
+                    case 1: 
+                    case 2:
                         result = 'Зима'
                         break
-                    case (3 || 03):
-                    case (4 || 04):
-                    case (5 || 05): 
-                        result = 'Весна'
+                    case 3:
+                    case 4:
+                    case 5:
+                        result = "Весна"
                         break
-                    case (6 || 06):
-                    case (7 || 07):
-                    case (8 || 08): 
+                    case 6:
+                    case 7: 
+                    case 8:
                         result = 'Літо'
                         break
-                    case (9 || 09):
-                    case (10):
-                    case (11): 
+                    case 9:
+                    case 10:
+                    case 11:
                         result = 'Осінь'
-                        break                  
+                        break            
+                    default:
+                        alert('Введено хибні дані')
+                        break
                 }
                 return result
             }
-            const userSeasonNum = parseInt(prompt('Введіть номер місяця'))
-            let seasonResult = getSeason(userSeasonNum)
-            document.write(`Номеру ${userSeasonNum} відповідає пора року ${seasonResult}`)
+            let userData = parseInt(prompt('Введіть номер місяця'))
+            let userEnteredMonth = getSeason(userData)
+            if (userEnteredMonth) {
+                alert(`Місяць під номером ${userData} відноситься до пори року ${userEnteredMonth}`)
+            }
         </script>
     </div>
 </body>

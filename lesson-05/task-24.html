@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../style.css">
+	<title>Home-task 14</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header__title">Бабалик Олександр</h2>
+            <h1 class="header__sabtitle">Курс з вивчення JavaScript | Урок 5 | Цикли - for / while / do...while</h1>
+        </div>
+    </header>
+	<div class="container">
+        <div class="home-task">
+            <a class="home-link"  href="lesson05.html" class="home-task__link-back">Назад</a>
+            <h2 class="home-task__title">Задача 23</h2>
+            <div class="home-task__description">
+                <p class="home-task__subtitle">Вивести з кожного десятка (1-10, 11-20, 21-30, ... , 91-100) по 3 випадклвих парних числа</p>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="script">
+        <script>       
+            let randomNumber = Number
+
+            for (let rangeStart = 1, rangeEnd = 10; rangeEnd <= 100 ; rangeEnd += 10, rangeStart += 10) {
+                for (let i = 0; i < 3; ) {
+                    randomNumber = Math.floor(Math.random() * (rangeEnd - rangeStart + 1)) + rangeStart
+                    if (randomNumber % 2 === 0) {
+                        document.write(`${randomNumber}, `)
+                        i++
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

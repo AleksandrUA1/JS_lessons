@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
-	<title>Home-task 9</title>
+	<title>Home-task 01</title>
 </head>
 <body>
     <header class="header">
@@ -20,37 +20,40 @@
             <a class="home-link"  href="lesson06.html" class="home-task__link-back">Назад</a>
             <h2 class="home-task__title">Задача 9</h2>
             <div class="home-task__description">
-                <p class="home-task__subtitle">2. Відобразити трикутник за допомогою символів «о»
-                    оооооооооооо
-                    ооооооооооо
-                    оооооооооо
-                    ооооооооо
-                    оооооооо
-                    …
-                    оо
-                    о
-                    
-                </p>
+                <p class="home-task__subtitle">Інвестор вклав  10 000 тис. грн на 7 років під 3% річних, податок складає 5% від суми прибутку. Визначити за допомогою циклів суму, яку він одержить.</p>
             </div>
         </div>
     </div>
-    <div class="script" style="text-align: left;">
+
+    <div class="script">
         <script>
-            const symbol = "o"
-            const br = "<br>"
+            let investmentSum = 10000
+            let investmentPeriod = 7
+            let investmentPercent = 3
+            let taxPercent = 5
+            let oneHundredPercent = 100
+            let result = investmentSum
 
-            let rowQuontity = parseInt(prompt('Скільки рядків має містити в собі трикутник?'))
-            let symbolCellQuontity = 0
-           
-            for (let row = 0; row < rowQuontity; row++) {
-                
-                symbolCellQuontity = rowQuontity - row
-
-                for (let symbolCell = 0; symbolCell < symbolCellQuontity; symbolCell++) {
-                    document.write(`${symbol}`)
-                }
-                document.write(`<br>`)             
+            for (let year = 1; year <= investmentPeriod; year++) {
+                result += (result * (investmentPercent / oneHundredPercent))
             }
+
+            let profitSum = result - investmentSum
+            let taxSum = profitSum * (taxPercent / oneHundredPercent)
+            let totalProfitSumWithOutTax = result - taxSum
+
+            document.write(`Сума інвестицій ${investmentSum} грн <br> \
+            Інвестиційний період ${investmentPeriod} років <br>\
+            Ставка ${investmentPercent} % <br>\
+            Податок ${taxPercent} % <br>\
+            <br>
+            Сума до одержання ${result.toFixed(2)} грн <br> \
+            Прибуток ${profitSum.toFixed(2)} грн <br> \
+            ${investmentPercent} % від прибутку складає ${taxSum.toFixed(2)} <br> \
+            Сума до одержання з урахуванням сплаченого податку ${totalProfitSumWithOutTax.toFixed(2)} грн
+
+            `)
+            console.log(result.toFixed(2))
         </script>
     </div>
 </body>

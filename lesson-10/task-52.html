@@ -28,29 +28,14 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getRandomArr(arrLength) {
-                let randomArr = []
-                let num
-                for (let i = 0; i < arrLength; i++) {
-                    num = Math.floor((Math.random()*100)+1)
-                    randomArr.push(num)                    
-                }
-                return randomArr
-            }
+            let arrayLength = 10
+            let array = []
 
-            // 1) Вводимо дані
-            let arrLength = parseInt(prompt('Довжина масиву?'))
-            // 2) Генеруємо масив  
-            let randomArr = getRandomArr(arrLength = 10)
-            
-            // 3) Знаходимо розв'язок
-            let evenNum = randomArr.filter(el => el%2 === 0)
-                          
-            // 4) Виводимо результат
-            document.write(`
-            Початковий масив - ${randomArr}<br> 
-            Оброблений масив - ${evenNum}
-            `)
+            for (let index = 0, el = 2; index < arrayLength; index++, el += 2) {
+                array.push(el)
+            }
+            console.log(array)
+            document.write(`look in console`)
         </script>
     </div>
 </body>

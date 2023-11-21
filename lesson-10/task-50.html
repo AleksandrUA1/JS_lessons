@@ -28,17 +28,13 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-
-            // 2) Генеруємо масив  
-            let arr = new Array(20)
-            for (let i = 0, j = 0; i < arr.length; i++, j++)  {
-                arr.splice(i,1,++j)
+            let array = []
+            let arrayLength = 16
+            for (let el = 1; el < arrayLength; el += 2 ) {
+                array.push(el)
             }
-            // 3) Знаходимо розв'язок
-             
-            // 4) Виводимо результат
-            document.write(arr)
+            console.log(array)
+            document.write('look in console')
         </script>
     </div>
 </body>

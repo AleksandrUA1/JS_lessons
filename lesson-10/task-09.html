@@ -28,17 +28,11 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            // 1) Вводимо дані
-            
-            // 2) Генеруємо масив  
-            let prices = [67, 89, 89, 89, 76, 90, 90, 122, 122, 122, 900]
-            
-            // 3) Знаходимо розв'язок
-            let newArr = prices.filter((el, ind, baseArr) => el === baseArr[0] || el !== baseArr[ind - 1])
-                
-            // 4) Виводимо результат
-            document.write(newArr)
-            
+            let pricesList = [67, 89, 89, 89, 76, 90, 90, 122, 122, 122, 900]
+            console.log(pricesList)
+            let newPricesList = pricesList.filter((el,ind,arr) => el !== arr[ind - 1])
+            console.log(newPricesList)
+            document.write('look in console')
         </script>
     </div>
 </body>
