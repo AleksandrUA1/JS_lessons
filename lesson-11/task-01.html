@@ -34,97 +34,51 @@
 
     <div class="script" style="text-align: center;">
         <script>
-            function getTable(minValue, maxValue, columnsCount, rowsCount) {
-                let table = []
-                for (let i = 0; i < rowsCount; i++) {
-                    let row = []
-                    for (let g = 0; g < columnsCount; g++) {
-                        let columnValue = minValue + Math.floor((Math.random()*(maxValue - minValue))+1)
-                        row.push(columnValue)
+            function getArray(minVal,maxVal,rowCount,colCount) {  
+                let arr = []
+                let randomNum = Number
+                for (let row = 0; row < rowCount; row++) {
+                    let rowValues = []
+                    for (let col = 0; col < colCount; col++) {
+                        randomNum = Math.floor((Math.random() * (maxVal - minVal + 1)) + minVal)
+                        rowValues.push(randomNum)
                     }
-                    table.push(row)                    
+                    arr.push(rowValues)
                 }
-                return table
-            }
+                return arr
+           }
 
-            function getSum(table, firstRowValue, lastRowValue, rowStep, firstColtValue, lastColValue, colStep) {
+           function getFindSumOfValues(arr,firstRow,lastRow,rowStep,firstCol,lastCol,colStep) {
                 let sum = 0
-                for (let i = firstRowValue; i < lastRowValue; i = i + rowStep) {
-                    for (let j = firstColtValue; j < lastColValue; j = j + colStep) {
-                        sum += table[i][j]
+                for (let row = firstRow; row < lastRow; row += rowStep) {
+                    for (let col = firstCol; col < lastCol; col += colStep) {
+                        sum += arr[row][col]
                     }
                 }
                 return sum
-            }
+           }
 
-            function getChessTableSum(table) {
-                let chessTableSum = 0
-                for (let i = 0; i < table.length; i++) {
-                    if (i%2 === 0) {
-                        for (let j = 1; j < table[i].length; j = j + 2) {
-                            chessTableSum += table[i][j]
-                        } 
-                    } else {
-                        for (let j = 0; j < table[i].length; j = j + 2) {
-                            chessTableSum += table[i][j]
-                        }
-                    }
-                }
-                return chessTableSum
-            }
+           let minVal = 1, maxVal = 10, rowCount = 4, colCount = 4
+           let arr = getArray(minVal,maxVal,rowCount,colCount)
 
-            // 1) Вводимо дані
-            // let minValue = parseInt(prompt('Визначаємо область масиву (Мінімальне та максимальне значення). Введіть менімальне значення '))
-            // let maxValue = parseInt(prompt('Визначаємо область масиву (Мінімальне та максимальне значення). Введіть максимальне значення '))
-            // let columnsCount = parseInt(prompt('Скільки стовпців має бути в одному рядку?'))
-            // let rowsCount = parseInt(prompt('Скільки рядків має бути в масиві?'))
-            
-            // 2) Генеруємо двовимірний масив  
-            let table = getTable(minValue = 1, maxValue = 20, columnsCount = 4, rowsCount = 4)
-            
-            // 3) Знаходимо розв'язок
-            let halfRow = Math.floor(table.length / 2)
-            let firsRow = 0
-            let lastRow = table.length
-            let firstEvenRow = 1
-            let firstOddRow = 0
+           let task1 = getFindSumOfValues(arr,0,rowCount / 2,1,0,colCount / 2,1)
+           let task2 = getFindSumOfValues(arr,0,rowCount / 2,1,colCount / 2,colCount,1)
+           let task3 = getFindSumOfValues(arr,rowCount / 2,rowCount,1,0,colCount / 2,1)
+           let task4 = getFindSumOfValues(arr,rowCount / 2,rowCount,1,colCount / 2,colCount,1)
+           let task5 = getFindSumOfValues(arr,1,rowCount,2,0,colCount,1)
+           let task6 = getFindSumOfValues(arr,0,rowCount,1,0,colCount,2)
+           let task7 = getFindSumOfValues(arr,1,rowCount,2,0,colCount,2) + getFindSumOfValues(arr,0,rowCount,2,1,colCount,2)
 
-            let halfEl = Math.floor(table[0].length / 2)
-            let firstEl = 0
-            let lastEl = table[0].length
-            let firstEvenEl = 1
-            let firstOddEl = 0
+           console.log(arr)
+           console.log(task1)
+           console.log(task2)
+           console.log(task3)
+           console.log(task4)
+           console.log(task5)
+           console.log(task6)
+           console.log(task7)
 
-            let oneStep = 1
-            let twoStep = 2
-            let threeStep = 3
-
-            let sumOfFirstSpace = getSum(table,firsRow,halfRow,oneStep,firstEl,halfEl,oneStep)
-            let sumOfSecondSpace = getSum(table,firsRow,halfRow,oneStep,halfEl,lastEl,oneStep)
-            let sumOfThirdSpace = getSum(table,halfRow,lastRow,oneStep,firstEl,halfEl,oneStep)
-            let sumOfFourthSpace = getSum(table,halfRow,lastRow,oneStep,halfEl,lastEl,oneStep)
-            let sumOfEvenRows = getSum(table,firstEvenRow,lastRow,twoStep,firstEl,lastEl,oneStep)
-            let sumOfOddColumns = getSum(table,firsRow,lastRow,oneStep,firstOddEl,lastEl,twoStep)
-            let chessTableSum = getChessTableSum(table)
-            
-            // 4) Виводимо результат
-            document.write(`
-            ${table}<br><br>
-            Сума елементів (-х +у)<br>
-            [0][0] + [0][1] + [1][0] + [1][1] - ${sumOfFirstSpace}<br><br>
-            Сума елементів (+х +у)<br>
-            [0][2] + [0][3] + [1][2] + [1][3] - ${sumOfSecondSpace}<br><br>
-            Сума елементів (-х -у)<br>
-            [2][0] + [0][1] + [3][0] + [3][1] - ${sumOfThirdSpace}<br><br>
-            Сума елементів (+х -у)<br>
-            [2][2] + [2][3] + [3][2] + [3][3] - ${sumOfFourthSpace}<br><br>
-            Сума елементів парних рядків<br>[1][0] + ... + [1][3] + [3][0] + ... + [3][3] - ${sumOfEvenRows}<br><br>
-            Сума елементів непарних стовпців<br>
-            [0][0] + [0][2] + [1][0] + [1][2] + [2][0] + [2][2] + [3][0] + [3][2] - ${sumOfOddColumns}<br><br>
-            Сума елементів парних рядків – в непарних стовпцях та непарних рядків в парних стовпцях<br>
-             ${chessTableSum}<br><br>
-            
-            `)
+           document.write('look in console')
         </script>
     </div>
 </body>
